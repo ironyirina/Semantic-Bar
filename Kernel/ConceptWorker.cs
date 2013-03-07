@@ -56,7 +56,7 @@ namespace Kernel
         /// <returns></returns>
         public List<string> FindConcepts(string query, IEnumerable<string> wordsToSkipHere)
         {
-            var skipHere = _wordsToSkip.Union(wordsToSkipHere).ToList();
+            var skipHere = wordsToSkipHere == null ? _wordsToSkip : _wordsToSkip.Union(wordsToSkipHere).ToList();
             _query = query;
             _words = _query.Split(' ', ',', '.', ':', ')', '\r', '\n').Where(x => x != string.Empty).ToList();
             Concepts.Clear();

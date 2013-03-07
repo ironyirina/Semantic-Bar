@@ -97,7 +97,7 @@ namespace KnowledgeAcquisitionComponent
                 SW.AddArc(SW.Atom("#System"), concept, _entityNode.ID);
                 //Неименованная вершина Файл (#2)
                 _fileNode = SW.AddNode("");
-                SW.AddArc(_entityNode.ID, "#FileName", _fileNode.ID);
+                SW.AddArc(_entityNode.ID, "Файл", _fileNode.ID);
                 //Вершина с именем файла (#3)
                 _namedFileNode = SW.AddNode(_fileName);
                 //(#2)-Name-(#3)

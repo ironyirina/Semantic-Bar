@@ -34,36 +34,13 @@ namespace Consulting
         public override GroupBox Print()
         {
             var stackPanel = new StackPanel();
-            var groupBox = new GroupBox { Header = "Результат поиска для " + Name, Content = stackPanel };
-            Expander exp;
-            //тип
-            stackPanel.Children.Add(new Label { Content = Name + " - это " + Type });
-            //иерархия
-            if (WayToParent.Count > 0)
-            {
-                exp = new Expander { Header = "Иерархия", Content = new ListBox { ItemsSource = WayToParent } };
-                stackPanel.Children.Add(exp);
-            }
+            var groupBox = base.Print();
             //Экземпляры и потомки
             if (Instances.Header != null)
             {
                 var tw = new TreeView();
                 tw.Items.Add(Instances);
-                exp = new Expander {Header = "Потомки", Content = tw};
-                stackPanel.Children.Add(exp);
-            }
-            //InfFromMetadata
-            if (InfFromMetadata.Header != null)
-            {
-                var tw = new TreeView();
-                tw.Items.Add(InfFromMetadata);
-                exp = new Expander { Header = "Общая информация", Content = tw };
-                stackPanel.Children.Add(exp);
-            }
-            //похожие запросы
-            if (SimilarQueries.Count > 0)
-            {
-                exp = new Expander { Header = "Похожие запросы", Content = new ListBox { ItemsSource = SimilarQueries } };
+                var exp = new Expander {Header = "Потомки", Content = tw};
                 stackPanel.Children.Add(exp);
             }
             if (stackPanel.Children.Count > 0)

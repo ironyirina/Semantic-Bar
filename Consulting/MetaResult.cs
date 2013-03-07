@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Kernel;
 using System.Windows.Controls;
 using System.Reflection;
@@ -41,19 +42,22 @@ namespace Consulting
         {
             var stackPanel = new StackPanel();
             var groupBox = new GroupBox { Header = "Результат поиска для " + Name, Content = stackPanel };
-            Expander exp = null;
+            Expander exp;
             //атрибуты
-            if (Attributes.Header != null)
+            if (Attributes.Header != null && Attributes.Items.Count > 0)
             {
                 var tw = new TreeView();
                 tw.Items.Add(Attributes);
+                tw.MouseDoubleClick += (sender, args) => ExecuteSimilarQuery(((TreeViewItem)tw.SelectedItem).Header.ToString());
                 exp = new Expander {Header = "Атрибуты", Content = tw};
                 stackPanel.Children.Add(exp);
             }
             //использование
-            if (Usages.Count > 0)
+            if (Usages.Count > 1)
             {
-                exp = new Expander {Header = "Используется в:", Content = new ListBox {ItemsSource = Usages}};
+                var lb = new ListBox {ItemsSource = Usages};
+                lb.MouseDoubleClick += (sender, args) => ExecuteSimilarQuery(lb.SelectedItem.ToString());
+                exp = new Expander {Header = "Используется в:", Content = lb};
                 stackPanel.Children.Add(exp);
             }
             //Объекты
@@ -61,13 +65,8 @@ namespace Consulting
             {
                 var tw = new TreeView();
                 tw.Items.Add(Instances);
+                tw.MouseDoubleClick += (sender, args) => ExecuteSimilarQuery(((TreeViewItem)tw.SelectedItem).Header.ToString());
                 exp = new Expander { Header = "Объекты", Content = tw };
-                stackPanel.Children.Add(exp);
-            }
-            //похожие запросы
-            if (SimilarQueries.Count > 0)
-            {
-                exp = new Expander { Header = "Похожие запросы", Content = new ListBox { ItemsSource = SimilarQueries } };
                 stackPanel.Children.Add(exp);
             }
             if (stackPanel.Children.Count > 0)

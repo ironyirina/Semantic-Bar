@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Windows.Controls;
 using Kernel;
 
@@ -35,15 +34,18 @@ namespace Consulting
         /// <summary>
         /// неименованные вершины сем. сети, соответствующие словам из запроса
         /// </summary>
-        private List<Node> _unnamedNodesInQuery;
+        private readonly List<Node> _unnamedNodesInQuery;
+
+        private readonly Action<string> _executeSimilarQuery;
         
         #endregion
 
         #region Инициализация
 
-        public Searcher(string input, SemanticWeb sw)
+        public Searcher(SemanticWeb sw, string input, Action<string> executeSimilarQuery)
         {
             _sw = sw;
+            _executeSimilarQuery = executeSimilarQuery;
             _input = input;
             var cw = new ConceptWorker(_sw, 5);
             cw.FindConcepts(_input, null);
@@ -52,9 +54,10 @@ namespace Consulting
             _unnamedNodesInQuery = GetUnnamedNodesFromQuery();
         }
 
-        public Searcher(SemanticWeb sw)
+        public Searcher(SemanticWeb sw, Action<string> executeSimilarQuery)
         {
             _sw = sw;
+            _executeSimilarQuery = executeSimilarQuery;
         }
 
         /// <summary>
@@ -148,7 +151,7 @@ namespace Consulting
         /// <param name="unnamedNodeToSearch"></param>
         /// <param name="word"></param>
         /// <returns></returns>
-        private List<string> AddUsages(Node unnamedNodeToSearch, string word)
+        private IEnumerable<string> AddUsages(Node unnamedNodeToSearch, string word)
         {
             var usages = new List<string> {word};
             var unnamedNodesUsingMe = _sw.GetNodesDirectedToMe(unnamedNodeToSearch.ID, "#HasAttribute").ToList();
@@ -231,50 +234,113 @@ namespace Consulting
                                      //Добавляем атрибуты
                                      Attributes = AddAttribute(unnamedNodeToSearch, word),
                                      //Добавляем понятия, где используется word
-                                     Usages = AddUsages(unnamedNodeToSearch, word),
+                                     Usages = AddUsages(unnamedNodeToSearch, word).Where(x => x!= word).ToList(),
                                      //Добавляем экземпляры
                                      //Находим все дуги с именем WORD, выходящие из вершины SYSTEM
-                                     Instances = AddInstancesOfMetaObject(word)
+                                     Instances = AddInstancesOfMetaObject(word),
+                                     ExecuteSimilarQuery = _executeSimilarQuery
                                  };
             return metaResult;
         } 
         #endregion
 
+        #region Поиск по объектам
+
+        private TreeViewItem MetadataInf(Node unnamedNodeToSearch, string word, string type, TreeViewItem attributes)
+        {
+            var treeNode = new TreeViewItem { Header = type + " " + word }; //type word (Коктейль Bellini) 
+
+            //чё хотим:
+            /* Коктейль Bellini
+             *  * Ингредиент
+             *  *  * Шампанское
+             *  *  * Персиковый сок
+             *  * Действие
+             *  *  * Налить
+             *  *  *  * Порядковый номер
+             *  *  *  *  * 1
+             *  *  *  * Ингредиент
+             *  *  *  *  * Шампанское
+             *  *  *  *  * Персиковый сок
+             *  *  *  * Ёмкость
+             *  *  *  *  * Бокал
+             *  *  * Перемешать
+             *  *  *  * Порядковый номер
+             *  *  *  *  * 2
+             */
+            //или
+            /*
+             * Действие Налить
+             *  * Ингредиент
+             *  *  * Жидкость
+             *  * Ёмкость
+             *  *  * Ёмкость для подачи
+             */
+
+            foreach (TreeViewItem attribute in attributes.Items) //ингредиент, инструмент, ёмкость
+            {
+                //var childItem = new TreeViewItem {Header = attribute.Header.ToString()}; //ингредиент
+                //treeNode.Items.Add(childItem);
+
+                List<Node> attrValues = _sw.GetAllAttr(unnamedNodeToSearch.ID, attribute.Header.ToString()); //жидкость
+                foreach (Node attrValue in attrValues) //жидкость
+                {
+                    string name = _sw.GetNameForUnnamedNode(attrValue); 
+                    //var childChild = new TreeViewItem {Header = name};
+                    //childItem.Items.Add(childChild);
+                    
+                    treeNode.Items.Add(MetadataInf(attrValue, name, _sw.OldestParentArc(attrValue.ID), attribute));
+                }
+            }
+
+            return treeNode;
+        }
+
         private ObjectResult SearchObjectData(Node unnamedNodeToSearch, string word, string oldestArcName)
         {
-            var objectResult = new ObjectResult {Name = word, Type = oldestArcName};
+            var objectResult = new ObjectResult { Name = word, Type = oldestArcName };
+
             //список атрибутов из метазаний
             MetaResult metaInf = SearchMetaData(_sw.GetUnnamedNodeForName(oldestArcName), oldestArcName);
             objectResult.InfFromMetadata.Header = metaInf.Attributes.Header + " " + word;
-            List<string> attrNames = (from TreeViewItem aa 
-                                      in metaInf.Attributes.Items.SourceCollection 
+            List<string> attrNames = (from TreeViewItem aa
+                                      in metaInf.Attributes.Items.SourceCollection
                                       select aa.Header.ToString()).ToList();
-            if (attrNames.Contains("#FileName"))
+
+            //WayToParent
+            objectResult.WayToParent = FindParents(unnamedNodeToSearch); 
+
+            //InfFromFile
+            if (attrNames.Contains("Файл"))
             {
                 try
                 {
-                    var sr = new StreamReader(_sw.GetNameForUnnamedNode(_sw.GetAttr(unnamedNodeToSearch.ID, "#FileName")));
+                    var sr = new StreamReader(_sw.GetNameForUnnamedNode(_sw.GetAttr(unnamedNodeToSearch.ID, "Файл")));
                     while (!sr.EndOfStream)
                     {
-                        objectResult.InfFromMetadata.Items.Add(sr.ReadLine());
+                        objectResult.InfFromFile.Add(sr.ReadLine());
                     }
                     sr.Close();
                 }
-                finally
-                {
-                    
-                }
+                finally{}
             }
-            //список всех родиельских классов
-            objectResult.WayToParent = FindParents(unnamedNodeToSearch);
+
+            //InfFromMetadata
+            objectResult.InfFromMetadata = MetadataInf(unnamedNodeToSearch, word, oldestArcName, metaInf.Attributes);
+
+            //Usages
+            //SimilarQueries
+            //RelativaQueries
+
+
             //если то, что мы ищем, является классом и имеет подклассы и экземпляры, то находим их все
             if (_sw.GetNodesDirectedToMe(unnamedNodeToSearch.ID, "#is_a").Any() ||
                 _sw.GetNodesDirectedToMe(unnamedNodeToSearch.ID, "#is_instance").Any())
-            { 
-                var classResult = new ClassResult(objectResult) {Instances = AddInstances(unnamedNodeToSearch, false)};
+            {
+                var classResult = new ClassResult(objectResult) { Instances = AddInstances(unnamedNodeToSearch, false) };
                 return classResult;
             }
-
+            objectResult.ExecuteSimilarQuery = _executeSimilarQuery;
             //в противном случае возвращаем то, что уже нашли
             return objectResult;
         }
@@ -299,7 +365,8 @@ namespace Consulting
                 tmpNode = _sw.GetAttr(tmpNode.ID, "#is_a");
             } while (tmpNode != null && _sw.ArcExists(tmpNode.ID, "#is_a"));
             return parents;
-        }
+        } 
+        #endregion
         #endregion
     }
 }

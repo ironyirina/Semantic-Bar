@@ -46,7 +46,7 @@ namespace KnowledgeAcquisitionComponent
         private void CbTypesSelectionChanged1(object sender, SelectionChangedEventArgs e)
         {
             twIsA.Items.Clear();
-            var searcher = new Searcher(SW);
+            var searcher = new Searcher(SW, null);
             twIsA.Items.Add(searcher.AddSubClassesOfMetaObject((string)cbTypes.SelectedItem));
         }
 

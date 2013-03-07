@@ -2,54 +2,54 @@
   <RecentFiles>
     <File id="8898D7C9-1A18-475C-8CB6-CAD0C9B59D0B/f:Node.cs" caret="0" fromTop="0" />
     <File id="A47BC7C7-FF04-4D07-B7C4-AC5AB2FDFFF9/d:Properties/f:AssemblyInfo.cs" caret="489" fromTop="11" />
-    <File id="A41C117A-8CFC-4904-A26E-CF130EF5696D/f:MainWindow.xaml" caret="2024" fromTop="0" />
-    <File id="A47BC7C7-FF04-4D07-B7C4-AC5AB2FDFFF9/f:MetaResult.cs" caret="1514" fromTop="24" />
-    <File id="A47BC7C7-FF04-4D07-B7C4-AC5AB2FDFFF9/f:ClassResult.cs" caret="1746" fromTop="22" />
-    <File id="A47BC7C7-FF04-4D07-B7C4-AC5AB2FDFFF9/f:WordResult.cs" caret="905" fromTop="31" />
-    <File id="A47BC7C7-FF04-4D07-B7C4-AC5AB2FDFFF9/f:ObjectResult.cs" caret="2413" fromTop="12" />
-    <File id="A41C117A-8CFC-4904-A26E-CF130EF5696D/f:MainWindow.xaml.cs" caret="1200" fromTop="31" />
     <File id="E0170101-45AF-4436-8267-DE6F0213CAB1/d:Рецепты/f:French75.txt" caret="208" fromTop="6" />
     <File id="E0170101-45AF-4436-8267-DE6F0213CAB1/f:AddConceptWindow.xaml" caret="2372" fromTop="0" />
     <File id="E0170101-45AF-4436-8267-DE6F0213CAB1/f:KACWindow.xaml" caret="3304" fromTop="7" />
     <File id="E0170101-45AF-4436-8267-DE6F0213CAB1/d:Рецепты/f:Bellini.txt" caret="24" fromTop="0" />
-    <File id="E0170101-45AF-4436-8267-DE6F0213CAB1/f:KACWindow.xaml.cs" caret="1636" fromTop="51" />
-    <File id="E0170101-45AF-4436-8267-DE6F0213CAB1/f:AddConceptWindow.xaml.cs" caret="2033" fromTop="3" />
     <File id="8898D7C9-1A18-475C-8CB6-CAD0C9B59D0B/f:Arc.cs" caret="511" fromTop="18" />
     <File id="A47BC7C7-FF04-4D07-B7C4-AC5AB2FDFFF9/f:QueryResult.cs" caret="287" fromTop="0" />
-    <File id="1E11B367-BAAF-4997-95B9-6AAF4B8F57CD/f:MainWindow.xaml.cs" caret="25472" fromTop="27" />
-    <File id="8898D7C9-1A18-475C-8CB6-CAD0C9B59D0B/f:SemanticWeb.cs" caret="513" fromTop="14" />
     <File id="8898D7C9-1A18-475C-8CB6-CAD0C9B59D0B/f:Verification.cs" caret="5733" fromTop="23" />
-    <File id="8898D7C9-1A18-475C-8CB6-CAD0C9B59D0B/f:ConceptWorker.cs" caret="1554" fromTop="0" />
-    <File id="E0170101-45AF-4436-8267-DE6F0213CAB1/f:Loader.cs" caret="3830" fromTop="5" />
-    <File id="A47BC7C7-FF04-4D07-B7C4-AC5AB2FDFFF9/f:Searcher.cs" caret="383" fromTop="17" />
     <File id="E0170101-45AF-4436-8267-DE6F0213CAB1/f:UnknownWordsWindow.xaml" caret="1734" fromTop="8" />
+    <File id="1E11B367-BAAF-4997-95B9-6AAF4B8F57CD/f:MainWindow.xaml" caret="0" fromTop="0" />
     <File id="E0170101-45AF-4436-8267-DE6F0213CAB1/f:UnknownWordsWindow.xaml.cs" caret="1831" fromTop="30" />
-    <File id="1E11B367-BAAF-4997-95B9-6AAF4B8F57CD/f:MainWindow.xaml" caret="452" fromTop="2" />
+    <File id="8898D7C9-1A18-475C-8CB6-CAD0C9B59D0B/f:ConceptWorker.cs" caret="3628" fromTop="9" />
+    <File id="A41C117A-8CFC-4904-A26E-CF130EF5696D/f:MainWindow.xaml" caret="2932" fromTop="14" />
+    <File id="E0170101-45AF-4436-8267-DE6F0213CAB1/f:AddConceptWindow.xaml.cs" caret="1341" fromTop="0" />
+    <File id="E0170101-45AF-4436-8267-DE6F0213CAB1/f:Loader.cs" caret="1462" fromTop="29" />
+    <File id="E0170101-45AF-4436-8267-DE6F0213CAB1/f:KACWindow.xaml.cs" caret="1865" fromTop="29" />
+    <File id="1E11B367-BAAF-4997-95B9-6AAF4B8F57CD/f:MainWindow.xaml.cs" caret="29610" fromTop="17" />
+    <File id="A47BC7C7-FF04-4D07-B7C4-AC5AB2FDFFF9/f:ClassResult.cs" caret="1400" fromTop="27" />
+    <File id="A47BC7C7-FF04-4D07-B7C4-AC5AB2FDFFF9/f:WordResult.cs" caret="219" fromTop="9" />
+    <File id="A47BC7C7-FF04-4D07-B7C4-AC5AB2FDFFF9/f:ObjectResult.cs" caret="0" fromTop="0" />
+    <File id="A41C117A-8CFC-4904-A26E-CF130EF5696D/f:MainWindow.xaml.cs" caret="1673" fromTop="17" />
+    <File id="A47BC7C7-FF04-4D07-B7C4-AC5AB2FDFFF9/f:MetaResult.cs" caret="994" fromTop="14" />
+    <File id="8898D7C9-1A18-475C-8CB6-CAD0C9B59D0B/f:SemanticWeb.cs" caret="12577" fromTop="17" />
+    <File id="A47BC7C7-FF04-4D07-B7C4-AC5AB2FDFFF9/f:Searcher.cs" caret="11999" fromTop="8" />
   </RecentFiles>
   <RecentEdits>
     <File id="8898D7C9-1A18-475C-8CB6-CAD0C9B59D0B/f:Node.cs" caret="279" fromTop="14" />
-    <File id="A41C117A-8CFC-4904-A26E-CF130EF5696D/f:MainWindow.xaml" caret="2046" fromTop="6" />
     <File id="A47BC7C7-FF04-4D07-B7C4-AC5AB2FDFFF9/f:QueryResult.cs" caret="1220" fromTop="29" />
-    <File id="A47BC7C7-FF04-4D07-B7C4-AC5AB2FDFFF9/f:WordResult.cs" caret="1571" fromTop="28" />
-    <File id="A47BC7C7-FF04-4D07-B7C4-AC5AB2FDFFF9/f:MetaResult.cs" caret="2390" fromTop="21" />
-    <File id="A47BC7C7-FF04-4D07-B7C4-AC5AB2FDFFF9/f:ClassResult.cs" caret="1746" fromTop="22" />
-    <File id="A41C117A-8CFC-4904-A26E-CF130EF5696D/f:MainWindow.xaml.cs" caret="1496" fromTop="16" />
-    <File id="A47BC7C7-FF04-4D07-B7C4-AC5AB2FDFFF9/f:ObjectResult.cs" caret="2413" fromTop="12" />
     <File id="E0170101-45AF-4436-8267-DE6F0213CAB1/d:Рецепты/f:French75.txt" caret="208" fromTop="6" />
     <File id="E0170101-45AF-4436-8267-DE6F0213CAB1/f:AddConceptWindow.xaml" caret="4045" fromTop="11" />
-    <File id="E0170101-45AF-4436-8267-DE6F0213CAB1/f:AddConceptWindow.xaml.cs" caret="2653" fromTop="27" />
     <File id="E0170101-45AF-4436-8267-DE6F0213CAB1/f:KACWindow.xaml" caret="3119" fromTop="5" />
     <File id="E0170101-45AF-4436-8267-DE6F0213CAB1/f:KACWindow.xaml.cs" caret="1933" fromTop="19" />
     <File id="E0170101-45AF-4436-8267-DE6F0213CAB1/d:Рецепты/f:Bellini.txt" caret="24" fromTop="0" />
     <File id="8898D7C9-1A18-475C-8CB6-CAD0C9B59D0B/f:Arc.cs" caret="553" fromTop="20" />
     <File id="8898D7C9-1A18-475C-8CB6-CAD0C9B59D0B/f:Verification.cs" caret="6464" fromTop="9" />
-    <File id="8898D7C9-1A18-475C-8CB6-CAD0C9B59D0B/f:SemanticWeb.cs" caret="17328" fromTop="17" />
     <File id="1E11B367-BAAF-4997-95B9-6AAF4B8F57CD/f:MainWindow.xaml.cs" caret="25472" fromTop="24" />
     <File id="E0170101-45AF-4436-8267-DE6F0213CAB1/f:UnknownWordsWindow.xaml" caret="1792" fromTop="8" />
-    <File id="8898D7C9-1A18-475C-8CB6-CAD0C9B59D0B/f:ConceptWorker.cs" caret="1554" fromTop="17" />
     <File id="E0170101-45AF-4436-8267-DE6F0213CAB1/f:UnknownWordsWindow.xaml.cs" caret="1794" fromTop="28" />
-    <File id="E0170101-45AF-4436-8267-DE6F0213CAB1/f:Loader.cs" caret="2509" fromTop="26" />
-    <File id="A47BC7C7-FF04-4D07-B7C4-AC5AB2FDFFF9/f:Searcher.cs" caret="1271" fromTop="14" />
     <File id="1E11B367-BAAF-4997-95B9-6AAF4B8F57CD/f:MainWindow.xaml" caret="6912" fromTop="11" />
+    <File id="8898D7C9-1A18-475C-8CB6-CAD0C9B59D0B/f:ConceptWorker.cs" caret="1769" fromTop="9" />
+    <File id="E0170101-45AF-4436-8267-DE6F0213CAB1/f:AddConceptWindow.xaml.cs" caret="1341" fromTop="17" />
+    <File id="A41C117A-8CFC-4904-A26E-CF130EF5696D/f:MainWindow.xaml.cs" caret="1801" fromTop="27" />
+    <File id="A41C117A-8CFC-4904-A26E-CF130EF5696D/f:MainWindow.xaml" caret="2932" fromTop="14" />
+    <File id="E0170101-45AF-4436-8267-DE6F0213CAB1/f:Loader.cs" caret="3570" fromTop="17" />
+    <File id="A47BC7C7-FF04-4D07-B7C4-AC5AB2FDFFF9/f:WordResult.cs" caret="309" fromTop="14" />
+    <File id="A47BC7C7-FF04-4D07-B7C4-AC5AB2FDFFF9/f:MetaResult.cs" caret="1232" fromTop="11" />
+    <File id="A47BC7C7-FF04-4D07-B7C4-AC5AB2FDFFF9/f:ObjectResult.cs" caret="4663" fromTop="19" />
+    <File id="A47BC7C7-FF04-4D07-B7C4-AC5AB2FDFFF9/f:ClassResult.cs" caret="1400" fromTop="18" />
+    <File id="8898D7C9-1A18-475C-8CB6-CAD0C9B59D0B/f:SemanticWeb.cs" caret="12577" fromTop="17" />
+    <File id="A47BC7C7-FF04-4D07-B7C4-AC5AB2FDFFF9/f:Searcher.cs" caret="11798" fromTop="22" />
   </RecentEdits>
 </RecentFiles>

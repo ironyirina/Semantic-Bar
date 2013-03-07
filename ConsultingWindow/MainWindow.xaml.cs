@@ -25,6 +25,12 @@ namespace ConsultingWindow
     {
         public SemanticWeb Sw { get; set; }
 
+        public string Query
+        {
+            get { return tbQuery.Text; }
+            set { tbQuery.Text = value; }
+        }
+
         public MainWindow()
         {
             InitializeComponent();
@@ -40,7 +46,7 @@ namespace ConsultingWindow
         private void SearchExecuted(object sender, ExecutedRoutedEventArgs e)
         {
             panelRes.Children.Clear();
-            var searcher = new Searcher(tbQuery.Text, Sw);
+            var searcher = new Searcher(Sw, Query, SearchAnotherQuery);
             var res = searcher.Search();
             panelRes.Children.Add(new Label {Content = res.Message});
             List<WordResult> resWords = res.EveryWordResult;
@@ -49,6 +55,13 @@ namespace ConsultingWindow
             {
                 panelRes.Children.Add(word.Print());
             }
+        }
+
+        private void SearchAnotherQuery(string query)
+        {
+            var w = new MainWindow {Query = query, Sw = Sw};
+            w.Show();
+            w.SearchExecuted(null, null);
         }
     }
 }

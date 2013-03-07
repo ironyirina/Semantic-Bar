@@ -54,9 +54,11 @@
         <Label Style="{StaticResource LabelStyle}">Текст для поиска:</Label>
         <TextBox Name="tbQuery" Grid.Column="1"
                  Style="{StaticResource TextBoxStyle}"></TextBox>
-        <Button Name="bntSearch" Grid.Column="2" Style="{StaticResource ButtonStyle}"
+        <Button Name="bntSearch" Grid.Column="2" Style="{StaticResource ButtonStyle}" IsDefault="True"
                 Command="ConsultingWindow:MainWindow.Search">Поиск</Button>
-        
-        <StackPanel Name="panelRes" Grid.Row="1" Grid.ColumnSpan="3"></StackPanel>
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto" CanContentScroll="True" Grid.Row="1" Grid.ColumnSpan="3">
+            <StackPanel Name="panelRes"></StackPanel>
+        </ScrollViewer>
     </Grid>
 </Window>

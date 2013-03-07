@@ -336,13 +336,19 @@ namespace Kernel
         /// <returns></returns>
         public string GetNameForUnnamedNode(Node unnamedNode)
         {
-            var nameNode = GetAllAttr(unnamedNode.ID, "#Name");
-            //Если таких дуг несколько:
-            if (nameNode.Count == 0)
-                return string.Empty;
-            if (nameNode.Count == 1)
-                return nameNode[0].Name;
-            throw new ArgumentException(ErrMsg + "Из неименованной вершины выходит несколько дуг #Name");
+            if (ArcExists(unnamedNode.ID, "#Name"))
+            {
+                var nameNode = GetAllAttr(unnamedNode.ID, "#Name");
+                if (nameNode.Count == 1)
+                    return nameNode[0].Name;
+                throw new ArgumentException(ErrMsg + "Из неименованной вершины выходит несколько дуг #Name");
+            }
+            if (ArcExists(unnamedNode.ID, "#is_instance"))
+            {
+                var parentNode = GetAttr(unnamedNode.ID, "#is_instance");
+                return GetNameForUnnamedNode(parentNode);
+            }
+            return string.Empty;
         }
 
         /// <summary>
