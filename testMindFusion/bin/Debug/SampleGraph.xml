@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Graph1>
+    <Nodes>
+        <Node id="0" name="start" />
+        <Node id="1" name="activity 1" />
+        <Node id="2" name="task 1" />
+        <Node id="3" name="task 2" />
+        <Node id="4" name="activity 2" />
+        <Node id="5" name="task 3" />
+        <Node id="6" name="task 4" />
+        <Node id="7" name="activity 3" />
+        <Node id="8" name="task 5" />
+        <Node id="9" name="task 6" />
+        <Node id="10" name="end" MYNAME ="2" />
+    </Nodes>
+    <Links>
+        <Link origin="0" target="1" />
+        <Link origin="1" target="2" />
+        <Link origin="1" target="3" />
+        <Link origin="2" target="4" />
+        <Link origin="3" target="4" />
+        <Link origin="4" target="5" />
+        <Link origin="4" target="6" />
+        <Link origin="5" target="10" />
+        <Link origin="6" target="10" />
+        <Link origin="0" target="7" />
+        <Link origin="7" target="8" />
+        <Link origin="8" target="9" />
+        <Link origin="1" target="9" />
+        <Link origin="9" target="10" />
+    </Links>
+</Graph1>

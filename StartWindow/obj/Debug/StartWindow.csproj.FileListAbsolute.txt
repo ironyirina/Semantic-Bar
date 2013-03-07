@@ -1,0 +1,121 @@
+C:\Users\Ирина\Dropbox\Irina&Jull\SemanticWeb\StartWindow\bin\Debug\StartWindow.exe.config
+C:\Users\Ирина\Dropbox\Irina&Jull\SemanticWeb\StartWindow\bin\Debug\StartWindow.exe
+C:\Users\Ирина\Dropbox\Irina&Jull\SemanticWeb\StartWindow\bin\Debug\StartWindow.pdb
+C:\Users\Ирина\Dropbox\Irina&Jull\SemanticWeb\StartWindow\obj\Debug\StartWindow.csprojResolveAssemblyReference.cache
+C:\Users\Ирина\Dropbox\Irina&Jull\SemanticWeb\StartWindow\obj\Debug\MainWindow.baml
+C:\Users\Ирина\Dropbox\Irina&Jull\SemanticWeb\StartWindow\obj\Debug\MainWindow.g.cs
+C:\Users\Ирина\Dropbox\Irina&Jull\SemanticWeb\StartWindow\obj\Debug\App.g.cs
+C:\Users\Ирина\Dropbox\Irina&Jull\SemanticWeb\StartWindow\obj\Debug\StartWindow_MarkupCompile.cache
+C:\Users\Ирина\Dropbox\Irina&Jull\SemanticWeb\StartWindow\obj\Debug\StartWindow.g.resources
+C:\Users\Ирина\Dropbox\Irina&Jull\SemanticWeb\StartWindow\obj\Debug\StartWindow.Properties.Resources.resources
+C:\Users\Ирина\Dropbox\Irina&Jull\SemanticWeb\StartWindow\obj\Debug\StartWindow.csproj.GenerateResource.Cache
+C:\Users\Ирина\Dropbox\Irina&Jull\SemanticWeb\StartWindow\obj\Debug\StartWindow.exe
+C:\Users\Ирина\Dropbox\Irina&Jull\SemanticWeb\StartWindow\obj\Debug\StartWindow.pdb
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\StartWindow\bin\Debug\StartWindow.exe.config
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\StartWindow\bin\Debug\StartWindow.exe
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\StartWindow\bin\Debug\StartWindow.pdb
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\StartWindow\bin\Debug\EditingForms.exe
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\StartWindow\bin\Debug\Kernel.dll
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\StartWindow\bin\Debug\EditingForms.pdb
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\StartWindow\bin\Debug\Kernel.pdb
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\StartWindow\obj\Debug\StartWindow.csprojResolveAssemblyReference.cache
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\StartWindow\obj\Debug\MainWindow.baml
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\StartWindow\obj\Debug\MainWindow.g.cs
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\StartWindow\obj\Debug\App.g.cs
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\StartWindow\obj\Debug\StartWindow_MarkupCompile.cache
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\StartWindow\obj\Debug\StartWindow.g.resources
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\StartWindow\obj\Debug\StartWindow.Properties.Resources.resources
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\StartWindow\obj\Debug\StartWindow.csproj.GenerateResource.Cache
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\StartWindow\obj\Debug\StartWindow.exe
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\StartWindow\obj\Debug\StartWindow.pdb
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\StartWindow\obj\Debug\StartWindow_MarkupCompile.lref
+C:\Users\Ирина\Dropbox\Irina&Jull\SemanticWeb\StartWindow\bin\Debug\EditingForms.exe
+C:\Users\Ирина\Dropbox\Irina&Jull\SemanticWeb\StartWindow\bin\Debug\Kernel.dll
+C:\Users\Ирина\Dropbox\Irina&Jull\SemanticWeb\StartWindow\bin\Debug\textMindFusion.exe
+C:\Users\Ирина\Dropbox\Irina&Jull\SemanticWeb\StartWindow\bin\Debug\MindFusion.Diagramming.Wpf.dll
+C:\Users\Ирина\Dropbox\Irina&Jull\SemanticWeb\StartWindow\bin\Debug\MindFusion.Graphs.dll
+C:\Users\Ирина\Dropbox\Irina&Jull\SemanticWeb\StartWindow\bin\Debug\MindFusion.Scripting.dll
+C:\Users\Ирина\Dropbox\Irina&Jull\SemanticWeb\StartWindow\bin\Debug\EditingForms.pdb
+C:\Users\Ирина\Dropbox\Irina&Jull\SemanticWeb\StartWindow\bin\Debug\Kernel.pdb
+C:\Users\Ирина\Dropbox\Irina&Jull\SemanticWeb\StartWindow\bin\Debug\textMindFusion.pdb
+C:\Users\Ирина\Dropbox\Irina&Jull\SemanticWeb\StartWindow\obj\Debug\StartWindow_MarkupCompile.lref
+C:\Users\М\Dropbox\Учеба\Irina&Jull\SemanticWeb\StartWindow\bin\Debug\StartWindow.exe.config
+C:\Users\М\Dropbox\Учеба\Irina&Jull\SemanticWeb\StartWindow\obj\Debug\StartWindow.exe
+C:\Users\М\Dropbox\Учеба\Irina&Jull\SemanticWeb\StartWindow\obj\Debug\StartWindow.pdb
+C:\Users\М\Dropbox\Учеба\Irina&Jull\SemanticWeb\StartWindow\bin\Debug\StartWindow.exe
+C:\Users\М\Dropbox\Учеба\Irina&Jull\SemanticWeb\StartWindow\bin\Debug\StartWindow.pdb
+C:\Users\М\Dropbox\Учеба\Irina&Jull\SemanticWeb\StartWindow\bin\Debug\EditingForms.exe
+C:\Users\М\Dropbox\Учеба\Irina&Jull\SemanticWeb\StartWindow\bin\Debug\Kernel.dll
+C:\Users\М\Dropbox\Учеба\Irina&Jull\SemanticWeb\StartWindow\bin\Debug\textMindFusion.exe
+C:\Users\М\Dropbox\Учеба\Irina&Jull\SemanticWeb\StartWindow\bin\Debug\MindFusion.Diagramming.Wpf.dll
+C:\Users\М\Dropbox\Учеба\Irina&Jull\SemanticWeb\StartWindow\bin\Debug\MindFusion.Graphs.dll
+C:\Users\М\Dropbox\Учеба\Irina&Jull\SemanticWeb\StartWindow\bin\Debug\MindFusion.Scripting.dll
+C:\Users\М\Dropbox\Учеба\Irina&Jull\SemanticWeb\StartWindow\bin\Debug\EditingForms.pdb
+C:\Users\М\Dropbox\Учеба\Irina&Jull\SemanticWeb\StartWindow\bin\Debug\Kernel.pdb
+C:\Users\М\Dropbox\Учеба\Irina&Jull\SemanticWeb\StartWindow\bin\Debug\textMindFusion.pdb
+C:\Users\М\Dropbox\Учеба\Irina&Jull\SemanticWeb\StartWindow\obj\Debug\StartWindow.csprojResolveAssemblyReference.cache
+C:\Users\М\Dropbox\Учеба\Irina&Jull\SemanticWeb\StartWindow\obj\Debug\MainWindow.g.cs
+C:\Users\М\Dropbox\Учеба\Irina&Jull\SemanticWeb\StartWindow\obj\Debug\App.g.cs
+C:\Users\М\Dropbox\Учеба\Irina&Jull\SemanticWeb\StartWindow\obj\Debug\StartWindow_MarkupCompile.cache
+C:\Users\М\Dropbox\Учеба\Irina&Jull\SemanticWeb\StartWindow\obj\Debug\StartWindow_MarkupCompile.lref
+C:\Users\М\Dropbox\Учеба\Irina&Jull\SemanticWeb\StartWindow\obj\Debug\MainWindow.baml
+C:\Users\М\Dropbox\Учеба\Irina&Jull\SemanticWeb\StartWindow\obj\Debug\StartWindow.g.resources
+C:\Users\М\Dropbox\Учеба\Irina&Jull\SemanticWeb\StartWindow\obj\Debug\StartWindow.Properties.Resources.resources
+C:\Users\М\Dropbox\Учеба\Irina&Jull\SemanticWeb\StartWindow\obj\Debug\StartWindow.csproj.GenerateResource.Cache
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\StartWindow\bin\Debug\StartWindow.exe.config
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\StartWindow\obj\Debug\StartWindow.exe
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\StartWindow\obj\Debug\StartWindow.pdb
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\StartWindow\bin\Debug\StartWindow.exe.config
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\StartWindow\bin\Debug\StartWindow.exe
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\StartWindow\bin\Debug\StartWindow.pdb
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\StartWindow\bin\Debug\EditingForms.exe
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\StartWindow\bin\Debug\Kernel.dll
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\StartWindow\bin\Debug\textMindFusion.exe
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\StartWindow\bin\Debug\MindFusion.Diagramming.Wpf.dll
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\StartWindow\bin\Debug\MindFusion.Graphs.dll
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\StartWindow\bin\Debug\MindFusion.Scripting.dll
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\StartWindow\bin\Debug\EditingForms.pdb
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\StartWindow\bin\Debug\Kernel.pdb
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\StartWindow\bin\Debug\textMindFusion.pdb
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\StartWindow\obj\Debug\StartWindow.csprojResolveAssemblyReference.cache
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\StartWindow\obj\Debug\MainWindow.g.cs
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\StartWindow\obj\Debug\App.g.cs
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\StartWindow\obj\Debug\StartWindow_MarkupCompile.cache
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\StartWindow\obj\Debug\StartWindow_MarkupCompile.lref
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\StartWindow\obj\Debug\MainWindow.baml
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\StartWindow\obj\Debug\StartWindow.g.resources
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\StartWindow\obj\Debug\StartWindow.Properties.Resources.resources
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\StartWindow\obj\Debug\StartWindow.csproj.GenerateResource.Cache
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\StartWindow\obj\Debug\StartWindow.exe
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\StartWindow\obj\Debug\StartWindow.pdb
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\StartWindow\bin\Debug\StartWindow.exe
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\StartWindow\bin\Debug\StartWindow.pdb
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\StartWindow\bin\Debug\EditingForms.exe
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\StartWindow\bin\Debug\Kernel.dll
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\StartWindow\bin\Debug\textMindFusion.exe
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\StartWindow\bin\Debug\MindFusion.Diagramming.Wpf.dll
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\StartWindow\bin\Debug\MindFusion.Graphs.dll
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\StartWindow\bin\Debug\MindFusion.Scripting.dll
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\StartWindow\bin\Debug\EditingForms.pdb
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\StartWindow\bin\Debug\Kernel.pdb
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\StartWindow\bin\Debug\textMindFusion.pdb
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\StartWindow\obj\Debug\StartWindow.csprojResolveAssemblyReference.cache
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\StartWindow\obj\Debug\MainWindow.g.cs
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\StartWindow\obj\Debug\App.g.cs
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\StartWindow\obj\Debug\StartWindow_MarkupCompile.cache
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\StartWindow\obj\Debug\StartWindow_MarkupCompile.lref
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\StartWindow\obj\Debug\MainWindow.baml
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\StartWindow\obj\Debug\StartWindow.g.resources
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\StartWindow\obj\Debug\StartWindow.Properties.Resources.resources
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\StartWindow\obj\Debug\StartWindow.csproj.GenerateResource.Cache
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\StartWindow\bin\Debug\textMindFusion.exe
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\StartWindow\bin\Debug\MindFusion.Diagramming.Wpf.dll
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\StartWindow\bin\Debug\MindFusion.Graphs.dll
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\StartWindow\bin\Debug\MindFusion.Scripting.dll
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\StartWindow\bin\Debug\textMindFusion.pdb
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\StartWindow\bin\Debug\ConsultingWindow.exe
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\StartWindow\bin\Debug\Consulting.dll
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\StartWindow\bin\Debug\ConsultingWindow.pdb
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\StartWindow\bin\Debug\Consulting.pdb
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\StartWindow\bin\Debug\KnowledgeAcquisitionComponent.exe
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\StartWindow\bin\Debug\KnowledgeAcquisitionComponent.pdb

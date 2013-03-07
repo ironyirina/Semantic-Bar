@@ -1,0 +1,43 @@
+﻿<Window x:Class="EditingForms.AddChangeArc"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:EditingForms="clr-namespace:EditingForms"
+        Title="AddChangeArc" Height="176" Width="400">
+    
+    <Window.CommandBindings>
+        <CommandBinding Command="EditingForms:AddChangeArc.Add" Executed="AddExecuted"></CommandBinding>
+    </Window.CommandBindings>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        
+        <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right"
+               VerticalAlignment="Center" Margin="5">Вершина, откуда выходит дуга</Label>
+        <Label Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right"
+               VerticalAlignment="Center" Margin="5">Имя дуги</Label>
+        <Label Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right"
+               VerticalAlignment="Center" Margin="5">Вершина, куда входит дуга</Label>
+        
+        <ComboBox Name="cbFrom" Grid.Row="0" Grid.Column="1" Margin="5" Padding="3"
+                  ItemsSource="{Binding Path=Name}" SelectionChanged="CbFromSelected1"/>
+        <ComboBox Name="cbName" Grid.Row="1" Grid.Column="1" Margin="5" Padding="3"
+                  />
+        <ComboBox Name="cbTo" Grid.Row="2" Grid.Column="1" Margin="5" Padding="3"/>
+        
+        <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+            <Button Name="btnAdd" Margin="5" Padding="3" FontSize="12"
+                    Click="BtnAddClick1" Command="EditingForms:AddChangeArc.Add">ОК</Button>
+            <Button Name="btnClose" Margin="5" Padding="3" FontSize="12"
+                    IsCancel="True" Click="BtnCloseClick1">Закрыть</Button>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,32 @@
+C:\Users\Ирина\Documents\Чуприна\Адская прога на сем.сетях\SemanticWeb\Kernel\bin\Debug\Kernel.dll
+C:\Users\Ирина\Documents\Чуприна\Адская прога на сем.сетях\SemanticWeb\Kernel\bin\Debug\Kernel.pdb
+C:\Users\Ирина\Documents\Чуприна\Адская прога на сем.сетях\SemanticWeb\Kernel\obj\Debug\Kernel.csprojResolveAssemblyReference.cache
+C:\Users\Ирина\Documents\Чуприна\Адская прога на сем.сетях\SemanticWeb\Kernel\obj\Debug\Kernel.dll
+C:\Users\Ирина\Documents\Чуприна\Адская прога на сем.сетях\SemanticWeb\Kernel\obj\Debug\Kernel.pdb
+C:\Users\Ирина\Documents\Чуприна\Адская прога на сем.сетях\SemanticWeb\Kernel\bin\Debug\mindfusion.diagramming.wpf.xml
+C:\Users\Ирина\Documents\Чуприна\Адская прога на сем.сетях\SemanticWeb\Kernel\bin\Debug\MindFusion.Scripting.xml
+C:\Users\М\Dropbox\Учеба\Irina&Jull\SemanticWeb\Kernel\bin\Debug\Kernel.dll
+C:\Users\М\Dropbox\Учеба\Irina&Jull\SemanticWeb\Kernel\bin\Debug\Kernel.pdb
+C:\Users\М\Dropbox\Учеба\Irina&Jull\SemanticWeb\Kernel\obj\Debug\Kernel.csprojResolveAssemblyReference.cache
+C:\Users\М\Dropbox\Учеба\Irina&Jull\SemanticWeb\Kernel\obj\Debug\Kernel.dll
+C:\Users\М\Dropbox\Учеба\Irina&Jull\SemanticWeb\Kernel\obj\Debug\Kernel.pdb
+C:\Users\Ирина\Dropbox\Irina&Jull\SemanticWeb\Kernel\bin\Debug\Kernel.dll
+C:\Users\Ирина\Dropbox\Irina&Jull\SemanticWeb\Kernel\bin\Debug\Kernel.pdb
+C:\Users\Ирина\Dropbox\Irina&Jull\SemanticWeb\Kernel\obj\Debug\Kernel.csprojResolveAssemblyReference.cache
+C:\Users\Ирина\Dropbox\Irina&Jull\SemanticWeb\Kernel\obj\Debug\Kernel.dll
+C:\Users\Ирина\Dropbox\Irina&Jull\SemanticWeb\Kernel\obj\Debug\Kernel.pdb
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\Kernel\bin\Debug\Kernel.dll
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\Kernel\bin\Debug\Kernel.pdb
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\Kernel\obj\Debug\Kernel.csprojResolveAssemblyReference.cache
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\Kernel\obj\Debug\Kernel.dll
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\Kernel\obj\Debug\Kernel.pdb
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\Kernel\obj\Debug\Kernel.csprojResolveAssemblyReference.cache
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\Kernel\obj\Debug\Kernel.dll
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\Kernel\bin\Debug\Kernel.dll
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\Kernel\bin\Debug\Kernel.pdb
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\Kernel\obj\Debug\Kernel.pdb
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\Kernel\bin\Debug\Kernel.dll
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\Kernel\bin\Debug\Kernel.pdb
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\Kernel\obj\Debug\Kernel.csprojResolveAssemblyReference.cache
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\Kernel\obj\Debug\Kernel.dll
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\Kernel\obj\Debug\Kernel.pdb

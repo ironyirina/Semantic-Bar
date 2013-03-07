@@ -1,0 +1,76 @@
+﻿<Window x:Class="KnowledgeAcquisitionComponent.AddConceptWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:KnowledgeAcquisitionComponent="clr-namespace:KnowledgeAcquisitionComponent" Title="AddConceptWindow" Height="346.241" Width="474.812" Loaded="WindowLoaded1">
+
+    <Window.Resources>
+        <Style x:Key="ButtonStyle">
+            <Setter Property="Button.Margin" Value="12"></Setter>
+            <Setter Property="Button.Padding" Value="10,5,10,5"></Setter>
+            <Setter Property="Button.Background" Value="Transparent"></Setter>
+            <Setter Property="Button.BorderBrush" Value="LightBlue"></Setter>
+            <Setter Property="Button.FontSize" Value="16"></Setter>
+            <Setter Property="Button.HorizontalAlignment" Value="Stretch"></Setter>
+        </Style>
+
+        <Style x:Key="LabelStyle">
+            <Setter Property="Label.HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="Label.Margin" Value="10"></Setter>
+            <Setter Property="Label.FontSize" Value="16"></Setter>
+        </Style>
+
+        <Style x:Key="TextBoxStyle">
+            <Setter Property="TextBox.VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="TextBox.Margin" Value="10"></Setter>
+            <Setter Property="TextBox.Padding" Value="3"></Setter>
+            <Setter Property="TextBox.FontSize" Value="16"></Setter>
+        </Style>
+        
+        <Style x:Key="ComboBoxStyle">
+            <Setter Property="ComboBox.VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="ComboBox.Margin" Value="10"></Setter>
+            <Setter Property="ComboBox.Padding" Value="3"></Setter>
+            <Setter Property="ComboBox.FontSize" Value="16"></Setter>
+        </Style>
+    </Window.Resources>
+
+    <Window.Background>
+        <LinearGradientBrush >
+            <GradientStop Color="LightCyan" Offset="0"></GradientStop>
+            <GradientStop Color="White" Offset="0.8"></GradientStop>
+            <GradientStop Color="LightCyan" Offset="1"></GradientStop>
+        </LinearGradientBrush>
+    </Window.Background>
+    
+    <Window.CommandBindings>
+        <CommandBinding Command="KnowledgeAcquisitionComponent:AddConceptWindow.AddConcept" Executed="AddConceptExecuted"
+                        CanExecute="AddConceptCanExecute"></CommandBinding>
+    </Window.CommandBindings>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource LabelStyle}" HorizontalAlignment="Right">Имя:</Label>
+        <TextBox Name="tbName" Grid.Row="0" Grid.Column="1" Style="{StaticResource TextBoxStyle}"></TextBox>
+        <Label Grid.Row="1" Grid.Column="0" Style="{StaticResource LabelStyle}" HorizontalAlignment="Right">Тип:</Label>
+        <ComboBox Name="cbTypes" Grid.Row="1" Grid.Column="1" Style="{StaticResource ComboBoxStyle}" ItemsSource="{Binding}"
+                  SelectionChanged="CbTypesSelectionChanged1"></ComboBox>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="2" Grid.ColumnSpan="2" Background="Transparent">
+            <TreeView Name="twIsA"></TreeView>
+        </ScrollViewer>
+        <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Center">
+            <Button Name="btnOK" IsDefault="True" Style="{StaticResource ButtonStyle}"
+                    Command="KnowledgeAcquisitionComponent:AddConceptWindow.AddConcept">Добавить</Button>
+            <Button Name="btnClose" Style="{StaticResource ButtonStyle}" Click="BtnCloseClick1">Отмена</Button>
+        </StackPanel>
+    </Grid>
+</Window>

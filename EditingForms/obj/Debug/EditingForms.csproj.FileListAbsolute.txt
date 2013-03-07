@@ -1,0 +1,100 @@
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\EditingForms\bin\Debug\EditingForms.exe.config
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\EditingForms\bin\Debug\EditingForms.exe
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\EditingForms\bin\Debug\EditingForms.pdb
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\EditingForms\bin\Debug\Kernel.dll
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\EditingForms\bin\Debug\Kernel.pdb
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\EditingForms\obj\Debug\EditingForms.csprojResolveAssemblyReference.cache
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\EditingForms\obj\Debug\App.g.cs
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\EditingForms\obj\Debug\EditingForms_MarkupCompile.cache
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\EditingForms\obj\Debug\EditingForms.g.resources
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\EditingForms\obj\Debug\EditingForms.Properties.Resources.resources
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\EditingForms\obj\Debug\EditingForms.csproj.GenerateResource.Cache
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\EditingForms\obj\Debug\EditingForms.exe
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\EditingForms\obj\Debug\EditingForms.pdb
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\EditingForms\obj\Debug\EditingForms_MarkupCompile.lref
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\EditingForms\obj\Debug\AddChangeNode.baml
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\EditingForms\obj\Debug\AddChangeNode.g.cs
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\EditingForms\obj\Debug\AddChangeArc.baml
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\EditingForms\obj\Debug\AddChangeArc.g.cs
+C:\Users\Ирина\Dropbox\Irina&Jull\SemanticWeb\EditingForms\bin\Debug\EditingForms.exe.config
+C:\Users\Ирина\Dropbox\Irina&Jull\SemanticWeb\EditingForms\bin\Debug\EditingForms.exe
+C:\Users\Ирина\Dropbox\Irina&Jull\SemanticWeb\EditingForms\bin\Debug\EditingForms.pdb
+C:\Users\Ирина\Dropbox\Irina&Jull\SemanticWeb\EditingForms\bin\Debug\Kernel.dll
+C:\Users\Ирина\Dropbox\Irina&Jull\SemanticWeb\EditingForms\bin\Debug\Kernel.pdb
+C:\Users\Ирина\Dropbox\Irina&Jull\SemanticWeb\EditingForms\obj\Debug\EditingForms.csprojResolveAssemblyReference.cache
+C:\Users\Ирина\Dropbox\Irina&Jull\SemanticWeb\EditingForms\obj\Debug\AddChangeArc.g.cs
+C:\Users\Ирина\Dropbox\Irina&Jull\SemanticWeb\EditingForms\obj\Debug\AddChangeNode.g.cs
+C:\Users\Ирина\Dropbox\Irina&Jull\SemanticWeb\EditingForms\obj\Debug\App.g.cs
+C:\Users\Ирина\Dropbox\Irina&Jull\SemanticWeb\EditingForms\obj\Debug\EditingForms_MarkupCompile.cache
+C:\Users\Ирина\Dropbox\Irina&Jull\SemanticWeb\EditingForms\obj\Debug\EditingForms_MarkupCompile.lref
+C:\Users\Ирина\Dropbox\Irina&Jull\SemanticWeb\EditingForms\obj\Debug\AddChangeArc.baml
+C:\Users\Ирина\Dropbox\Irina&Jull\SemanticWeb\EditingForms\obj\Debug\AddChangeNode.baml
+C:\Users\Ирина\Dropbox\Irina&Jull\SemanticWeb\EditingForms\obj\Debug\EditingForms.g.resources
+C:\Users\Ирина\Dropbox\Irina&Jull\SemanticWeb\EditingForms\obj\Debug\EditingForms.Properties.Resources.resources
+C:\Users\Ирина\Dropbox\Irina&Jull\SemanticWeb\EditingForms\obj\Debug\EditingForms.csproj.GenerateResource.Cache
+C:\Users\Ирина\Dropbox\Irina&Jull\SemanticWeb\EditingForms\obj\Debug\EditingForms.exe
+C:\Users\Ирина\Dropbox\Irina&Jull\SemanticWeb\EditingForms\obj\Debug\EditingForms.pdb
+C:\Users\М\Dropbox\Учеба\Irina&Jull\SemanticWeb\EditingForms\bin\Debug\EditingForms.exe.config
+C:\Users\М\Dropbox\Учеба\Irina&Jull\SemanticWeb\EditingForms\bin\Debug\EditingForms.exe
+C:\Users\М\Dropbox\Учеба\Irina&Jull\SemanticWeb\EditingForms\bin\Debug\EditingForms.pdb
+C:\Users\М\Dropbox\Учеба\Irina&Jull\SemanticWeb\EditingForms\bin\Debug\Kernel.dll
+C:\Users\М\Dropbox\Учеба\Irina&Jull\SemanticWeb\EditingForms\bin\Debug\Kernel.pdb
+C:\Users\М\Dropbox\Учеба\Irina&Jull\SemanticWeb\EditingForms\obj\Debug\EditingForms.csprojResolveAssemblyReference.cache
+C:\Users\М\Dropbox\Учеба\Irina&Jull\SemanticWeb\EditingForms\obj\Debug\AddChangeArc.g.cs
+C:\Users\М\Dropbox\Учеба\Irina&Jull\SemanticWeb\EditingForms\obj\Debug\AddChangeNode.g.cs
+C:\Users\М\Dropbox\Учеба\Irina&Jull\SemanticWeb\EditingForms\obj\Debug\App.g.cs
+C:\Users\М\Dropbox\Учеба\Irina&Jull\SemanticWeb\EditingForms\obj\Debug\EditingForms_MarkupCompile.cache
+C:\Users\М\Dropbox\Учеба\Irina&Jull\SemanticWeb\EditingForms\obj\Debug\EditingForms_MarkupCompile.lref
+C:\Users\М\Dropbox\Учеба\Irina&Jull\SemanticWeb\EditingForms\obj\Debug\AddChangeArc.baml
+C:\Users\М\Dropbox\Учеба\Irina&Jull\SemanticWeb\EditingForms\obj\Debug\AddChangeNode.baml
+C:\Users\М\Dropbox\Учеба\Irina&Jull\SemanticWeb\EditingForms\obj\Debug\EditingForms.g.resources
+C:\Users\М\Dropbox\Учеба\Irina&Jull\SemanticWeb\EditingForms\obj\Debug\EditingForms.Properties.Resources.resources
+C:\Users\М\Dropbox\Учеба\Irina&Jull\SemanticWeb\EditingForms\obj\Debug\EditingForms.csproj.GenerateResource.Cache
+C:\Users\М\Dropbox\Учеба\Irina&Jull\SemanticWeb\EditingForms\obj\Debug\EditingForms.exe
+C:\Users\М\Dropbox\Учеба\Irina&Jull\SemanticWeb\EditingForms\obj\Debug\EditingForms.pdb
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\EditingForms\obj\Debug\EditingWindow.g.cs
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\EditingForms\obj\Debug\EditingWindow.baml
+C:\Users\Ирина\Dropbox\Irina&Jull\SemanticWeb\EditingForms\obj\Debug\EditingWindow.g.cs
+C:\Users\Ирина\Dropbox\Irina&Jull\SemanticWeb\EditingForms\obj\Debug\EditingWindow.baml
+C:\Users\М\Dropbox\Учеба\Irina&Jull\SemanticWeb\EditingForms\obj\Debug\EditingWindow.g.cs
+C:\Users\М\Dropbox\Учеба\Irina&Jull\SemanticWeb\EditingForms\obj\Debug\EditingWindow.baml
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\EditingForms\bin\Debug\EditingForms.exe.config
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\EditingForms\bin\Debug\EditingForms.exe
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\EditingForms\bin\Debug\EditingForms.pdb
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\EditingForms\bin\Debug\Kernel.dll
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\EditingForms\bin\Debug\Kernel.pdb
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\EditingForms\obj\Debug\EditingForms.csprojResolveAssemblyReference.cache
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\EditingForms\obj\Debug\AddChangeArc.g.cs
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\EditingForms\obj\Debug\AddChangeNode.g.cs
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\EditingForms\obj\Debug\EditingWindow.g.cs
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\EditingForms\obj\Debug\App.g.cs
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\EditingForms\obj\Debug\EditingForms_MarkupCompile.cache
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\EditingForms\obj\Debug\EditingForms_MarkupCompile.lref
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\EditingForms\obj\Debug\AddChangeArc.baml
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\EditingForms\obj\Debug\AddChangeNode.baml
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\EditingForms\obj\Debug\EditingWindow.baml
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\EditingForms\obj\Debug\EditingForms.g.resources
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\EditingForms\obj\Debug\EditingForms.Properties.Resources.resources
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\EditingForms\obj\Debug\EditingForms.csproj.GenerateResource.Cache
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\EditingForms\obj\Debug\EditingForms.exe
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\EditingForms\obj\Debug\EditingForms.pdb
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\EditingForms\bin\Debug\EditingForms.exe.config
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\EditingForms\bin\Debug\EditingForms.exe
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\EditingForms\bin\Debug\EditingForms.pdb
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\EditingForms\bin\Debug\Kernel.dll
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\EditingForms\bin\Debug\Kernel.pdb
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\EditingForms\obj\Debug\EditingForms.csprojResolveAssemblyReference.cache
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\EditingForms\obj\Debug\AddChangeArc.g.cs
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\EditingForms\obj\Debug\AddChangeNode.g.cs
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\EditingForms\obj\Debug\EditingWindow.g.cs
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\EditingForms\obj\Debug\App.g.cs
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\EditingForms\obj\Debug\EditingForms_MarkupCompile.cache
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\EditingForms\obj\Debug\EditingForms_MarkupCompile.lref
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\EditingForms\obj\Debug\AddChangeArc.baml
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\EditingForms\obj\Debug\AddChangeNode.baml
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\EditingForms\obj\Debug\EditingWindow.baml
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\EditingForms\obj\Debug\EditingForms.g.resources
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\EditingForms\obj\Debug\EditingForms.Properties.Resources.resources
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\EditingForms\obj\Debug\EditingForms.csproj.GenerateResource.Cache
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\EditingForms\obj\Debug\EditingForms.exe
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\EditingForms\obj\Debug\EditingForms.pdb

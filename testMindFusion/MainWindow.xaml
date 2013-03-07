@@ -1,0 +1,146 @@
+﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:diag="http://mindfusion.eu/diagramming/wpf" xmlns:Wpf="clr-namespace:MindFusion.UI.Wpf;assembly=MindFusion.UI.Wpf" xmlns:System="clr-namespace:System;assembly=mscorlib"
+        xmlns:textMindFusion="clr-namespace:textMindFusion" x:Class="textMindFusion.MainWindow"
+        Title="Визуальный редактор" Height="600" Width="800" Closing="WindowClosing1"
+        WindowState="Maximized">
+
+
+    <Window.CommandBindings>
+        <CommandBinding Command="New" Executed="NewExecuted"></CommandBinding>
+        <CommandBinding Command="Open" Executed="OpenExecuted"></CommandBinding>
+        <CommandBinding Command="Save" Executed="SaveExecuted" CanExecute="SaveCanExecute"></CommandBinding>
+        <CommandBinding Command="SaveAs" Executed="SaveAsExecuted" CanExecute="SaveCanExecute"></CommandBinding>
+        <CommandBinding Command="Close" Executed="CloseExecuted" CanExecute="CanExecuteIfIsOpen"></CommandBinding>
+        <CommandBinding Command="textMindFusion:MainWindow.EditWithForms" Executed="EditWithFormsExecuted" CanExecute="CanExecuteIfIsOpen"></CommandBinding>
+        <CommandBinding Command="textMindFusion:MainWindow.Consult" Executed="ConsultExecuted" CanExecute="ConsultCanExecute"></CommandBinding>
+        <CommandBinding Command="textMindFusion:MainWindow.Cancel" Executed="CancelCommandExecuted" CanExecute="CancelCommandCanExecute"></CommandBinding>
+    </Window.CommandBindings>
+
+    <!--Клёвый фон-->
+    <Window.Background>
+        <LinearGradientBrush >
+            <GradientStop Color="LightCyan" Offset="0"/>
+            <GradientStop Color="White" Offset="0.8"/>
+            <GradientStop Color="LightCyan" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Menu Grid.Row="0" Background="Transparent" BorderBrush="LightBlue">
+            <MenuItem Header="Файл">
+                <MenuItem Command="New"></MenuItem>
+                <MenuItem Command="Open"></MenuItem>
+                <Separator></Separator>
+                <MenuItem Command="Save"></MenuItem>
+                <MenuItem Command="SaveAs"></MenuItem>
+                <Separator></Separator>
+                <MenuItem Command="Close"></MenuItem>
+
+            </MenuItem>
+            <MenuItem Header="Редактирование">
+                <MenuItem Header="Приобретение знаний" Command="textMindFusion:MainWindow.EditWithForms"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Консультация">
+                <MenuItem Header="Начать консультацию" 
+                          Command="textMindFusion:MainWindow.Consult"></MenuItem>
+            </MenuItem>
+        </Menu>
+
+        <StackPanel Name="TopStackPanel" Grid.Row="1" Margin="5" Orientation="Horizontal">
+            <!--вторая панель -->
+            <Border Margin="0,0,10,0" CornerRadius="5" BorderBrush="Gray" BorderThickness="1" Padding="5">
+                <StackPanel Orientation="Horizontal">
+                    <Button Name="saveButton" Margin="0,0,5,0" Width="70" Content="Сохранить" Command="Save" Height="22" 
+                            VerticalAlignment="Bottom" Background="Transparent" />
+                    <Button Name="loadButton" Margin="0,0,5,0" Width="70" Content="Отменить" Command="textMindFusion:MainWindow.Cancel"
+                            Background="Transparent"></Button>
+                </StackPanel>
+            </Border>
+            <!--первая панель-->
+            <Border Margin="0,0,10,0" CornerRadius="5" BorderBrush="Gray" BorderThickness="1" Padding="5">
+                <StackPanel Orientation="Horizontal">
+                    <Button Name="zoomInButton" Margin="0,0,5,0" Width="70" Content="Zoom In" Click="zoomInButton_Click" 
+                            Background="Transparent"/>
+                    <Button Name="zoomOutButton" Margin="0,0,5,0" Width="70" Content="Zoom Out" Click="zoomOutButton_Click"
+                            Background="Transparent"/>
+                    <Button Name="fitButton" Margin="0,0,5,0" Width="70" Content="Fit" Click="fitButton_Click"
+                            Background="Transparent"></Button>
+                    <Button Name="noZoomButton" Width="70" Content="No Zoom" Click="noZoomButton_Click"
+                            Background="Transparent"></Button>
+                </StackPanel>
+            </Border>
+            <Border Margin="0,0,10,0" CornerRadius="5" BorderBrush="Gray" BorderThickness="1" Padding="5">
+                <StackPanel Orientation="Horizontal">
+                    <Button Name="VerificationButton" Margin="0,0,5,0" Width="70" Content="Проверить" Click="VerificationButton_Click"
+                            Background="Transparent"/>
+                    <Button Name="ArrangeButton" Margin="0,0,5,0" Width="70" Content="Расставить" Click="arrangeOnClick"
+                            Background="Transparent"/>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+        <!--вью-->
+        <ScrollViewer Grid.Row="2" HorizontalScrollBarVisibility="Auto" Padding="0">
+            <diag:Diagram x:Name="DD" BackBrush="AliceBlue" AllowInplaceEdit="True" InplaceEditAcceptOnEnter="True"  NodeDeleted="DD_NodeDeleted"  NodeTextEditing="DD_NodeTextEditing" NodeCreated="DD_NodeCreated" LinkTextEditing="DD_LinkTextEditing" LinkCreated="DD_LinkCreated" LinkDeleted="DD_LinkDeleted" LinkModified="DD_LinkModified" LinkModifying="DD_LinkModifying" FontSize="11" FontFamily="Shonar Bangla" LinkDeleting="DD_LinkDeleting" NodeClicked="DD_NodeClicked" LinkClicked="DD_LinkClicked" Clicked="DD_Clicked" Behavior="DrawLinks" AllowSelfLoops="False" Background="{x:Null}" 
+                          >
+                <diag:Diagram.DiagramLinkStyle>
+                    <Style TargetType="{x:Type diag:DiagramLink}">
+                        <Setter Property="Brush" Value="Black" />
+                    </Style>
+                </diag:Diagram.DiagramLinkStyle>
+                <diag:Diagram.ShapeNodeStyle>
+                    <Style TargetType="{x:Type diag:ShapeNode}">
+                        <Setter Property="Brush" Value="LightSeaGreen" />
+                    </Style>
+                </diag:Diagram.ShapeNodeStyle>
+
+                <diag:Diagram.ContextMenu>
+                    <ContextMenu Name="myContextMenu" ItemsSource="{Binding}">
+                    </ContextMenu>
+                </diag:Diagram.ContextMenu>
+                
+            </diag:Diagram>
+        </ScrollViewer>
+
+        <Grid Grid.Row="4">
+            <Expander x:Name="expanderErrList" DockPanel.Dock="Bottom" Header="Отчеты" Background="Transparent" Height= "Auto">
+                <TabControl>
+
+                    <TabItem Header="Log">
+                        <ScrollViewer >
+                            <ListBox x:Name="ListBoxLog"></ListBox>
+                        </ScrollViewer >
+                    </TabItem>
+                    <TabItem Header="Verification">
+                        <ScrollViewer >
+                            <ListBox x:Name="ListBoxVerification"></ListBox>
+                        </ScrollViewer >
+                    </TabItem>
+                </TabControl>
+            </Expander>
+        </Grid>
+        <!--<Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="83*"/>
+                <ColumnDefinition Width="93*"/>
+                <ColumnDefinition Width="88*"/> 
+            </Grid.ColumnDefinitions>
+            <diag:Overview Name="overview"  Grid.Column="2" Width="160" Height="auto"  Margin="52,5" RenderTransformOrigin="2.338,0.431" />
+            <StackPanel Grid.Row="0" Orientation="Vertical" Grid.ColumnSpan="3">
+                <Label Content="Текст для поиска:"/>
+                <TextBox x:Name="inputText" Width="auto" Height="72" />-->
+                <CheckBox Grid.Row="3" Name="isEdit" Content="Режим редактирования" Click="isEdit_Click" IsChecked="True" />
+                
+            <!--</StackPanel>-->
+        <!--</Grid>-->
+       
+       
+
+    </Grid>
+</Window>

@@ -1,0 +1,81 @@
+﻿<Window x:Class="StartWindow.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:StartWindow="clr-namespace:StartWindow"
+        Title="MainWindow" Height="450" Width="700" Closing="WindowClosing1">
+
+    <Window.Resources>
+        <Style x:Key="ReadySBStyle">
+            <Setter Property="StatusBar.Background">
+                <Setter.Value>
+                    <LinearGradientBrush>
+                        <GradientStop Offset="0" Color="LightCyan"></GradientStop>
+                        <GradientStop Offset="0.7" Color="White"></GradientStop>
+                        <GradientStop Offset="1" Color="LightCyan"></GradientStop>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Window.CommandBindings>
+        <CommandBinding Command="New" Executed="NewExecuted"></CommandBinding>
+        <CommandBinding Command="Open" Executed="OpenExecuted"></CommandBinding>
+        <CommandBinding Command="Save" Executed="SaveExecuted" CanExecute="SaveCanExecute"></CommandBinding>
+        <CommandBinding Command="SaveAs" Executed="SaveAsExecuted" CanExecute="SaveCanExecute"></CommandBinding>
+        <CommandBinding Command="Close" Executed="CloseExecuted" CanExecute="CanExecuteIfIsOpen"></CommandBinding>
+        <CommandBinding Command="StartWindow:MainWindow.EditWithForms" Executed="EditWithFormsExecuted" CanExecute="CanExecuteIfIsOpen"></CommandBinding>
+        <!--<CommandBinding Command="StartWindow:MainWindow.EditVisual" Executed="EditVisualExecuted" CanExecute="CanExecuteIfIsOpen"></CommandBinding>-->
+        <CommandBinding Command="StartWindow:MainWindow.Consult" Executed="ConsultExecuted" CanExecute="ConsultCanExecute"></CommandBinding>
+    </Window.CommandBindings>
+    
+    <Window.Background>
+        <LinearGradientBrush >
+            <GradientStop Color="LightCyan" Offset="0"></GradientStop>
+            <GradientStop Color="White" Offset="0.8"></GradientStop>
+            <GradientStop Color="LightCyan" Offset="1"></GradientStop>
+        </LinearGradientBrush>
+    </Window.Background>
+    
+    <DockPanel LastChildFill="True">
+        <Menu DockPanel.Dock="Top" Background="Transparent" BorderBrush="LightBlue">
+            <MenuItem Header="Файл">
+                <MenuItem Command="New"></MenuItem>
+                <MenuItem Command="Open"></MenuItem>
+                <Separator></Separator>
+                <MenuItem Command="Save"></MenuItem>
+                <MenuItem Command="SaveAs"></MenuItem>
+                <Separator></Separator>
+                <MenuItem Command="Close"></MenuItem>
+                
+            </MenuItem>
+            <MenuItem Header="Редактирование">
+                <MenuItem Header="Визуальный редактор" Command="StartWindow:MainWindow.EditVisual"></MenuItem>
+                <MenuItem Header="Текстовый редактор" Command="StartWindow:MainWindow.EditWithForms"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Консультация">
+                <MenuItem Header="Начать консультацию" 
+                          Command="StartWindow:MainWindow.Consult"></MenuItem>
+            </MenuItem>
+        </Menu>
+        
+        <StatusBar Name="sbState" DockPanel.Dock="Bottom" Style="{StaticResource ReadySBStyle}">
+            <StatusBarItem Name="lblState">Для начала работы откройте или создайте ЭС</StatusBarItem>
+        </StatusBar>
+        
+        <Grid VerticalAlignment="Top" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            
+            <Label Name="l1" VerticalAlignment="Center" HorizontalAlignment="Right">Название сем. сети</Label>
+            <Label Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right">Путь к файлу</Label>
+            <TextBox Name="tbName" Grid.Column="1" Margin="5" Padding="3" IsReadOnly="True"></TextBox>
+            <TextBox Name="tbPath" Grid.Row="1" Grid.Column="1" Margin="5" Padding="3" IsReadOnly="True"></TextBox>
+        </Grid>
+    </DockPanel>
+</Window>

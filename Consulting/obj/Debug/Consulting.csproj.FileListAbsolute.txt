@@ -1,0 +1,7 @@
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\Consulting\bin\Debug\Consulting.dll
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\Consulting\bin\Debug\Consulting.pdb
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\Consulting\bin\Debug\Kernel.dll
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\Consulting\bin\Debug\Kernel.pdb
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\Consulting\obj\Debug\Consulting.csprojResolveAssemblyReference.cache
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\Consulting\obj\Debug\Consulting.dll
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\Consulting\obj\Debug\Consulting.pdb

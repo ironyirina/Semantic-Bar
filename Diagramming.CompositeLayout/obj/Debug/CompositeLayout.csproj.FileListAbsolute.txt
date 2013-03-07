@@ -1,0 +1,80 @@
+C:\Program Files (x86)\MindFusion\MindFusion.Wpf Pack (Trial Version)\VS2012\Samples\C#\Diagramming.CompositeLayout\bin\Debug\CompositeLayout.exe.config
+C:\Program Files (x86)\MindFusion\MindFusion.Wpf Pack (Trial Version)\VS2012\Samples\C#\Diagramming.CompositeLayout\bin\Debug\CompositeLayout.exe
+C:\Program Files (x86)\MindFusion\MindFusion.Wpf Pack (Trial Version)\VS2012\Samples\C#\Diagramming.CompositeLayout\bin\Debug\CompositeLayout.pdb
+C:\Program Files (x86)\MindFusion\MindFusion.Wpf Pack (Trial Version)\VS2012\Samples\C#\Diagramming.CompositeLayout\bin\Debug\MindFusion.Diagramming.Wpf.dll
+C:\Program Files (x86)\MindFusion\MindFusion.Wpf Pack (Trial Version)\VS2012\Samples\C#\Diagramming.CompositeLayout\bin\Debug\MindFusion.Graphs.dll
+C:\Program Files (x86)\MindFusion\MindFusion.Wpf Pack (Trial Version)\VS2012\Samples\C#\Diagramming.CompositeLayout\bin\Debug\MindFusion.Scripting.dll
+C:\Program Files (x86)\MindFusion\MindFusion.Wpf Pack (Trial Version)\VS2012\Samples\C#\Diagramming.CompositeLayout\bin\Debug\MindFusion.Diagramming.Wpf.xml
+C:\Program Files (x86)\MindFusion\MindFusion.Wpf Pack (Trial Version)\VS2012\Samples\C#\Diagramming.CompositeLayout\bin\Debug\MindFusion.Scripting.xml
+C:\Program Files (x86)\MindFusion\MindFusion.Wpf Pack (Trial Version)\VS2012\Samples\C#\Diagramming.CompositeLayout\obj\Debug\MainWindow.baml
+C:\Program Files (x86)\MindFusion\MindFusion.Wpf Pack (Trial Version)\VS2012\Samples\C#\Diagramming.CompositeLayout\obj\Debug\MainWindow.g.cs
+C:\Program Files (x86)\MindFusion\MindFusion.Wpf Pack (Trial Version)\VS2012\Samples\C#\Diagramming.CompositeLayout\obj\Debug\App.g.cs
+C:\Program Files (x86)\MindFusion\MindFusion.Wpf Pack (Trial Version)\VS2012\Samples\C#\Diagramming.CompositeLayout\obj\Debug\CompositeLayout_MarkupCompile.cache
+C:\Program Files (x86)\MindFusion\MindFusion.Wpf Pack (Trial Version)\VS2012\Samples\C#\Diagramming.CompositeLayout\obj\Debug\CompositeLayout.g.resources
+C:\Program Files (x86)\MindFusion\MindFusion.Wpf Pack (Trial Version)\VS2012\Samples\C#\Diagramming.CompositeLayout\obj\Debug\MindFusion.Diagramming.Wpf.Samples.CS.CompositeLayout.Properties.Resources.resources
+C:\Program Files (x86)\MindFusion\MindFusion.Wpf Pack (Trial Version)\VS2012\Samples\C#\Diagramming.CompositeLayout\obj\Debug\CompositeLayout.csproj.GenerateResource.Cache
+C:\Program Files (x86)\MindFusion\MindFusion.Wpf Pack (Trial Version)\VS2012\Samples\C#\Diagramming.CompositeLayout\obj\Debug\CompositeLayout.exe.licenses
+C:\Program Files (x86)\MindFusion\MindFusion.Wpf Pack (Trial Version)\VS2012\Samples\C#\Diagramming.CompositeLayout\obj\Debug\CompositeLayout.exe
+C:\Program Files (x86)\MindFusion\MindFusion.Wpf Pack (Trial Version)\VS2012\Samples\C#\Diagramming.CompositeLayout\obj\Debug\CompositeLayout.pdb
+C:\Users\М\Dropbox\Учеба\Diagramming.CompositeLayout\bin\Debug\CompositeLayout.exe.config
+C:\Users\М\Dropbox\Учеба\Diagramming.CompositeLayout\obj\Debug\CompositeLayout.exe
+C:\Users\М\Dropbox\Учеба\Diagramming.CompositeLayout\obj\Debug\CompositeLayout.pdb
+C:\Users\М\Dropbox\Учеба\Diagramming.CompositeLayout\bin\Debug\CompositeLayout.exe
+C:\Users\М\Dropbox\Учеба\Diagramming.CompositeLayout\bin\Debug\CompositeLayout.pdb
+C:\Users\М\Dropbox\Учеба\Diagramming.CompositeLayout\bin\Debug\MindFusion.Graphs.dll
+C:\Users\М\Dropbox\Учеба\Diagramming.CompositeLayout\bin\Debug\MindFusion.Scripting.dll
+C:\Users\М\Dropbox\Учеба\Diagramming.CompositeLayout\bin\Debug\MindFusion.Diagramming.Wpf.xml
+C:\Users\М\Dropbox\Учеба\Diagramming.CompositeLayout\bin\Debug\MindFusion.Scripting.xml
+C:\Users\М\Dropbox\Учеба\Diagramming.CompositeLayout\obj\Debug\CompositeLayout.csprojResolveAssemblyReference.cache
+C:\Users\М\Dropbox\Учеба\Diagramming.CompositeLayout\obj\Debug\MainWindow.baml
+C:\Users\М\Dropbox\Учеба\Diagramming.CompositeLayout\obj\Debug\MainWindow.g.cs
+C:\Users\М\Dropbox\Учеба\Diagramming.CompositeLayout\obj\Debug\App.g.cs
+C:\Users\М\Dropbox\Учеба\Diagramming.CompositeLayout\obj\Debug\CompositeLayout_MarkupCompile.cache
+C:\Users\М\Dropbox\Учеба\Diagramming.CompositeLayout\obj\Debug\CompositeLayout.g.resources
+C:\Users\М\Dropbox\Учеба\Diagramming.CompositeLayout\obj\Debug\MindFusion.Diagramming.Wpf.Samples.CS.CompositeLayout.Properties.Resources.resources
+C:\Users\М\Dropbox\Учеба\Diagramming.CompositeLayout\obj\Debug\CompositeLayout.csproj.GenerateResource.Cache
+C:\Users\М\Dropbox\Учеба\Diagramming.CompositeLayout\obj\Debug\CompositeLayout.exe.licenses
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\Diagramming.CompositeLayout\bin\Debug\CompositeLayout.exe.config
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\Diagramming.CompositeLayout\obj\Debug\CompositeLayout.exe
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\Diagramming.CompositeLayout\obj\Debug\CompositeLayout.pdb
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\Diagramming.CompositeLayout\obj\Debug\CompositeLayout.csprojResolveAssemblyReference.cache
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\Diagramming.CompositeLayout\obj\Debug\App.g.cs
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\Diagramming.CompositeLayout\obj\Debug\CompositeLayout_MarkupCompile.cache
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\Diagramming.CompositeLayout\obj\Debug\CompositeLayout.g.resources
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\Diagramming.CompositeLayout\obj\Debug\CompositeLayout.csproj.GenerateResource.Cache
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\Diagramming.CompositeLayout\obj\Debug\CompositeLayout.exe.licenses
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\Diagramming.CompositeLayout\bin\Debug\CompositeLayout.exe
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\Diagramming.CompositeLayout\bin\Debug\CompositeLayout.pdb
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\Diagramming.CompositeLayout\bin\Debug\Kernel.dll
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\Diagramming.CompositeLayout\bin\Debug\MindFusion.Graphs.dll
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\Diagramming.CompositeLayout\bin\Debug\MindFusion.Scripting.dll
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\Diagramming.CompositeLayout\bin\Debug\Kernel.pdb
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\Diagramming.CompositeLayout\bin\Debug\MindFusion.Diagramming.Wpf.xml
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\Diagramming.CompositeLayout\bin\Debug\MindFusion.Scripting.xml
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\Diagramming.CompositeLayout\obj\Debug\MainWindow.baml
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\Diagramming.CompositeLayout\obj\Debug\MainWindow.g.cs
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\Diagramming.CompositeLayout\bin\Debug\CompositeLayout.exe.config
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\Diagramming.CompositeLayout\obj\Debug\CompositeLayout.exe
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\Diagramming.CompositeLayout\obj\Debug\CompositeLayout.pdb
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\Diagramming.CompositeLayout\bin\Debug\CompositeLayout.exe
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\Diagramming.CompositeLayout\bin\Debug\CompositeLayout.pdb
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\Diagramming.CompositeLayout\bin\Debug\Kernel.dll
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\Diagramming.CompositeLayout\bin\Debug\textMindFusion.exe
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\Diagramming.CompositeLayout\bin\Debug\MindFusion.Graphs.dll
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\Diagramming.CompositeLayout\bin\Debug\MindFusion.Scripting.dll
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\Diagramming.CompositeLayout\bin\Debug\Kernel.pdb
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\Diagramming.CompositeLayout\bin\Debug\textMindFusion.pdb
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\Diagramming.CompositeLayout\bin\Debug\MindFusion.Diagramming.Wpf.xml
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\Diagramming.CompositeLayout\bin\Debug\MindFusion.Scripting.xml
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\Diagramming.CompositeLayout\obj\Debug\CompositeLayout.csprojResolveAssemblyReference.cache
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\Diagramming.CompositeLayout\obj\Debug\MainWindow.baml
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\Diagramming.CompositeLayout\obj\Debug\MainWindow.g.cs
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\Diagramming.CompositeLayout\obj\Debug\App.g.cs
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\Diagramming.CompositeLayout\obj\Debug\CompositeLayout_MarkupCompile.cache
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\Diagramming.CompositeLayout\obj\Debug\CompositeLayout.g.resources
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\Diagramming.CompositeLayout\obj\Debug\MindFusion.Diagramming.Wpf.Samples.CS.CompositeLayout.Properties.Resources.resources
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\Diagramming.CompositeLayout\obj\Debug\CompositeLayout.csproj.GenerateResource.Cache
+C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\Diagramming.CompositeLayout\obj\Debug\CompositeLayout.exe.licenses
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\Diagramming.CompositeLayout\bin\Debug\textMindFusion.exe
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\Diagramming.CompositeLayout\bin\Debug\textMindFusion.pdb
+C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\Diagramming.CompositeLayout\obj\Debug\CompositeLayout.Properties.Resources.resources

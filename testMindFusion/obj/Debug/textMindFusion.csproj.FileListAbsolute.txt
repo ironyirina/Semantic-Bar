@@ -1,0 +1,20 @@
+C:\Users\Ирина\Documents\Чуприна\Адская прога на сем.сетях\SemanticWeb\textMindFusion\bin\Debug\textMindFusion.exe.config
+C:\Users\Ирина\Documents\Чуприна\Адская прога на сем.сетях\SemanticWeb\textMindFusion\bin\Debug\textMindFusion.exe
+C:\Users\Ирина\Documents\Чуприна\Адская прога на сем.сетях\SemanticWeb\textMindFusion\bin\Debug\textMindFusion.pdb
+C:\Users\Ирина\Documents\Чуприна\Адская прога на сем.сетях\SemanticWeb\textMindFusion\bin\Debug\mindfusion.diagramming.wpf.xml
+C:\Users\Ирина\Documents\Чуприна\Адская прога на сем.сетях\SemanticWeb\textMindFusion\bin\Debug\MindFusion.Scripting.xml
+C:\Users\Ирина\Documents\Чуприна\Адская прога на сем.сетях\SemanticWeb\textMindFusion\obj\Debug\textMindFusion.csprojResolveAssemblyReference.cache
+C:\Users\Ирина\Documents\Чуприна\Адская прога на сем.сетях\SemanticWeb\textMindFusion\obj\Debug\MainWindow.baml
+C:\Users\Ирина\Documents\Чуприна\Адская прога на сем.сетях\SemanticWeb\textMindFusion\obj\Debug\MainWindow.g.cs
+C:\Users\Ирина\Documents\Чуприна\Адская прога на сем.сетях\SemanticWeb\textMindFusion\obj\Debug\App.g.cs
+C:\Users\Ирина\Documents\Чуприна\Адская прога на сем.сетях\SemanticWeb\textMindFusion\obj\Debug\textMindFusion_MarkupCompile.cache
+C:\Users\Ирина\Documents\Чуприна\Адская прога на сем.сетях\SemanticWeb\textMindFusion\obj\Debug\textMindFusion.g.resources
+C:\Users\Ирина\Documents\Чуприна\Адская прога на сем.сетях\SemanticWeb\textMindFusion\obj\Debug\textMindFusion.Properties.Resources.resources
+C:\Users\Ирина\Documents\Чуприна\Адская прога на сем.сетях\SemanticWeb\textMindFusion\obj\Debug\textMindFusion.csproj.GenerateResource.Cache
+C:\Users\Ирина\Documents\Чуприна\Адская прога на сем.сетях\SemanticWeb\textMindFusion\obj\Debug\textMindFusion.exe
+C:\Users\Ирина\Documents\Чуприна\Адская прога на сем.сетях\SemanticWeb\textMindFusion\obj\Debug\textMindFusion.pdb
+C:\Users\Ирина\Documents\Чуприна\Адская прога на сем.сетях\SemanticWeb\textMindFusion\bin\Debug\Kernel.dll
+C:\Users\Ирина\Documents\Чуприна\Адская прога на сем.сетях\SemanticWeb\textMindFusion\bin\Debug\Kernel.pdb
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\textMindFusion\bin\Debug\textMindFusion.exe.config
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\textMindFusion\obj\Debug\textMindFusion.exe
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\textMindFusion\obj\Debug\textMindFusion.pdb
