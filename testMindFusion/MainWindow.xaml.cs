@@ -9,6 +9,8 @@ using Kernel;
 using System.Windows.Controls;
 using System;
 using MouseButton = MindFusion.Diagramming.Wpf.MouseButton;
+using System.Drawing;
+using System.Windows.Media;
 
 
 namespace textMindFusion
@@ -18,6 +20,9 @@ namespace textMindFusion
     /// </summary>
     public partial class MainWindow : Window
     {
+        int countSelectedNode = 0;
+        List<DiagramNode> SelectNode = new List<DiagramNode>();
+        
         int nodeHeight = 50;
         int nodeWidth = 50;
         public string path = "MyWeb.xml";
@@ -57,7 +62,6 @@ namespace textMindFusion
         {
             load = true;
             reload = true;
-            //DD.Items.Clear();
             DD.ClearAll();
             Dictionary<int, DiagramNode> nodeMap = new Dictionary<int, DiagramNode>();
             foreach (var node in web.Nodes)
@@ -111,10 +115,10 @@ namespace textMindFusion
 
         private void CancelCommandExecuted(object sender, ExecutedRoutedEventArgs e)
         {
-            reload = true;
+            reload = true; load = true;
             _myWeb = SemanticWeb.ReadFromXml(path);
             PrintGraph(_myWeb);
-            reload = false;
+            reload = false; load = false;
             SendMessage("изменения отменены");
             _somethingChanged = false;
         }
@@ -184,7 +188,7 @@ namespace textMindFusion
             try
             {
                 SendMessage("удаление вершины" + ((Node)e.Node.Tag).Name);
-                if (!reload )
+                if (!reload && !load )
                     _myWeb.DeleteNode((Node)e.Node.Tag);
                 _somethingChanged = true;
             }
@@ -207,12 +211,13 @@ namespace textMindFusion
                 e.Cancel = true;
             if (((Node)e.Node.Tag).Name.Contains("#"))
             {
+                e.Cancel = true;
                 return;
             }
 
             string newName; //новое имя вершины
-            TextBoxForm formName = new TextBoxForm(_myWeb);
-            formName.RefreshValue();
+            TextBoxForm formName = new TextBoxForm(_myWeb, e.Node.Text);
+            //formName.RefreshValue();
             formName.ShowDialog();
             try
             {
@@ -532,7 +537,7 @@ namespace textMindFusion
         }
         private void changeOnClick(object sender, RoutedEventArgs routedEventArgs)
         {
-            //DD_NodeTextEditing(new object(), new NodeValidationEventArgs(rightNode));
+            DD_NodeTextEditing(new object(), new NodeValidationEventArgs(rightNode));
             
         }
         #endregion
@@ -577,7 +582,6 @@ namespace textMindFusion
         }
 
 #endregion
-
         #region контекстное для графа
         System.Windows.Point  rightClick; //позиция правого клика мыши по полю
         private void DD_Clicked(object sender, DiagramEventArgs e)
@@ -631,6 +635,8 @@ namespace textMindFusion
         }
         #endregion
 
+        #region веривикация/расставить
+
         private void VerificationButton_Click(object sender, RoutedEventArgs e)
         {
             if (!Verification())
@@ -652,6 +658,7 @@ namespace textMindFusion
                 ListBoxVerification.Items.Add(i);
             return false;
         }
+        #endregion
 
         #region Главное Меню
 
@@ -685,6 +692,9 @@ namespace textMindFusion
             _isOpen = true;
             PrintGraph(_myWeb);
             DD.IsEnabled = true;
+            ChangeTopMenuNode();
+            VerificationButton.IsEnabled = ArrangeButton.IsEnabled = true;
+            zoomInButton.IsEnabled = zoomOutButton.IsEnabled = fitButton.IsEnabled = noZoomButton.IsEnabled = true;
         }
 
         #endregion
@@ -703,6 +713,9 @@ namespace textMindFusion
             PrintGraph(_myWeb);
             DD.IsEnabled = true;
             _isOpen = true;
+            ChangeTopMenuNode();
+            VerificationButton.IsEnabled = ArrangeButton.IsEnabled = true;
+            zoomInButton.IsEnabled = zoomOutButton.IsEnabled = fitButton.IsEnabled = noZoomButton.IsEnabled = true;
         }
 
         #endregion
@@ -835,7 +848,105 @@ namespace textMindFusion
 
         #endregion
 
+        private void DD_LinkActivated(object sender, LinkEventArgs e)
+        {
+            //e.Link.Style.Setters.Add(new Setter(
+        }
+
         #endregion
+
+        #region выделение отмеченных вершин/дуг
+        private void DD_NodeSelected(object sender, NodeEventArgs e)
+        {
+            //var stroke = new SolidColorBrush (System.Windows.Media.Color.FromRgb(255,0,0));
+            //Style shapeNodeStyle = new Style();
+
+            //shapeNodeStyle.Setters.Add(new Setter(ShapeNode.StrokeProperty, stroke));
+            //e.Node.Style = shapeNodeStyle;
+            SelectNode.Add(e.Node);
+            e.Node.StrokeThickness = 5;
+
+            ChangeTopMenuNode();
+            
+        }
+
+        private void DD_NodeDeselected(object sender, NodeEventArgs e)
+        {
+            //var stroke = new SolidColorBrush(System.Windows.Media.Color.FromRgb(0, 0, 0));
+            //Style shapeNodeStyle = new Style();
+            //shapeNodeStyle.Setters.Add(new Setter(ShapeNode.StrokeProperty, stroke));
+            //e.Node.Style = shapeNodeStyle;
+            e.Node.StrokeThickness = 1;
+            SelectNode.Remove(e.Node);
+            ChangeTopMenuNode();
+        }
+
+        private void DD_LinkSelected(object sender, LinkEventArgs e)
+        {
+            e.Link.StrokeThickness = 5;
+        }
+
+        private void DD_LinkDeselected(object sender, LinkEventArgs e)
+        {
+            e.Link.StrokeThickness = 1;
+        }
+        #endregion
+
+
+        #region верхняя менюшка по вершинам:добавить/изменить/удалить
+        private void AddNodeButton_Click(object sender, RoutedEventArgs e)
+        {
+            Node tagNode = _myWeb.AddNode("");
+            var Bounds = new Rect(new System.Windows.Point(0, 0), new System.Windows.Point(0 + nodeWidth, 0 + nodeHeight));
+            var diagramNode = DD.Factory.CreateShapeNode(Bounds);
+            diagramNode.Text = "";
+            diagramNode.Tag = tagNode;
+            diagramNode.Selected = true;
+            DD.Nodes.Add(diagramNode);
+            SendMessage("Создание вершины");
+            _somethingChanged = true;
+        }
+
+        private void ChangeNodeButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (SelectNode.Count==1)
+                DD_NodeTextEditing(new object(), new NodeValidationEventArgs(SelectNode[0]));
+        }
+
+        private void DeleteNodeButton_Click(object sender, RoutedEventArgs e)
+        {
+            while (SelectNode.Count > 0)
+            {
+                DD.Nodes.Remove(SelectNode[0]);
+            }
+        }
+#endregion
+
+        void ChangeTopMenuNode()
+        {
+            AddNodeButton.IsEnabled = true;
+            if (SelectNode.Count == 0)
+            {
+                ChangeNodeButton.IsEnabled = false;
+                DeleteNodeButton.IsEnabled = false;
+            }
+            if (SelectNode.Count == 1)
+            {
+                ChangeNodeButton.IsEnabled = true;
+                DeleteNodeButton.IsEnabled = true;
+            }
+            if (SelectNode.Count > 1)
+            {
+                ChangeNodeButton.IsEnabled = false;
+                DeleteNodeButton.IsEnabled = true;
+            }
+        }
+
+        private void isEdit_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
     }
 }
 

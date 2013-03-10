@@ -17,14 +17,14 @@
     <File id="E0170101-45AF-4436-8267-DE6F0213CAB1/f:AddConceptWindow.xaml.cs" caret="1341" fromTop="0" />
     <File id="E0170101-45AF-4436-8267-DE6F0213CAB1/f:Loader.cs" caret="1462" fromTop="29" />
     <File id="E0170101-45AF-4436-8267-DE6F0213CAB1/f:KACWindow.xaml.cs" caret="1865" fromTop="29" />
-    <File id="1E11B367-BAAF-4997-95B9-6AAF4B8F57CD/f:MainWindow.xaml.cs" caret="29610" fromTop="17" />
     <File id="A47BC7C7-FF04-4D07-B7C4-AC5AB2FDFFF9/f:ClassResult.cs" caret="1400" fromTop="27" />
     <File id="A47BC7C7-FF04-4D07-B7C4-AC5AB2FDFFF9/f:WordResult.cs" caret="219" fromTop="9" />
     <File id="A47BC7C7-FF04-4D07-B7C4-AC5AB2FDFFF9/f:ObjectResult.cs" caret="0" fromTop="0" />
     <File id="A41C117A-8CFC-4904-A26E-CF130EF5696D/f:MainWindow.xaml.cs" caret="1673" fromTop="17" />
     <File id="A47BC7C7-FF04-4D07-B7C4-AC5AB2FDFFF9/f:MetaResult.cs" caret="994" fromTop="14" />
     <File id="8898D7C9-1A18-475C-8CB6-CAD0C9B59D0B/f:SemanticWeb.cs" caret="12577" fromTop="17" />
-    <File id="A47BC7C7-FF04-4D07-B7C4-AC5AB2FDFFF9/f:Searcher.cs" caret="11999" fromTop="8" />
+    <File id="1E11B367-BAAF-4997-95B9-6AAF4B8F57CD/f:MainWindow.xaml.cs" caret="0" fromTop="0" />
+    <File id="A47BC7C7-FF04-4D07-B7C4-AC5AB2FDFFF9/f:Searcher.cs" caret="12119" fromTop="10" />
   </RecentFiles>
   <RecentEdits>
     <File id="8898D7C9-1A18-475C-8CB6-CAD0C9B59D0B/f:Node.cs" caret="279" fromTop="14" />

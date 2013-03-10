@@ -141,6 +141,32 @@
       <Name>KnowledgeAcquisitionComponent</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\fit.png" />
+    <Resource Include="img\fit2.png" />
+    <Resource Include="img\save.png" />
+    <Resource Include="img\zoom_in.png" />
+    <Resource Include="img\zoom_out.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\undo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\add.png" />
+    <Resource Include="img\edit.png" />
+    <Resource Include="img\remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img2\add.png" />
+    <Resource Include="img2\edit.png" />
+    <Resource Include="img2\remove.png" />
+    <Resource Include="img2\save.png" />
+    <Resource Include="img2\sort.png" />
+    <Resource Include="img2\undo.png" />
+    <Resource Include="img2\verification.png" />
+    <Resource Include="img2\zoom_in.png" />
+    <Resource Include="img2\zoom_out.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

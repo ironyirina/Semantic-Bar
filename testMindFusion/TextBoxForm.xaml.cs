@@ -21,12 +21,13 @@ namespace textMindFusion
     public partial class TextBoxForm : Window
     {
         SemanticWeb myWeb;
-        public TextBoxForm(SemanticWeb myWeb)
+        public TextBoxForm(SemanticWeb myWeb, string Name)
         {
             InitializeComponent();
             this.WindowStyle = System.Windows.WindowStyle.ToolWindow;
             this.WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
-            TextboxBox1.Text = "";
+            TextboxBox1.Text = Name;
+            TextboxBox1.Focus();
             this.myWeb = myWeb;
         }
 

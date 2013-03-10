@@ -54,40 +54,84 @@
         </Menu>
 
         <StackPanel Name="TopStackPanel" Grid.Row="1" Margin="5" Orientation="Horizontal">
-            <!--вторая панель -->
-            <Border Margin="0,0,10,0" CornerRadius="5" BorderBrush="Gray" BorderThickness="1" Padding="5">
+            <!-- панель SAVE -->
+            <Border  CornerRadius="5" BorderBrush="Gray" BorderThickness="1" Padding="2">
                 <StackPanel Orientation="Horizontal">
-                    <Button Name="saveButton" Margin="0,0,5,0" Width="70" Content="Сохранить" Command="Save" Height="22" 
-                            VerticalAlignment="Bottom" Background="Transparent" />
-                    <Button Name="loadButton" Margin="0,0,5,0" Width="70" Content="Отменить" Command="textMindFusion:MainWindow.Cancel"
-                            Background="Transparent"></Button>
+                    <Button Name="saveButton" Width="40"  Command="Save"  
+                            VerticalAlignment="Top" Background="Transparent" >
+                        <Image Source="img2/save.png" ></Image>
+                        <Button.ToolTip>Сохранить изменения</Button.ToolTip>
+                    </Button>
+                    <Button Name="loadButton"  Width="40" Height="40" VerticalAlignment="Top"  Command="textMindFusion:MainWindow.Cancel"
+                            Background="Transparent">
+                        <Image Source="img2/undo.png" ></Image>
+                        <Button.ToolTip>Отменить изменения</Button.ToolTip>
+                    </Button>
                 </StackPanel>
             </Border>
-            <!--первая панель-->
-            <Border Margin="0,0,10,0" CornerRadius="5" BorderBrush="Gray" BorderThickness="1" Padding="5">
+            <!-- панель Zoom-->
+            <Border  CornerRadius="5" BorderBrush="Gray" BorderThickness="1" Padding="2">
                 <StackPanel Orientation="Horizontal">
-                    <Button Name="zoomInButton" Margin="0,0,5,0" Width="70" Content="Zoom In" Click="zoomInButton_Click" 
-                            Background="Transparent"/>
-                    <Button Name="zoomOutButton" Margin="0,0,5,0" Width="70" Content="Zoom Out" Click="zoomOutButton_Click"
-                            Background="Transparent"/>
-                    <Button Name="fitButton" Margin="0,0,5,0" Width="70" Content="Fit" Click="fitButton_Click"
-                            Background="Transparent"></Button>
-                    <Button Name="noZoomButton" Width="70" Content="No Zoom" Click="noZoomButton_Click"
-                            Background="Transparent"></Button>
+                    <Button Name="zoomInButton"  Width="40" Height="40" VerticalAlignment="Top" Click="zoomInButton_Click" 
+                            Background="Transparent" IsEnabled="False">
+                        <Image Source="img2/zoom_in.png" ></Image>
+                        <Button.ToolTip>Увеличить масштаб</Button.ToolTip>
+                    </Button>
+                    <Button Name="zoomOutButton"  Width="40" Height="40" VerticalAlignment="Top"  Click="zoomOutButton_Click"
+                            Background="Transparent" IsEnabled="False">
+                        <Button.ToolTip>Уменьшить масштаб</Button.ToolTip>
+                        <Image Source="img2/zoom_out.png"></Image>
+                    </Button>
+                    <Button Name="fitButton" Width="40" Height="40" VerticalAlignment="Top"  Click="fitButton_Click"
+                            Background="Transparent" IsEnabled="False">
+                        <Button.ToolTip>Подогнать масштаб</Button.ToolTip>
+                        <Image Source="img/fit2.png" ></Image>
+                    </Button>
+                    <Button Name="noZoomButton" Width="40" Height="40" VerticalAlignment="Top" Content="100%" Click="noZoomButton_Click"
+                            Background="Transparent" IsEnabled="False" FontSize="10">
+                        
+                    </Button>
                 </StackPanel>
             </Border>
-            <Border Margin="0,0,10,0" CornerRadius="5" BorderBrush="Gray" BorderThickness="1" Padding="5">
+            <!-- панель вершины-->
+            <Border BorderBrush="Gray" BorderThickness="1" Padding="2">
                 <StackPanel Orientation="Horizontal">
-                    <Button Name="VerificationButton" Margin="0,0,5,0" Width="70" Content="Проверить" Click="VerificationButton_Click"
-                            Background="Transparent"/>
-                    <Button Name="ArrangeButton" Margin="0,0,5,0" Width="70" Content="Расставить" Click="arrangeOnClick"
-                            Background="Transparent"/>
+                    <Button Name="AddNodeButton"  Width="40" Height="40" VerticalAlignment="Top"  
+                            Background="Transparent" Click="AddNodeButton_Click" IsEnabled="False">
+                        <Image Source="img2/add.png"></Image>
+                        <Button.ToolTip>Добавить вершину</Button.ToolTip>
+                    </Button>
+                    <Button Name="ChangeNodeButton"  Width="40" Height="40" VerticalAlignment="Top" 
+                            Background="Transparent" Click="ChangeNodeButton_Click" IsEnabled="False">
+                        <Image Source="img2/edit.png"></Image>
+                           <Button.ToolTip>Изменить вершину</Button.ToolTip>
+                    </Button>
+                    <Button Name="DeleteNodeButton"  Width="40" Height="40" VerticalAlignment="Top" 
+                            Background="Transparent" Click="DeleteNodeButton_Click" IsEnabled="False">
+                        <Image Source="img2/remove.png"></Image>
+                            <Button.ToolTip>Удалить вершину</Button.ToolTip>
+                    </Button>
+                </StackPanel>
+            </Border>
+            <!-- панель проверки-->
+            <Border  CornerRadius="5" BorderBrush="Gray" BorderThickness="1" Padding="2">
+                <StackPanel Orientation="Horizontal">
+                    <Button Name="VerificationButton"  Width="40" Height="40" VerticalAlignment="Top" Background="Transparent" 
+                            Click="VerificationButton_Click" IsEnabled="False">
+                        <Image Source="img2/verification.png"></Image>
+                        <Button.ToolTip>Проверить правильность графа</Button.ToolTip>
+                    </Button>
+                    <Button Name="ArrangeButton"  Width="40" Height="40" VerticalAlignment="Top" Click="arrangeOnClick"
+                            Background="Transparent" IsEnabled="False">
+                        <Image Source="img2/sort.png"></Image>
+                        <Button.ToolTip>Расставить вершины графа </Button.ToolTip>
+                    </Button>
                 </StackPanel>
             </Border>
         </StackPanel>
         <!--вью-->
-        <ScrollViewer Grid.Row="2" HorizontalScrollBarVisibility="Auto" Padding="0">
-            <diag:Diagram x:Name="DD" BackBrush="AliceBlue" AllowInplaceEdit="True" InplaceEditAcceptOnEnter="True"  NodeDeleted="DD_NodeDeleted"  NodeTextEditing="DD_NodeTextEditing" NodeCreated="DD_NodeCreated" LinkTextEditing="DD_LinkTextEditing" LinkCreated="DD_LinkCreated" LinkDeleted="DD_LinkDeleted" LinkModified="DD_LinkModified" LinkModifying="DD_LinkModifying" FontSize="11" FontFamily="Shonar Bangla" LinkDeleting="DD_LinkDeleting" NodeClicked="DD_NodeClicked" LinkClicked="DD_LinkClicked" Clicked="DD_Clicked" Behavior="DrawLinks" AllowSelfLoops="False" Background="{x:Null}" 
+        <ScrollViewer Grid.Row="2" HorizontalScrollBarVisibility="Auto" Padding="0" Margin="186,16,-186,0" Grid.RowSpan="2">
+            <diag:Diagram x:Name="DD" BackBrush="AliceBlue" AllowInplaceEdit="True" InplaceEditAcceptOnEnter="True"  NodeDeleted="DD_NodeDeleted"  NodeTextEditing="DD_NodeTextEditing" NodeCreated="DD_NodeCreated" LinkTextEditing="DD_LinkTextEditing" LinkCreated="DD_LinkCreated" LinkDeleted="DD_LinkDeleted" LinkModified="DD_LinkModified" LinkModifying="DD_LinkModifying" FontSize="11" FontFamily="Shonar Bangla" LinkDeleting="DD_LinkDeleting" NodeClicked="DD_NodeClicked" LinkClicked="DD_LinkClicked" Clicked="DD_Clicked" Behavior="DrawLinks" AllowSelfLoops="False" Background="{x:Null}" LinkActivated="DD_LinkActivated"  NodeSelected="DD_NodeSelected" NodeDeselected="DD_NodeDeselected" LinkSelected="DD_LinkSelected" LinkDeselected="DD_LinkDeselected" 
                           >
                 <diag:Diagram.DiagramLinkStyle>
                     <Style TargetType="{x:Type diag:DiagramLink}">
@@ -135,7 +179,7 @@
             <StackPanel Grid.Row="0" Orientation="Vertical" Grid.ColumnSpan="3">
                 <Label Content="Текст для поиска:"/>
                 <TextBox x:Name="inputText" Width="auto" Height="72" />-->
-                <CheckBox Grid.Row="3" Name="isEdit" Content="Режим редактирования" Click="isEdit_Click" IsChecked="True" />
+                <CheckBox Grid.Row="3" Name="isEdit" Content="Режим редактирования" Click="isEdit_Click" IsChecked="True" Checked="isEdit_Checked" />
                 
             <!--</StackPanel>-->
         <!--</Grid>-->
