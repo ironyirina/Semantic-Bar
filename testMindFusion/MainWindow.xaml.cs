@@ -8,15 +8,16 @@ using MindFusion.Diagramming.Wpf.Layout;
 using Kernel;
 using System.Windows.Controls;
 using System;
+using SynonymEditor;
 using MouseButton = MindFusion.Diagramming.Wpf.MouseButton;
 using System.Drawing;
 using System.Windows.Media;
-
+using ConsultingWindow;
 
 namespace textMindFusion
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for ConsultingWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
@@ -25,10 +26,8 @@ namespace textMindFusion
         
         int nodeHeight = 50;
         int nodeWidth = 50;
-        public string path = "MyWeb.xml";
         bool load = true;
         bool reload = false;
-        SemanticWeb _myWeb;
         int countNotNamed = 0;// кол-во неименованный вершин для создания
         //список коррекции. ключ - id в диаграмме, элемент - полноценная вершина из списка
         //Dictionary<object, Node> convertList = new Dictionary<object, Node>();    
@@ -105,9 +104,9 @@ namespace textMindFusion
             }
             for (int i = 0; i < DD.Nodes.Count; i++)
             {
-                _myWeb.ChangeNodeCoordinates(((Node)DD.Nodes[i].Tag).ID, DD.Nodes[i].Bounds.X, DD.Nodes[i].Bounds.Y);
+                SemanticWeb.Web().ChangeNodeCoordinates(((Node)DD.Nodes[i].Tag).ID, DD.Nodes[i].Bounds.X, DD.Nodes[i].Bounds.Y);
             }
-                SemanticWeb.WriteToXml(path, _myWeb);
+            SemanticWeb.WriteToXml(_fileName);
             SendMessage("изменения сохранены");
         }
 
@@ -116,20 +115,20 @@ namespace textMindFusion
         private void CancelCommandExecuted(object sender, ExecutedRoutedEventArgs e)
         {
             reload = true; load = true;
-            _myWeb = SemanticWeb.ReadFromXml(path);
-            PrintGraph(_myWeb);
+            SemanticWeb.ReadFromXml(_fileName);
+            PrintGraph(SemanticWeb.Web());
             reload = false; load = false;
             SendMessage("изменения отменены");
-            _somethingChanged = false;
         }
 
         private void CancelCommandCanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-            e.CanExecute = _somethingChanged;
+            e.CanExecute = SemanticWeb.IsChanged;
         }
         #endregion
 
         #region Zoom-Panel
+
         private void zoomInButton_Click(object sender, RoutedEventArgs e)
         {
             DD.ZoomFactor = Math.Min(1000, DD.ZoomFactor + 10);
@@ -177,7 +176,6 @@ namespace textMindFusion
             if (((Node)e.Node.Tag).IsSystem || ((Node)e.Node.Tag).Name.Contains("#"))
 
             {
-                _somethingChanged = true;
                 e.Cancel = true;
             }
         }
@@ -189,8 +187,7 @@ namespace textMindFusion
             {
                 SendMessage("удаление вершины" + ((Node)e.Node.Tag).Name);
                 if (!reload && !load )
-                    _myWeb.DeleteNode((Node)e.Node.Tag);
-                _somethingChanged = true;
+                    SemanticWeb.Web().DeleteNode((Node)e.Node.Tag);
             }
             catch (ArgumentException e1)
             {
@@ -216,32 +213,25 @@ namespace textMindFusion
             }
 
             string newName; //новое имя вершины
-            TextBoxForm formName = new TextBoxForm(_myWeb, e.Node.Text);
-            //formName.RefreshValue();
+            TextBoxForm formName = new TextBoxForm(e.Node.Text);
             formName.ShowDialog();
             try
             {
                 if (formName.DialogResult == true)
                 {
                     newName = formName.ReturnValue();
-                    _myWeb.ChangeNodeName(((Node)e.Node.Tag).ID, newName);
+                    SemanticWeb.Web().ChangeNodeName(((Node)e.Node.Tag).ID, newName);
                     e.Node.Text = newName;
                     SendMessage("Изменение имени вершины на " + e.Node.Text + "  завершилось");
-                    _somethingChanged = true;
-                    //formName.Close();
-                    //e.Cancel = true;
                 }
                 else
                 {
                     SendMessage("отмена изменения имени вершины " + e.Node.Text);
-                    //formName.Close();
-                    //e.Cancel = true;
                 }
             }
             catch (ArgumentException e1)
             {
                 SendMessage("отмена изменения имени вершины: " + e1.Message);
-                //e.Cancel = true;
             }
             formName.Close();
             e.Cancel = true;
@@ -256,12 +246,12 @@ namespace textMindFusion
             {
                 try
                 {
-                    Node webNode = _myWeb.AddNode(""); //неименованная
+                    Node webNode = SemanticWeb.Web().AddNode(""); //неименованная
                     e.Node.Text = (webNode.Name);
                     e.Node.Tag = webNode;
                     countNotNamed++;
                     SendMessage("создана вершина " + ((Node)e.Node.Tag).Name);
-                    _somethingChanged = true;
+                    //_somethingChanged = true;
                 }
                 catch (ArgumentException e1)
                 {
@@ -284,7 +274,7 @@ namespace textMindFusion
             string newT; //новое имя вершины выбранное из комбобоксика
             SendMessage("изменение типа дуги: " + e.Link.Text + " от " + e.Link.Origin.Text + " к " + e.Link.Destination.Text);
             ComboBoxForm formLink = new ComboBoxForm();
-            var listarc = _myWeb.GetAllowedArcNames(((Node)e.Link.Origin.Tag).ID);
+            var listarc = SemanticWeb.Web().GetAllowedArcNames(((Node)e.Link.Origin.Tag).ID);
             formLink.RefreshValue(listarc);
             formLink.ShowDialog();
             try
@@ -292,10 +282,9 @@ namespace textMindFusion
                 if (formLink.DialogResult == true)
                 {
                     newT = formLink.ReturnValue().ToString();
-                    _myWeb.ChangeArcName(((Node)e.Link.Origin.Tag).ID, e.Link.Text, newT, ((Node)e.Destination.Tag).ID);
+                    SemanticWeb.Web().ChangeArcName(((Node)e.Link.Origin.Tag).ID, e.Link.Text, newT, ((Node)e.Destination.Tag).ID);
                     e.Link.Text = newT;
                     SendMessage("изменение дуги завершилось: " + e.Link.Text + " от " + e.Link.Origin.Text + " к " + e.Link.Destination.Text);
-                    _somethingChanged = true;
                 }
                 else
                 {
@@ -319,17 +308,17 @@ namespace textMindFusion
             try
             {
                 ComboBoxForm formLink = new ComboBoxForm();
-                formLink.RefreshValue(_myWeb.GetAllowedArcNames(((Node)e.Link.Origin.Tag).ID));
+                formLink.RefreshValue(SemanticWeb.Web().GetAllowedArcNames(((Node)e.Link.Origin.Tag).ID));
                 formLink.ShowDialog();
                 SendMessage("создание дуги " + e.Link.Text + " от " + e.Link.Origin.Text + " к " + e.Link.Destination.Text);
                 if (formLink.DialogResult == true)
                 {
                     //throw new ArgumentException();
                     e.Link.Text = formLink.ReturnValue().ToString();
-                    _myWeb.AddArc(((Node)e.Link.Origin.Tag).ID, e.Link.Text, ((Node)e.Link.Destination.Tag).ID);
+                    SemanticWeb.Web().AddArc(((Node)e.Link.Origin.Tag).ID, e.Link.Text, ((Node)e.Link.Destination.Tag).ID);
                     e.Link.Tag = true;
                     SendMessage("создание дуги завершилось: " + e.Link.Text + " от " + e.Link.Origin.Text + " к " + e.Link.Destination.Text);
-                    _somethingChanged = true;
+                    //_somethingChanged = true;
                 }
                 else
                 {
@@ -376,11 +365,11 @@ namespace textMindFusion
             {
                 if ((bool)e.Link.Tag)
                 {
-                   if (!load || !reload) 
-                     _myWeb.DeleteArc(((Node) e.Link.Origin.Tag).ID, e.Link.Text, ((Node) e.Link.Destination.Tag).ID);
+                   if (!load || !reload)
+                       SemanticWeb.Web().DeleteArc(((Node)e.Link.Origin.Tag).ID, e.Link.Text, ((Node)e.Link.Destination.Tag).ID);
                 }
                 SendMessage("дуга удалена: " + e.Link.Text + " от " + e.Link.Origin.Text + " к " + e.Link.Destination.Text);
-                _somethingChanged = true;
+               // _somethingChanged = true;
             }
             // e.Link.Destination - цель
             // e.Link.Origin//от куда
@@ -404,17 +393,17 @@ namespace textMindFusion
             {
                 if (oldLink.Origin.Text != e.Link.Origin.Text)
                 {
-                    _myWeb.ChangeArcDirectionFrom(((Node)oldLink.Origin.Tag).ID, ((Node)e.Link.Origin.Tag).ID, e.Link.Text, ((Node)e.Link.Destination.Tag).ID);
+                    SemanticWeb.Web().ChangeArcDirectionFrom(((Node)oldLink.Origin.Tag).ID, ((Node)e.Link.Origin.Tag).ID, e.Link.Text, ((Node)e.Link.Destination.Tag).ID);
                     SendMessage("изменение дуги заврешено: " + e.Link.Text + " от " + e.Link.Origin.Text + " к " + e.Link.Destination.Text);
-                    _somethingChanged = true;
+                    //_somethingChanged = true;
                 }
                 if (oldLink.Destination.Text != e.Link.Destination.Text)
                 {
-                    _myWeb.ChangeArcDirectionFrom(((Node)oldLink.Origin.Tag).ID, ((Node)e.Link.Origin.Tag).ID, e.Link.Text, ((Node)e.Link.Destination.Tag).ID);
+                    SemanticWeb.Web().ChangeArcDirectionFrom(((Node)oldLink.Origin.Tag).ID, ((Node)e.Link.Origin.Tag).ID, e.Link.Text, ((Node)e.Link.Destination.Tag).ID);
                 
                     //_myWeb.ChangeArcDirectionTo(((Node)e.Link.Origin.Tag).ID, oldLink.Destination.Text, ((Node)e.Link.Tag).ID, ((Node)e.Link.Destination.Tag).ID);
                     SendMessage("изменение дуги заврешено: " + e.Link.Text + " от " + e.Link.Origin.Text + " к " + e.Link.Destination.Text);
-                    _somethingChanged = true;
+                    //_somethingChanged = true;
                 }
 
 
@@ -455,42 +444,12 @@ namespace textMindFusion
         }
 #endregion
 #endregion
-
-        #region загрузка/закрытие окна
-        //private void Window_Closing_1(object sender, System.ComponentModel.CancelEventArgs e)
-        //{
-        //    MessageBoxResult result = MessageBox.Show("Сохранить изменения и выйти?", "Изменения не сохранены?",
-        //                  MessageBoxButton.YesNoCancel);// == System.Windows.Forms.DialogResult.No)
-        //    switch (result)
-        //    {
-        //        case MessageBoxResult.Yes: /*SemanticWeb.WriteToXml(path, _myWeb)*/saveButton_Click(new object(),new RoutedEventArgs()); break;//сохр. изменения  
-        //        case MessageBoxResult.No: break;  //закрыть
-        //        default: e.Cancel = true; break; //остановить закрытие
-        //    } 
-        //}
-
-        //private void Window_Loaded_1(object sender, RoutedEventArgs e)
-        //{
-        //    try
-        //    {
-        //        _myWeb = SemanticWeb.ReadFromXml(path);
-        //        //myViewWeb = new SemanticWebUsersLevel(_myWeb);
-        //        PrintGraph(_myWeb);
-        //        SendMessage("Сем. сеть загружена");
-        //    }
-        //    catch (Exception e1)
-        //    {
-        //        load = false;
-        //        SendMessage("Сем. сеть пуста");
-
-        //    }
-        //}
-#endregion
-
-     
-
        
-        
+        /// <summary>
+        /// изменение режима редактирования/просмотра
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void isEdit_Click(object sender, RoutedEventArgs e)
         {
             if (isEdit.IsChecked == true)
@@ -527,8 +486,20 @@ namespace textMindFusion
                 var change = new MenuItem { Header = "Изменить вершину" };
                 change.Click += changeOnClick;
                 items.Add(change);
+                //Изменить синонимы
+                //проверка на пустое имя вершины
+                var synEdit = new MenuItem {Header = "Синонимы"};
+                synEdit.Click += SynEditOnClick;
+                items.Add(synEdit);
                 return items;
             }
+        }
+
+        private void SynEditOnClick(object sender, RoutedEventArgs routedEventArgs)
+        {
+            var w = new SynWindow(_fileName, ((Node)rightNode.Tag).Name);
+            w.ShowDialog();
+            PrintGraph(SemanticWeb.Web());
         }
 
         private void delOnClick(object sender, RoutedEventArgs routedEventArgs)
@@ -623,14 +594,14 @@ namespace textMindFusion
         }
         private void addnOnClick(object sender, RoutedEventArgs routedEventArgs)
         {
-            Node tagNode =  _myWeb.AddNode("");
+            Node tagNode = SemanticWeb.Web().AddNode("");
             var Bounds = new Rect(new System.Windows.Point(rightClick.X, rightClick.Y), new System.Windows.Point(rightClick.X + nodeWidth, rightClick.Y + nodeHeight));
             var diagramNode = DD.Factory.CreateShapeNode(Bounds);
             diagramNode.Text = "";
             diagramNode.Tag = tagNode;
             DD.Nodes.Add(diagramNode);
             SendMessage("Создание вершины");
-            _somethingChanged = true;
+            //_somethingChanged = true;
 
         }
         #endregion
@@ -647,7 +618,7 @@ namespace textMindFusion
         bool Verification()
         {
             ListBoxVerification.Items.Clear();
-            var verefication = new Verification(_myWeb);
+            var verefication = new Verification();
             verefication.Verificate();
             if (verefication.NoErros)
             {
@@ -664,7 +635,6 @@ namespace textMindFusion
 
         #region Переменные
         private string _fileName = string.Empty;
-        private bool _somethingChanged;
         private bool _isOpen;
         private const string DefaultExtension = ".xml";
         #endregion
@@ -673,11 +643,16 @@ namespace textMindFusion
 
         static MainWindow()
         {
-            EditWithForms = new RoutedUICommand("EditWithForms", "EditWithForms", typeof(MainWindow));
-            //EditVisual = new RoutedUICommand("EditVisual", "EditVisual", typeof(MainWindow));
+            LoadData = new RoutedUICommand("LoadData", "LoadData", typeof(MainWindow));
+            LoadData.InputGestures.Add(new KeyGesture(Key.D, ModifierKeys.Control));
             Consult = new RoutedUICommand("Consult", "Consult", typeof(MainWindow));
+            Consult.InputGestures.Add(new KeyGesture(Key.F5));
             Cancel = new RoutedUICommand("Cancel", "Cancel", typeof(MainWindow));
+            LoadDemo = new RoutedUICommand("Загрузить демо", "LoadDemo", typeof (MainWindow));
+            LoadDemo.InputGestures.Add(new KeyGesture(Key.L, ModifierKeys.Control));
+            
         }
+
         #endregion
 
         #region Файл
@@ -688,9 +663,8 @@ namespace textMindFusion
             //если в данный момент что-то открыто, это надо закрыть
             if (_isOpen)
                 ApplicationCommands.Close.Execute(null, null);
-            _myWeb = new SemanticWeb();
             _isOpen = true;
-            PrintGraph(_myWeb);
+            PrintGraph(SemanticWeb.Web());
             DD.IsEnabled = true;
             ChangeTopMenuNode();
             VerificationButton.IsEnabled = ArrangeButton.IsEnabled = true;
@@ -705,12 +679,27 @@ namespace textMindFusion
         {
             if (_isOpen)
                 ApplicationCommands.Close.Execute(null, null);
-            //var ofd = new OpenFileDialog { Filter = "xml files (*.xml)|*.xml|All files (*.*)|*.*" };
-            //if (ofd.ShowDialog() != true) return;
-            //_fileName = ofd.FileName;
+            var ofd = new OpenFileDialog { Filter = "xml files (*.xml)|*.xml|All files (*.*)|*.*" };
+            if (ofd.ShowDialog() != true) return;
+            _fileName = ofd.FileName;
+            SemanticWeb.ReadFromXml(_fileName);
+            PrintGraph(SemanticWeb.Web());
+            DD.IsEnabled = true;
+            _isOpen = true;
+            ChangeTopMenuNode();
+            VerificationButton.IsEnabled = ArrangeButton.IsEnabled = true;
+            zoomInButton.IsEnabled = zoomOutButton.IsEnabled = fitButton.IsEnabled = noZoomButton.IsEnabled = true;
+        }
+
+        public static RoutedUICommand LoadDemo { get; private set; }
+
+        public void LoadDemoExecuted(object sender, RoutedEventArgs e)
+        {
+            if (_isOpen)
+                ApplicationCommands.Close.Execute(null, null);
             _fileName = @"C:\Users\Ирина\Documents\Чуприна\1 — копия.xml";
-            _myWeb = SemanticWeb.ReadFromXml(_fileName);
-            PrintGraph(_myWeb);
+            SemanticWeb.ReadFromXml(_fileName);
+            PrintGraph(SemanticWeb.Web());
             DD.IsEnabled = true;
             _isOpen = true;
             ChangeTopMenuNode();
@@ -732,7 +721,7 @@ namespace textMindFusion
             }
             foreach (DiagramNode t in DD.Nodes)
             {
-                _myWeb.ChangeNodeCoordinates(((Node)t.Tag).ID, t.Bounds.X, t.Bounds.Y);
+                SemanticWeb.Web().ChangeNodeCoordinates(((Node)t.Tag).ID, t.Bounds.X, t.Bounds.Y);
             }
         }
 
@@ -744,8 +733,7 @@ namespace textMindFusion
                 ApplicationCommands.SaveAs.Execute(null, null);
             else
             {
-                SemanticWeb.WriteToXml(_fileName, _myWeb);
-                _somethingChanged = false;
+                SemanticWeb.WriteToXml(_fileName);
             }
         }
 
@@ -764,15 +752,14 @@ namespace textMindFusion
             var saveDialog = new SaveFileDialog { FileName = _fileName, AddExtension = true, DefaultExt = DefaultExtension };
             if (saveDialog.ShowDialog() != true) return;
             _fileName = saveDialog.FileName;
-            SemanticWeb.WriteToXml(_fileName, _myWeb);
-            _somethingChanged = false;
+            SemanticWeb.WriteToXml(_fileName);
         }
         #endregion
 
         #region Закрыть
         private void CloseExecuted(object sender, ExecutedRoutedEventArgs e)
         {
-            if (_somethingChanged)
+            if (SemanticWeb.IsChanged)
             {
                 var res = MessageBox.Show("Сохранить изменения?", "", MessageBoxButton.YesNoCancel);
                 if (res == MessageBoxResult.Yes)
@@ -783,7 +770,7 @@ namespace textMindFusion
             DD.ClearAll();
             _isOpen = false;
             _fileName = string.Empty;
-            _somethingChanged = false;
+            SemanticWeb.Close();
         }
 
         private void CanExecuteIfIsOpen(object sender, CanExecuteRoutedEventArgs e)
@@ -800,24 +787,16 @@ namespace textMindFusion
         #endregion
         #endregion
 
-        #region Редактирование через формочки
+        #region Загрузка данных
 
-        public static RoutedUICommand EditWithForms { get; private set; }
+        public static RoutedUICommand LoadData { get; private set; }
 
         public void EditWithFormsExecuted(object sender, ExecutedRoutedEventArgs e)
         {
-            //InProgerssStatusBar("Редактирование");
-            //var f = new EditWindow(_filePath + _copyFileName);
-            //f.ShowDialog();
-            //_somethingChanged = true;
-            //NormalizeStatusBar();
-            var f = new KacWindow {SW = _myWeb};
+            SaveExecuted(null, null);
+            var f = new KacWindow();
             f.ShowDialog();
-            _myWeb = f.SW;
-            SemanticWeb.WriteToXml(_fileName, _myWeb);
-            //_myWeb = SemanticWeb.ReadFromXml(_filePath + _copyFileName);
-            PrintGraph(_myWeb);
-            _somethingChanged = true;
+            PrintGraph(SemanticWeb.Web());
         }
 
         #endregion
@@ -829,15 +808,14 @@ namespace textMindFusion
         private void ConsultExecuted(object sender, ExecutedRoutedEventArgs e)
         {
             //проверка сем. сети
-            //_sw = SemanticWeb.ReadFromXml(_filePath + _copyFileName);
-            var checker = new Verification(_myWeb);
+            var checker = new Verification();
             checker.Verificate();
             if (!checker.NoErros)
             {
                 //ErrorStatusBar("Сем. сеть содержит ошибки. Консультация невозможна.");
                 return;
             }
-            var w = new ConsultingWindow.MainWindow { Sw = _myWeb };
+            var w = new ConsWindow();
             w.Show();
         }
 
@@ -847,11 +825,6 @@ namespace textMindFusion
         }
 
         #endregion
-
-        private void DD_LinkActivated(object sender, LinkEventArgs e)
-        {
-            //e.Link.Style.Setters.Add(new Setter(
-        }
 
         #endregion
 
@@ -896,7 +869,7 @@ namespace textMindFusion
         #region верхняя менюшка по вершинам:добавить/изменить/удалить
         private void AddNodeButton_Click(object sender, RoutedEventArgs e)
         {
-            Node tagNode = _myWeb.AddNode("");
+            Node tagNode = SemanticWeb.Web().AddNode("");
             var Bounds = new Rect(new System.Windows.Point(0, 0), new System.Windows.Point(0 + nodeWidth, 0 + nodeHeight));
             var diagramNode = DD.Factory.CreateShapeNode(Bounds);
             diagramNode.Text = "";
@@ -904,7 +877,7 @@ namespace textMindFusion
             diagramNode.Selected = true;
             DD.Nodes.Add(diagramNode);
             SendMessage("Создание вершины");
-            _somethingChanged = true;
+            //_somethingChanged = true;
         }
 
         private void ChangeNodeButton_Click(object sender, RoutedEventArgs e)
@@ -922,6 +895,9 @@ namespace textMindFusion
         }
 #endregion
 
+        /// <summary>
+        /// dвспомогательная штучка, которая зажигает кнопочки для редактирования вершин
+        /// </summary>
         void ChangeTopMenuNode()
         {
             AddNodeButton.IsEnabled = true;
@@ -941,12 +917,6 @@ namespace textMindFusion
                 DeleteNodeButton.IsEnabled = true;
             }
         }
-
-        private void isEdit_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
     }
 }
 

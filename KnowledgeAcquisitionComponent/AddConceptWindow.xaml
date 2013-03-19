@@ -55,19 +55,29 @@
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
         <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource LabelStyle}" HorizontalAlignment="Right">Имя:</Label>
-        <TextBox Name="tbName" Grid.Row="0" Grid.Column="1" Style="{StaticResource TextBoxStyle}"></TextBox>
+        <TextBox Name="tbName" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Style="{StaticResource TextBoxStyle}"></TextBox>
         <Label Grid.Row="1" Grid.Column="0" Style="{StaticResource LabelStyle}" HorizontalAlignment="Right">Тип:</Label>
-        <ComboBox Name="cbTypes" Grid.Row="1" Grid.Column="1" Style="{StaticResource ComboBoxStyle}" ItemsSource="{Binding}"
+        <ComboBox Name="cbTypes" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Style="{StaticResource ComboBoxStyle}" ItemsSource="{Binding}"
                   SelectionChanged="CbTypesSelectionChanged1"></ComboBox>
-        <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="2" Grid.ColumnSpan="2" Background="Transparent">
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="2" Grid.ColumnSpan="2" Background="Transparent" Margin="3">
             <TreeView Name="twIsA"></TreeView>
         </ScrollViewer>
-        <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Center">
+        <GroupBox Name="gbType" Header="Тип" Grid.Row="2" Grid.Column="2" FontSize="14" Margin="3"
+                  Background="Transparent">
+            <StackPanel>
+                <RadioButton Name="rbSubClass" IsChecked="True" Margin="3,6,3,3">Подкласс</RadioButton>
+                <RadioButton Name="rbInstance" IsChecked="False" Margin="3">Экземпляр</RadioButton>
+                <RadioButton Name="rbSynonym" IsChecked="False" Margin="3">Синоним</RadioButton>
+                <RadioButton Name="rbWordForm" IsChecked="False" Margin="3">Форма слова</RadioButton>
+            </StackPanel>
+        </GroupBox>
+        <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.ColumnSpan="3" HorizontalAlignment="Center">
             <Button Name="btnOK" IsDefault="True" Style="{StaticResource ButtonStyle}"
                     Command="KnowledgeAcquisitionComponent:AddConceptWindow.AddConcept">Добавить</Button>
             <Button Name="btnClose" Style="{StaticResource ButtonStyle}" Click="BtnCloseClick1">Отмена</Button>

@@ -1,6 +1,4 @@
 C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\ConsultingWindow\obj\Debug\ConsultingWindow.csprojResolveAssemblyReference.cache
-C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\ConsultingWindow\obj\Debug\MainWindow.baml
-C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\ConsultingWindow\obj\Debug\MainWindow.g.cs
 C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\ConsultingWindow\obj\Debug\App.g.cs
 C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\ConsultingWindow\obj\Debug\ConsultingWindow_MarkupCompile.cache
 C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\ConsultingWindow\obj\Debug\ConsultingWindow.g.resources
@@ -16,3 +14,5 @@ C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\ConsultingW
 C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\ConsultingWindow\bin\Debug\Kernel.pdb
 C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\ConsultingWindow\obj\Debug\ConsultingWindow.exe
 C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\ConsultingWindow\obj\Debug\ConsultingWindow.pdb
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\ConsultingWindow\obj\Debug\ConsultingWindow.g.cs
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\ConsultingWindow\obj\Debug\ConsultingWindow.baml

@@ -140,6 +140,10 @@
       <Project>{e0170101-45af-4436-8267-de6f0213cab1}</Project>
       <Name>KnowledgeAcquisitionComponent</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SynonymEditor\SynonymEditor.csproj">
+      <Project>{a7941e9b-797a-46d3-9ba7-08b0b6052bf7}</Project>
+      <Name>SynonymEditor</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="img\fit.png" />

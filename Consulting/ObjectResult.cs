@@ -35,11 +35,6 @@ namespace Consulting
         public List<string> WayToParent { get; set; }
 
         /// <summary>
-        /// Используется в:
-        /// </summary>
-        public List<string> Usages { get; set; }
-
-        /// <summary>
         /// Запросы по дугам из Relations (более сладкий и тп)
         /// </summary>
         public List<string> RelativeQueries { get; set; }
@@ -66,10 +61,10 @@ namespace Consulting
             //тип
             stackPanel.Children.Add(new Label {Content = Name + " - это " + Type});
             //иерархия
-            if (WayToParent.Count > 0)
+            if (WayToParent.Count > 1)
             {
                 var lb = new ListBox {ItemsSource = WayToParent};
-                lb.MouseDoubleClick += (sender, args) => ExecuteSimilarQuery(lb.SelectedItems.ToString());
+                lb.MouseDoubleClick += (sender, args) => ExecuteSimilarQuery(lb.SelectedItem.ToString());
                 exp = new Expander {Header = "Иерархия", Content = lb};
                 stackPanel.Children.Add(exp);
             }
@@ -77,32 +72,25 @@ namespace Consulting
             if (InfFromFile != null && InfFromFile.Count > 0)
             {
                 var lb = new ListBox { ItemsSource = InfFromFile };
-                lb.MouseDoubleClick += (sender, args) => ExecuteSimilarQuery(lb.SelectedItems.ToString());
+                lb.MouseDoubleClick += (sender, args) => ExecuteSimilarQuery(lb.SelectedItem.ToString());
                 exp = new Expander { Header = "Информация из файла", Content = lb };
                 stackPanel.Children.Add(exp);
             }
             //InfFromMetadata
-            if (InfFromMetadata.Header != null)
+            if (InfFromMetadata.Header != null && InfFromMetadata.Items.Count > 0)
             {
+                
                 var tw = new TreeView();
                 tw.Items.Add(InfFromMetadata);
                 tw.MouseDoubleClick += (sender, args) => ExecuteSimilarQuery(((TreeViewItem)tw.SelectedItem).Header.ToString());
                 exp = new Expander { Header = "Общая информация (из метазнаний)", Content = tw };
                 stackPanel.Children.Add(exp);
             }
-            //используется в:
-            if (Usages!=null && Usages.Count > 0)
-            {
-                var lb = new ListBox { ItemsSource = Usages };
-                lb.MouseDoubleClick += (sender, args) => ExecuteSimilarQuery(lb.SelectedItems.ToString());
-                exp = new Expander {Header = "Используется в:", Content = lb};
-                stackPanel.Children.Add(exp);
-            }
             //похожие запросы
             if (SimilarQueries!=null && SimilarQueries.Count > 0)
             {
                 var lb = new ListBox { ItemsSource = SimilarQueries };
-                lb.MouseDoubleClick += (sender, args) => ExecuteSimilarQuery(lb.SelectedItems.ToString());
+                lb.MouseDoubleClick += (sender, args) => ExecuteSimilarQuery(lb.SelectedItem.ToString());
                 exp = new Expander { Header = "Связанные запросы", Content = lb };
                 stackPanel.Children.Add(exp);
             }

@@ -21,6 +21,12 @@ namespace Kernel
 
         public const string ErrMsg = "Needs to be fixed! ";
 
+        private static SemanticWeb _web;
+
+        public static bool IsChanged;
+
+        public List<Node> WayToSystem { get; private set; }
+
         #endregion
 
         #region Списки служебных дуг и рёбер
@@ -66,7 +72,13 @@ namespace Kernel
         #endregion
 
         #region Инициализация
-        public SemanticWeb()
+
+        public static SemanticWeb Web()
+        {
+            return _web ?? (_web = new SemanticWeb());
+        }
+
+        private SemanticWeb()
         {
             Nodes = new List<Node>();
             Arcs = new List<Arc>();
@@ -106,6 +118,7 @@ namespace Kernel
 
         #region Вершины
 
+        #region Полезные вершинофункции
         /// <summary>
         /// Проверяет существование вершины с заданным именем
         /// </summary>
@@ -115,6 +128,61 @@ namespace Kernel
         {
             return Nodes.Any(x => x.Name.Trim().ToUpper() == nodeName.Trim().ToUpper());
         }
+
+        /// <summary>
+        /// Возвращает вершину с данным именем.
+        /// Если слово не встречается в сем. сети, возвращает null
+        /// </summary>
+        /// <param name="word">Слово, синоним или форма слова</param>
+        /// <returns></returns>
+        public Node FindNode(string word)
+        {
+            if (word.Trim() == string.Empty)
+                throw new ArgumentException(ErrMsg + "Не ищи вершину с пустым именем в сети!");
+            //проходим по всем синонимам и формам слов
+            foreach (var node in Nodes)
+            {
+                if (node.Name.Trim().ToUpper() == word.Trim().ToUpper())
+                    return node;
+                for (int k = 0; k < node.WordForms[node.Name].Count(); k++)
+                {
+                    var wordForm = node.WordForms[node.Name][k];
+                    if (wordForm.Trim().ToUpper() == word.Trim().ToUpper())
+                        return node;
+                }
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// Возвращает вершину с данным именем или с таким синонимом (формой слова).
+        /// Если слово не встречается в сем. сети, возвращает null
+        /// </summary>
+        /// <param name="word">Слово, синоним или форма слова</param>
+        /// <returns></returns>
+        public Node FindNodeWithSynonyms(string word)
+        {
+            if (word.Trim() == string.Empty)
+                throw new ArgumentException(ErrMsg + "Не ищи вершину с пустым именем в сети!");
+            //проходим по всем синонимам и формам слов
+            foreach (var node in Nodes)
+            {
+                for (int j = 0; j < node.WordForms.Keys.Count(); j++)
+                {
+                    var syn = node.WordForms.Keys.ToList()[j];
+                    if (syn.Trim().ToUpper() == word.Trim().ToUpper())
+                        return node;
+                    for (int k = 0; k < node.WordForms[syn].Count(); k++)
+                    {
+                        var wordForm = node.WordForms[syn][k];
+                        if (wordForm.Trim().ToUpper() == word.Trim().ToUpper())
+                            return node;
+                    }
+                }
+            }
+            return null;
+        }
+        #endregion
 
         #region Добавление
         /// <summary>
@@ -142,6 +210,7 @@ namespace Kernel
                 node = new Node { ID = Atom(nodeName), Name = nodeName.Trim() };
             }
             Nodes.Add(node);
+            IsChanged = true;
             return node;
         } 
         #endregion
@@ -162,8 +231,9 @@ namespace Kernel
             //    arc.From.Name = newName;
             //foreach (var arc in Arcs.Where(x => x.To.ID == nodeID))
             //    arc.To.Name = newName;
+            node.ChangeSynonym(node.Name, newName);
             node.Name = newName;
-            
+            IsChanged = true;
         } 
 
         /// <summary>
@@ -177,6 +247,7 @@ namespace Kernel
             var node = Mota(nodeID);
             node.X = newX;
             node.Y = newY;
+            IsChanged = true;
         }
         #endregion
 
@@ -192,6 +263,7 @@ namespace Kernel
                 throw new ArgumentException("Невозможно удалить вершину по имени, т.к. вершин" +
                                             "с таким именем несколько");
             DeleteNode(node[0]);
+            IsChanged = true;
         }
 
         /// <summary>
@@ -201,6 +273,7 @@ namespace Kernel
         public void DeleteNode(Node node)
         {
             DeleteNode(node.ID);
+            IsChanged = true;
         }
 
         /// <summary>
@@ -217,6 +290,7 @@ namespace Kernel
                 DeleteArc(arc[i]);
             //удаляем вершину
             Nodes.Remove(Nodes.Single(x => x.ID == nodeID));
+            IsChanged = true;
         } 
         #endregion
         #endregion
@@ -333,8 +407,9 @@ namespace Kernel
         /// Для неименованной вершины получает имя соответствующей именованной вершины
         /// </summary>
         /// <param name="unnamedNode"></param>
+        /// <param name="searchParent"> </param>
         /// <returns></returns>
-        public string GetNameForUnnamedNode(Node unnamedNode)
+        public string GetNameForUnnamedNode(Node unnamedNode, bool searchParent)
         {
             if (ArcExists(unnamedNode.ID, "#Name"))
             {
@@ -343,12 +418,12 @@ namespace Kernel
                     return nameNode[0].Name;
                 throw new ArgumentException(ErrMsg + "Из неименованной вершины выходит несколько дуг #Name");
             }
-            if (ArcExists(unnamedNode.ID, "#is_instance"))
+            if (searchParent && ArcExists(unnamedNode.ID, "#is_instance"))
             {
                 var parentNode = GetAttr(unnamedNode.ID, "#is_instance");
-                return GetNameForUnnamedNode(parentNode);
+                return GetNameForUnnamedNode(parentNode, false);
             }
-            return string.Empty;
+            return null;
         }
 
         /// <summary>
@@ -396,6 +471,7 @@ namespace Kernel
                               To = toNode.ID
                           };
             Arcs.Add(arc);
+            IsChanged = true;
             return arc;
         }
         #endregion
@@ -456,6 +532,7 @@ namespace Kernel
                                                x.Name.Trim().ToUpper() == arcName.Trim().ToUpper() &&
                                                x.To == toID);
                 Arcs.Remove(arcToRemove);
+                IsChanged = true;
             }
             catch (Exception ex)
             {
@@ -538,25 +615,35 @@ namespace Kernel
         }
 
         /// <summary>
-        /// Для вершины nodeID находит самого верхнего предка по дугам is_a и is_instance
+        /// Для неименованной вершины nodeID находит самого верхнего предка по дугам is_a и is_instance
         /// и возвращает имя дуги, которой этот предок связан с вершиной System
         /// </summary>
         /// <param name="nodeID">ID вершины</param>
         /// <returns>имя дуги, которой предок связан с вершиной System</returns>
         public string OldestParentArc(int nodeID)
         {
+            WayToSystem = new List<Node>();
             Node parentNode = Mota(nodeID);
+            WayToSystem.Add(parentNode);
             if (ArcExists(parentNode.ID, "#is_instance"))
+            {
                 parentNode = GetAttr(parentNode.ID, "#is_instance");
+                //WayToSystem.Add("#is_instance");
+                WayToSystem.Add(parentNode);
+            }
             while (ArcExists(parentNode.ID, "#is_a"))
             {
                 parentNode = GetAttr(parentNode.ID, "#is_a");
+                //WayToSystem.Add("#is_a");
+                WayToSystem.Add(parentNode);
             }
             var arcToSystem = GetArcsBetweenNodes(Atom("#System"), parentNode.ID).ToList();
             if (!arcToSystem.Any())
                 return string.Empty;
             if (arcToSystem.Count()> 1)
                 throw new ArgumentException("Между родителем и системной вершиной больше 1 дуги");
+            //WayToSystem.Add(arcToSystem[0].Name);
+            WayToSystem.Add(Mota(Atom("#System")));
             return arcToSystem[0].Name;
         }
 
@@ -607,7 +694,25 @@ namespace Kernel
         /// <returns></returns>
         public List<string> GetAllMetaObjectNames()
         {
-            return GetAllAttr(Atom("#System"), "#MetaObjects").Select(GetNameForUnnamedNode).ToList();
+            return GetAllAttr(Atom("#System"), "#MetaObjects").Select(unnamedNode => GetNameForUnnamedNode(unnamedNode, false)).ToList();
+        }
+
+        /// <summary>
+        /// Возвращает имена тех метаобъектов, которые имеют атрибуты, но не являются ничьим атрибутом
+        /// </summary>
+        /// <returns></returns>
+        public List<string> GetMainMetaObjectNames()
+        {
+            var res = new List<string>();
+            //В нашем случае возвращает Коктейль
+            foreach (var metaObj in GetAllAttr(Atom("#System"), "#MetaObjects"))
+            {
+                int attrCount = GetAllAttr(metaObj.ID, "#HasAttribute").Count();
+                int usagesCount = GetArcsDirectedToMe(metaObj.ID).Count(x => x.Name == "#HasAttribute");
+                if (attrCount > 0 && usagesCount == 0)
+                    res.Add(GetNameForUnnamedNode(metaObj, false));
+            }
+            return res;
         }
 
         #endregion
@@ -618,15 +723,15 @@ namespace Kernel
         /// </summary>
         /// <param name="path">Путь к файлу</param>
         /// <param name="sw">Объект, который сохраняем</param>
-        public static void WriteToXml(string path, SemanticWeb sw)
+        public static void WriteToXml(string path)
         {
             var xw = new XmlTextWriter(path, Encoding.UTF8) { Formatting = Formatting.Indented };
             XmlDictionaryWriter writer = XmlDictionaryWriter.CreateDictionaryWriter(xw);
             var ser = new DataContractSerializer(typeof(SemanticWeb));
-            ser.WriteObject(writer, sw);
+            ser.WriteObject(writer, _web);
             writer.Close();
             xw.Close();
-            
+            IsChanged = false;
         }
 
         /// <summary>
@@ -634,10 +739,8 @@ namespace Kernel
         /// </summary>
         /// <param name="path">Путь к файлу</param>
         /// <returns></returns>
-        public static SemanticWeb ReadFromXml(string path)
+        public static void ReadFromXml(string path)
         {
-            SemanticWeb sw;
-
             try
             {
                 using (var fs = new FileStream(path, FileMode.Open))
@@ -645,15 +748,36 @@ namespace Kernel
                     var reader = XmlDictionaryReader.CreateTextReader(fs, Encoding.UTF8,
                                                                       new XmlDictionaryReaderQuotas(), null);
                     var ser = new DataContractSerializer(typeof(SemanticWeb));
-                    sw = (SemanticWeb)ser.ReadObject(reader);
+                    _web = (SemanticWeb)ser.ReadObject(reader);
                 }
+                IsChanged = false;
             }
             catch
             {
-                sw = new SemanticWeb();
+                _web = new SemanticWeb();
             }
-            return sw;
         } 
         #endregion
+
+        #region Closing
+        //public static void MakeEverythingGood()
+        //{
+        //    foreach (var node in _web.Nodes)
+        //    {
+        //        if (node.Synonyms.Count == 0)
+        //            node.Synonyms.Add(node.Name);
+        //        foreach (var synonym in node.Synonyms)
+        //        {
+        //            node.WordForms.Add(synonym, new List<string>());
+        //        }
+        //    }
+        //}
+
+        public static void Close()
+        {
+            _web = null;
+        } 
+        #endregion
+
     }
 }

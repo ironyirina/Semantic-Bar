@@ -22,24 +22,26 @@ namespace Consulting
 
         public ClassResult(ObjectResult res)
         {  
-           InfFromMetadata = res.InfFromMetadata;
-           Instances = new TreeViewItem();
-           Name = res.Name;
-           SimilarQueries = res.SimilarQueries;
-           Type = res.Type;
-           UnnamedMeNode = res.UnnamedMeNode;
-           WayToParent = res.WayToParent;
+            InfFromMetadata = res.InfFromMetadata;
+            Instances = new TreeViewItem();
+            Name = res.Name;
+            SimilarQueries = res.SimilarQueries;
+            Type = res.Type;
+            UnnamedMeNode = res.UnnamedMeNode;
+            WayToParent = res.WayToParent;
+            ExecuteSimilarQuery = res.ExecuteSimilarQuery;
         }
 
         public override GroupBox Print()
         {
-            var stackPanel = new StackPanel();
             var groupBox = base.Print();
+            var stackPanel = (StackPanel)groupBox.Content;
             //Экземпляры и потомки
             if (Instances.Header != null)
             {
                 var tw = new TreeView();
                 tw.Items.Add(Instances);
+                tw.MouseDoubleClick += (sender, args) => ExecuteSimilarQuery(((TreeViewItem)tw.SelectedItem).Header.ToString());
                 var exp = new Expander {Header = "Потомки", Content = tw};
                 stackPanel.Children.Add(exp);
             }

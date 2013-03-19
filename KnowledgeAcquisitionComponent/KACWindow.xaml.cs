@@ -1,17 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows.Input;
 using Kernel;
 using Microsoft.Win32;
 
@@ -20,11 +7,9 @@ namespace KnowledgeAcquisitionComponent
     /// <summary>
     /// Interaction logic for KacWindow.xaml
     /// </summary>
-    public partial class KacWindow : Window
+    public partial class KacWindow
     {
         private string _fileName;// = @"C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Bellini.txt";
-
-        public SemanticWeb SW { get; set; }
 
         #region Инициализация
         public KacWindow()
@@ -60,9 +45,9 @@ namespace KnowledgeAcquisitionComponent
 
         private void LoadExecuted(object sender, ExecutedRoutedEventArgs e)
         {
-            var loader = new Loader(_fileName, SendReport) {SW = SW};
+            var loader = new Loader(_fileName, SendReport);
             loader.Load();
-            //Close();
+            Close();
         }
 
         private void SendReport(string s)

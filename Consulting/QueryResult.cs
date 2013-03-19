@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using Kernel;
 
 namespace Consulting
@@ -12,6 +13,11 @@ namespace Consulting
     /// </summary>
     public class QueryResult
     {
+        /// <summary>
+        /// Запрос
+        /// </summary>
+        public string Query;
+
         /// <summary>
         /// Слова из запроса
         /// </summary>
@@ -33,9 +39,21 @@ namespace Consulting
         public List<string> Connections { get; set; }
 
         /// <summary>
+        /// Результат совместного поиска слов
+        /// </summary>
+        public List<string> JointResult { get; set; }
+
+        /// <summary>
+        /// Обобщённый результат
+        /// </summary>
+        public List<string> GeneralResult { get; set; }
+
+        /// <summary>
         /// Сообщение о выполнении запроса
         /// </summary>
         public string Message { get; set; }
+
+        public Action<string> ExecuteSimilarQuery { get; set; }
 
         public QueryResult()
         {
@@ -43,6 +61,56 @@ namespace Consulting
             UnnamedNodes = new List<Node>();
             EveryWordResult = new List<WordResult>();
             Connections = new List<string>();
+            JointResult = new List<string>();
+            GeneralResult = new List<string>();
+        }
+
+        public StackPanel Print()
+        {
+            var stackPanel = new StackPanel();
+            Expander exp;
+            //Сообщение
+            if (!string.IsNullOrEmpty(Message))
+                stackPanel.Children.Add(new Label {Content = Message});
+            //Связи
+            if (Connections.Count > 0)
+            {
+                var lb = new ListBox {ItemsSource = Connections};
+                lb.MouseDoubleClick += (sender, args) => ExecuteSimilarQuery(lb.SelectedItem.ToString());
+                exp = new Expander {Header = "Связи между понятиями", Content = lb};
+                stackPanel.Children.Add(exp);
+            }
+            //Совместные результаты
+            if (JointResult.Count > 0)
+            {
+                var lb = new ListBox { ItemsSource = JointResult };
+                lb.MouseDoubleClick += (sender, args) => ExecuteSimilarQuery(lb.SelectedItem.ToString());
+                exp = new Expander { Header = "Результат поиска", Content = lb };
+                stackPanel.Children.Add(exp);
+            }
+            else 
+            {
+                if (EveryWordResult.Count > 1)
+                    stackPanel.Children.Add(new Label
+                                                {
+                                                    Content =
+                                                        "Показаны результаты поиска слов по отдельности."
+                                                });
+                //Результаты для отдельных слов
+                for (int i = EveryWordResult.Count - 1; i >= 0; i--)
+                {
+                    stackPanel.Children.Add(EveryWordResult[i].Print());
+                }
+            }
+            //Обобщённые результаты
+            if (GeneralResult.Count > 0)
+            {
+                var lb = new ListBox { ItemsSource = GeneralResult };
+                lb.MouseDoubleClick += (sender, args) => ExecuteSimilarQuery(lb.SelectedItem.ToString());
+                exp = new Expander { Header = "Обобщённые результаты", Content = lb };
+                stackPanel.Children.Add(exp);
+            }
+            return stackPanel;
         }
     }
 }

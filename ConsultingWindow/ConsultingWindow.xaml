@@ -1,0 +1,84 @@
+﻿<Window x:Class="ConsultingWindow.ConsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:ConsultingWindow="clr-namespace:ConsultingWindow"
+        Title="Консультация" Height="500" Width="700"
+        WindowState="Maximized">  
+    
+    <Window.CommandBindings>
+        <CommandBinding Command="ConsultingWindow:ConsWindow.Search" Executed="SearchExecuted"></CommandBinding>
+        <CommandBinding Command="ConsultingWindow:ConsWindow.Prev" Executed="PrevExecuted" CanExecute="PrevCanExecute"></CommandBinding>
+        <CommandBinding Command="ConsultingWindow:ConsWindow.Next" Executed="NextExecuted" CanExecute="NextCanExecute"></CommandBinding>
+    </Window.CommandBindings>
+    
+    <Window.Resources>
+        <Style x:Key="ButtonStyle">
+            <Setter Property="Button.Margin" Value="5"></Setter>
+            <Setter Property="Button.Padding" Value="10,5,10,5"></Setter>
+            <Setter Property="Button.Background" Value="Transparent"></Setter>
+            <Setter Property="Button.BorderBrush" Value="LightBlue"></Setter>
+            <Setter Property="Button.FontSize" Value="16"></Setter>
+            <Setter Property="Button.HorizontalAlignment" Value="Center"></Setter>
+        </Style>
+
+        <Style x:Key="LabelStyle">
+            <Setter Property="Label.HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="Label.Margin" Value="3"></Setter>
+            <Setter Property="Label.FontSize" Value="20"></Setter>
+        </Style>
+
+        <Style x:Key="TextBoxStyle">
+            <Setter Property="TextBox.VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="TextBox.Margin" Value="3"></Setter>
+            <Setter Property="TextBox.Padding" Value="3"></Setter>
+            <Setter Property="TextBox.FontSize" Value="20"></Setter>
+        </Style>
+    </Window.Resources>
+    
+    <Window.Background>
+        <LinearGradientBrush >
+            <GradientStop Color="LightCyan" Offset="0"></GradientStop>
+            <GradientStop Color="White" Offset="0.8"></GradientStop>
+            <GradientStop Color="LightCyan" Offset="1"></GradientStop>
+        </LinearGradientBrush>
+    </Window.Background>
+    
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <StackPanel Grid.ColumnSpan="3" Grid.Row="0" Orientation="Horizontal">
+            <Button Name="btnPrev" Style="{StaticResource ButtonStyle}" Padding="0"
+                    Command="ConsultingWindow:ConsWindow.Prev">
+                <Image Source="prev.png" Height="40"></Image>
+                <Button.ToolTip>Предыдущий запрос</Button.ToolTip>
+            </Button>
+            <Button Name="btnNext" Style="{StaticResource ButtonStyle}" Padding="0"
+                    Command="ConsultingWindow:ConsWindow.Next">
+                <Image Source="next.png" Height="40"></Image>
+                <Button.ToolTip>Следующий запрос</Button.ToolTip>
+            </Button>
+            <StackPanel Margin="5" HorizontalAlignment="Center">
+                <CheckBox Name="cbSyn" FontSize="12" Margin="4" IsChecked="True">Учитывать синонимы</CheckBox>
+                <CheckBox Name="cbParent" FontSize="12" Margin="4,0,4,4" IsChecked="False">Учитывать обобщения</CheckBox>
+            </StackPanel>
+        </StackPanel>
+        
+        <Label Grid.Row="1" Style="{StaticResource LabelStyle}">Текст для поиска:</Label>
+        <TextBox Name="tbQuery" Grid.Column="1" Grid.Row="1"
+                 Style="{StaticResource TextBoxStyle}"></TextBox>
+        <Button Name="bntSearch" Grid.Column="2" Grid.Row="1" Style="{StaticResource ButtonStyle}" IsDefault="True"
+                Command="ConsultingWindow:ConsWindow.Search">Поиск</Button>
+
+        <ScrollViewer CanContentScroll="True" Grid.Row="2" Grid.ColumnSpan="3">
+            <StackPanel Name="panelRes"></StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Window>

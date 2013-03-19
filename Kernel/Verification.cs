@@ -19,10 +19,6 @@ namespace Kernel
     public class Verification
     {
         #region Переменные
-		/// <summary>
-        /// Проверяемая сем. сеть
-        /// </summary>
-        private readonly SemanticWeb _semanticWeb;
 
         public List<string> Errors { get; private set; }
 
@@ -31,9 +27,8 @@ namespace Kernel
         #endregion
 
         #region Инициализация
-        public Verification(SemanticWeb semanticWeb)
+        public Verification()
         {
-            _semanticWeb = semanticWeb;
             Errors = new List<string>();
         } 
 
@@ -67,10 +62,10 @@ namespace Kernel
         private IEnumerable<string> CheckRecursion()
         {
             var errors = new List<string>();
-            var nodesWithIsA = _semanticWeb.Nodes.Where(x => _semanticWeb.ArcExists(x.ID, "#is_a"));
+            var nodesWithIsA = SemanticWeb.Web().Nodes.Where(x => SemanticWeb.Web().ArcExists(x.ID, "#is_a"));
             foreach (var node in nodesWithIsA)
             {
-                foreach (var parentNode in _semanticWeb.GetAllAttr(node.ID, "#is_a"))
+                foreach (var parentNode in SemanticWeb.Web().GetAllAttr(node.ID, "#is_a"))
                 {
                     if (!OldestParentExists(node.ID, parentNode.ID))
                         errors.Add(string.Format("Циклическая зависимость: вершина {0} является "
@@ -92,10 +87,10 @@ namespace Kernel
             //пришли в ту же вершину
             if (startNodeID == nodeID) return false;
             //дошли до конца
-            if (!_semanticWeb.ArcExists(nodeID, "#is_a"))
+            if (!SemanticWeb.Web().ArcExists(nodeID, "#is_a"))
                 return true;
             //идём дальше
-            var parentNode = _semanticWeb.GetAllAttr(nodeID, "#is_a");
+            var parentNode = SemanticWeb.Web().GetAllAttr(nodeID, "#is_a");
             return parentNode.Select(node => OldestParentExists(startNodeID, node.ID))
                 .FirstOrDefault();
         } 
@@ -109,13 +104,13 @@ namespace Kernel
         private IEnumerable<string> CheckInstancesOfInstances()
         {
             const string arcName = "#is_instance";
-            return (from node in _semanticWeb.Nodes
-                    where _semanticWeb.ArcExists(node.ID, arcName)
-                    let classNode = _semanticWeb.GetAttr(node.ID, arcName)
-                    where _semanticWeb.ArcExists(classNode.ID, arcName)
+            return (from node in SemanticWeb.Web().Nodes
+                    where SemanticWeb.Web().ArcExists(node.ID, arcName)
+                    let classNode = SemanticWeb.Web().GetAttr(node.ID, arcName)
+                    where SemanticWeb.Web().ArcExists(classNode.ID, arcName)
                     select
                         string.Format("Вершина {0} является экземпляром {1}, " + "являющейся экземпляром {2}", node.Name,
-                                      classNode.Name, _semanticWeb.GetAttr(classNode.ID, arcName)));
+                                      classNode.Name, SemanticWeb.Web().GetAttr(classNode.ID, arcName)));
         } 
         #endregion
 
@@ -125,10 +120,10 @@ namespace Kernel
             //node = a_part_of smth is_a metadata
             //node.name not in SemanticWeb.AllReservedArcs
 
-            return (from node in _semanticWeb.Nodes.Where(x => _semanticWeb.ArcExists(x.ID, "#a_part_of"))
-                    let parent = _semanticWeb.GetAttr(node.ID, "#a_part_of")
+            return (from node in SemanticWeb.Web().Nodes.Where(x => SemanticWeb.Web().ArcExists(x.ID, "#a_part_of"))
+                    let parent = SemanticWeb.Web().GetAttr(node.ID, "#a_part_of")
                     where
-                        _semanticWeb.ArcExists(parent.ID, "#is_a", _semanticWeb.Atom("#Metadata")) &&
+                        SemanticWeb.Web().ArcExists(parent.ID, "#is_a", SemanticWeb.Web().Atom("#Metadata")) &&
                         SemanticWeb.AllReservedArcs.Contains(node.Name.Trim().ToUpper())
                     select "Имя вершины из метазнаний совпадает с именем системной дуги");
         } 
@@ -137,8 +132,8 @@ namespace Kernel
         #region Проверки, связанные с именованными вершинами
         private IEnumerable<string> CheckNamedNodes()
         {
-            return (from node in _semanticWeb.Nodes
-                    where node.Name != string.Empty && node.Name != "#System" && _semanticWeb.Arcs
+            return (from node in SemanticWeb.Web().Nodes
+                    where node.Name != string.Empty && node.Name != "#System" && SemanticWeb.Web().Arcs
                         .Where(x => x.Name.Substring(0,2) != "_#")
                         .Any(x => x.From == node.ID)
                     select string.Format("Из именованной вершины {0} выходят дуги", node));
@@ -146,8 +141,8 @@ namespace Kernel
 
         private IEnumerable<string> CheckArcToNamedNodes()
         {
-            return (from namedNode in _semanticWeb.Nodes.Where(x => x.Name != string.Empty)
-                    from arc in _semanticWeb.Arcs.Where(x => x.To == namedNode.ID)
+            return (from namedNode in SemanticWeb.Web().Nodes.Where(x => x.Name != string.Empty)
+                    from arc in SemanticWeb.Web().Arcs.Where(x => x.To == namedNode.ID)
                     where arc.Name.Trim().ToUpper() != "#Name".ToUpper()
                     select string.Format("В именованную вершину {0} входит дуга с именем {1}", 
                     namedNode.Name, arc.Name));

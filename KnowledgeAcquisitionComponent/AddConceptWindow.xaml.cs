@@ -1,16 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using Consulting;
 using Kernel;
 
@@ -19,12 +10,10 @@ namespace KnowledgeAcquisitionComponent
     /// <summary>
     /// Interaction logic for AddConceptWindow.xaml
     /// </summary>
-    public partial class AddConceptWindow : Window
+    public partial class AddConceptWindow
     {
         #region Переменные
         public string ConceptName { get; set; }
-
-        public SemanticWeb SW { get; set; } 
         #endregion
 
         #region Инициализация + интерфейсик
@@ -46,35 +35,34 @@ namespace KnowledgeAcquisitionComponent
         private void CbTypesSelectionChanged1(object sender, SelectionChangedEventArgs e)
         {
             twIsA.Items.Clear();
-            var searcher = new Searcher(SW, null);
-            twIsA.Items.Add(searcher.AddSubClassesOfMetaObject((string)cbTypes.SelectedItem));
+            var searcher = new Searcher(null, true, true);
+            twIsA.Items.Add(searcher.AddInstancesOfMetaObject((string)cbTypes.SelectedItem));
         }
 
         private void WindowLoaded1(object sender, RoutedEventArgs e)
         {
             tbName.Text = ConceptName;
-            cbTypes.ItemsSource = SW.GetAllMetaObjectNames();
+            cbTypes.ItemsSource = SemanticWeb.Web().GetAllMetaObjectNames();
             if (cbTypes.Items.Count > 0)
                 cbTypes.SelectedIndex = 0;
         } 
         #endregion
 
+        #region Добавление понятия
         public static RoutedUICommand AddConcept { get; set; }
-        
+
         private void AddConceptExecuted(object sender, ExecutedRoutedEventArgs e)
         {
             try
             {
-                //создаём неименованный узел для нового понятия
-                var newUnnamedNode = SW.AddNode(string.Empty);
-                //создаём именованный узел для нового понятия
-                var newNamedNode = SW.AddNode(tbName.Text);
-                //дуга Name
-                SW.AddArc(newUnnamedNode.ID, "#Name", newNamedNode.ID);
-                //ищем неименованную вершину для родительской сущности
-                var parentUnnamedNode = SW.GetUnnamedNodeForName(((TreeViewItem) twIsA.SelectedItem).Header.ToString());
-                //проводим дугу is_instance
-                SW.AddArc(newUnnamedNode.ID, "#is_instance", parentUnnamedNode.ID);
+                if (rbSubClass.IsChecked == true)
+                    AddInstance("#is_a");
+                if (rbInstance.IsChecked == true)
+                    AddInstance("#is_instance");
+                else if (rbSynonym.IsChecked == true)
+                    AddSynonym();
+                else if (rbWordForm.IsChecked == true)
+                    AddWordForm();
                 Close();
             }
             catch (ArgumentException exception)
@@ -87,5 +75,33 @@ namespace KnowledgeAcquisitionComponent
         {
             e.CanExecute = tbName.Text != string.Empty && twIsA.SelectedItem != null;
         }
+
+        private void AddInstance(string arcName)
+        {
+            //создаём неименованный узел для нового понятия
+            var newUnnamedNode = SemanticWeb.Web().AddNode(string.Empty);
+            //создаём именованный узел для нового понятия
+            var newNamedNode = SemanticWeb.Web().AddNode(tbName.Text);
+            //дуга Name
+            SemanticWeb.Web().AddArc(newUnnamedNode.ID, "#Name", newNamedNode.ID);
+            //ищем неименованную вершину для родительской сущности
+            var parentUnnamedNode = SemanticWeb.Web().GetUnnamedNodeForName(((TreeViewItem)twIsA.SelectedItem).Header.ToString());
+            //проводим дугу arcName
+            SemanticWeb.Web().AddArc(newUnnamedNode.ID, arcName, parentUnnamedNode.ID);
+        }
+
+        private void AddSynonym()
+        {
+            var parentNamedNode = SemanticWeb.Web().Mota(SemanticWeb.Web().Atom(((TreeViewItem)twIsA.SelectedItem).Header.ToString()));
+            parentNamedNode.AddSynonym(tbName.Text);
+        }
+
+        private void AddWordForm()
+        {
+            var name = (((TreeViewItem) twIsA.SelectedItem).Header.ToString());
+            var parentNamedNode = SemanticWeb.Web().Mota(SemanticWeb.Web().Atom(name));
+            parentNamedNode.AddWordForm(name, tbName.Text);
+        }
+        #endregion
     }
 }

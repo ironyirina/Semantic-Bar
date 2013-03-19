@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Kernel
 {
@@ -21,7 +18,7 @@ namespace Kernel
 
         private string _query;
 
-        private SemanticWeb _sw;
+        private readonly bool _searchSynonyms;
 
         private List<string> _words;
 
@@ -29,20 +26,21 @@ namespace Kernel
 
         private readonly int _maxLen;
 
-        private List<string> _wordsToSkip = new List<string>
+        private readonly List<string> _wordsToSkip = new List<string>
                                                 {
                                                     "в",
-                                                    "и"
+                                                    "и",
+                                                    "с"
                                                 };
 
         #endregion
 
         #region Инициализация
 
-        public ConceptWorker(SemanticWeb sw, int maxLen)
+        public ConceptWorker(int maxLen, bool searchSynonyms)
         {
-            _sw = sw;
             _maxLen = maxLen;
+            _searchSynonyms = searchSynonyms;
             Concepts = new List<MyConceptStruct>();
         }
 
@@ -88,6 +86,37 @@ namespace Kernel
             return Concepts.Where(x => !x.IsRecognized).Select(x => x.Name).ToList();
         }
 
+        public List<string> FindAll(string query, IEnumerable<string> wordsToSkipHere)
+        {
+            var skipHere = wordsToSkipHere == null ? _wordsToSkip : _wordsToSkip.Union(wordsToSkipHere).ToList();
+            _query = query;
+            _words = _query.Split(' ', ',', '.', ':', ')', '\r', '\n').Where(x => x != string.Empty).ToList();
+            Concepts.Clear();
+            while (_words.Count > 0)
+            {
+                int t;
+                if (skipHere.Contains(_words[0]) || int.TryParse(_words[0], out t))
+                {
+                    _words.RemoveAt(0);
+                    continue;
+                }
+                var nearestWords = AnalyzeWord();
+                int successIndex = nearestWords.Any(x => x.IsRecognized) ? nearestWords.IndexOf(nearestWords.Last(x => x.IsRecognized)) : -1;
+                if (successIndex < 0)
+                {
+                    //не нашли слово
+                    Concepts.Add(new MyConceptStruct { Name = _words[0], IsRecognized = false });
+                    _words.RemoveAt(0);
+                }
+                else
+                {
+                    Concepts.Add(nearestWords[successIndex]);
+                    _words.RemoveRange(0, successIndex + 1);
+                }
+            }
+            return Concepts.Where(x => !x.IsRecognized).Select(x => x.Name).ToList();
+        }
+
         private List<MyConceptStruct> AnalyzeWord()
         {
             var nearestWords = new List<MyConceptStruct>();
@@ -99,7 +128,16 @@ namespace Kernel
                 {
                     s += _words[i] + " ";
                 }
-                nearestWords.Add(new MyConceptStruct {Name = s.Trim(), IsRecognized = _sw.NodeExists(s)});
+                var recognozedNode = _searchSynonyms
+                                         ? SemanticWeb.Web().FindNodeWithSynonyms(s)
+                                         : SemanticWeb.Web().FindNode(s);
+                nearestWords.Add(new MyConceptStruct
+                                     {
+                                         Name = recognozedNode == null
+                                                    ? s.Trim()
+                                                    : recognozedNode.Name,
+                                         IsRecognized = recognozedNode != null
+                                     });
                 k++;
             }
             return nearestWords;

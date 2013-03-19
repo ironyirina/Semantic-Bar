@@ -1,7 +1,7 @@
 ﻿<Window x:Class="KnowledgeAcquisitionComponent.UnknownWordsWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Неизвестные слова" Height="193.835" Width="425.263" Loaded="WindowLoaded1">
+        Title="Неизвестные слова" Height="193.835" Width="425.263" Loaded="WindowLoaded1" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <Style x:Key="ButtonStyle">
             <Setter Property="Button.Margin" Value="5"></Setter>

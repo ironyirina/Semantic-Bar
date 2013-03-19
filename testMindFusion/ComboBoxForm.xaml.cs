@@ -20,7 +20,6 @@ namespace textMindFusion
     /// </summary>
     public partial class ComboBoxForm : Window
     {
-        public SemanticWeb myWeb;
         public ComboBoxForm()
         {
             InitializeComponent();

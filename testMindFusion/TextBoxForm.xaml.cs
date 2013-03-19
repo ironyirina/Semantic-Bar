@@ -20,15 +20,13 @@ namespace textMindFusion
     /// </summary>
     public partial class TextBoxForm : Window
     {
-        SemanticWeb myWeb;
-        public TextBoxForm(SemanticWeb myWeb, string Name)
+        public TextBoxForm(string Name)
         {
             InitializeComponent();
             this.WindowStyle = System.Windows.WindowStyle.ToolWindow;
             this.WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             TextboxBox1.Text = Name;
             TextboxBox1.Focus();
-            this.myWeb = myWeb;
         }
 
         public void RefreshValue()
@@ -49,9 +47,9 @@ namespace textMindFusion
         }
         bool NameExist(string name)
         {
-            for (int i = 0; i < myWeb.Nodes.Count; i++)
+            for (int i = 0; i < SemanticWeb.Web().Nodes.Count; i++)
             {
-                if (name == myWeb.Nodes[i].Name)
+                if (name == SemanticWeb.Web().Nodes[i].Name)
                     return true;
             }
             return false;
