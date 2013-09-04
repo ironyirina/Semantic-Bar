@@ -90,16 +90,11 @@ namespace Consulting
             }
             else 
             {
-                if (EveryWordResult.Count > 1)
-                    stackPanel.Children.Add(new Label
-                                                {
-                                                    Content =
-                                                        "Показаны результаты поиска слов по отдельности."
-                                                });
                 //Результаты для отдельных слов
                 for (int i = EveryWordResult.Count - 1; i >= 0; i--)
                 {
-                    stackPanel.Children.Add(EveryWordResult[i].Print());
+                    if (EveryWordResult[i] != null)
+                        stackPanel.Children.Add(EveryWordResult[i].Print());
                 }
             }
             //Обобщённые результаты

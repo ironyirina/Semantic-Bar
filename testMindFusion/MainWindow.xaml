@@ -1,29 +1,58 @@
 ﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:diag="http://mindfusion.eu/diagramming/wpf" xmlns:Wpf="clr-namespace:MindFusion.UI.Wpf;assembly=MindFusion.UI.Wpf" xmlns:System="clr-namespace:System;assembly=mscorlib"
         xmlns:textMindFusion="clr-namespace:textMindFusion" x:Class="textMindFusion.MainWindow"
         Title="Визуальный редактор" Height="600" Width="800" Closing="WindowClosing1" Name="MyWindow"
-        WindowState="Maximized">
-
+        WindowState="Maximized" Background="{StaticResource WindowBackground}">
 
     <Window.CommandBindings>
-        <CommandBinding Command="New" Executed="NewExecuted"></CommandBinding>
-        <CommandBinding Command="Open" Executed="OpenExecuted"></CommandBinding>
-        <CommandBinding Command="textMindFusion:MainWindow.LoadDemo" Executed="LoadDemoExecuted"></CommandBinding>
-        <CommandBinding Command="Save" Executed="SaveExecuted" CanExecute="SaveCanExecute"></CommandBinding>
-        <CommandBinding Command="SaveAs" Executed="SaveAsExecuted" CanExecute="SaveCanExecute"></CommandBinding>
-        <CommandBinding Command="Close" Executed="CloseExecuted" CanExecute="CanExecuteIfIsOpen"></CommandBinding>
-        <CommandBinding Command="textMindFusion:MainWindow.LoadData" Executed="EditWithFormsExecuted" CanExecute="CanExecuteIfIsOpen"></CommandBinding>
-        <CommandBinding Command="textMindFusion:MainWindow.Consult" Executed="ConsultExecuted" CanExecute="ConsultCanExecute"></CommandBinding>
-        <CommandBinding Command="textMindFusion:MainWindow.Cancel" Executed="CancelCommandExecuted" CanExecute="CancelCommandCanExecute"></CommandBinding>
+        <CommandBinding Command="New" 
+                        Executed="NewExecuted"></CommandBinding>
+        
+        <CommandBinding Command="Open" 
+                        Executed="OpenExecuted"></CommandBinding>
+        
+        <CommandBinding Command="textMindFusion:MainWindow.LoadDemo" 
+                        Executed="LoadDemoExecuted"></CommandBinding>
+        
+        <CommandBinding Command="Save" 
+                        Executed="SaveExecuted" 
+                        CanExecute="SaveCanExecute"></CommandBinding>
+        
+        <CommandBinding Command="SaveAs" 
+                        Executed="SaveAsExecuted" 
+                        CanExecute="SaveCanExecute"></CommandBinding>
+        
+        <CommandBinding Command="Close" 
+                        Executed="CloseExecuted" 
+                        CanExecute="CanExecuteIfIsOpen"></CommandBinding>
+        
+        <CommandBinding Command="textMindFusion:MainWindow.LoadData" 
+                        Executed="EditWithFormsExecuted" 
+                        CanExecute="CanExecuteIfIsOpen"></CommandBinding>
+        
+        <CommandBinding Command="textMindFusion:MainWindow.Consult" 
+                        Executed="ConsultExecuted" 
+                        CanExecute="ConsultCanExecute"></CommandBinding>
+        
+        <CommandBinding Command="textMindFusion:MainWindow.Cancel" 
+                        Executed="CancelCommandExecuted" 
+                        CanExecute="CancelCommandCanExecute"></CommandBinding>
+        
+        <CommandBinding Command="textMindFusion:MainWindow.ZoomInCommand"
+                        Executed="ZoomInExecuted"
+                        CanExecute="ZoomInCanExecute"></CommandBinding>
+        
+        <CommandBinding Command="textMindFusion:MainWindow.ZoomOutCommand"
+                        Executed="ZoomOutExecuted"
+                        CanExecute="ZoomOutCanExecute"></CommandBinding>
+        
+        <CommandBinding Command="textMindFusion:MainWindow.FitSizeCommand"
+                        Executed="FitSizeExecuted"
+                        CanExecute="FitSizeCanExecute"></CommandBinding>
+        
+        <CommandBinding Command="textMindFusion:MainWindow.NoZoomCommand"
+                        Executed="NoZoomExecuted"
+                        CanExecute="NoZoomCanExecute"></CommandBinding>
     </Window.CommandBindings>
-
-    <!--Клёвый фон-->
-    <Window.Background>
-        <LinearGradientBrush >
-            <GradientStop Color="LightCyan" Offset="0"/>
-            <GradientStop Color="White" Offset="0.8"/>
-            <GradientStop Color="LightCyan" Offset="1"/>
-        </LinearGradientBrush>
-    </Window.Background>
 
     <Grid x:Name="LayoutRoot">
         <Grid.RowDefinitions>
@@ -75,24 +104,27 @@
             <!-- панель Zoom-->
             <Border  CornerRadius="5" BorderBrush="Gray" BorderThickness="1" Padding="2">
                 <StackPanel Orientation="Horizontal">
-                    <Button Name="zoomInButton"  Width="40" Height="40" VerticalAlignment="Top" Click="zoomInButton_Click"
+                    <Button Name="zoomInButton"  Width="40" Height="40" VerticalAlignment="Top"
+                            Command="textMindFusion:MainWindow.ZoomInCommand"
                             Background="Transparent" IsEnabled="False">
                         <Image Source="img2/zoom_in.png" ></Image>
                         <Button.ToolTip>Увеличить масштаб</Button.ToolTip>
                     </Button>
-                    <Button Name="zoomOutButton"  Width="40" Height="40" VerticalAlignment="Top"  Click="zoomOutButton_Click"
+                    <Button Name="zoomOutButton"  Width="40" Height="40" VerticalAlignment="Top"
+                            Command="textMindFusion:MainWindow.ZoomOutCommand"
                             Background="Transparent" IsEnabled="False">
                         <Button.ToolTip>Уменьшить масштаб</Button.ToolTip>
                         <Image Source="img2/zoom_out.png"></Image>
                     </Button>
-                    <Button Name="fitButton" Width="40" Height="40" VerticalAlignment="Top"  Click="fitButton_Click"
+                    <Button Name="fitButton" Width="40" Height="40" VerticalAlignment="Top"
+                            Command="textMindFusion:MainWindow.FitSizeCommand"
                             Background="Transparent" IsEnabled="False">
                         <Button.ToolTip>Подогнать масштаб</Button.ToolTip>
                         <Image Source="img/fit2.png" ></Image>
                     </Button>
-                    <Button Name="noZoomButton" Width="40" Height="40" VerticalAlignment="Top" Content="100%" Click="noZoomButton_Click"
+                    <Button Name="noZoomButton" Width="40" Height="40" VerticalAlignment="Top" Content="100%" 
+                            Command="textMindFusion:MainWindow.NoZoomCommand"
                             Background="Transparent" IsEnabled="False" FontSize="10">
-                        
                     </Button>
                 </StackPanel>
             </Border>
@@ -100,17 +132,17 @@
             <Border BorderBrush="Gray" BorderThickness="1" Padding="2">
                 <StackPanel Orientation="Horizontal">
                     <Button Name="AddNodeButton"  Width="40" Height="40" VerticalAlignment="Top"  
-                            Background="Transparent" Click="AddNodeButton_Click" IsEnabled="False">
+                            Background="Transparent" Click="AddNodeButtonClick" IsEnabled="False">
                         <Image Source="img2/add.png"></Image>
                         <Button.ToolTip>Добавить вершину</Button.ToolTip>
                     </Button>
                     <Button Name="ChangeNodeButton"  Width="40" Height="40" VerticalAlignment="Top" 
-                            Background="Transparent" Click="ChangeNodeButton_Click" IsEnabled="False">
+                            Background="Transparent" Click="ChangeNodeButtonClick" IsEnabled="False">
                         <Image Source="img2/edit.png"></Image>
                            <Button.ToolTip>Изменить вершину</Button.ToolTip>
                     </Button>
                     <Button Name="DeleteNodeButton"  Width="40" Height="40" VerticalAlignment="Top" 
-                            Background="Transparent" Click="DeleteNodeButton_Click" IsEnabled="False">
+                            Background="Transparent" Click="DeleteNodeButtonClick" IsEnabled="False">
                         <Image Source="img2/remove.png"></Image>
                             <Button.ToolTip>Удалить вершину</Button.ToolTip>
                     </Button>
@@ -120,11 +152,11 @@
             <Border  CornerRadius="5" BorderBrush="Gray" BorderThickness="1" Padding="2">
                 <StackPanel Orientation="Horizontal">
                     <Button Name="VerificationButton"  Width="40" Height="40" VerticalAlignment="Top" Background="Transparent" 
-                            Click="VerificationButton_Click" IsEnabled="False">
+                            Click="ValidationButtonClick" IsEnabled="False">
                         <Image Source="img2/verification.png"></Image>
                         <Button.ToolTip>Проверить правильность графа</Button.ToolTip>
                     </Button>
-                    <Button Name="ArrangeButton"  Width="40" Height="40" VerticalAlignment="Top" Click="arrangeOnClick"
+                    <Button Name="ArrangeButton"  Width="40" Height="40" VerticalAlignment="Top" Click="ArrangeOnClick"
                             Background="Transparent" IsEnabled="False">
                         <Image Source="img2/sort.png"></Image>
                         <Button.ToolTip>Расставить вершины графа </Button.ToolTip>
@@ -132,30 +164,31 @@
                 </StackPanel>
             </Border>
         </StackPanel>
-        <!--вью-->
+        <!--View-->
         <!--<ScrollViewer Grid.Row="2" HorizontalScrollBarVisibility="Auto" Padding="0" Margin="186,16,-186,0" Grid.RowSpan="2">-->
         <ScrollViewer  Name="scrollViewer1" Grid.Row="2" Margin="5" HorizontalScrollBarVisibility="Auto">   
         <diag:Diagram x:Name="DD" BackBrush="AliceBlue" AllowInplaceEdit="True" InplaceEditAcceptOnEnter="True" FontSize="11" FontFamily="Shonar Bangla"  AllowSelfLoops="False" 
+                      
                           Background="{x:Null}"
-                          NodeDeleted="DD_NodeDeleted"  
-                          NodeTextEditing="DD_NodeTextEditing" 
-                          NodeCreated="DD_NodeCreated" 
-                          LinkTextEditing="DD_LinkTextEditing" 
-                          LinkCreated="DD_LinkCreated" 
-                          LinkDeleted="DD_LinkDeleted" 
-                          LinkModified="DD_LinkModified" 
-                          LinkModifying="DD_LinkModifying" 
-                           LinkDeleting="DD_LinkDeleting" 
-                          NodeClicked="DD_NodeClicked"
-                          LinkClicked="DD_LinkClicked" 
-                          Clicked="DD_Clicked" 
+                          NodeDeleted="DdNodeDeleted"  
+                          NodeTextEditing="DdNodeTextEditing" 
+                          NodeCreated="DdNodeCreated" 
+                          LinkTextEditing="DdLinkTextEditing" 
+                          LinkCreated="DdLinkCreated" 
+                          LinkDeleted="DdLinkDeleted" 
+                          LinkModified="DdLinkModified" 
+                          LinkModifying="DdLinkModifying" 
+                          LinkDeleting="DdLinkDeleting" 
+                          NodeClicked="DdNodeClicked"
+                          LinkClicked="DdLinkClicked" 
+                          Clicked="DdClicked" 
                           Behavior="DrawLinks" 
-                          NodeSelected="DD_NodeSelected" 
-                          NodeDeselected="DD_NodeDeselected" 
-                          LinkSelected="DD_LinkSelected" 
-                          LinkDeselected="DD_LinkDeselected" 
+                          NodeSelected="DdNodeSelected" 
+                          NodeDeselected="DdNodeDeselected" 
+                          LinkSelected="DdLinkSelected" 
+                          LinkDeselected="DdLinkDeselected" 
                           ScrollViewer.HorizontalScrollBarVisibility="Visible" 
-                           ScrollViewer.VerticalScrollBarVisibility="Visible" 
+                          ScrollViewer.VerticalScrollBarVisibility="Visible" 
                           >
                 <diag:Diagram.DiagramLinkStyle>
                     <Style TargetType="{x:Type diag:DiagramLink}">
@@ -185,7 +218,7 @@
                             <ListBox x:Name="ListBoxLog"></ListBox>
                         </ScrollViewer >
                     </TabItem>
-                    <TabItem Header="Verification">
+                    <TabItem Header="Validation">
                         <ScrollViewer >
                             <ListBox x:Name="ListBoxVerification"></ListBox>
                         </ScrollViewer >
@@ -193,7 +226,7 @@
                 </TabControl>
             </Expander>
         </Grid>
-                <CheckBox Grid.Row="4" Name="isEdit" Content="Режим редактирования" Click="isEdit_Click" IsChecked="True"  />
+        <CheckBox Grid.Row="4" Name="checkBoxIsEdit" Content="Режим редактирования" Click="IsEditClick" IsChecked="True"  />
 
     </Grid>
 </Window>

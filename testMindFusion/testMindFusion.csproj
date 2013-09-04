@@ -118,6 +118,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -170,6 +171,9 @@
     <Resource Include="img2\verification.png" />
     <Resource Include="img2\zoom_in.png" />
     <Resource Include="img2\zoom_out.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <SplashScreen Include="SemanticBar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

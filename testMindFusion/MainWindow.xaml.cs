@@ -10,30 +10,30 @@ using System.Windows.Controls;
 using System;
 using SynonymEditor;
 using MouseButton = MindFusion.Diagramming.Wpf.MouseButton;
-using System.Drawing;
-using System.Windows.Media;
 using ConsultingWindow;
+using Validation = Kernel.Validation;
 
 namespace textMindFusion
 {
     /// <summary>
     /// Interaction logic for ConsultingWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow
     {
-        int countSelectedNode = 0;
-        List<DiagramNode> SelectNode = new List<DiagramNode>();
-        
-        int nodeHeight = 50;
-        int nodeWidth = 50;
-        bool load = true;
-        bool reload = false;
-        int countNotNamed = 0;// кол-во неименованный вершин для создания
+        #region Переменные
+        readonly List<DiagramNode> _selectNode = new List<DiagramNode>();
+
+        private const int NodeHeight = 50;
+        private const int NodeWidth = 50;
+        bool _load = true;
+        bool _reload;
         //список коррекции. ключ - id в диаграмме, элемент - полноценная вершина из списка
         //Dictionary<object, Node> convertList = new Dictionary<object, Node>();    
 
-       // Rect bounds = new Rect(0, 0, 50, 50); //размер узла по умолчанию
+        // Rect bounds = new Rect(0, 0, 50, 50); //размер узла по умолчанию 
+        #endregion
 
+        #region Инициализация
         public MainWindow()
         {
             InitializeComponent();
@@ -43,30 +43,46 @@ namespace textMindFusion
             DD.LinkHeadShapeSize = 10;
             DD.IsEnabled = false;
             //TopStackPanel.IsEnabled = false;
-            
         }
 
-        #region  служебные: отправка письма, проверка имени, вывод графа
+        static MainWindow()
+        {
+            LoadData = new RoutedUICommand("LoadData", "LoadData", typeof(MainWindow));
+            LoadData.InputGestures.Add(new KeyGesture(Key.D, ModifierKeys.Control));
+            Consult = new RoutedUICommand("Consult", "Consult", typeof(MainWindow));
+            Consult.InputGestures.Add(new KeyGesture(Key.F5));
+            Cancel = new RoutedUICommand("Cancel", "Cancel", typeof(MainWindow));
+            LoadDemo = new RoutedUICommand("Загрузить демо", "LoadDemo", typeof(MainWindow));
+            LoadDemo.InputGestures.Add(new KeyGesture(Key.L, ModifierKeys.Control));
+            ZoomInCommand = new RoutedUICommand("ZoomIn", "ZoomIn", typeof(MainWindow));
+            ZoomInCommand.InputGestures.Add(new KeyGesture(Key.Add, ModifierKeys.Control));
+            ZoomOutCommand = new RoutedUICommand("ZoomOut", "ZoomOut", typeof(MainWindow));
+            ZoomOutCommand.InputGestures.Add(new KeyGesture(Key.Subtract, ModifierKeys.Control));
+            FitSizeCommand = new RoutedUICommand("FitSize", "FitSize", typeof(MainWindow));
+            NoZoomCommand = new RoutedUICommand("NoZoom", "NoZoom", typeof(MainWindow));
+        }
+        #endregion
+
+        #region  Служебные: отправка письма, проверка имени, вывод графа
 
         void SendMessage(string message)
         {
-            if (!load && !reload)
+            if (!_load && !_reload)
             {
                 ListBoxLog.Items.Add(message);
             }
         }
 
-
         void PrintGraph(SemanticWeb web)
         {
-            load = true;
-            reload = true;
+            _load = true;
+            _reload = true;
             DD.ClearAll();
-            Dictionary<int, DiagramNode> nodeMap = new Dictionary<int, DiagramNode>();
+            var nodeMap = new Dictionary<int, DiagramNode>();
             foreach (var node in web.Nodes)
             {
-                var Bounds = new Rect(new System.Windows.Point(node.X, node.Y), new System.Windows.Point(node.X + nodeWidth, node.Y + nodeHeight));
-                var diagramNode = DD.Factory.CreateShapeNode(Bounds);
+                var bounds = new Rect(new Point(node.X, node.Y), new Point(node.X + NodeWidth, node.Y + NodeHeight));
+                var diagramNode = DD.Factory.CreateShapeNode(bounds);
                 //diagramNode.Brush = new LinearGradientBrush(new GradientStopCollection
                 nodeMap[node.ID] = diagramNode;
                 diagramNode.Text = node.Name;
@@ -83,41 +99,27 @@ namespace textMindFusion
                     diagramArc.Tag = true;
                 }
             }
-            load = false;
-            reload = false;
+            _load = false;
+            _reload = false;
             // arrange the graph(расстановка)
             //sbState.Style = (Style)FindResource("ReadySBStyle");
-            if (!Verification())
+            if (!Validation())
                 MessageBox.Show("Обнаружены ошибки в сети.\n Для просмотра ошибок загляните в отчеты", "внимание!");
-           
-   
         }
         #endregion
 
-        #region сохранить/отменить
-        private void saveButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (!Verification())
-            {
-                if (MessageBox.Show("Обнаружены ошибки в сети.\n Для просмотра ошибок загляните в отчеты", "внимание!", MessageBoxButton.YesNo) == MessageBoxResult.No)
-                    return;
-            }
-            for (int i = 0; i < DD.Nodes.Count; i++)
-            {
-                SemanticWeb.Web().ChangeNodeCoordinates(((Node)DD.Nodes[i].Tag).ID, DD.Nodes[i].Bounds.X, DD.Nodes[i].Bounds.Y);
-            }
-            SemanticWeb.WriteToXml(_fileName);
-            SendMessage("изменения сохранены");
-        }
-
+        #region Отмена изменений
+        /// <summary>
+        /// Отмена изменений
+        /// </summary>
         public static RoutedUICommand Cancel { get; private set; }
 
         private void CancelCommandExecuted(object sender, ExecutedRoutedEventArgs e)
         {
-            reload = true; load = true;
+            _reload = true; _load = true;
             SemanticWeb.ReadFromXml(_fileName);
             PrintGraph(SemanticWeb.Web());
-            reload = false; load = false;
+            _reload = false; _load = false;
             SendMessage("изменения отменены");
         }
 
@@ -128,18 +130,39 @@ namespace textMindFusion
         #endregion
 
         #region Zoom-Panel
+        #region ZoomIn
+        public static RoutedUICommand ZoomInCommand { get; private set; }
 
-        private void zoomInButton_Click(object sender, RoutedEventArgs e)
+        private void ZoomInExecuted(object sender, ExecutedRoutedEventArgs e)
         {
             DD.ZoomFactor = Math.Min(1000, DD.ZoomFactor + 10);
         }
 
-        private void zoomOutButton_Click(object sender, RoutedEventArgs e)
+        private void ZoomInCanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        } 
+        #endregion
+
+        #region ZoomOut
+        public static RoutedUICommand ZoomOutCommand { get; private set; }
+
+        private void ZoomOutExecuted(object sender, ExecutedRoutedEventArgs e)
         {
             DD.ZoomFactor = Math.Max(20, DD.ZoomFactor - 10);
         }
 
-        private void fitButton_Click(object sender, RoutedEventArgs e)
+        private void ZoomOutCanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+        
+        #endregion
+
+        #region FitSize
+        public static RoutedUICommand FitSizeCommand { get; private set; }
+
+        private void FitSizeExecuted(object sender, ExecutedRoutedEventArgs e)
         {
             Rect union = Rect.Empty;
             foreach (DiagramNode node in DD.Nodes)
@@ -155,38 +178,41 @@ namespace textMindFusion
             DD.ZoomToRect(union);
         }
 
-        private void noZoomButton_Click(object sender, RoutedEventArgs e)
+        private void FitSizeCanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+        
+        #endregion
+
+        #region NoZoom
+        public static RoutedUICommand NoZoomCommand { get; private set; }
+
+        private void NoZoomExecuted(object sender, ExecutedRoutedEventArgs e)
         {
             DD.ZoomFactor = 100;
         }
+
+        private void NoZoomCanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+        
+        #endregion
         #endregion 
         
-        #region вершины
-
-        private void DD_NodeDeleting(object sender, NodeValidationEventArgs e)
+        #region Вершины
+        /// <summary>
+        /// Удаление вершины
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DdNodeDeleted(object sender, NodeEventArgs e)
         {
-            if (load)
-            {
-                e.Cancel = true; return;
-            }
-            if (isEdit.IsChecked == false)
-            {
-                e.Cancel = true; return;
-            }
-            if (((Node)e.Node.Tag).IsSystem || ((Node)e.Node.Tag).Name.Contains("#"))
-
-            {
-                e.Cancel = true;
-            }
-        }
-
-        private void DD_NodeDeleted(object sender, NodeEventArgs e)
-        {
-
             try
             {
                 SendMessage("удаление вершины" + ((Node)e.Node.Tag).Name);
-                if (!reload && !load )
+                if (!_reload && !_load )
                     SemanticWeb.Web().DeleteNode((Node)e.Node.Tag);
             }
             catch (ArgumentException e1)
@@ -196,10 +222,14 @@ namespace textMindFusion
             }
         }
 
-
-        private void DD_NodeTextEditing(object sender, NodeValidationEventArgs e)
+        /// <summary>
+        /// Изменение имени вершины
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DdNodeTextEditing(object sender, NodeValidationEventArgs e)
         {
-            if (isEdit.IsChecked == false)
+            if (checkBoxIsEdit.IsChecked == false)
             {
                 e.Cancel = true;
                 return;
@@ -212,17 +242,17 @@ namespace textMindFusion
                 return;
             }
 
-            string newName; //новое имя вершины
-            TextBoxForm formName = new TextBoxForm(e.Node.Text);
+            var formName = new TextBoxForm(e.Node.Text);
             formName.ShowDialog();
             try
             {
                 if (formName.DialogResult == true)
                 {
-                    newName = formName.ReturnValue();
-                    SemanticWeb.Web().ChangeNodeName(((Node)e.Node.Tag).ID, newName);
+                    string newName = formName.ReturnValue(); //новое имя вершины
+                   /*УЖАСНЫЙ КОСЯК ИЗМЕНЕНИЕ СЕТИ Д.Б. ЗДЕСЬ, А НЕ В КОНЦЕ*/
                     e.Node.Text = newName;
                     SendMessage("Изменение имени вершины на " + e.Node.Text + "  завершилось");
+                    SemanticWeb.Web().ChangeNodeName(((Node)e.Node.Tag).ID, newName);
                 }
                 else
                 {
@@ -235,23 +265,23 @@ namespace textMindFusion
             }
             formName.Close();
             e.Cancel = true;
-           
-
-
         }
 
-        private void DD_NodeCreated(object sender, NodeEventArgs e)
+        /// <summary>
+        /// Создание вершины
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DdNodeCreated(object sender, NodeEventArgs e)
         {
-            if (!load)
+            if (!_load)
             {
                 try
                 {
                     Node webNode = SemanticWeb.Web().AddNode(""); //неименованная
                     e.Node.Text = (webNode.Name);
                     e.Node.Tag = webNode;
-                    countNotNamed++;
                     SendMessage("создана вершина " + ((Node)e.Node.Tag).Name);
-                    //_somethingChanged = true;
                 }
                 catch (ArgumentException e1)
                 {
@@ -262,18 +292,22 @@ namespace textMindFusion
 
         #endregion
 
-        #region дуги
-        private void DD_LinkTextEditing(object sender, LinkValidationEventArgs e)
+        #region Дуги
+        /// <summary>
+        /// Изменение имени дуги
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DdLinkTextEditing(object sender, LinkValidationEventArgs e)
         {
 
-            if (isEdit.IsChecked==false)
+            if (checkBoxIsEdit.IsChecked==false)
             {
                 e.Cancel = true;
                 return;
             }
-            string newT; //новое имя вершины выбранное из комбобоксика
             SendMessage("изменение типа дуги: " + e.Link.Text + " от " + e.Link.Origin.Text + " к " + e.Link.Destination.Text);
-            ComboBoxForm formLink = new ComboBoxForm();
+            var formLink = new ComboBoxForm();
             var listarc = SemanticWeb.Web().GetAllowedArcNames(((Node)e.Link.Origin.Tag).ID);
             formLink.RefreshValue(listarc);
             formLink.ShowDialog();
@@ -281,7 +315,7 @@ namespace textMindFusion
             {
                 if (formLink.DialogResult == true)
                 {
-                    newT = formLink.ReturnValue().ToString();
+                    string newT = formLink.ReturnValue().ToString(); //новое имя вершины выбранное из комбобоксика
                     SemanticWeb.Web().ChangeArcName(((Node)e.Link.Origin.Tag).ID, e.Link.Text, newT, ((Node)e.Destination.Tag).ID);
                     e.Link.Text = newT;
                     SendMessage("изменение дуги завершилось: " + e.Link.Text + " от " + e.Link.Origin.Text + " к " + e.Link.Destination.Text);
@@ -301,13 +335,17 @@ namespace textMindFusion
             formLink.Close();
             e.Cancel = true;
         }
-
-        private void DD_LinkCreated(object sender, LinkEventArgs e)
+        
+        /// <summary>
+        /// Создание дуги
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DdLinkCreated(object sender, LinkEventArgs e)
         {
-
             try
             {
-                ComboBoxForm formLink = new ComboBoxForm();
+                var formLink = new ComboBoxForm();
                 formLink.RefreshValue(SemanticWeb.Web().GetAllowedArcNames(((Node)e.Link.Origin.Tag).ID));
                 formLink.ShowDialog();
                 SendMessage("создание дуги " + e.Link.Text + " от " + e.Link.Origin.Text + " к " + e.Link.Destination.Text);
@@ -318,11 +356,9 @@ namespace textMindFusion
                     SemanticWeb.Web().AddArc(((Node)e.Link.Origin.Tag).ID, e.Link.Text, ((Node)e.Link.Destination.Tag).ID);
                     e.Link.Tag = true;
                     SendMessage("создание дуги завершилось: " + e.Link.Text + " от " + e.Link.Origin.Text + " к " + e.Link.Destination.Text);
-                    //_somethingChanged = true;
                 }
                 else
                 {
-                    //throw new ArgumentException("отмена выбора имени дуги");
                     DD.Links.Remove(e.Link);
                     SendMessage("создание дуги отменено: " + " от " + e.Link.Origin.Text + " к " + e.Link.Destination.Text);
                 }
@@ -337,84 +373,90 @@ namespace textMindFusion
             }
         }
 
-        private void DD_LinkDeleting(object sender, LinkValidationEventArgs e)
+        /// <summary>
+        /// Удаление дуги
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DdLinkDeleting(object sender, LinkValidationEventArgs e)
         {
-            if (!load)
+            if (!_load)
             {
                 e.Cancel = true; return;
             }
-            if (isEdit.IsChecked == true)
+            if (checkBoxIsEdit.IsChecked == true)
             {
                 e.Cancel = true;
-                return;
             }
         }
         
-        private void DD_LinkDeleted(object sender, LinkEventArgs e)
+        /// <summary>
+        /// Удаление дуги
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DdLinkDeleted(object sender, LinkEventArgs e)
         {
 
-            if (!load)
+            if (!_load)
             {
                 return;
             }
-            if (isEdit.IsEnabled == false)
+            if (checkBoxIsEdit.IsEnabled == false)
                 return;
-
             // DD.Links.Remove()
             if (e.Link.Text != "")
             {
                 if ((bool)e.Link.Tag)
                 {
-                   if (!load || !reload)
+                   if (!_load || !_reload)
                        SemanticWeb.Web().DeleteArc(((Node)e.Link.Origin.Tag).ID, e.Link.Text, ((Node)e.Link.Destination.Tag).ID);
                 }
                 SendMessage("дуга удалена: " + e.Link.Text + " от " + e.Link.Origin.Text + " к " + e.Link.Destination.Text);
                // _somethingChanged = true;
             }
             // e.Link.Destination - цель
-            // e.Link.Origin//от куда
+            // e.Link.Origin//откуда
         }
+
         #region FromID-To дуги
-        bool change = false; //=true, когда уже сохранили дугу
-        DiagramLink oldLink = new DiagramLink();
+        bool _change; //=true, когда уже сохранили дугу
+        readonly DiagramLink _oldLink = new DiagramLink();
 
-      
-
-        private void DD_LinkModified(object sender, LinkEventArgs e)
+        /// <summary>
+        /// Изменение дуги
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DdLinkModified(object sender, LinkEventArgs e)
         {
-            if (!load)
+            if (!_load)
             {
                 return;
             }
-            if (isEdit.IsChecked==false)
+            if (checkBoxIsEdit.IsChecked==false)
                 return;
-            SendMessage("изменение дуги: " + oldLink.Text + " от " + oldLink.Origin.Text + " к " + oldLink.Destination.Text);
+            SendMessage("изменение дуги: " + _oldLink.Text + " от " + _oldLink.Origin.Text + " к " + _oldLink.Destination.Text);
             try
             {
-                if (oldLink.Origin.Text != e.Link.Origin.Text)
+                if (_oldLink.Origin.Text != e.Link.Origin.Text)
                 {
-                    SemanticWeb.Web().ChangeArcDirectionFrom(((Node)oldLink.Origin.Tag).ID, ((Node)e.Link.Origin.Tag).ID, e.Link.Text, ((Node)e.Link.Destination.Tag).ID);
+                    SemanticWeb.Web().ChangeArcDirectionFrom(((Node)_oldLink.Origin.Tag).ID, ((Node)e.Link.Origin.Tag).ID, e.Link.Text, ((Node)e.Link.Destination.Tag).ID);
                     SendMessage("изменение дуги заврешено: " + e.Link.Text + " от " + e.Link.Origin.Text + " к " + e.Link.Destination.Text);
-                    //_somethingChanged = true;
                 }
-                if (oldLink.Destination.Text != e.Link.Destination.Text)
+                if (_oldLink.Destination.Text != e.Link.Destination.Text)
                 {
-                    SemanticWeb.Web().ChangeArcDirectionFrom(((Node)oldLink.Origin.Tag).ID, ((Node)e.Link.Origin.Tag).ID, e.Link.Text, ((Node)e.Link.Destination.Tag).ID);
-                
-                    //_myWeb.ChangeArcDirectionTo(((Node)e.Link.Origin.Tag).ID, oldLink.Destination.Text, ((Node)e.Link.Tag).ID, ((Node)e.Link.Destination.Tag).ID);
+                    SemanticWeb.Web().ChangeArcDirectionFrom(((Node)_oldLink.Origin.Tag).ID, ((Node)e.Link.Origin.Tag).ID, e.Link.Text, ((Node)e.Link.Destination.Tag).ID);
                     SendMessage("изменение дуги заврешено: " + e.Link.Text + " от " + e.Link.Origin.Text + " к " + e.Link.Destination.Text);
-                    //_somethingChanged = true;
                 }
-
-
             }
             catch (ArgumentException e1)
             {
-                e.Link.Text = oldLink.Text;
-                e.Link.Origin = oldLink.Origin;
-                e.Link.Destination = oldLink.Destination;
+                e.Link.Text = _oldLink.Text;
+                e.Link.Origin = _oldLink.Origin;
+                e.Link.Destination = _oldLink.Destination;
                 MessageBox.Show(e1.Message);
-                SendMessage("изменение дуги отменено: " + oldLink.Text + " от " + oldLink.Origin.Text + " к " + oldLink.Destination.Text);
+                SendMessage("изменение дуги отменено: " + _oldLink.Text + " от " + _oldLink.Origin.Text + " к " + _oldLink.Destination.Text);
             }
             catch(NullReferenceException e2)
             {
@@ -422,56 +464,56 @@ namespace textMindFusion
             }
         }
 
-        private void DD_LinkModifying(object sender, LinkValidationEventArgs e)
+        private void DdLinkModifying(object sender, LinkValidationEventArgs e)
         {
-            if (!load)
+            if (!_load)
             {
                 e.Cancel = true; return;
             }
-            if (isEdit.IsChecked == false)
+            if (checkBoxIsEdit.IsChecked == false)
             {
                 e.Cancel = true;
                 return;
             }
 
-            if (!change)
+            if (!_change)
             {
-                oldLink.Destination = e.Link.Destination;
-                oldLink.Origin = e.Link.Origin;
-                oldLink.Text = e.Link.Text;
-                change = true;
+                _oldLink.Destination = e.Link.Destination;
+                _oldLink.Origin = e.Link.Origin;
+                _oldLink.Text = e.Link.Text;
+                _change = true;
             }
         }
-#endregion
-#endregion
-       
+        #endregion
+        #endregion
+
+        #region Режим редактирования/просмотра
         /// <summary>
-        /// изменение режима редактирования/просмотра
+        /// Изменение режима редактирования/просмотра
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void isEdit_Click(object sender, RoutedEventArgs e)
+        private void IsEditClick(object sender, RoutedEventArgs e)
         {
-            if (isEdit.IsChecked == true)
-                DD.Behavior = Behavior.DrawLinks;
-            else
-                DD.Behavior = Behavior.Pan;
-        }
+            DD.Behavior = checkBoxIsEdit.IsChecked == true ? Behavior.DrawLinks : Behavior.Pan;
+        } 
+        #endregion
 
-        #region контекстное для вершины
+        #region Контекстное меню
+        #region Контекстное меню для вершины
 
-        DiagramNode rightNode; //вершина по которой щелкнули правой кнопкой
+        DiagramNode _rightNode; //вершина по которой щелкнули правой кнопкой
 
-        private void DD_NodeClicked(object sender, NodeEventArgs e)
+        private void DdNodeClicked(object sender, NodeEventArgs e)
         {
             myContextMenu.IsEnabled = false;
             myContextMenu.Visibility = Visibility.Collapsed;
-            if (e.MouseButton == MouseButton.Right && (isEdit.IsChecked == true))
+            if (e.MouseButton == MouseButton.Right && (checkBoxIsEdit.IsChecked == true))
             {
                 myContextMenu.Visibility = Visibility.Visible;
                 myContextMenu.IsEnabled = true;
+                _rightNode = e.Node;
                 myContextMenu.DataContext = MenuOptionsNode;
-                rightNode = e.Node;
             }
         }
 
@@ -481,47 +523,52 @@ namespace textMindFusion
             {
                 var items = new List<MenuItem>();
                 var del = new MenuItem { Header = "Удалить вершину" };
-                del.Click += delOnClick;
+                del.Click += DelOnClick;
                 items.Add(del);
                 var change = new MenuItem { Header = "Изменить вершину" };
-                change.Click += changeOnClick;
+                change.Click += ChangeOnClick;
                 items.Add(change);
                 //Изменить синонимы
                 //проверка на пустое имя вершины
-                var synEdit = new MenuItem {Header = "Синонимы"};
-                synEdit.Click += SynEditOnClick;
-                items.Add(synEdit);
+                if (_rightNode != null && _rightNode.Text != "")
+                {
+                    var synEdit = new MenuItem { Header = "Синонимы" };
+                    synEdit.Click += SynEditOnClick;
+                    items.Add(synEdit);
+                }
                 return items;
             }
         }
 
         private void SynEditOnClick(object sender, RoutedEventArgs routedEventArgs)
         {
-            var w = new SynWindow(_fileName, ((Node)rightNode.Tag).Name);
+            var w = new SynWindow(_fileName, ((Node)_rightNode.Tag).Name);
             w.ShowDialog();
             PrintGraph(SemanticWeb.Web());
         }
 
-        private void delOnClick(object sender, RoutedEventArgs routedEventArgs)
+        private void DelOnClick(object sender, RoutedEventArgs routedEventArgs)
         {
-            DD.Nodes.Remove(rightNode);
+            DD.Nodes.Remove(_rightNode);
         }
-        private void changeOnClick(object sender, RoutedEventArgs routedEventArgs)
+
+        private void ChangeOnClick(object sender, RoutedEventArgs routedEventArgs)
         {
-            DD_NodeTextEditing(new object(), new NodeValidationEventArgs(rightNode));
-            
+            DdNodeTextEditing(new object(), new NodeValidationEventArgs(_rightNode));
         }
+
         #endregion
-        #region контекстное для связи
-        DiagramLink rightLink; //связь по которой щелкнули правой кнопкой
-        private void DD_LinkClicked(object sender, LinkEventArgs e)
+
+        #region Контекстное меню для связи
+        DiagramLink _rightLink; //связь по которой щелкнули правой кнопкой
+        private void DdLinkClicked(object sender, LinkEventArgs e)
         {
             myContextMenu.IsEnabled = false;
             myContextMenu.Visibility = Visibility.Collapsed;
 
-            if (e.MouseButton == MouseButton.Right && isEdit.IsChecked==true)
+            if (e.MouseButton == MouseButton.Right && checkBoxIsEdit.IsChecked == true)
             {
-                rightLink = e.Link;
+                _rightLink = e.Link;
                 myContextMenu.IsEnabled = true;
                 myContextMenu.Visibility = Visibility.Visible;
                 myContextMenu.DataContext = MenuOptionsLink;
@@ -537,7 +584,7 @@ namespace textMindFusion
                 del.Click += DelLinkOnClick;
                 items.Add(del);
                 var change = new MenuItem { Header = "Переименовать связь" };
-                change.Click += changeLinkOnClick;
+                change.Click += ChangeLinkOnClick;
                 items.Add(change);
                 return items;
             }
@@ -545,23 +592,23 @@ namespace textMindFusion
 
         private void DelLinkOnClick(object sender, RoutedEventArgs routedEventArgs)
         {
-            DD.Links.Remove(rightLink);
+            DD.Links.Remove(_rightLink);
         }
-        private void changeLinkOnClick(object sender, RoutedEventArgs routedEventArgs)
+        private void ChangeLinkOnClick(object sender, RoutedEventArgs routedEventArgs)
         {
-            DD_LinkTextEditing(new object(),new LinkValidationEventArgs(rightLink));
+            DdLinkTextEditing(new object(), new LinkValidationEventArgs(_rightLink));
         }
 
-#endregion
-        #region контекстное для графа
-        System.Windows.Point  rightClick; //позиция правого клика мыши по полю
-        private void DD_Clicked(object sender, DiagramEventArgs e)
+        #endregion
+
+        #region Контекстное меню для графа
+        Point _rightClick; //позиция правого клика мыши по полю
+        private void DdClicked(object sender, DiagramEventArgs e)
         {
-           
             myContextMenu.Visibility = Visibility.Collapsed;
-            if (e.MouseButton == MouseButton.Right &&   (isEdit.IsChecked==true))
+            if (e.MouseButton == MouseButton.Right && (checkBoxIsEdit.IsChecked == true))
             {
-                rightClick = e.MousePosition;
+                _rightClick = e.MousePosition;
                 myContextMenu.Visibility = Visibility.Visible;
                 myContextMenu.IsEnabled = true;
                 myContextMenu.DataContext = MenuOptions;
@@ -573,59 +620,59 @@ namespace textMindFusion
             get
             {
                 var items = new List<MenuItem>();
-                var addn = new MenuItem { Header = "добавить веришну" };
-                addn.Click += addnOnClick;
+                var addn = new MenuItem { Header = "Добавить веришну" };
+                addn.Click += AddnOnClick;
                 items.Add(addn);
 
-                
-                var arrange = new MenuItem { Header = "авторасстановка" };
-                arrange.Click += arrangeOnClick;
+
+                var arrange = new MenuItem { Header = "Авторасстановка" };
+                arrange.Click += ArrangeOnClick;
                 items.Add(arrange);
-                
                 return items;
             }
         }
 
-        private void arrangeOnClick(object sender, RoutedEventArgs routedEventArgs)
+        private void ArrangeOnClick(object sender, RoutedEventArgs routedEventArgs)
         {
-
             var layout = new LayeredLayout();
             layout.Arrange(DD);
         }
-        private void addnOnClick(object sender, RoutedEventArgs routedEventArgs)
+
+        private void AddnOnClick(object sender, RoutedEventArgs routedEventArgs)
         {
             Node tagNode = SemanticWeb.Web().AddNode("");
-            var Bounds = new Rect(new System.Windows.Point(rightClick.X, rightClick.Y), new System.Windows.Point(rightClick.X + nodeWidth, rightClick.Y + nodeHeight));
-            var diagramNode = DD.Factory.CreateShapeNode(Bounds);
+            var bounds = new Rect(new Point(_rightClick.X, _rightClick.Y), new Point(_rightClick.X + NodeWidth, _rightClick.Y + NodeHeight));
+            var diagramNode = DD.Factory.CreateShapeNode(bounds);
             diagramNode.Text = "";
             diagramNode.Tag = tagNode;
             DD.Nodes.Add(diagramNode);
             SendMessage("Создание вершины");
-            //_somethingChanged = true;
-
         }
+
+        #endregion 
         #endregion
 
-        #region веривикация/расставить
+        #region Валидация/расставить вершины
 
-        private void VerificationButton_Click(object sender, RoutedEventArgs e)
+        private void ValidationButtonClick(object sender, RoutedEventArgs e)
         {
-            if (!Verification())
-                MessageBox.Show("Обнаружены ошибки в сети.\n Для просмотра ошибок загляните в отчеты", "внимание!");
+            if (!Validation())
+                MessageBox.Show("Обнаружены ошибки в сети.\n Для просмотра ошибок загляните в отчеты", "Внимание!");
             else
                 MessageBox.Show("Ошибок в сети не обнаружено");
         }
-        bool Verification()
+
+        bool Validation()
         {
             ListBoxVerification.Items.Clear();
-            var verefication = new Verification();
-            verefication.Verificate();
-            if (verefication.NoErros)
+            var validation = new Validation();
+            validation.Validate();
+            if (validation.NoErros)
             {
                 ListBoxVerification.Items.Add("Ошибок не обнаружено");
                 return true;
             }
-            foreach (var i in verefication.Errors)
+            foreach (var i in validation.Errors)
                 ListBoxVerification.Items.Add(i);
             return false;
         }
@@ -637,22 +684,6 @@ namespace textMindFusion
         private string _fileName = string.Empty;
         private bool _isOpen;
         private const string DefaultExtension = ".xml";
-        #endregion
-
-        #region Инициализация
-
-        static MainWindow()
-        {
-            LoadData = new RoutedUICommand("LoadData", "LoadData", typeof(MainWindow));
-            LoadData.InputGestures.Add(new KeyGesture(Key.D, ModifierKeys.Control));
-            Consult = new RoutedUICommand("Consult", "Consult", typeof(MainWindow));
-            Consult.InputGestures.Add(new KeyGesture(Key.F5));
-            Cancel = new RoutedUICommand("Cancel", "Cancel", typeof(MainWindow));
-            LoadDemo = new RoutedUICommand("Загрузить демо", "LoadDemo", typeof (MainWindow));
-            LoadDemo.InputGestures.Add(new KeyGesture(Key.L, ModifierKeys.Control));
-            
-        }
-
         #endregion
 
         #region Файл
@@ -697,7 +728,7 @@ namespace textMindFusion
         {
             if (_isOpen)
                 ApplicationCommands.Close.Execute(null, null);
-            _fileName = @"C:\Users\Ирина\Documents\Чуприна\1 — копия.xml";
+            _fileName = @"demo.xml";
             SemanticWeb.ReadFromXml(_fileName);
             PrintGraph(SemanticWeb.Web());
             DD.IsEnabled = true;
@@ -713,7 +744,7 @@ namespace textMindFusion
 
         private void BeforeSaving()
         {
-            if (!Verification())
+            if (!Validation())
             {
                 if (MessageBox.Show("Обнаружены ошибки в сети.\n Для просмотра ошибок загляните в отчеты", "Внимание!", 
                     MessageBoxButton.YesNo) == MessageBoxResult.No)
@@ -808,8 +839,8 @@ namespace textMindFusion
         private void ConsultExecuted(object sender, ExecutedRoutedEventArgs e)
         {
             //проверка сем. сети
-            var checker = new Verification();
-            checker.Verificate();
+            var checker = new Validation();
+            checker.Validate();
             if (!checker.NoErros)
             {
                 //ErrorStatusBar("Сем. сеть содержит ошибки. Консультация невозможна.");
@@ -828,95 +859,85 @@ namespace textMindFusion
 
         #endregion
 
-        #region выделение отмеченных вершин/дуг
-        private void DD_NodeSelected(object sender, NodeEventArgs e)
+        #region Выделение отмеченных вершин/дуг
+        private void DdNodeSelected(object sender, NodeEventArgs e)
         {
-            //var stroke = new SolidColorBrush (System.Windows.Media.Color.FromRgb(255,0,0));
-            //Style shapeNodeStyle = new Style();
-
-            //shapeNodeStyle.Setters.Add(new Setter(ShapeNode.StrokeProperty, stroke));
-            //e.Node.Style = shapeNodeStyle;
-            SelectNode.Add(e.Node);
+            _selectNode.Add(e.Node);
             e.Node.StrokeThickness = 5;
 
             ChangeTopMenuNode();
             
         }
 
-        private void DD_NodeDeselected(object sender, NodeEventArgs e)
+        private void DdNodeDeselected(object sender, NodeEventArgs e)
         {
-            //var stroke = new SolidColorBrush(System.Windows.Media.Color.FromRgb(0, 0, 0));
-            //Style shapeNodeStyle = new Style();
-            //shapeNodeStyle.Setters.Add(new Setter(ShapeNode.StrokeProperty, stroke));
-            //e.Node.Style = shapeNodeStyle;
             e.Node.StrokeThickness = 1;
-            SelectNode.Remove(e.Node);
+            _selectNode.Remove(e.Node);
             ChangeTopMenuNode();
         }
 
-        private void DD_LinkSelected(object sender, LinkEventArgs e)
+        private void DdLinkSelected(object sender, LinkEventArgs e)
         {
             e.Link.StrokeThickness = 5;
         }
 
-        private void DD_LinkDeselected(object sender, LinkEventArgs e)
+        private void DdLinkDeselected(object sender, LinkEventArgs e)
         {
             e.Link.StrokeThickness = 1;
         }
         #endregion
 
-
-        #region верхняя менюшка по вершинам:добавить/изменить/удалить
-        private void AddNodeButton_Click(object sender, RoutedEventArgs e)
+        #region Верхняя менюшка по вершинам:добавить/изменить/удалить
+        private void AddNodeButtonClick(object sender, RoutedEventArgs e)
         {
             Node tagNode = SemanticWeb.Web().AddNode("");
-            var Bounds = new Rect(new System.Windows.Point(0, 0), new System.Windows.Point(0 + nodeWidth, 0 + nodeHeight));
-            var diagramNode = DD.Factory.CreateShapeNode(Bounds);
+            var bounds = new Rect(new Point(0, 0), new Point(0 + NodeWidth, 0 + NodeHeight));
+            var diagramNode = DD.Factory.CreateShapeNode(bounds);
             diagramNode.Text = "";
             diagramNode.Tag = tagNode;
             diagramNode.Selected = true;
             DD.Nodes.Add(diagramNode);
             SendMessage("Создание вершины");
-            //_somethingChanged = true;
         }
 
-        private void ChangeNodeButton_Click(object sender, RoutedEventArgs e)
+        private void ChangeNodeButtonClick(object sender, RoutedEventArgs e)
         {
-            if (SelectNode.Count==1)
-                DD_NodeTextEditing(new object(), new NodeValidationEventArgs(SelectNode[0]));
+            if (_selectNode.Count==1)
+                DdNodeTextEditing(new object(), new NodeValidationEventArgs(_selectNode[0]));
         }
 
-        private void DeleteNodeButton_Click(object sender, RoutedEventArgs e)
+        private void DeleteNodeButtonClick(object sender, RoutedEventArgs e)
         {
-            while (SelectNode.Count > 0)
+            while (_selectNode.Count > 0)
             {
-                DD.Nodes.Remove(SelectNode[0]);
+                DD.Nodes.Remove(_selectNode[0]);
             }
         }
-#endregion
+        #endregion
 
+        #region Вспомогательная штучка, которая зажигает кнопочки для редактирования вершин
         /// <summary>
-        /// dвспомогательная штучка, которая зажигает кнопочки для редактирования вершин
+        /// Dспомогательная штучка, которая зажигает кнопочки для редактирования вершин
         /// </summary>
         void ChangeTopMenuNode()
         {
             AddNodeButton.IsEnabled = true;
-            if (SelectNode.Count == 0)
+            if (_selectNode.Count == 0)
             {
                 ChangeNodeButton.IsEnabled = false;
                 DeleteNodeButton.IsEnabled = false;
             }
-            if (SelectNode.Count == 1)
+            if (_selectNode.Count == 1)
             {
                 ChangeNodeButton.IsEnabled = true;
                 DeleteNodeButton.IsEnabled = true;
             }
-            if (SelectNode.Count > 1)
+            if (_selectNode.Count > 1)
             {
                 ChangeNodeButton.IsEnabled = false;
                 DeleteNodeButton.IsEnabled = true;
             }
-        }
+        } 
+        #endregion
     }
 }
-

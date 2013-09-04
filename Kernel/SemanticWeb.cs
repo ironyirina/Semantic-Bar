@@ -25,7 +25,9 @@ namespace Kernel
 
         public static bool IsChanged;
 
-        public List<Node> WayToSystem { get; private set; }
+        public List<Node> WayToSystemNodes { get; private set; }
+
+        public List<Arc> WayToSystemArcs { get; private set; }
 
         #endregion
 
@@ -622,28 +624,29 @@ namespace Kernel
         /// <returns>имя дуги, которой предок связан с вершиной System</returns>
         public string OldestParentArc(int nodeID)
         {
-            WayToSystem = new List<Node>();
+            WayToSystemNodes = new List<Node>();
+            WayToSystemArcs = new List<Arc>();
             Node parentNode = Mota(nodeID);
-            WayToSystem.Add(parentNode);
+            WayToSystemNodes.Add(parentNode);
             if (ArcExists(parentNode.ID, "#is_instance"))
             {
+                WayToSystemArcs.Add(Arcs.Single(x => x.From == parentNode.ID && x.Name == "#is_instance"));
                 parentNode = GetAttr(parentNode.ID, "#is_instance");
-                //WayToSystem.Add("#is_instance");
-                WayToSystem.Add(parentNode);
+                WayToSystemNodes.Add(parentNode);
             }
             while (ArcExists(parentNode.ID, "#is_a"))
             {
+                WayToSystemArcs.Add(Arcs.Single(x => x.From == parentNode.ID && x.Name == "#is_a"));
                 parentNode = GetAttr(parentNode.ID, "#is_a");
-                //WayToSystem.Add("#is_a");
-                WayToSystem.Add(parentNode);
+                WayToSystemNodes.Add(parentNode);
             }
             var arcToSystem = GetArcsBetweenNodes(Atom("#System"), parentNode.ID).ToList();
             if (!arcToSystem.Any())
                 return string.Empty;
             if (arcToSystem.Count()> 1)
                 throw new ArgumentException("Между родителем и системной вершиной больше 1 дуги");
-            //WayToSystem.Add(arcToSystem[0].Name);
-            WayToSystem.Add(Mota(Atom("#System")));
+            WayToSystemArcs.Add(Arcs.Single(x => x.From == Atom("#System") && x.Name == arcToSystem[0].Name && x.To == parentNode.ID));
+            WayToSystemNodes.Add(Mota(Atom("#System")));
             return arcToSystem[0].Name;
         }
 
@@ -713,6 +716,15 @@ namespace Kernel
                     res.Add(GetNameForUnnamedNode(metaObj, false));
             }
             return res;
+        }
+
+        /// <summary>
+        /// Возвращает имена всех отношений, имеющихся в системе
+        /// </summary>
+        /// <returns></returns>
+        public List<string> GetRelationNames()
+        {
+            return GetAllAttr(Atom("#System"), "#Relations").Select(unnamedNode => GetNameForUnnamedNode(unnamedNode, false)).ToList();
         }
 
         #endregion

@@ -1,0 +1,5086 @@
+﻿<SemanticWeb xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/Kernel">
+  <Arcs>
+    <Arc>
+      <From>1</From>
+      <Name>#MetaObjects</Name>
+      <To>2</To>
+    </Arc>
+    <Arc>
+      <From>2</From>
+      <Name>#Name</Name>
+      <To>3</To>
+    </Arc>
+    <Arc>
+      <From>1</From>
+      <Name>#MetaObjects</Name>
+      <To>4</To>
+    </Arc>
+    <Arc>
+      <From>4</From>
+      <Name>#Name</Name>
+      <To>5</To>
+    </Arc>
+    <Arc>
+      <From>2</From>
+      <Name>#HasAttribute</Name>
+      <To>4</To>
+    </Arc>
+    <Arc>
+      <From>1</From>
+      <Name>#MetaObjects</Name>
+      <To>6</To>
+    </Arc>
+    <Arc>
+      <From>6</From>
+      <Name>#Name</Name>
+      <To>7</To>
+    </Arc>
+    <Arc>
+      <From>4</From>
+      <Name>#HasAttribute</Name>
+      <To>6</To>
+    </Arc>
+    <Arc>
+      <From>8</From>
+      <Name>#Name</Name>
+      <To>9</To>
+    </Arc>
+    <Arc>
+      <From>4</From>
+      <Name>#HasAttribute</Name>
+      <To>8</To>
+    </Arc>
+    <Arc>
+      <From>1</From>
+      <Name>#MetaObjects</Name>
+      <To>10</To>
+    </Arc>
+    <Arc>
+      <From>10</From>
+      <Name>#Name</Name>
+      <To>11</To>
+    </Arc>
+    <Arc>
+      <From>1</From>
+      <Name>#MetaObjects</Name>
+      <To>8</To>
+    </Arc>
+    <Arc>
+      <From>4</From>
+      <Name>#HasAttribute</Name>
+      <To>10</To>
+    </Arc>
+    <Arc>
+      <From>4</From>
+      <Name>#HasAttribute</Name>
+      <To>12</To>
+    </Arc>
+    <Arc>
+      <From>12</From>
+      <Name>#Name</Name>
+      <To>13</To>
+    </Arc>
+    <Arc>
+      <From>2</From>
+      <Name>#HasAttribute</Name>
+      <To>6</To>
+    </Arc>
+    <Arc>
+      <From>1</From>
+      <Name>Ингредиент</Name>
+      <To>14</To>
+    </Arc>
+    <Arc>
+      <From>14</From>
+      <Name>#Name</Name>
+      <To>15</To>
+    </Arc>
+    <Arc>
+      <From>16</From>
+      <Name>#is_a</Name>
+      <To>14</To>
+    </Arc>
+    <Arc>
+      <From>17</From>
+      <Name>#is_a</Name>
+      <To>14</To>
+    </Arc>
+    <Arc>
+      <From>18</From>
+      <Name>#is_a</Name>
+      <To>14</To>
+    </Arc>
+    <Arc>
+      <From>16</From>
+      <Name>#Name</Name>
+      <To>19</To>
+    </Arc>
+    <Arc>
+      <From>17</From>
+      <Name>#Name</Name>
+      <To>20</To>
+    </Arc>
+    <Arc>
+      <From>18</From>
+      <Name>#Name</Name>
+      <To>21</To>
+    </Arc>
+    <Arc>
+      <From>22</From>
+      <Name>#is_instance</Name>
+      <To>16</To>
+    </Arc>
+    <Arc>
+      <From>22</From>
+      <Name>#Name</Name>
+      <To>23</To>
+    </Arc>
+    <Arc>
+      <From>24</From>
+      <Name>#Name</Name>
+      <To>25</To>
+    </Arc>
+    <Arc>
+      <From>24</From>
+      <Name>#is_instance</Name>
+      <To>16</To>
+    </Arc>
+    <Arc>
+      <From>1</From>
+      <Name>Ингредиент</Name>
+      <To>26</To>
+    </Arc>
+    <Arc>
+      <From>26</From>
+      <Name>#Name</Name>
+      <To>27</To>
+    </Arc>
+    <Arc>
+      <From>30</From>
+      <Name>#is_a</Name>
+      <To>26</To>
+    </Arc>
+    <Arc>
+      <From>28</From>
+      <Name>#is_a</Name>
+      <To>26</To>
+    </Arc>
+    <Arc>
+      <From>29</From>
+      <Name>#is_a</Name>
+      <To>26</To>
+    </Arc>
+    <Arc>
+      <From>30</From>
+      <Name>#Name</Name>
+      <To>31</To>
+    </Arc>
+    <Arc>
+      <From>28</From>
+      <Name>#Name</Name>
+      <To>32</To>
+    </Arc>
+    <Arc>
+      <From>29</From>
+      <Name>#Name</Name>
+      <To>33</To>
+    </Arc>
+    <Arc>
+      <From>34</From>
+      <Name>#is_a</Name>
+      <To>30</To>
+    </Arc>
+    <Arc>
+      <From>34</From>
+      <Name>#Name</Name>
+      <To>35</To>
+    </Arc>
+    <Arc>
+      <From>36</From>
+      <Name>#is_instance</Name>
+      <To>34</To>
+    </Arc>
+    <Arc>
+      <From>36</From>
+      <Name>#Name</Name>
+      <To>37</To>
+    </Arc>
+    <Arc>
+      <From>1</From>
+      <Name>Ёмкость</Name>
+      <To>38</To>
+    </Arc>
+    <Arc>
+      <From>1</From>
+      <Name>Ёмкость</Name>
+      <To>39</To>
+    </Arc>
+    <Arc>
+      <From>38</From>
+      <Name>#Name</Name>
+      <To>40</To>
+    </Arc>
+    <Arc>
+      <From>39</From>
+      <Name>#Name</Name>
+      <To>41</To>
+    </Arc>
+    <Arc>
+      <From>1</From>
+      <Name>Инструмент</Name>
+      <To>42</To>
+    </Arc>
+    <Arc>
+      <From>42</From>
+      <Name>#Name</Name>
+      <To>43</To>
+    </Arc>
+    <Arc>
+      <From>1</From>
+      <Name>Инструмент</Name>
+      <To>44</To>
+    </Arc>
+    <Arc>
+      <From>44</From>
+      <Name>#Name</Name>
+      <To>45</To>
+    </Arc>
+    <Arc>
+      <From>1</From>
+      <Name>Инструмент</Name>
+      <To>46</To>
+    </Arc>
+    <Arc>
+      <From>46</From>
+      <Name>#Name</Name>
+      <To>47</To>
+    </Arc>
+    <Arc>
+      <From>1</From>
+      <Name>Инструмент</Name>
+      <To>48</To>
+    </Arc>
+    <Arc>
+      <From>48</From>
+      <Name>#Name</Name>
+      <To>49</To>
+    </Arc>
+    <Arc>
+      <From>1</From>
+      <Name>Действие</Name>
+      <To>50</To>
+    </Arc>
+    <Arc>
+      <From>50</From>
+      <Name>#Name</Name>
+      <To>51</To>
+    </Arc>
+    <Arc>
+      <From>52</From>
+      <Name>#is_a</Name>
+      <To>50</To>
+    </Arc>
+    <Arc>
+      <From>52</From>
+      <Name>#Name</Name>
+      <To>53</To>
+    </Arc>
+    <Arc>
+      <From>50</From>
+      <Name>Инструмент</Name>
+      <To>46</To>
+    </Arc>
+    <Arc>
+      <From>52</From>
+      <Name>Инструмент</Name>
+      <To>46</To>
+    </Arc>
+    <Arc>
+      <From>52</From>
+      <Name>Ёмкость</Name>
+      <To>38</To>
+    </Arc>
+    <Arc>
+      <From>54</From>
+      <Name>#is_a</Name>
+      <To>14</To>
+    </Arc>
+    <Arc>
+      <From>54</From>
+      <Name>#Name</Name>
+      <To>55</To>
+    </Arc>
+    <Arc>
+      <From>52</From>
+      <Name>Ингредиент</Name>
+      <To>54</To>
+    </Arc>
+    <Arc>
+      <From>1</From>
+      <Name>Действие</Name>
+      <To>56</To>
+    </Arc>
+    <Arc>
+      <From>1</From>
+      <Name>Действие</Name>
+      <To>57</To>
+    </Arc>
+    <Arc>
+      <From>1</From>
+      <Name>Действие</Name>
+      <To>58</To>
+    </Arc>
+    <Arc>
+      <From>1</From>
+      <Name>Действие</Name>
+      <To>59</To>
+    </Arc>
+    <Arc>
+      <From>56</From>
+      <Name>#Name</Name>
+      <To>60</To>
+    </Arc>
+    <Arc>
+      <From>56</From>
+      <Name>Ёмкость</Name>
+      <To>38</To>
+    </Arc>
+    <Arc>
+      <From>57</From>
+      <Name>#Name</Name>
+      <To>61</To>
+    </Arc>
+    <Arc>
+      <From>68</From>
+      <Name>#Name</Name>
+      <To>69</To>
+    </Arc>
+    <Arc>
+      <From>70</From>
+      <Name>#is_instance</Name>
+      <To>54</To>
+    </Arc>
+    <Arc>
+      <From>70</From>
+      <Name>#Name</Name>
+      <To>71</To>
+    </Arc>
+    <Arc>
+      <From>72</From>
+      <Name>#is_instance</Name>
+      <To>16</To>
+    </Arc>
+    <Arc>
+      <From>72</From>
+      <Name>#Name</Name>
+      <To>73</To>
+    </Arc>
+    <Arc>
+      <From>58</From>
+      <Name>#Name</Name>
+      <To>74</To>
+    </Arc>
+    <Arc>
+      <From>2</From>
+      <Name>#HasAttribute</Name>
+      <To>75</To>
+    </Arc>
+    <Arc>
+      <From>83</From>
+      <Name>#is_instance</Name>
+      <To>38</To>
+    </Arc>
+    <Arc>
+      <From>83</From>
+      <Name>#Name</Name>
+      <To>84</To>
+    </Arc>
+    <Arc>
+      <From>89</From>
+      <Name>#is_instance</Name>
+      <To>16</To>
+    </Arc>
+    <Arc>
+      <From>89</From>
+      <Name>#Name</Name>
+      <To>90</To>
+    </Arc>
+    <Arc>
+      <From>107</From>
+      <Name>#is_instance</Name>
+      <To>54</To>
+    </Arc>
+    <Arc>
+      <From>107</From>
+      <Name>#Name</Name>
+      <To>109</To>
+    </Arc>
+    <Arc>
+      <From>75</From>
+      <Name>#Name</Name>
+      <To>116</To>
+    </Arc>
+    <Arc>
+      <From>121</From>
+      <Name>#Name</Name>
+      <To>122</To>
+    </Arc>
+    <Arc>
+      <From>121</From>
+      <Name>#is_instance</Name>
+      <To>54</To>
+    </Arc>
+    <Arc>
+      <From>1</From>
+      <Name>Коктейль</Name>
+      <To>127</To>
+    </Arc>
+    <Arc>
+      <From>127</From>
+      <Name>Файл</Name>
+      <To>128</To>
+    </Arc>
+    <Arc>
+      <From>128</From>
+      <Name>#Name</Name>
+      <To>129</To>
+    </Arc>
+    <Arc>
+      <From>127</From>
+      <Name>#Name</Name>
+      <To>130</To>
+    </Arc>
+    <Arc>
+      <From>131</From>
+      <Name>#Name</Name>
+      <To>132</To>
+    </Arc>
+    <Arc>
+      <From>131</From>
+      <Name>#is_a</Name>
+      <To>57</To>
+    </Arc>
+    <Arc>
+      <From>127</From>
+      <Name>Ингредиент</Name>
+      <To>70</To>
+    </Arc>
+    <Arc>
+      <From>127</From>
+      <Name>Ингредиент</Name>
+      <To>72</To>
+    </Arc>
+    <Arc>
+      <From>127</From>
+      <Name>Действие</Name>
+      <To>133</To>
+    </Arc>
+    <Arc>
+      <From>133</From>
+      <Name>#is_instance</Name>
+      <To>131</To>
+    </Arc>
+    <Arc>
+      <From>133</From>
+      <Name>Ингредиент</Name>
+      <To>70</To>
+    </Arc>
+    <Arc>
+      <From>133</From>
+      <Name>Ингредиент</Name>
+      <To>72</To>
+    </Arc>
+    <Arc>
+      <From>133</From>
+      <Name>Ёмкость</Name>
+      <To>68</To>
+    </Arc>
+    <Arc>
+      <From>127</From>
+      <Name>Действие</Name>
+      <To>134</To>
+    </Arc>
+    <Arc>
+      <From>134</From>
+      <Name>#is_instance</Name>
+      <To>58</To>
+    </Arc>
+    <Arc>
+      <From>1</From>
+      <Name>Коктейль</Name>
+      <To>135</To>
+    </Arc>
+    <Arc>
+      <From>135</From>
+      <Name>Файл</Name>
+      <To>136</To>
+    </Arc>
+    <Arc>
+      <From>136</From>
+      <Name>#Name</Name>
+      <To>137</To>
+    </Arc>
+    <Arc>
+      <From>135</From>
+      <Name>#Name</Name>
+      <To>138</To>
+    </Arc>
+    <Arc>
+      <From>139</From>
+      <Name>#Name</Name>
+      <To>140</To>
+    </Arc>
+    <Arc>
+      <From>139</From>
+      <Name>#is_a</Name>
+      <To>30</To>
+    </Arc>
+    <Arc>
+      <From>141</From>
+      <Name>#Name</Name>
+      <To>142</To>
+    </Arc>
+    <Arc>
+      <From>141</From>
+      <Name>#is_instance</Name>
+      <To>139</To>
+    </Arc>
+    <Arc>
+      <From>135</From>
+      <Name>Ингредиент</Name>
+      <To>121</To>
+    </Arc>
+    <Arc>
+      <From>135</From>
+      <Name>Ингредиент</Name>
+      <To>70</To>
+    </Arc>
+    <Arc>
+      <From>135</From>
+      <Name>Ингредиент</Name>
+      <To>89</To>
+    </Arc>
+    <Arc>
+      <From>135</From>
+      <Name>Действие</Name>
+      <To>143</To>
+    </Arc>
+    <Arc>
+      <From>143</From>
+      <Name>#is_instance</Name>
+      <To>57</To>
+    </Arc>
+    <Arc>
+      <From>143</From>
+      <Name>Ёмкость</Name>
+      <To>83</To>
+    </Arc>
+    <Arc>
+      <From>143</From>
+      <Name>Ингредиент</Name>
+      <To>29</To>
+    </Arc>
+    <Arc>
+      <From>135</From>
+      <Name>Действие</Name>
+      <To>144</To>
+    </Arc>
+    <Arc>
+      <From>144</From>
+      <Name>#is_instance</Name>
+      <To>131</To>
+    </Arc>
+    <Arc>
+      <From>144</From>
+      <Name>Ингредиент</Name>
+      <To>121</To>
+    </Arc>
+    <Arc>
+      <From>144</From>
+      <Name>Ингредиент</Name>
+      <To>89</To>
+    </Arc>
+    <Arc>
+      <From>144</From>
+      <Name>Ёмкость</Name>
+      <To>83</To>
+    </Arc>
+    <Arc>
+      <From>135</From>
+      <Name>Действие</Name>
+      <To>145</To>
+    </Arc>
+    <Arc>
+      <From>145</From>
+      <Name>#is_instance</Name>
+      <To>131</To>
+    </Arc>
+    <Arc>
+      <From>145</From>
+      <Name>Ингредиент</Name>
+      <To>70</To>
+    </Arc>
+    <Arc>
+      <From>135</From>
+      <Name>Действие</Name>
+      <To>146</To>
+    </Arc>
+    <Arc>
+      <From>146</From>
+      <Name>#is_instance</Name>
+      <To>56</To>
+    </Arc>
+    <Arc>
+      <From>146</From>
+      <Name>Ингредиент</Name>
+      <To>141</To>
+    </Arc>
+    <Arc>
+      <From>1</From>
+      <Name>Коктейль</Name>
+      <To>147</To>
+    </Arc>
+    <Arc>
+      <From>147</From>
+      <Name>Файл</Name>
+      <To>148</To>
+    </Arc>
+    <Arc>
+      <From>148</From>
+      <Name>#Name</Name>
+      <To>149</To>
+    </Arc>
+    <Arc>
+      <From>147</From>
+      <Name>#Name</Name>
+      <To>150</To>
+    </Arc>
+    <Arc>
+      <From>151</From>
+      <Name>#Name</Name>
+      <To>152</To>
+    </Arc>
+    <Arc>
+      <From>151</From>
+      <Name>#is_a</Name>
+      <To>54</To>
+    </Arc>
+    <Arc>
+      <From>153</From>
+      <Name>#Name</Name>
+      <To>154</To>
+    </Arc>
+    <Arc>
+      <From>153</From>
+      <Name>#is_instance</Name>
+      <To>151</To>
+    </Arc>
+    <Arc>
+      <From>155</From>
+      <Name>#Name</Name>
+      <To>156</To>
+    </Arc>
+    <Arc>
+      <From>155</From>
+      <Name>#is_instance</Name>
+      <To>39</To>
+    </Arc>
+    <Arc>
+      <From>157</From>
+      <Name>#Name</Name>
+      <To>158</To>
+    </Arc>
+    <Arc>
+      <From>157</From>
+      <Name>#is_a</Name>
+      <To>58</To>
+    </Arc>
+    <Arc>
+      <From>159</From>
+      <Name>#Name</Name>
+      <To>160</To>
+    </Arc>
+    <Arc>
+      <From>159</From>
+      <Name>#is_a</Name>
+      <To>157</To>
+    </Arc>
+    <Arc>
+      <From>163</From>
+      <Name>#Name</Name>
+      <To>164</To>
+    </Arc>
+    <Arc>
+      <From>163</From>
+      <Name>#is_instance</Name>
+      <To>68</To>
+    </Arc>
+    <Arc>
+      <From>147</From>
+      <Name>Ингредиент</Name>
+      <To>121</To>
+    </Arc>
+    <Arc>
+      <From>147</From>
+      <Name>Ингредиент</Name>
+      <To>153</To>
+    </Arc>
+    <Arc>
+      <From>147</From>
+      <Name>Ингредиент</Name>
+      <To>24</To>
+    </Arc>
+    <Arc>
+      <From>147</From>
+      <Name>Действие</Name>
+      <To>165</To>
+    </Arc>
+    <Arc>
+      <From>165</From>
+      <Name>#is_instance</Name>
+      <To>57</To>
+    </Arc>
+    <Arc>
+      <From>165</From>
+      <Name>Ингредиент</Name>
+      <To>29</To>
+    </Arc>
+    <Arc>
+      <From>165</From>
+      <Name>Ёмкость</Name>
+      <To>155</To>
+    </Arc>
+    <Arc>
+      <From>147</From>
+      <Name>Действие</Name>
+      <To>166</To>
+    </Arc>
+    <Arc>
+      <From>166</From>
+      <Name>#is_instance</Name>
+      <To>131</To>
+    </Arc>
+    <Arc>
+      <From>166</From>
+      <Name>Ингредиент</Name>
+      <To>121</To>
+    </Arc>
+    <Arc>
+      <From>166</From>
+      <Name>Ингредиент</Name>
+      <To>153</To>
+    </Arc>
+    <Arc>
+      <From>166</From>
+      <Name>Ингредиент</Name>
+      <To>24</To>
+    </Arc>
+    <Arc>
+      <From>166</From>
+      <Name>Ёмкость</Name>
+      <To>155</To>
+    </Arc>
+    <Arc>
+      <From>147</From>
+      <Name>Действие</Name>
+      <To>167</To>
+    </Arc>
+    <Arc>
+      <From>167</From>
+      <Name>#is_instance</Name>
+      <To>159</To>
+    </Arc>
+    <Arc>
+      <From>68</From>
+      <Name>#is_a</Name>
+      <To>38</To>
+    </Arc>
+    <Arc>
+      <From>59</From>
+      <Name>#Name</Name>
+      <To>162</To>
+    </Arc>
+    <Arc>
+      <From>147</From>
+      <Name>Действие</Name>
+      <To>168</To>
+    </Arc>
+    <Arc>
+      <From>168</From>
+      <Name>#is_instance</Name>
+      <To>59</To>
+    </Arc>
+    <Arc>
+      <From>168</From>
+      <Name>Ёмкость</Name>
+      <To>163</To>
+    </Arc>
+    <Arc>
+      <From>1</From>
+      <Name>Коктейль</Name>
+      <To>169</To>
+    </Arc>
+    <Arc>
+      <From>169</From>
+      <Name>Файл</Name>
+      <To>170</To>
+    </Arc>
+    <Arc>
+      <From>170</From>
+      <Name>#Name</Name>
+      <To>171</To>
+    </Arc>
+    <Arc>
+      <From>169</From>
+      <Name>#Name</Name>
+      <To>172</To>
+    </Arc>
+    <Arc>
+      <From>173</From>
+      <Name>#Name</Name>
+      <To>174</To>
+    </Arc>
+    <Arc>
+      <From>173</From>
+      <Name>#is_instance</Name>
+      <To>151</To>
+    </Arc>
+    <Arc>
+      <From>169</From>
+      <Name>Ингредиент</Name>
+      <To>121</To>
+    </Arc>
+    <Arc>
+      <From>169</From>
+      <Name>Ингредиент</Name>
+      <To>153</To>
+    </Arc>
+    <Arc>
+      <From>169</From>
+      <Name>Ингредиент</Name>
+      <To>173</To>
+    </Arc>
+    <Arc>
+      <From>169</From>
+      <Name>Ингредиент</Name>
+      <To>24</To>
+    </Arc>
+    <Arc>
+      <From>169</From>
+      <Name>Действие</Name>
+      <To>175</To>
+    </Arc>
+    <Arc>
+      <From>175</From>
+      <Name>#is_instance</Name>
+      <To>57</To>
+    </Arc>
+    <Arc>
+      <From>175</From>
+      <Name>Ингредиент</Name>
+      <To>29</To>
+    </Arc>
+    <Arc>
+      <From>175</From>
+      <Name>Ёмкость</Name>
+      <To>155</To>
+    </Arc>
+    <Arc>
+      <From>169</From>
+      <Name>Действие</Name>
+      <To>176</To>
+    </Arc>
+    <Arc>
+      <From>176</From>
+      <Name>#is_instance</Name>
+      <To>131</To>
+    </Arc>
+    <Arc>
+      <From>176</From>
+      <Name>Ингредиент</Name>
+      <To>121</To>
+    </Arc>
+    <Arc>
+      <From>176</From>
+      <Name>Ингредиент</Name>
+      <To>153</To>
+    </Arc>
+    <Arc>
+      <From>176</From>
+      <Name>Ингредиент</Name>
+      <To>173</To>
+    </Arc>
+    <Arc>
+      <From>176</From>
+      <Name>Ёмкость</Name>
+      <To>155</To>
+    </Arc>
+    <Arc>
+      <From>169</From>
+      <Name>Действие</Name>
+      <To>177</To>
+    </Arc>
+    <Arc>
+      <From>177</From>
+      <Name>#is_instance</Name>
+      <To>159</To>
+    </Arc>
+    <Arc>
+      <From>169</From>
+      <Name>Действие</Name>
+      <To>178</To>
+    </Arc>
+    <Arc>
+      <From>178</From>
+      <Name>#is_instance</Name>
+      <To>59</To>
+    </Arc>
+    <Arc>
+      <From>178</From>
+      <Name>Ёмкость</Name>
+      <To>163</To>
+    </Arc>
+    <Arc>
+      <From>1</From>
+      <Name>Коктейль</Name>
+      <To>179</To>
+    </Arc>
+    <Arc>
+      <From>179</From>
+      <Name>Файл</Name>
+      <To>180</To>
+    </Arc>
+    <Arc>
+      <From>180</From>
+      <Name>#Name</Name>
+      <To>181</To>
+    </Arc>
+    <Arc>
+      <From>179</From>
+      <Name>#Name</Name>
+      <To>182</To>
+    </Arc>
+    <Arc>
+      <From>183</From>
+      <Name>#Name</Name>
+      <To>184</To>
+    </Arc>
+    <Arc>
+      <From>183</From>
+      <Name>#is_instance</Name>
+      <To>14</To>
+    </Arc>
+    <Arc>
+      <From>185</From>
+      <Name>#Name</Name>
+      <To>186</To>
+    </Arc>
+    <Arc>
+      <From>185</From>
+      <Name>#is_instance</Name>
+      <To>34</To>
+    </Arc>
+    <Arc>
+      <From>179</From>
+      <Name>Ингредиент</Name>
+      <To>121</To>
+    </Arc>
+    <Arc>
+      <From>179</From>
+      <Name>Ингредиент</Name>
+      <To>89</To>
+    </Arc>
+    <Arc>
+      <From>179</From>
+      <Name>Ингредиент</Name>
+      <To>183</To>
+    </Arc>
+    <Arc>
+      <From>179</From>
+      <Name>Действие</Name>
+      <To>187</To>
+    </Arc>
+    <Arc>
+      <From>187</From>
+      <Name>#is_instance</Name>
+      <To>57</To>
+    </Arc>
+    <Arc>
+      <From>187</From>
+      <Name>Ёмкость</Name>
+      <To>83</To>
+    </Arc>
+    <Arc>
+      <From>187</From>
+      <Name>Ингредиент</Name>
+      <To>29</To>
+    </Arc>
+    <Arc>
+      <From>179</From>
+      <Name>Действие</Name>
+      <To>188</To>
+    </Arc>
+    <Arc>
+      <From>188</From>
+      <Name>#is_instance</Name>
+      <To>131</To>
+    </Arc>
+    <Arc>
+      <From>188</From>
+      <Name>Ингредиент</Name>
+      <To>121</To>
+    </Arc>
+    <Arc>
+      <From>188</From>
+      <Name>Ингредиент</Name>
+      <To>89</To>
+    </Arc>
+    <Arc>
+      <From>188</From>
+      <Name>Ёмкость</Name>
+      <To>83</To>
+    </Arc>
+    <Arc>
+      <From>179</From>
+      <Name>Действие</Name>
+      <To>189</To>
+    </Arc>
+    <Arc>
+      <From>189</From>
+      <Name>#is_instance</Name>
+      <To>58</To>
+    </Arc>
+    <Arc>
+      <From>179</From>
+      <Name>Действие</Name>
+      <To>190</To>
+    </Arc>
+    <Arc>
+      <From>190</From>
+      <Name>#is_instance</Name>
+      <To>131</To>
+    </Arc>
+    <Arc>
+      <From>190</From>
+      <Name>Ёмкость</Name>
+      <To>83</To>
+    </Arc>
+    <Arc>
+      <From>190</From>
+      <Name>Ингредиент</Name>
+      <To>183</To>
+    </Arc>
+    <Arc>
+      <From>179</From>
+      <Name>Действие</Name>
+      <To>191</To>
+    </Arc>
+    <Arc>
+      <From>191</From>
+      <Name>#is_instance</Name>
+      <To>56</To>
+    </Arc>
+    <Arc>
+      <From>191</From>
+      <Name>Ингредиент</Name>
+      <To>185</To>
+    </Arc>
+    <Arc>
+      <From>1</From>
+      <Name>Коктейль</Name>
+      <To>192</To>
+    </Arc>
+    <Arc>
+      <From>192</From>
+      <Name>Файл</Name>
+      <To>193</To>
+    </Arc>
+    <Arc>
+      <From>193</From>
+      <Name>#Name</Name>
+      <To>194</To>
+    </Arc>
+    <Arc>
+      <From>192</From>
+      <Name>#Name</Name>
+      <To>195</To>
+    </Arc>
+    <Arc>
+      <From>196</From>
+      <Name>#Name</Name>
+      <To>197</To>
+    </Arc>
+    <Arc>
+      <From>196</From>
+      <Name>#is_instance</Name>
+      <To>54</To>
+    </Arc>
+    <Arc>
+      <From>198</From>
+      <Name>#Name</Name>
+      <To>199</To>
+    </Arc>
+    <Arc>
+      <From>198</From>
+      <Name>#is_a</Name>
+      <To>54</To>
+    </Arc>
+    <Arc>
+      <From>200</From>
+      <Name>#Name</Name>
+      <To>201</To>
+    </Arc>
+    <Arc>
+      <From>200</From>
+      <Name>#is_a</Name>
+      <To>198</To>
+    </Arc>
+    <Arc>
+      <From>202</From>
+      <Name>#Name</Name>
+      <To>203</To>
+    </Arc>
+    <Arc>
+      <From>202</From>
+      <Name>#is_instance</Name>
+      <To>200</To>
+    </Arc>
+    <Arc>
+      <From>204</From>
+      <Name>#Name</Name>
+      <To>205</To>
+    </Arc>
+    <Arc>
+      <From>204</From>
+      <Name>#is_instance</Name>
+      <To>16</To>
+    </Arc>
+    <Arc>
+      <From>206</From>
+      <Name>#Name</Name>
+      <To>207</To>
+    </Arc>
+    <Arc>
+      <From>206</From>
+      <Name>#is_instance</Name>
+      <To>198</To>
+    </Arc>
+    <Arc>
+      <From>192</From>
+      <Name>Ингредиент</Name>
+      <To>196</To>
+    </Arc>
+    <Arc>
+      <From>192</From>
+      <Name>Ингредиент</Name>
+      <To>202</To>
+    </Arc>
+    <Arc>
+      <From>192</From>
+      <Name>Ингредиент</Name>
+      <To>204</To>
+    </Arc>
+    <Arc>
+      <From>192</From>
+      <Name>Ингредиент</Name>
+      <To>206</To>
+    </Arc>
+    <Arc>
+      <From>192</From>
+      <Name>Действие</Name>
+      <To>208</To>
+    </Arc>
+    <Arc>
+      <From>208</From>
+      <Name>#is_instance</Name>
+      <To>57</To>
+    </Arc>
+    <Arc>
+      <From>208</From>
+      <Name>Ингредиент</Name>
+      <To>29</To>
+    </Arc>
+    <Arc>
+      <From>208</From>
+      <Name>Ёмкость</Name>
+      <To>155</To>
+    </Arc>
+    <Arc>
+      <From>192</From>
+      <Name>Действие</Name>
+      <To>209</To>
+    </Arc>
+    <Arc>
+      <From>209</From>
+      <Name>#is_instance</Name>
+      <To>131</To>
+    </Arc>
+    <Arc>
+      <From>209</From>
+      <Name>Ингредиент</Name>
+      <To>196</To>
+    </Arc>
+    <Arc>
+      <From>209</From>
+      <Name>Ингредиент</Name>
+      <To>202</To>
+    </Arc>
+    <Arc>
+      <From>209</From>
+      <Name>Ингредиент</Name>
+      <To>204</To>
+    </Arc>
+    <Arc>
+      <From>209</From>
+      <Name>Ингредиент</Name>
+      <To>206</To>
+    </Arc>
+    <Arc>
+      <From>209</From>
+      <Name>Ёмкость</Name>
+      <To>155</To>
+    </Arc>
+    <Arc>
+      <From>192</From>
+      <Name>Действие</Name>
+      <To>210</To>
+    </Arc>
+    <Arc>
+      <From>210</From>
+      <Name>#is_instance</Name>
+      <To>159</To>
+    </Arc>
+    <Arc>
+      <From>192</From>
+      <Name>Действие</Name>
+      <To>211</To>
+    </Arc>
+    <Arc>
+      <From>211</From>
+      <Name>#is_instance</Name>
+      <To>59</To>
+    </Arc>
+    <Arc>
+      <From>211</From>
+      <Name>Ёмкость</Name>
+      <To>83</To>
+    </Arc>
+    <Arc>
+      <From>1</From>
+      <Name>#MetaObjects</Name>
+      <To>12</To>
+    </Arc>
+    <Arc>
+      <From>1</From>
+      <Name>#MetaObjects</Name>
+      <To>75</To>
+    </Arc>
+    <Arc>
+      <From>127</From>
+      <Name>Более сладкий</Name>
+      <To>169</To>
+    </Arc>
+    <Arc>
+      <From>169</From>
+      <Name>Более сладкий</Name>
+      <To>179</To>
+    </Arc>
+    <Arc>
+      <From>135</From>
+      <Name>Менее сладкий</Name>
+      <To>147</To>
+    </Arc>
+    <Arc>
+      <From>1</From>
+      <Name>Коктейль</Name>
+      <To>212</To>
+    </Arc>
+    <Arc>
+      <From>212</From>
+      <Name>Файл</Name>
+      <To>213</To>
+    </Arc>
+    <Arc>
+      <From>213</From>
+      <Name>#Name</Name>
+      <To>214</To>
+    </Arc>
+    <Arc>
+      <From>212</From>
+      <Name>#Name</Name>
+      <To>215</To>
+    </Arc>
+    <Arc>
+      <From>216</From>
+      <Name>#Name</Name>
+      <To>217</To>
+    </Arc>
+    <Arc>
+      <From>216</From>
+      <Name>#is_a</Name>
+      <To>54</To>
+    </Arc>
+    <Arc>
+      <From>218</From>
+      <Name>#Name</Name>
+      <To>219</To>
+    </Arc>
+    <Arc>
+      <From>218</From>
+      <Name>#is_instance</Name>
+      <To>216</To>
+    </Arc>
+    <Arc>
+      <From>220</From>
+      <Name>#Name</Name>
+      <To>221</To>
+    </Arc>
+    <Arc>
+      <From>220</From>
+      <Name>#is_instance</Name>
+      <To>198</To>
+    </Arc>
+    <Arc>
+      <From>222</From>
+      <Name>#Name</Name>
+      <To>223</To>
+    </Arc>
+    <Arc>
+      <From>222</From>
+      <Name>#is_instance</Name>
+      <To>38</To>
+    </Arc>
+    <Arc>
+      <From>212</From>
+      <Name>Ингредиент</Name>
+      <To>218</To>
+    </Arc>
+    <Arc>
+      <From>212</From>
+      <Name>Ингредиент</Name>
+      <To>220</To>
+    </Arc>
+    <Arc>
+      <From>212</From>
+      <Name>Действие</Name>
+      <To>224</To>
+    </Arc>
+    <Arc>
+      <From>224</From>
+      <Name>#is_instance</Name>
+      <To>57</To>
+    </Arc>
+    <Arc>
+      <From>224</From>
+      <Name>Ингредиент</Name>
+      <To>29</To>
+    </Arc>
+    <Arc>
+      <From>224</From>
+      <Name>Ёмкость</Name>
+      <To>155</To>
+    </Arc>
+    <Arc>
+      <From>212</From>
+      <Name>Действие</Name>
+      <To>225</To>
+    </Arc>
+    <Arc>
+      <From>225</From>
+      <Name>#is_instance</Name>
+      <To>131</To>
+    </Arc>
+    <Arc>
+      <From>225</From>
+      <Name>Ингредиент</Name>
+      <To>218</To>
+    </Arc>
+    <Arc>
+      <From>225</From>
+      <Name>Ингредиент</Name>
+      <To>220</To>
+    </Arc>
+    <Arc>
+      <From>225</From>
+      <Name>Ёмкость</Name>
+      <To>155</To>
+    </Arc>
+    <Arc>
+      <From>212</From>
+      <Name>Действие</Name>
+      <To>226</To>
+    </Arc>
+    <Arc>
+      <From>226</From>
+      <Name>#is_instance</Name>
+      <To>159</To>
+    </Arc>
+    <Arc>
+      <From>212</From>
+      <Name>Действие</Name>
+      <To>227</To>
+    </Arc>
+    <Arc>
+      <From>227</From>
+      <Name>#is_instance</Name>
+      <To>59</To>
+    </Arc>
+    <Arc>
+      <From>227</From>
+      <Name>Ёмкость</Name>
+      <To>222</To>
+    </Arc>
+    <Arc>
+      <From>1</From>
+      <Name>Коктейль</Name>
+      <To>228</To>
+    </Arc>
+    <Arc>
+      <From>228</From>
+      <Name>Файл</Name>
+      <To>229</To>
+    </Arc>
+    <Arc>
+      <From>229</From>
+      <Name>#Name</Name>
+      <To>230</To>
+    </Arc>
+    <Arc>
+      <From>228</From>
+      <Name>#Name</Name>
+      <To>231</To>
+    </Arc>
+    <Arc>
+      <From>232</From>
+      <Name>#Name</Name>
+      <To>233</To>
+    </Arc>
+    <Arc>
+      <From>232</From>
+      <Name>#is_instance</Name>
+      <To>198</To>
+    </Arc>
+    <Arc>
+      <From>234</From>
+      <Name>#Name</Name>
+      <To>235</To>
+    </Arc>
+    <Arc>
+      <From>234</From>
+      <Name>#is_instance</Name>
+      <To>198</To>
+    </Arc>
+    <Arc>
+      <From>236</From>
+      <Name>#Name</Name>
+      <To>237</To>
+    </Arc>
+    <Arc>
+      <From>236</From>
+      <Name>#is_instance</Name>
+      <To>68</To>
+    </Arc>
+    <Arc>
+      <From>228</From>
+      <Name>Ингредиент</Name>
+      <To>218</To>
+    </Arc>
+    <Arc>
+      <From>228</From>
+      <Name>Ингредиент</Name>
+      <To>18</To>
+    </Arc>
+    <Arc>
+      <From>228</From>
+      <Name>Ингредиент</Name>
+      <To>232</To>
+    </Arc>
+    <Arc>
+      <From>228</From>
+      <Name>Ингредиент</Name>
+      <To>234</To>
+    </Arc>
+    <Arc>
+      <From>228</From>
+      <Name>Действие</Name>
+      <To>238</To>
+    </Arc>
+    <Arc>
+      <From>238</From>
+      <Name>#is_instance</Name>
+      <To>57</To>
+    </Arc>
+    <Arc>
+      <From>238</From>
+      <Name>Ингредиент</Name>
+      <To>29</To>
+    </Arc>
+    <Arc>
+      <From>238</From>
+      <Name>Ёмкость</Name>
+      <To>155</To>
+    </Arc>
+    <Arc>
+      <From>228</From>
+      <Name>Действие</Name>
+      <To>239</To>
+    </Arc>
+    <Arc>
+      <From>239</From>
+      <Name>#is_instance</Name>
+      <To>131</To>
+    </Arc>
+    <Arc>
+      <From>239</From>
+      <Name>Ингредиент</Name>
+      <To>218</To>
+    </Arc>
+    <Arc>
+      <From>239</From>
+      <Name>Ингредиент</Name>
+      <To>18</To>
+    </Arc>
+    <Arc>
+      <From>239</From>
+      <Name>Ингредиент</Name>
+      <To>232</To>
+    </Arc>
+    <Arc>
+      <From>239</From>
+      <Name>Ингредиент</Name>
+      <To>234</To>
+    </Arc>
+    <Arc>
+      <From>239</From>
+      <Name>Ёмкость</Name>
+      <To>155</To>
+    </Arc>
+    <Arc>
+      <From>228</From>
+      <Name>Действие</Name>
+      <To>240</To>
+    </Arc>
+    <Arc>
+      <From>240</From>
+      <Name>#is_instance</Name>
+      <To>159</To>
+    </Arc>
+    <Arc>
+      <From>228</From>
+      <Name>Действие</Name>
+      <To>241</To>
+    </Arc>
+    <Arc>
+      <From>241</From>
+      <Name>#is_instance</Name>
+      <To>59</To>
+    </Arc>
+    <Arc>
+      <From>241</From>
+      <Name>Ёмкость</Name>
+      <To>236</To>
+    </Arc>
+    <Arc>
+      <From>246</From>
+      <Name>#Name</Name>
+      <To>247</To>
+    </Arc>
+    <Arc>
+      <From>246</From>
+      <Name>#is_instance</Name>
+      <To>28</To>
+    </Arc>
+    <Arc>
+      <From>250</From>
+      <Name>#Name</Name>
+      <To>251</To>
+    </Arc>
+    <Arc>
+      <From>250</From>
+      <Name>#is_a</Name>
+      <To>42</To>
+    </Arc>
+    <Arc>
+      <From>252</From>
+      <Name>#Name</Name>
+      <To>253</To>
+    </Arc>
+    <Arc>
+      <From>252</From>
+      <Name>#is_instance</Name>
+      <To>39</To>
+    </Arc>
+    <Arc>
+      <From>254</From>
+      <Name>#Name</Name>
+      <To>255</To>
+    </Arc>
+    <Arc>
+      <From>1</From>
+      <Name>Действие</Name>
+      <To>254</To>
+    </Arc>
+    <Arc>
+      <From>260</From>
+      <Name>#Name</Name>
+      <To>261</To>
+    </Arc>
+    <Arc>
+      <From>260</From>
+      <Name>#is_instance</Name>
+      <To>68</To>
+    </Arc>
+    <Arc>
+      <From>1</From>
+      <Name>Коктейль</Name>
+      <To>269</To>
+    </Arc>
+    <Arc>
+      <From>269</From>
+      <Name>Файл</Name>
+      <To>270</To>
+    </Arc>
+    <Arc>
+      <From>270</From>
+      <Name>#Name</Name>
+      <To>271</To>
+    </Arc>
+    <Arc>
+      <From>269</From>
+      <Name>#Name</Name>
+      <To>272</To>
+    </Arc>
+    <Arc>
+      <From>273</From>
+      <Name>#Name</Name>
+      <To>274</To>
+    </Arc>
+    <Arc>
+      <From>273</From>
+      <Name>#is_instance</Name>
+      <To>198</To>
+    </Arc>
+    <Arc>
+      <From>275</From>
+      <Name>#Name</Name>
+      <To>276</To>
+    </Arc>
+    <Arc>
+      <From>275</From>
+      <Name>#is_instance</Name>
+      <To>198</To>
+    </Arc>
+    <Arc>
+      <From>269</From>
+      <Name>Ингредиент</Name>
+      <To>273</To>
+    </Arc>
+    <Arc>
+      <From>269</From>
+      <Name>Ингредиент</Name>
+      <To>202</To>
+    </Arc>
+    <Arc>
+      <From>269</From>
+      <Name>Ингредиент</Name>
+      <To>275</To>
+    </Arc>
+    <Arc>
+      <From>269</From>
+      <Name>Действие</Name>
+      <To>277</To>
+    </Arc>
+    <Arc>
+      <From>277</From>
+      <Name>#is_instance</Name>
+      <To>57</To>
+    </Arc>
+    <Arc>
+      <From>277</From>
+      <Name>Ингредиент</Name>
+      <To>29</To>
+    </Arc>
+    <Arc>
+      <From>277</From>
+      <Name>Ёмкость</Name>
+      <To>155</To>
+    </Arc>
+    <Arc>
+      <From>269</From>
+      <Name>Действие</Name>
+      <To>278</To>
+    </Arc>
+    <Arc>
+      <From>278</From>
+      <Name>#is_instance</Name>
+      <To>131</To>
+    </Arc>
+    <Arc>
+      <From>278</From>
+      <Name>Ингредиент</Name>
+      <To>273</To>
+    </Arc>
+    <Arc>
+      <From>278</From>
+      <Name>Ингредиент</Name>
+      <To>202</To>
+    </Arc>
+    <Arc>
+      <From>278</From>
+      <Name>Ингредиент</Name>
+      <To>275</To>
+    </Arc>
+    <Arc>
+      <From>278</From>
+      <Name>Ёмкость</Name>
+      <To>155</To>
+    </Arc>
+    <Arc>
+      <From>269</From>
+      <Name>Действие</Name>
+      <To>279</To>
+    </Arc>
+    <Arc>
+      <From>279</From>
+      <Name>#is_instance</Name>
+      <To>159</To>
+    </Arc>
+    <Arc>
+      <From>269</From>
+      <Name>Действие</Name>
+      <To>280</To>
+    </Arc>
+    <Arc>
+      <From>280</From>
+      <Name>#is_instance</Name>
+      <To>59</To>
+    </Arc>
+    <Arc>
+      <From>280</From>
+      <Name>Ёмкость</Name>
+      <To>222</To>
+    </Arc>
+    <Arc>
+      <From>1</From>
+      <Name>Коктейль</Name>
+      <To>281</To>
+    </Arc>
+    <Arc>
+      <From>281</From>
+      <Name>Файл</Name>
+      <To>282</To>
+    </Arc>
+    <Arc>
+      <From>282</From>
+      <Name>#Name</Name>
+      <To>283</To>
+    </Arc>
+    <Arc>
+      <From>281</From>
+      <Name>#Name</Name>
+      <To>284</To>
+    </Arc>
+    <Arc>
+      <From>285</From>
+      <Name>#Name</Name>
+      <To>286</To>
+    </Arc>
+    <Arc>
+      <From>285</From>
+      <Name>#is_instance</Name>
+      <To>17</To>
+    </Arc>
+    <Arc>
+      <From>281</From>
+      <Name>Ингредиент</Name>
+      <To>246</To>
+    </Arc>
+    <Arc>
+      <From>281</From>
+      <Name>Ингредиент</Name>
+      <To>285</To>
+    </Arc>
+    <Arc>
+      <From>281</From>
+      <Name>Ингредиент</Name>
+      <To>218</To>
+    </Arc>
+    <Arc>
+      <From>281</From>
+      <Name>Ингредиент</Name>
+      <To>70</To>
+    </Arc>
+    <Arc>
+      <From>281</From>
+      <Name>Действие</Name>
+      <To>287</To>
+    </Arc>
+    <Arc>
+      <From>287</From>
+      <Name>#is_instance</Name>
+      <To>254</To>
+    </Arc>
+    <Arc>
+      <From>287</From>
+      <Name>Ингредиент</Name>
+      <To>246</To>
+    </Arc>
+    <Arc>
+      <From>287</From>
+      <Name>Инструмент</Name>
+      <To>250</To>
+    </Arc>
+    <Arc>
+      <From>287</From>
+      <Name>Ёмкость</Name>
+      <To>252</To>
+    </Arc>
+    <Arc>
+      <From>288</From>
+      <Name>#is_instance</Name>
+      <To>131</To>
+    </Arc>
+    <Arc>
+      <From>288</From>
+      <Name>Ингредиент</Name>
+      <To>218</To>
+    </Arc>
+    <Arc>
+      <From>288</From>
+      <Name>Ёмкость</Name>
+      <To>252</To>
+    </Arc>
+    <Arc>
+      <From>289</From>
+      <Name>#is_instance</Name>
+      <To>58</To>
+    </Arc>
+    <Arc>
+      <From>290</From>
+      <Name>#is_instance</Name>
+      <To>59</To>
+    </Arc>
+    <Arc>
+      <From>290</From>
+      <Name>Ёмкость</Name>
+      <To>260</To>
+    </Arc>
+    <Arc>
+      <From>291</From>
+      <Name>#is_instance</Name>
+      <To>131</To>
+    </Arc>
+    <Arc>
+      <From>291</From>
+      <Name>Ингредиент</Name>
+      <To>70</To>
+    </Arc>
+    <Arc>
+      <From>281</From>
+      <Name>Действие</Name>
+      <To>288</To>
+    </Arc>
+    <Arc>
+      <From>281</From>
+      <Name>Действие</Name>
+      <To>289</To>
+    </Arc>
+    <Arc>
+      <From>281</From>
+      <Name>Действие</Name>
+      <To>290</To>
+    </Arc>
+    <Arc>
+      <From>281</From>
+      <Name>Действие</Name>
+      <To>291</To>
+    </Arc>
+  </Arcs>
+  <Nodes>
+    <Node>
+      <ID>1</ID>
+      <IsSystem>false</IsSystem>
+      <Name>#System</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>#System</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>667.5</X>
+      <Y>232.5</Y>
+    </Node>
+    <Node>
+      <ID>2</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>112.5</X>
+      <Y>157.5</Y>
+    </Node>
+    <Node>
+      <ID>3</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Коктейль</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Коктейль</d4p1:Key>
+          <d4p1:Value>
+            <d4p1:string>Коктейля</d4p1:string>
+            <d4p1:string>Коктейлю</d4p1:string>
+            <d4p1:string>Коктейли</d4p1:string>
+            <d4p1:string>Коктейлем</d4p1:string>
+            <d4p1:string>Коктейле</d4p1:string>
+            <d4p1:string>Коктейлей</d4p1:string>
+            <d4p1:string>Коктейлям</d4p1:string>
+            <d4p1:string>Коктейлями</d4p1:string>
+            <d4p1:string>Коктейлях</d4p1:string>
+          </d4p1:Value>
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Коктейльчик</d4p1:Key>
+          <d4p1:Value>
+            <d4p1:string>Коктейльчика</d4p1:string>
+          </d4p1:Value>
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>7.5</X>
+      <Y>157.5</Y>
+    </Node>
+    <Node>
+      <ID>4</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>172.5</X>
+      <Y>292.5</Y>
+    </Node>
+    <Node>
+      <ID>5</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Действие</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Действие</d4p1:Key>
+          <d4p1:Value>
+            <d4p1:string>Действия</d4p1:string>
+            <d4p1:string>Действию</d4p1:string>
+            <d4p1:string>Действием</d4p1:string>
+          </d4p1:Value>
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Приготовление</d4p1:Key>
+          <d4p1:Value>
+            <d4p1:string>Приготовления</d4p1:string>
+            <d4p1:string>Приготовлению</d4p1:string>
+          </d4p1:Value>
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>82.5</X>
+      <Y>472.5</Y>
+    </Node>
+    <Node>
+      <ID>6</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>367.5</X>
+      <Y>397.5</Y>
+    </Node>
+    <Node>
+      <ID>7</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Ингредиент</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Ингредиент</d4p1:Key>
+          <d4p1:Value>
+            <d4p1:string>Ингредиенты</d4p1:string>
+          </d4p1:Value>
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>217.5</X>
+      <Y>472.5</Y>
+    </Node>
+    <Node>
+      <ID>8</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>427.5</X>
+      <Y>427.5</Y>
+    </Node>
+    <Node>
+      <ID>9</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Ёмкость</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Ёмкость</d4p1:Key>
+          <d4p1:Value>
+            <d4p1:string>Ёмкости</d4p1:string>
+          </d4p1:Value>
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Емкость</d4p1:Key>
+          <d4p1:Value>
+            <d4p1:string>Емкости</d4p1:string>
+          </d4p1:Value>
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>277.5</X>
+      <Y>517.5</Y>
+    </Node>
+    <Node>
+      <ID>10</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>487.5</X>
+      <Y>397.5</Y>
+    </Node>
+    <Node>
+      <ID>11</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Инструмент</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Инструмент</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>352.5</X>
+      <Y>592.5</Y>
+    </Node>
+    <Node>
+      <ID>12</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>232.5</X>
+      <Y>397.5</Y>
+    </Node>
+    <Node>
+      <ID>13</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Номер</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Номер</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>157.5</X>
+      <Y>457.5</Y>
+    </Node>
+    <Node>
+      <ID>14</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>2272.5</X>
+      <Y>2422.5</Y>
+    </Node>
+    <Node>
+      <ID>15</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Жидкий ингредиент</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Жидкий ингредиент</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>2227.5</X>
+      <Y>2452.5</Y>
+    </Node>
+    <Node>
+      <ID>16</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>2092.5</X>
+      <Y>2767.5</Y>
+    </Node>
+    <Node>
+      <ID>17</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>2437.5</X>
+      <Y>2902.5</Y>
+    </Node>
+    <Node>
+      <ID>18</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>2077.5</X>
+      <Y>2617.5</Y>
+    </Node>
+    <Node>
+      <ID>19</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Сок</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Сок</d4p1:Key>
+          <d4p1:Value>
+            <d4p1:string>Соком</d4p1:string>
+            <d4p1:string>сока</d4p1:string>
+          </d4p1:Value>
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>2032.5</X>
+      <Y>2782.5</Y>
+    </Node>
+    <Node>
+      <ID>20</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Сироп</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Сироп</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>2392.5</X>
+      <Y>2962.5</Y>
+    </Node>
+    <Node>
+      <ID>21</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Молоко</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Молоко</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>сливки</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>2017.5</X>
+      <Y>2692.5</Y>
+    </Node>
+    <Node>
+      <ID>22</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>1972.5</X>
+      <Y>3097.5</Y>
+    </Node>
+    <Node>
+      <ID>23</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Яблочный сок</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Яблочный сок</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>1927.5</X>
+      <Y>3127.5</Y>
+    </Node>
+    <Node>
+      <ID>24</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>2062.5</X>
+      <Y>3142.5</Y>
+    </Node>
+    <Node>
+      <ID>25</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Апельсиновый сок</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Апельсиновый сок</d4p1:Key>
+          <d4p1:Value>
+            <d4p1:string>Апельсиновым соком</d4p1:string>
+          </d4p1:Value>
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>2002.5</X>
+      <Y>3202.5</Y>
+    </Node>
+    <Node>
+      <ID>26</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>532.5</X>
+      <Y>2557.5</Y>
+    </Node>
+    <Node>
+      <ID>27</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Твёрдый ингредиент</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Твёрдый ингредиент</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>472.5</X>
+      <Y>2572.5</Y>
+    </Node>
+    <Node>
+      <ID>28</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>607.5</X>
+      <Y>2827.5</Y>
+    </Node>
+    <Node>
+      <ID>29</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>757.5</X>
+      <Y>2752.5</Y>
+    </Node>
+    <Node>
+      <ID>30</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>337.5</X>
+      <Y>2737.5</Y>
+    </Node>
+    <Node>
+      <ID>31</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Плод</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Плод</d4p1:Key>
+          <d4p1:Value>
+            <d4p1:string>Плода</d4p1:string>
+            <d4p1:string>Плоду</d4p1:string>
+            <d4p1:string>Плодом</d4p1:string>
+            <d4p1:string>Плоде</d4p1:string>
+            <d4p1:string>Плоды</d4p1:string>
+            <d4p1:string>Плодов</d4p1:string>
+            <d4p1:string>Плодами</d4p1:string>
+            <d4p1:string>Плодах</d4p1:string>
+          </d4p1:Value>
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>277.5</X>
+      <Y>2752.5</Y>
+    </Node>
+    <Node>
+      <ID>32</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Специя</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Специя</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>577.5</X>
+      <Y>2902.5</Y>
+    </Node>
+    <Node>
+      <ID>33</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Лёд</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Лёд</d4p1:Key>
+          <d4p1:Value>
+            <d4p1:string>Льда</d4p1:string>
+            <d4p1:string>Льду</d4p1:string>
+            <d4p1:string>Льдом</d4p1:string>
+            <d4p1:string>Льде</d4p1:string>
+          </d4p1:Value>
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Кубик льда</d4p1:Key>
+          <d4p1:Value>
+            <d4p1:string>Кубики льда</d4p1:string>
+          </d4p1:Value>
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>742.5</X>
+      <Y>2827.5</Y>
+    </Node>
+    <Node>
+      <ID>34</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>232.5</X>
+      <Y>2932.5</Y>
+    </Node>
+    <Node>
+      <ID>35</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Фрукт</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Фрукт</d4p1:Key>
+          <d4p1:Value>
+            <d4p1:string>Фрукта</d4p1:string>
+            <d4p1:string>Фруктов</d4p1:string>
+            <d4p1:string>Фрукты</d4p1:string>
+            <d4p1:string>Фрукту</d4p1:string>
+            <d4p1:string>Фруктам</d4p1:string>
+            <d4p1:string>Фруктом</d4p1:string>
+            <d4p1:string>Фруктами</d4p1:string>
+            <d4p1:string>Фрукте</d4p1:string>
+            <d4p1:string>Фруктах</d4p1:string>
+          </d4p1:Value>
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>157.5</X>
+      <Y>2947.5</Y>
+    </Node>
+    <Node>
+      <ID>36</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>157.5</X>
+      <Y>3187.5</Y>
+    </Node>
+    <Node>
+      <ID>37</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Апельсин</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Апельсин</d4p1:Key>
+          <d4p1:Value>
+            <d4p1:string>Апельсина</d4p1:string>
+            <d4p1:string>Апельсину</d4p1:string>
+            <d4p1:string>Апельсины</d4p1:string>
+            <d4p1:string>Апельсином</d4p1:string>
+            <d4p1:string>Апельсине</d4p1:string>
+            <d4p1:string>Апельсинов</d4p1:string>
+            <d4p1:string>Апельсинам</d4p1:string>
+            <d4p1:string>Апельсинами</d4p1:string>
+            <d4p1:string>Апельсинах</d4p1:string>
+          </d4p1:Value>
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Апельсинка</d4p1:Key>
+          <d4p1:Value>
+            <d4p1:string>Апельсинки</d4p1:string>
+          </d4p1:Value>
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>97.5</X>
+      <Y>3232.5</Y>
+    </Node>
+    <Node>
+      <ID>38</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>262.5</X>
+      <Y>772.5</Y>
+    </Node>
+    <Node>
+      <ID>39</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>322.5</X>
+      <Y>772.5</Y>
+    </Node>
+    <Node>
+      <ID>40</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Для подачи</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Для подачи</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>217.5</X>
+      <Y>847.5</Y>
+    </Node>
+    <Node>
+      <ID>41</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Для смешивания</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Для смешивания</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>262.5</X>
+      <Y>862.5</Y>
+    </Node>
+    <Node>
+      <ID>42</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>262.5</X>
+      <Y>1687.5</Y>
+    </Node>
+    <Node>
+      <ID>43</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Измельчитель</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Измельчитель</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>262.5</X>
+      <Y>1777.5</Y>
+    </Node>
+    <Node>
+      <ID>44</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>247.5</X>
+      <Y>1687.5</Y>
+    </Node>
+    <Node>
+      <ID>45</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Смешиватель</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Смешиватель</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>247.5</X>
+      <Y>1777.5</Y>
+    </Node>
+    <Node>
+      <ID>46</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>232.5</X>
+      <Y>1687.5</Y>
+    </Node>
+    <Node>
+      <ID>47</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Нагреватель</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Нагреватель</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>232.5</X>
+      <Y>1777.5</Y>
+    </Node>
+    <Node>
+      <ID>48</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>217.5</X>
+      <Y>1687.5</Y>
+    </Node>
+    <Node>
+      <ID>49</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Процеживатель</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Процеживатель</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>217.5</X>
+      <Y>1777.5</Y>
+    </Node>
+    <Node>
+      <ID>50</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>952.2048478266222</X>
+      <Y>1516.8260188087772</Y>
+    </Node>
+    <Node>
+      <ID>51</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Нагреть</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Нагреть</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>652.5</X>
+      <Y>1762.5</Y>
+    </Node>
+    <Node>
+      <ID>52</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>997.5</X>
+      <Y>1702.5</Y>
+    </Node>
+    <Node>
+      <ID>53</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Поджечь</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Поджечь</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>847.5</X>
+      <Y>1747.5</Y>
+    </Node>
+    <Node>
+      <ID>54</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>2947.5</X>
+      <Y>2827.5</Y>
+    </Node>
+    <Node>
+      <ID>55</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Алкоголь</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Алкоголь</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3022.5</X>
+      <Y>2797.5</Y>
+    </Node>
+    <Node>
+      <ID>56</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>1027.5</X>
+      <Y>1522.5</Y>
+    </Node>
+    <Node>
+      <ID>57</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>1102.5</X>
+      <Y>1522.5</Y>
+    </Node>
+    <Node>
+      <ID>58</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>1177.5</X>
+      <Y>1507.5</Y>
+    </Node>
+    <Node>
+      <ID>59</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>1252.5</X>
+      <Y>1477.5</Y>
+    </Node>
+    <Node>
+      <ID>60</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Украсить</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Украсить</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>1027.5</X>
+      <Y>1627.5</Y>
+    </Node>
+    <Node>
+      <ID>61</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Положить</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Положить</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>1087.5</X>
+      <Y>1627.5</Y>
+    </Node>
+    <Node>
+      <ID>68</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>127.5</X>
+      <Y>832.5</Y>
+    </Node>
+    <Node>
+      <ID>69</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Бокал</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Бокал</d4p1:Key>
+          <d4p1:Value>
+            <d4p1:string>Бокале</d4p1:string>
+            <d4p1:string>Бокала</d4p1:string>
+            <d4p1:string>Бокалу</d4p1:string>
+            <d4p1:string>Бокалом</d4p1:string>
+            <d4p1:string>Бокалы</d4p1:string>
+            <d4p1:string>Бокалов</d4p1:string>
+            <d4p1:string>Бокалам</d4p1:string>
+            <d4p1:string>Бокалами</d4p1:string>
+            <d4p1:string>Бокалах</d4p1:string>
+          </d4p1:Value>
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>82.5</X>
+      <Y>892.5</Y>
+    </Node>
+    <Node>
+      <ID>70</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3022.5</X>
+      <Y>3277.5</Y>
+    </Node>
+    <Node>
+      <ID>71</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Шампанское</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Шампанское</d4p1:Key>
+          <d4p1:Value>
+            <d4p1:string>Шампанским</d4p1:string>
+          </d4p1:Value>
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Игристое вино</d4p1:Key>
+          <d4p1:Value>
+            <d4p1:string>Игристым вином</d4p1:string>
+          </d4p1:Value>
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3052.5</X>
+      <Y>3382.5</Y>
+    </Node>
+    <Node>
+      <ID>72</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>2272.5</X>
+      <Y>3142.5</Y>
+    </Node>
+    <Node>
+      <ID>73</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Персиковый сок</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Персиковый сок</d4p1:Key>
+          <d4p1:Value>
+            <d4p1:string>Персиковым соком</d4p1:string>
+          </d4p1:Value>
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>2257.5</X>
+      <Y>3217.5</Y>
+    </Node>
+    <Node>
+      <ID>74</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Перемешать</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Перемешать</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>1237.5</X>
+      <Y>1537.5</Y>
+    </Node>
+    <Node>
+      <ID>75</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>67.5</X>
+      <Y>262.5</Y>
+    </Node>
+    <Node>
+      <ID>83</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>172.16952006735897</X>
+      <Y>726.3760314341846</Y>
+    </Node>
+    <Node>
+      <ID>84</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Стакан</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Стакан</d4p1:Key>
+          <d4p1:Value>
+            <d4p1:string>Стакана</d4p1:string>
+            <d4p1:string>Стакану</d4p1:string>
+            <d4p1:string>Стаканом</d4p1:string>
+            <d4p1:string>Стакане</d4p1:string>
+            <d4p1:string>Стаканы</d4p1:string>
+            <d4p1:string>Стаканов</d4p1:string>
+            <d4p1:string>Стаканам</d4p1:string>
+            <d4p1:string>Стаканами</d4p1:string>
+            <d4p1:string>Стаканах</d4p1:string>
+          </d4p1:Value>
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>51.112826269997193</X>
+      <Y>796.31989896154914</Y>
+    </Node>
+    <Node>
+      <ID>89</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>2167.5</X>
+      <Y>3142.5</Y>
+    </Node>
+    <Node>
+      <ID>90</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Лимонный сок</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Лимонный сок</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>2137.5</X>
+      <Y>3217.5</Y>
+    </Node>
+    <Node>
+      <ID>107</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3262.5</X>
+      <Y>2992.5</Y>
+    </Node>
+    <Node>
+      <ID>109</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Ром</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Ром</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3397.5</X>
+      <Y>3112.5</Y>
+    </Node>
+    <Node>
+      <ID>116</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Файл</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Файл</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>42</X>
+      <Y>343.03999999999996</Y>
+    </Node>
+    <Node>
+      <ID>121</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>2752.5</X>
+      <Y>3277.5</Y>
+    </Node>
+    <Node>
+      <ID>122</ID>
+      <IsSystem>false</IsSystem>
+      <Name>джин</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>джин</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>2707.5</X>
+      <Y>3367.5</Y>
+    </Node>
+    <Node>
+      <ID>127</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>2212.5</X>
+      <Y>427.5</Y>
+    </Node>
+    <Node>
+      <ID>128</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>2542.5</X>
+      <Y>337.5</Y>
+    </Node>
+    <Node>
+      <ID>129</ID>
+      <IsSystem>false</IsSystem>
+      <Name>C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Рецепты\Bellini.txt</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Рецепты\Bellini.txt</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>2647.5</X>
+      <Y>337.5</Y>
+    </Node>
+    <Node>
+      <ID>130</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Bellini Coctail</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Bellini Coctail</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>2542.5</X>
+      <Y>412.5</Y>
+    </Node>
+    <Node>
+      <ID>131</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>1117.5</X>
+      <Y>1732.5</Y>
+    </Node>
+    <Node>
+      <ID>132</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Налить</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Налить</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>1072.5</X>
+      <Y>1822.5</Y>
+    </Node>
+    <Node>
+      <ID>133</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>2407.5</X>
+      <Y>592.5</Y>
+    </Node>
+    <Node>
+      <ID>134</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>2497.5</X>
+      <Y>532.5</Y>
+    </Node>
+    <Node>
+      <ID>135</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>2257.5</X>
+      <Y>832.5</Y>
+    </Node>
+    <Node>
+      <ID>136</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>2452.5</X>
+      <Y>862.5</Y>
+    </Node>
+    <Node>
+      <ID>137</ID>
+      <IsSystem>false</IsSystem>
+      <Name>C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Рецепты\French75.txt</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Рецепты\French75.txt</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>2542.5</X>
+      <Y>847.5</Y>
+    </Node>
+    <Node>
+      <ID>138</ID>
+      <IsSystem>false</IsSystem>
+      <Name>French75</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>French75</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>2497.5</X>
+      <Y>787.5</Y>
+    </Node>
+    <Node>
+      <ID>139</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>397.5</X>
+      <Y>2947.5</Y>
+    </Node>
+    <Node>
+      <ID>140</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Ягода</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Ягода</d4p1:Key>
+          <d4p1:Value>
+            <d4p1:string>Ягоды</d4p1:string>
+            <d4p1:string>Ягоде</d4p1:string>
+            <d4p1:string>Ягодой</d4p1:string>
+            <d4p1:string>Ягоды</d4p1:string>
+            <d4p1:string>Ягод</d4p1:string>
+            <d4p1:string>Ягодам</d4p1:string>
+            <d4p1:string>Ягодами</d4p1:string>
+            <d4p1:string>Ягодах</d4p1:string>
+          </d4p1:Value>
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Ягодка</d4p1:Key>
+          <d4p1:Value>
+            <d4p1:string>Ягодки</d4p1:string>
+            <d4p1:string>Ягодке</d4p1:string>
+            <d4p1:string>Ягодкой</d4p1:string>
+            <d4p1:string>Ягодки</d4p1:string>
+            <d4p1:string>Ягодок</d4p1:string>
+            <d4p1:string>Ягодкам</d4p1:string>
+            <d4p1:string>Ягодками</d4p1:string>
+            <d4p1:string>Ягодках</d4p1:string>
+          </d4p1:Value>
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>352.5</X>
+      <Y>2992.5</Y>
+    </Node>
+    <Node>
+      <ID>141</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>442.5</X>
+      <Y>3187.5</Y>
+    </Node>
+    <Node>
+      <ID>142</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Вишня</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Вишня</d4p1:Key>
+          <d4p1:Value>
+            <d4p1:string>Вишней</d4p1:string>
+            <d4p1:string>Вишни</d4p1:string>
+            <d4p1:string>Вишне</d4p1:string>
+            <d4p1:string>Вишен</d4p1:string>
+            <d4p1:string>Вишням</d4p1:string>
+            <d4p1:string>Вишнями</d4p1:string>
+            <d4p1:string>Вишнях</d4p1:string>
+          </d4p1:Value>
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Вишенка</d4p1:Key>
+          <d4p1:Value>
+            <d4p1:string>Вишенки</d4p1:string>
+            <d4p1:string>Вишенке</d4p1:string>
+            <d4p1:string>Вишенку</d4p1:string>
+            <d4p1:string>Вишенкой</d4p1:string>
+            <d4p1:string>Вишенке</d4p1:string>
+            <d4p1:string>Вишенкам</d4p1:string>
+            <d4p1:string>Вишенками</d4p1:string>
+            <d4p1:string>Вишенках</d4p1:string>
+          </d4p1:Value>
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>412.5</X>
+      <Y>3262.5</Y>
+    </Node>
+    <Node>
+      <ID>143</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>2467.5</X>
+      <Y>1087.5</Y>
+    </Node>
+    <Node>
+      <ID>144</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>2557.5</X>
+      <Y>922.5</Y>
+    </Node>
+    <Node>
+      <ID>145</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>2542.5</X>
+      <Y>1057.5</Y>
+    </Node>
+    <Node>
+      <ID>146</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>2572.5</X>
+      <Y>997.5</Y>
+    </Node>
+    <Node>
+      <ID>147</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>2317.5</X>
+      <Y>1387.5</Y>
+    </Node>
+    <Node>
+      <ID>148</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>2542.5</X>
+      <Y>1312.5</Y>
+    </Node>
+    <Node>
+      <ID>149</ID>
+      <IsSystem>false</IsSystem>
+      <Name>C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Рецепты\Bronx Dry.txt</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Рецепты\Bronx Dry.txt</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>2662.5</X>
+      <Y>1282.5</Y>
+    </Node>
+    <Node>
+      <ID>150</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Bronx Dry</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Bronx Dry</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>2692.5</X>
+      <Y>1327.5</Y>
+    </Node>
+    <Node>
+      <ID>151</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3172.5</X>
+      <Y>3172.5</Y>
+    </Node>
+    <Node>
+      <ID>152</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Вермут</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Вермут</d4p1:Key>
+          <d4p1:Value>
+            <d4p1:string>Вермутом</d4p1:string>
+          </d4p1:Value>
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3262.5</X>
+      <Y>3157.5</Y>
+    </Node>
+    <Node>
+      <ID>153</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3442.5</X>
+      <Y>3412.5</Y>
+    </Node>
+    <Node>
+      <ID>154</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Сухой вермут</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Сухой вермут</d4p1:Key>
+          <d4p1:Value>
+            <d4p1:string>Сухим вермутом</d4p1:string>
+          </d4p1:Value>
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3457.5</X>
+      <Y>3472.5</Y>
+    </Node>
+    <Node>
+      <ID>155</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>337.5</X>
+      <Y>847.5</Y>
+    </Node>
+    <Node>
+      <ID>156</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Шейкер</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Шейкер</d4p1:Key>
+          <d4p1:Value>
+            <d4p1:string>Шейкере</d4p1:string>
+            <d4p1:string>Шейкера</d4p1:string>
+            <d4p1:string>Шейкеру</d4p1:string>
+            <d4p1:string>Шейкером</d4p1:string>
+            <d4p1:string>Шейкеры</d4p1:string>
+            <d4p1:string>Шейкеров</d4p1:string>
+            <d4p1:string>Шейкерам</d4p1:string>
+            <d4p1:string>Шейкерами</d4p1:string>
+            <d4p1:string>Шейкерах</d4p1:string>
+          </d4p1:Value>
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>322.5</X>
+      <Y>937.5</Y>
+    </Node>
+    <Node>
+      <ID>157</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>1207.5</X>
+      <Y>1612.5</Y>
+    </Node>
+    <Node>
+      <ID>158</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Встряхнуть</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Встряхнуть</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>1267.5</X>
+      <Y>1597.5</Y>
+    </Node>
+    <Node>
+      <ID>159</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>1222.5</X>
+      <Y>1702.5</Y>
+    </Node>
+    <Node>
+      <ID>160</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Энергично встряхнуть</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Энергично встряхнуть</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>1267.5</X>
+      <Y>1777.5</Y>
+    </Node>
+    <Node>
+      <ID>162</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Процедить</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Процедить</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>1372.5</X>
+      <Y>1552.5</Y>
+    </Node>
+    <Node>
+      <ID>163</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>127.5</X>
+      <Y>1222.5</Y>
+    </Node>
+    <Node>
+      <ID>164</ID>
+      <IsSystem>false</IsSystem>
+      <Name>V-образный бокал для мартини</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>V-образный бокал для мартини</d4p1:Key>
+          <d4p1:Value>
+            <d4p1:string>V-образном бокале для мартини</d4p1:string>
+            <d4p1:string>V-образного бокала для мартини</d4p1:string>
+            <d4p1:string>V-образному бокалу для мартини</d4p1:string>
+            <d4p1:string>V-образным бокалом для мартини</d4p1:string>
+            <d4p1:string>V-образные бокале для мартини</d4p1:string>
+            <d4p1:string>V-образных бокалов для мартини</d4p1:string>
+            <d4p1:string>V-образными бокалами для мартини</d4p1:string>
+            <d4p1:string>V-образных бокалах для мартини</d4p1:string>
+          </d4p1:Value>
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Бокал для мартини</d4p1:Key>
+          <d4p1:Value>
+            <d4p1:string>Бокала для мартини</d4p1:string>
+            <d4p1:string>Бокалу для мартини</d4p1:string>
+            <d4p1:string>Бокалом для мартини</d4p1:string>
+            <d4p1:string>Бокале для мартини</d4p1:string>
+            <d4p1:string>Бокалы для мартини</d4p1:string>
+            <d4p1:string>Бокалов для мартини</d4p1:string>
+            <d4p1:string>Бокалам для мартини</d4p1:string>
+            <d4p1:string>Бокалами для мартини</d4p1:string>
+            <d4p1:string>Бокалах для мартини</d4p1:string>
+          </d4p1:Value>
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>127.5</X>
+      <Y>1312.5</Y>
+    </Node>
+    <Node>
+      <ID>165</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>2632.5</X>
+      <Y>1462.5</Y>
+    </Node>
+    <Node>
+      <ID>166</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>2692.5</X>
+      <Y>1432.5</Y>
+    </Node>
+    <Node>
+      <ID>167</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>2722.5</X>
+      <Y>1372.5</Y>
+    </Node>
+    <Node>
+      <ID>168</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>2577.5166325189994</X>
+      <Y>1512.8647206107089</Y>
+    </Node>
+    <Node>
+      <ID>169</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>2812.5</X>
+      <Y>622.5</Y>
+    </Node>
+    <Node>
+      <ID>170</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>2992.5</X>
+      <Y>547.5</Y>
+    </Node>
+    <Node>
+      <ID>171</ID>
+      <IsSystem>false</IsSystem>
+      <Name>C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Рецепты\Bronx.txt</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Рецепты\Bronx.txt</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3067.5</X>
+      <Y>547.5</Y>
+    </Node>
+    <Node>
+      <ID>172</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Bronx</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Bronx</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3097.5</X>
+      <Y>592.5</Y>
+    </Node>
+    <Node>
+      <ID>173</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3307.5</X>
+      <Y>3457.5</Y>
+    </Node>
+    <Node>
+      <ID>174</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Сладкий вермут</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Сладкий вермут</d4p1:Key>
+          <d4p1:Value>
+            <d4p1:string>Сладким вермутом</d4p1:string>
+          </d4p1:Value>
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3367.5</X>
+      <Y>3472.5</Y>
+    </Node>
+    <Node>
+      <ID>175</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>2932.5</X>
+      <Y>757.5</Y>
+    </Node>
+    <Node>
+      <ID>176</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>2992.5</X>
+      <Y>742.5</Y>
+    </Node>
+    <Node>
+      <ID>177</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3052.5</X>
+      <Y>697.5</Y>
+    </Node>
+    <Node>
+      <ID>178</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3097.5</X>
+      <Y>652.5</Y>
+    </Node>
+    <Node>
+      <ID>179</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>2812.5</X>
+      <Y>1102.5</Y>
+    </Node>
+    <Node>
+      <ID>180</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>2992.5</X>
+      <Y>1027.5</Y>
+    </Node>
+    <Node>
+      <ID>181</ID>
+      <IsSystem>false</IsSystem>
+      <Name>C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Рецепты\Collins.txt</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Рецепты\Collins.txt</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3082.5</X>
+      <Y>1027.5</Y>
+    </Node>
+    <Node>
+      <ID>182</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Collins</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Collins</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3142.5</X>
+      <Y>1057.5</Y>
+    </Node>
+    <Node>
+      <ID>183</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>1972.5</X>
+      <Y>2527.5</Y>
+    </Node>
+    <Node>
+      <ID>184</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Содовая вода</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Содовая вода</d4p1:Key>
+          <d4p1:Value>
+            <d4p1:string>содовую воду</d4p1:string>
+            <d4p1:string>содовую</d4p1:string>
+          </d4p1:Value>
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>1927.5</X>
+      <Y>2587.5</Y>
+    </Node>
+    <Node>
+      <ID>185</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>262.5</X>
+      <Y>3157.5</Y>
+    </Node>
+    <Node>
+      <ID>186</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Лайм</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Лайм</d4p1:Key>
+          <d4p1:Value>
+            <d4p1:string>Лайма</d4p1:string>
+            <d4p1:string>Лайму</d4p1:string>
+            <d4p1:string>Лаймом</d4p1:string>
+            <d4p1:string>Лайме</d4p1:string>
+            <d4p1:string>Лаймы</d4p1:string>
+            <d4p1:string>Лаймов</d4p1:string>
+            <d4p1:string>Лаймам</d4p1:string>
+            <d4p1:string>Лаймами</d4p1:string>
+            <d4p1:string>Лаймах</d4p1:string>
+          </d4p1:Value>
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Кружочек лайма</d4p1:Key>
+          <d4p1:Value>
+            <d4p1:string>Кружочка лайма</d4p1:string>
+            <d4p1:string>Кружочку лайма</d4p1:string>
+            <d4p1:string>Кружочком лайма</d4p1:string>
+            <d4p1:string>Кружочке лайма</d4p1:string>
+            <d4p1:string>Кружочки лайма</d4p1:string>
+            <d4p1:string>Кружочков лайма</d4p1:string>
+            <d4p1:string>Кружочкам лайма</d4p1:string>
+            <d4p1:string>Кружочками лайма</d4p1:string>
+            <d4p1:string>Кружочках лайма</d4p1:string>
+          </d4p1:Value>
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>217.5</X>
+      <Y>3217.5</Y>
+    </Node>
+    <Node>
+      <ID>187</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>2932.5</X>
+      <Y>1252.5</Y>
+    </Node>
+    <Node>
+      <ID>188</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3007.5</X>
+      <Y>1222.5</Y>
+    </Node>
+    <Node>
+      <ID>189</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3082.5</X>
+      <Y>1192.5</Y>
+    </Node>
+    <Node>
+      <ID>190</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3142.5</X>
+      <Y>1147.5</Y>
+    </Node>
+    <Node>
+      <ID>191</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3172.5</X>
+      <Y>1102.5</Y>
+    </Node>
+    <Node>
+      <ID>192</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3247.5</X>
+      <Y>427.5</Y>
+    </Node>
+    <Node>
+      <ID>193</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3487.5</X>
+      <Y>352.5</Y>
+    </Node>
+    <Node>
+      <ID>194</ID>
+      <IsSystem>false</IsSystem>
+      <Name>C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Рецепты\WinterChill.txt</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Рецепты\WinterChill.txt</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3577.5</X>
+      <Y>352.5</Y>
+    </Node>
+    <Node>
+      <ID>195</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Winter Chill</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Winter Chill</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3622.5</X>
+      <Y>412.5</Y>
+    </Node>
+    <Node>
+      <ID>196</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>2887.5</X>
+      <Y>3292.5</Y>
+    </Node>
+    <Node>
+      <ID>197</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Водка</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Водка</d4p1:Key>
+          <d4p1:Value>
+            <d4p1:string>водку</d4p1:string>
+            <d4p1:string>водкой</d4p1:string>
+          </d4p1:Value>
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>2902.5</X>
+      <Y>3382.5</Y>
+    </Node>
+    <Node>
+      <ID>198</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3502.5</X>
+      <Y>2992.5</Y>
+    </Node>
+    <Node>
+      <ID>199</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Ликёр</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Ликёр</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3442.5</X>
+      <Y>3007.5</Y>
+    </Node>
+    <Node>
+      <ID>200</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3772.5</X>
+      <Y>3232.5</Y>
+    </Node>
+    <Node>
+      <ID>201</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Кюрасао</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Кюрасао</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3862.5</X>
+      <Y>3172.5</Y>
+    </Node>
+    <Node>
+      <ID>202</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3922.5</X>
+      <Y>3352.5</Y>
+    </Node>
+    <Node>
+      <ID>203</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Голубой Кюрасао</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Голубой Кюрасао</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3922.5</X>
+      <Y>3427.5</Y>
+    </Node>
+    <Node>
+      <ID>204</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>1912.5</X>
+      <Y>3007.5</Y>
+    </Node>
+    <Node>
+      <ID>205</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Лаймовый сок</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Лаймовый сок</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>1852.5</X>
+      <Y>3022.5</Y>
+    </Node>
+    <Node>
+      <ID>206</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3622.5</X>
+      <Y>3337.5</Y>
+    </Node>
+    <Node>
+      <ID>207</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Трипл-сек</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Трипл-сек</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3667.5</X>
+      <Y>3352.5</Y>
+    </Node>
+    <Node>
+      <ID>208</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3472.5</X>
+      <Y>607.5</Y>
+    </Node>
+    <Node>
+      <ID>209</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3547.5</X>
+      <Y>577.5</Y>
+    </Node>
+    <Node>
+      <ID>210</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3592.5</X>
+      <Y>532.5</Y>
+    </Node>
+    <Node>
+      <ID>211</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3637.5</X>
+      <Y>487.5</Y>
+    </Node>
+    <Node>
+      <ID>212</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3337.5</X>
+      <Y>877.5</Y>
+    </Node>
+    <Node>
+      <ID>213</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3532.5</X>
+      <Y>787.5</Y>
+    </Node>
+    <Node>
+      <ID>214</ID>
+      <IsSystem>false</IsSystem>
+      <Name>C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Рецепты\Anaconda.txt</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Рецепты\Anaconda.txt</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3622.5</X>
+      <Y>787.5</Y>
+    </Node>
+    <Node>
+      <ID>215</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Anaconda</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Anaconda</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3652.5</X>
+      <Y>862.5</Y>
+    </Node>
+    <Node>
+      <ID>216</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3667.5</X>
+      <Y>2872.5</Y>
+    </Node>
+    <Node>
+      <ID>217</ID>
+      <IsSystem>false</IsSystem>
+      <Name>виски</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>виски</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3667.5</X>
+      <Y>2947.5</Y>
+    </Node>
+    <Node>
+      <ID>218</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3997.5</X>
+      <Y>3037.5</Y>
+    </Node>
+    <Node>
+      <ID>219</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Бурбон виски</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Бурбон виски</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3982.5</X>
+      <Y>3097.5</Y>
+    </Node>
+    <Node>
+      <ID>220</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3712.5</X>
+      <Y>3322.5</Y>
+    </Node>
+    <Node>
+      <ID>221</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Самбука</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Самбука</d4p1:Key>
+          <d4p1:Value>
+            <d4p1:string>Самбуку</d4p1:string>
+          </d4p1:Value>
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3802.5</X>
+      <Y>3337.5</Y>
+    </Node>
+    <Node>
+      <ID>222</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>210</X>
+      <Y>1005</Y>
+    </Node>
+    <Node>
+      <ID>223</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Стопка</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Стопка</d4p1:Key>
+          <d4p1:Value>
+            <d4p1:string>Стопку</d4p1:string>
+          </d4p1:Value>
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>187.5</X>
+      <Y>1102.5</Y>
+    </Node>
+    <Node>
+      <ID>224</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3457.5</X>
+      <Y>1027.5</Y>
+    </Node>
+    <Node>
+      <ID>225</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3517.5</X>
+      <Y>997.5</Y>
+    </Node>
+    <Node>
+      <ID>226</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3577.5</X>
+      <Y>967.5</Y>
+    </Node>
+    <Node>
+      <ID>227</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3637.5</X>
+      <Y>922.5</Y>
+    </Node>
+    <Node>
+      <ID>228</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3832.5</X>
+      <Y>637.5</Y>
+    </Node>
+    <Node>
+      <ID>229</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>4177.5</X>
+      <Y>472.5</Y>
+    </Node>
+    <Node>
+      <ID>230</ID>
+      <IsSystem>false</IsSystem>
+      <Name>C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Рецепты\Bourbon Ball.txt</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Рецепты\Bourbon Ball.txt</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>4297.5</X>
+      <Y>472.5</Y>
+    </Node>
+    <Node>
+      <ID>231</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Bourbon Ball</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Bourbon Ball</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>4342.5</X>
+      <Y>517.5</Y>
+    </Node>
+    <Node>
+      <ID>232</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3750</X>
+      <Y>3435</Y>
+    </Node>
+    <Node>
+      <ID>233</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Амаретто</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Амаретто</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3802.5</X>
+      <Y>3502.5</Y>
+    </Node>
+    <Node>
+      <ID>234</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3562.5</X>
+      <Y>3352.5</Y>
+    </Node>
+    <Node>
+      <ID>235</ID>
+      <IsSystem>false</IsSystem>
+      <Name>White Creme De Cacao</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>White Creme De Cacao</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3592.5</X>
+      <Y>3427.5</Y>
+    </Node>
+    <Node>
+      <ID>236</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>67.5</X>
+      <Y>1237.5</Y>
+    </Node>
+    <Node>
+      <ID>237</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Бокал для виски</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Бокал для виски</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>67.5</X>
+      <Y>1312.5</Y>
+    </Node>
+    <Node>
+      <ID>238</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>4162.5</X>
+      <Y>712.5</Y>
+    </Node>
+    <Node>
+      <ID>239</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>4252.5</X>
+      <Y>682.5</Y>
+    </Node>
+    <Node>
+      <ID>240</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>4312.5</X>
+      <Y>637.5</Y>
+    </Node>
+    <Node>
+      <ID>241</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>4357.5</X>
+      <Y>577.5</Y>
+    </Node>
+    <Node>
+      <ID>246</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>607.5</X>
+      <Y>3157.5</Y>
+    </Node>
+    <Node>
+      <ID>247</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Мята</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Мята</d4p1:Key>
+          <d4p1:Value>
+            <d4p1:string>мяту</d4p1:string>
+          </d4p1:Value>
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Листья мяты</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Мохито</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>637.5</X>
+      <Y>3217.5</Y>
+    </Node>
+    <Node>
+      <ID>250</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>262.5</X>
+      <Y>1942.5</Y>
+    </Node>
+    <Node>
+      <ID>251</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Пестик</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Пестик</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>muddler</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>262.5</X>
+      <Y>1987.5</Y>
+    </Node>
+    <Node>
+      <ID>252</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>352.5</X>
+      <Y>1042.5</Y>
+    </Node>
+    <Node>
+      <ID>253</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Ступка</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Ступка</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Тарелка</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>stirring glass</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>337.5</X>
+      <Y>1147.5</Y>
+    </Node>
+    <Node>
+      <ID>254</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>786.34527926999772</X>
+      <Y>1503.04</Y>
+    </Node>
+    <Node>
+      <ID>255</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Измельчить</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Измельчить</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>727.5</X>
+      <Y>1642.5</Y>
+    </Node>
+    <Node>
+      <ID>260</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>202.5</X>
+      <Y>1222.5</Y>
+    </Node>
+    <Node>
+      <ID>261</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Бокал для шампанского</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Бокал для шампанского</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>217.5</X>
+      <Y>1312.5</Y>
+    </Node>
+    <Node>
+      <ID>269</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3367.5</X>
+      <Y>1342.5</Y>
+    </Node>
+    <Node>
+      <ID>270</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3517.5</X>
+      <Y>1267.5</Y>
+    </Node>
+    <Node>
+      <ID>271</ID>
+      <IsSystem>false</IsSystem>
+      <Name>C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Рецепты\Bazooka Joe.txt</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Рецепты\Bazooka Joe.txt</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3652.5</X>
+      <Y>1267.5</Y>
+    </Node>
+    <Node>
+      <ID>272</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Bazooka Joe</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Bazooka Joe</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3682.5</X>
+      <Y>1327.5</Y>
+    </Node>
+    <Node>
+      <ID>273</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3472.5</X>
+      <Y>3382.5</Y>
+    </Node>
+    <Node>
+      <ID>274</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Irish cream</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Irish cream</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3502.5</X>
+      <Y>3472.5</Y>
+    </Node>
+    <Node>
+      <ID>275</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3502.5</X>
+      <Y>3367.5</Y>
+    </Node>
+    <Node>
+      <ID>276</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Банановый ликёр</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Банановый ликёр</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3547.5</X>
+      <Y>3457.5</Y>
+    </Node>
+    <Node>
+      <ID>277</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3442.5</X>
+      <Y>1492.5</Y>
+    </Node>
+    <Node>
+      <ID>278</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3517.5</X>
+      <Y>1462.5</Y>
+    </Node>
+    <Node>
+      <ID>279</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3592.5</X>
+      <Y>1432.5</Y>
+    </Node>
+    <Node>
+      <ID>280</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3652.5</X>
+      <Y>1387.5</Y>
+    </Node>
+    <Node>
+      <ID>281</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>3922.5</X>
+      <Y>1072.5</Y>
+    </Node>
+    <Node>
+      <ID>282</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>4177.5</X>
+      <Y>982.5</Y>
+    </Node>
+    <Node>
+      <ID>283</ID>
+      <IsSystem>false</IsSystem>
+      <Name>C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Рецепты\Champagne Julep.txt</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Рецепты\Champagne Julep.txt</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>4312.5</X>
+      <Y>982.5</Y>
+    </Node>
+    <Node>
+      <ID>284</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Champagne Julep</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Champagne Julep</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>4357.5</X>
+      <Y>1027.5</Y>
+    </Node>
+    <Node>
+      <ID>285</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>2467.5</X>
+      <Y>3112.5</Y>
+    </Node>
+    <Node>
+      <ID>286</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Сахарный сироп</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Сахарный сироп</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>2482.5</X>
+      <Y>3217.5</Y>
+    </Node>
+    <Node>
+      <ID>287</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>4102.5</X>
+      <Y>1222.5</Y>
+    </Node>
+    <Node>
+      <ID>288</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>4192.5</X>
+      <Y>1207.5</Y>
+    </Node>
+    <Node>
+      <ID>289</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>4267.5</X>
+      <Y>1177.5</Y>
+    </Node>
+    <Node>
+      <ID>290</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>4327.5</X>
+      <Y>1132.5</Y>
+    </Node>
+    <Node>
+      <ID>291</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>4357.5</X>
+      <Y>1087.5</Y>
+    </Node>
+  </Nodes>
+</SemanticWeb>

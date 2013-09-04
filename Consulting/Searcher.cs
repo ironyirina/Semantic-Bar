@@ -33,21 +33,24 @@ namespace Consulting
 
         private readonly Action<string> _executeSimilarQuery;
 
-        private readonly WorkMemory _workMemory;
+        public WorkMemory WorkMemory;
 
         private readonly bool _searchSynonyms;
 
         private readonly bool _searchClasses;
+
         /// <summary>
         /// Тип слова, например: wordTypes["Коктейль"] = "#MetaObjects", wordTypes["Сок"] = "Ингредиент"
         /// </summary>
         private readonly Dictionary<string, string> _wordTypes;
+
         #endregion
 
         #region Инициализация
 
         public Searcher(string input, Action<string> executeSimilarQuery, bool searchSynonyms, bool searchClasses)
         {
+            WorkMemory = new WorkMemory();
             _executeSimilarQuery = executeSimilarQuery;
             _searchSynonyms = searchSynonyms;
             _searchClasses = searchClasses;
@@ -55,9 +58,20 @@ namespace Consulting
             var cw = new ConceptWorker(5, _searchSynonyms);
             cw.FindAll(_input, null);
             _inputParts = cw.Concepts.Where(x => x.IsRecognized).Select(x => x.Name).ToList();
+
             _nodesInQuery = GetNodesFromQuery();
+            WorkMemory.WorkedNodes.AddRange(_nodesInQuery);
             _unnamedNodesInQuery = GetUnnamedNodesFromQuery();
-            _workMemory = new WorkMemory();
+            WorkMemory.WorkedNodes.AddRange(_unnamedNodesInQuery);
+
+            for (int i = 0; i < _nodesInQuery.Count; i++)
+            {
+                var node = _nodesInQuery[i];
+                var uNode = _unnamedNodesInQuery[i];
+                WorkMemory.WorkedArcs.AddRange(SemanticWeb.Web().Arcs.Where(x => x.From == uNode.ID && x.Name == "#Name"
+                                                                                 && x.To == node.ID));
+            }
+
             _wordTypes = new Dictionary<string, string>();
         }
 
@@ -66,7 +80,7 @@ namespace Consulting
             _executeSimilarQuery = executeSimilarQuery;
             _searchSynonyms = searchSynonyms;
             _searchClasses = searchClasses;
-            _workMemory = new WorkMemory();
+            WorkMemory = new WorkMemory();
             _wordTypes = new Dictionary<string, string>();
         }
 
@@ -92,7 +106,7 @@ namespace Consulting
         {
             return _nodesInQuery
                 .Select(node => SemanticWeb.Web().GetNodesDirectedToMe(node.ID, "#Name")
-                    .ToList()[0]).ToList();
+                                    .ToList()[0]).ToList();
         }
 
         #endregion
@@ -106,20 +120,28 @@ namespace Consulting
         public QueryResult Search()
         {
             var queryResult = new QueryResult {Query = _input, ExecuteSimilarQuery = _executeSimilarQuery};
-            if (_nodesInQuery.Count == 0) //если в сем сети нет ни одной вершины, имя которой совпадает со словом из запроса
+            if (_nodesInQuery.Count == 0)
+                //если в сем сети нет ни одной вершины, имя которой совпадает со словом из запроса
                 queryResult.Message = "Поиск не дал результатов.";
             else
             {
                 foreach (var node in _unnamedNodesInQuery)
-                    _wordTypes.Add(SemanticWeb.Web().GetNameForUnnamedNode(node, true), SemanticWeb.Web().OldestParentArc(node.ID));
+                {
+                    _wordTypes.Add(SemanticWeb.Web().GetNameForUnnamedNode(node, true),
+                                   SemanticWeb.Web().OldestParentArc(node.ID));
+                    WorkMemory.WorkedNodes.AddRange(SemanticWeb.Web().WayToSystemNodes);
+                    WorkMemory.WorkedArcs.AddRange(SemanticWeb.Web().WayToSystemArcs);
+                }
                 //Тип запроса 1 (MainObjWithAttrs):
-                //MainObject + MainObject.Attribute { + MainObject.Attribute }
+                //MainObject + ConcreteMainObject.Attribute { + ConcreteMainObject.Attribute }
                 /*Например: 
                  * Коктейль с соком
                  * Коктейль, где используется Бокал
                  * Коктейль с соком в бокале
                  * и т.д. */
-                
+
+                #region Тип 1
+
                 if (IsMainObjWithAttrs())
                 {
                     var attrsType1 = GetMainObjAttrNamesType1().ToList();
@@ -137,19 +159,39 @@ namespace Consulting
                     {
                         foreach (string attr in attrsType1)
                         {
-                            parents.AddRange(FindParents(SemanticWeb.Web().GetUnnamedNodeForName(attr)).Where(x => x != attr));
+                            parents.AddRange(
+                                FindParents(SemanticWeb.Web().GetUnnamedNodeForName(attr)).Where(x => x != attr));
                         }
-                        queryResult.GeneralResult = parents.Select(x => GetMainObjNameType1() + ", где используется " + x).ToList();
+                        queryResult.GeneralResult =
+                            parents.Select(x => GetMainObjNameType1() + ", где используется " + x).ToList();
                     }
                 }
+                    #endregion
 
-                //Для всех остальных запросов просто ищем каждое слово по отдельности
-                for (int i = 0; i < _unnamedNodesInQuery.Count; i++)
-                { //ищем каждое слово по отдельности
-                    queryResult.EveryWordResult.Add(SearchOneWord(_nodesInQuery[i], _unnamedNodesInQuery[i], _nodesInQuery[i].Name));
+                    //Тип запроса 2 (ConcreteMainObject + ConcreteMainObject.Attribute)
+                    /* Например: есть ли в French75 вишня?
+                 * используется ли в WinterChill бокал?
+                 */
+
+                    #region Тип 2
+
+                else if (IsConcreteMainObjWithAttr())
+                {
+                    queryResult.Message = Type2Execute(GetMainObjNameType2(), GetMainObjAttrNamesType2()) ? "Да" : "Нет";
                 }
-                //ещё куча всяких неясных вещей
-                
+                    #endregion
+
+                    //Для всех остальных запросов просто ищем каждое слово по отдельности
+                else
+                {
+                    for (int i = 0; i < _unnamedNodesInQuery.Count; i++)
+                    {
+                        //ищем каждое слово по отдельности
+                        var wordRes = SearchOneWord(_nodesInQuery[i], _unnamedNodesInQuery[i], _nodesInQuery[i].Name);
+                        if (wordRes != null)
+                            queryResult.EveryWordResult.Add(wordRes);
+                    }
+                }
             }
             return queryResult;
         }
@@ -158,13 +200,16 @@ namespace Consulting
 
         private bool IsMainObjWithAttrs()
         {
-            List<string> mainObjs = SemanticWeb.Web().GetMainMetaObjectNames();
+            List<string> mainObjs = SemanticWeb.Web().GetMainMetaObjectNames(); //список всех mainObj системы
             bool queryContainsMainObject = _nodesInQuery.Count(x => mainObjs.Contains(x.Name)) == 1;
-            if (!queryContainsMainObject) return false;
-            string name = _nodesInQuery.Single(x => mainObjs.Contains(x.Name)).Name;
+            //правда ли, что в запросе есть 1 mainObj?
+            if (!queryContainsMainObject) return false; //если нет, то печаль
+            string name = _nodesInQuery.Single(x => mainObjs.Contains(x.Name)).Name; //имя этого mainObj
             var mainObjAttrs = GetAttrList(SemanticWeb.Web().GetUnnamedNodeForName(name), name);
-            int attrCount = mainObjAttrs.Count(mainObjAttr => _nodesInQuery.Any(x => x.Name == mainObjAttr));
-            return attrCount > 0;
+            //список атрибутов mainObj
+            int attrCount = mainObjAttrs.Count(x => _nodesInQuery.Any(t => _wordTypes[t.Name] == x));
+            //количество этих атрибутов в запросе
+            return attrCount > 0; //если их больше 0, то успех
         }
 
         private string GetMainObjNameType1()
@@ -181,9 +226,49 @@ namespace Consulting
             return _nodesInQuery.Where(x => mainObjAttrs.Contains(_wordTypes[x.Name])).Select(x => x.Name);
         }
 
+        private bool IsConcreteMainObjWithAttr()
+        {
+            List<string> mainObjs = SemanticWeb.Web().GetMainMetaObjectNames();
+            var mainObjNames = new List<string>();
+            foreach (var mainObj in mainObjs)
+            {
+                mainObjNames.AddRange(SemanticWeb.Web().GetAllAttr(
+                    SemanticWeb.Web().Mota(SemanticWeb.Web().Atom("#System")).ID,
+                    mainObj).Select(x => SemanticWeb.Web().GetNameForUnnamedNode(x, false)).ToList());
+            }
+
+            bool queryContainsMainObject = _nodesInQuery.Count(x => mainObjNames.Contains(x.Name)) == 1;
+            if (!queryContainsMainObject) return false;
+
+            string name = SemanticWeb.Web().OldestParentArc(SemanticWeb.Web().GetUnnamedNodeForName(
+                _nodesInQuery.Single(x => mainObjNames.Contains(x.Name)).Name).ID);
+            var mainObjAttrs = GetAttrList(SemanticWeb.Web().GetUnnamedNodeForName(name), name);
+
+
+            int attrCount = mainObjAttrs.Count(x => _nodesInQuery.Any(t => _wordTypes[t.Name] == x));
+            return attrCount == 2;
+        }
+
+        private string GetMainObjNameType2()
+        {
+            List<string> mainObjs = SemanticWeb.Web().GetMainMetaObjectNames();
+            return _nodesInQuery.Single(x => mainObjs.Contains(_wordTypes[x.Name])).Name;
+        }
+
+        private string GetMainObjAttrNamesType2()
+        {
+            List<string> mainObjs = SemanticWeb.Web().GetMainMetaObjectNames();
+            string name = _nodesInQuery.Single(x => mainObjs.Contains(_wordTypes[x.Name])).Name;
+            string metaName = _wordTypes[name];
+            var mainObjAttrs = GetAttrList(SemanticWeb.Web().GetUnnamedNodeForName(metaName), metaName);
+            return _nodesInQuery.Single(x => mainObjAttrs.Contains(_wordTypes[x.Name]) && x.Name != name).Name;
+        }
+
+
         #endregion
 
         #region Запрос 1-го типа
+
         //MainObject + MainObject.Attribute { + MainObject.Attribute }
         /*Например: 
          * Коктейль с соком
@@ -240,8 +325,8 @@ namespace Consulting
         {
             if (!Reached(mainNode, attrs).Contains(attrNode))
                 return null;
-            
-            
+
+
             return SemanticWeb.Web().GetNameForUnnamedNode(attrNode, true);
         }
 
@@ -264,9 +349,47 @@ namespace Consulting
             }
             return res;
         }
+
+        #endregion
+
+        #region Запрос 2-го типа
+
+        //Тип запроса 2 (ConcreteMainObject + ConcreteMainObject.Attribute)
+        /* Например: есть ли в French75 вишня?
+         * используется ли в WinterChill бокал?
+         */
+
+        private bool Type2Execute(string mainName, string attrValue)
+        {
+            var metaName = _wordTypes[mainName]; //тип mainName
+            //список атрибутов для metaName
+            var attrs = ToListWithHeader(AddAttribute(SemanticWeb.Web().GetUnnamedNodeForName(metaName), metaName));
+            var attrNode = SemanticWeb.Web().GetUnnamedNodeForName(attrValue);
+            var instanceNode = SemanticWeb.Web().GetUnnamedNodeForName(mainName);
+
+            var childrenNames = ToListWithHeader(AddInstances(attrNode, false));
+
+            List<Node> children = childrenNames
+                .Select(x => SemanticWeb.Web().GetUnnamedNodeForName(x)).
+                ToList();
+
+            string res = null;
+            //for (int i = 0; i < children.Count && res == null; i++)
+            //{
+            res = GetAttrNameIfExists(instanceNode, attrNode, attrs);
+            //}
+
+            if (res != null)
+            {
+                if (childrenNames.Contains(res)) return true;
+            }
+            return false;
+        }
+
         #endregion
 
         #region Для одного слова
+
         /// <summary>
         /// Поиск одного слова
         /// </summary>
@@ -277,8 +400,8 @@ namespace Consulting
         public WordResult SearchOneWord(Node namedNodeToSearch, Node unnamedNodeToSearch, string word)
         {
             //определяем имя дуги, которой самый старший предок связан с #System
-            _workMemory.WorkedNodes.Add(namedNodeToSearch);
-            _workMemory.WorkedNodes.AddRange(SemanticWeb.Web().WayToSystem);
+            WorkMemory.WorkedNodes.Add(namedNodeToSearch);
+            WorkMemory.WorkedNodes.AddRange(SemanticWeb.Web().WayToSystemNodes);
             //Для метазнаний выполняем поиск по метазнаниям
             if (_wordTypes[word] == "#MetaObjects")
                 return SearchMetaData(unnamedNodeToSearch, word);
@@ -293,7 +416,7 @@ namespace Consulting
 
         private IEnumerable<string> GetAttrList(Node unnamedNodeToSearch, string word)
         {
-            var attributes = new List<string> { word };
+            var attributes = new List<string> {word};
             var unnamedNodesIUse = SemanticWeb.Web().GetAllAttr(unnamedNodeToSearch.ID, "#HasAttribute").ToList();
             foreach (var unnnamedNode in unnamedNodesIUse)
             {
@@ -315,7 +438,7 @@ namespace Consulting
         /// <returns></returns>
         private TreeViewItem AddAttribute(Node unnamedNodeToSearch, string word)
         {
-            var treeNode = new TreeViewItem { Header = word };
+            var treeNode = new TreeViewItem {Header = word};
             var attributes = SemanticWeb.Web().GetAllAttr(unnamedNodeToSearch.ID, "#HasAttribute");
             foreach (Node attributeUnnamed in attributes)
             {
@@ -333,8 +456,9 @@ namespace Consulting
         /// <returns></returns>
         private IEnumerable<string> AddUsages(Node unnamedNodeToSearch, string word)
         {
-            var usages = new List<string> { word };
-            var unnamedNodesUsingMe = SemanticWeb.Web().GetNodesDirectedToMe(unnamedNodeToSearch.ID, "#HasAttribute").ToList();
+            var usages = new List<string> {word};
+            var unnamedNodesUsingMe =
+                SemanticWeb.Web().GetNodesDirectedToMe(unnamedNodeToSearch.ID, "#HasAttribute").ToList();
             foreach (var unnnamedNode in unnamedNodesUsingMe)
             {
                 var name = SemanticWeb.Web().GetNameForUnnamedNode(unnnamedNode, false);
@@ -358,10 +482,13 @@ namespace Consulting
             var name = SemanticWeb.Web().GetNameForUnnamedNode(unnamedNodeToSearch, false);
             if (string.IsNullOrEmpty(name))
                 return null;
-            var instance = new TreeViewItem { Header = SemanticWeb.Web().GetNameForUnnamedNode(unnamedNodeToSearch, false) };
+            var instance = new TreeViewItem
+                               {Header = SemanticWeb.Web().GetNameForUnnamedNode(unnamedNodeToSearch, false)};
             var children = SemanticWeb.Web().GetNodesDirectedToMe(unnamedNodeToSearch.ID, "#is_a");
             if (!onlyClasses)
-                children = children.Union(SemanticWeb.Web().GetNodesDirectedToMe(unnamedNodeToSearch.ID, "#is_instance")).ToList();
+                children =
+                    children.Union(SemanticWeb.Web().GetNodesDirectedToMe(unnamedNodeToSearch.ID, "#is_instance")).
+                        ToList();
             foreach (var child in children)
             {
                 var newInstance = AddInstances(child, onlyClasses);
@@ -381,7 +508,7 @@ namespace Consulting
                 foreach (TreeViewItem item in twi.Items)
                 {
                     res.AddRange(ToList(item));
-                }   
+                }
             }
             return res;
         }
@@ -464,21 +591,24 @@ namespace Consulting
                                  };
             return metaResult;
         }
+
         #endregion
 
         #region Поиск по объектам
 
         private TreeViewItem MetadataInf(Node unnamedNodeToSearch, string word, string type, TreeViewItem attributes)
         {
-            var treeNode = new TreeViewItem { Header = type + " " + word }; //type word (Коктейль Bellini) 
+            var treeNode = new TreeViewItem {Header = type + " " + word}; //type word (Коктейль Bellini) 
 
             foreach (TreeViewItem attribute in attributes.Items) //ингредиент, инструмент, ёмкость
             {
-                List<Node> attrValues = SemanticWeb.Web().GetAllAttr(unnamedNodeToSearch.ID, attribute.Header.ToString()); //жидкость
+                List<Node> attrValues = SemanticWeb.Web().GetAllAttr(unnamedNodeToSearch.ID, attribute.Header.ToString());
+                //жидкость
                 foreach (Node attrValue in attrValues) //жидкость
                 {
                     string name = SemanticWeb.Web().GetNameForUnnamedNode(attrValue, true);
-                    treeNode.Items.Add(MetadataInf(attrValue, name, SemanticWeb.Web().OldestParentArc(attrValue.ID), attribute));
+                    treeNode.Items.Add(MetadataInf(attrValue, name, SemanticWeb.Web().OldestParentArc(attrValue.ID),
+                                                   attribute));
                 }
             }
             return treeNode;
@@ -486,13 +616,14 @@ namespace Consulting
 
         private ObjectResult SearchObjectData(Node unnamedNodeToSearch, string word, string oldestArcName)
         {
-            var objectResult = new ObjectResult { Name = word, Type = oldestArcName, ExecuteSimilarQuery = _executeSimilarQuery };
+            var objectResult = new ObjectResult
+                                   {Name = word, Type = oldestArcName, ExecuteSimilarQuery = _executeSimilarQuery};
 
             //список атрибутов из метазаний
             MetaResult metaInf = SearchMetaData(SemanticWeb.Web().GetUnnamedNodeForName(oldestArcName), oldestArcName);
             objectResult.InfFromMetadata.Header = metaInf.Attributes.Header + " " + word;
             List<string> attrNames = (from TreeViewItem aa
-                                      in metaInf.Attributes.Items.SourceCollection
+                                          in metaInf.Attributes.Items.SourceCollection
                                       select aa.Header.ToString()).ToList();
 
             //WayToParent
@@ -513,7 +644,9 @@ namespace Consulting
                     }
                     sr.Close();
                 }
-                finally { }
+                finally
+                {
+                }
             }
 
             //InfFromMetadata
@@ -525,12 +658,13 @@ namespace Consulting
                 .Select(mainObj => mainObj + ", где используется " + word).ToList();
 
             //RelativeQueries
+            //objectResult.RelativeQueries = FindRelations(unnamedNodeToSearch);
 
             //если то, что мы ищем, является классом и имеет подклассы и экземпляры, то находим их все
             if (SemanticWeb.Web().GetNodesDirectedToMe(unnamedNodeToSearch.ID, "#is_a").Any() ||
                 SemanticWeb.Web().GetNodesDirectedToMe(unnamedNodeToSearch.ID, "#is_instance").Any())
             {
-                var classResult = new ClassResult(objectResult) { Instances = AddInstances(unnamedNodeToSearch, false) };
+                var classResult = new ClassResult(objectResult) {Instances = AddInstances(unnamedNodeToSearch, false)};
                 return classResult;
             }
             //в противном случае возвращаем то, что уже нашли
@@ -559,8 +693,12 @@ namespace Consulting
             if (tmpNode != null) parents.Add(SemanticWeb.Web().GetNameForUnnamedNode(tmpNode, false));
             return parents;
         }
-        #endregion 
+
         #endregion
+
+        #endregion
+
         #endregion
     }
+
 }

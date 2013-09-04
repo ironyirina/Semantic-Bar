@@ -7,7 +7,7 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="auto" />
         </Grid.ColumnDefinitions>
-        <Button Name="ButtonOk"  Grid.Column="1" Content=" OK " Click="ButtonOk_Click" />
+        <Button Name="ButtonOk"  Grid.Column="1" Content=" OK " Click="ButtonOk_Click" IsDefault="True"/>
         <TextBox x:Name="TextboxBox1"/>
     </Grid>
 </Window>

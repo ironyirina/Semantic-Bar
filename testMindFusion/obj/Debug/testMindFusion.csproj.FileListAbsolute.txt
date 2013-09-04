@@ -136,3 +136,4 @@ C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\testMindFusion\bin\Deb
 C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\testMindFusion\obj\Debug\textMindFusion_MarkupCompile.lref
 C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\testMindFusion\bin\Debug\SynonymEditor.exe
 C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\testMindFusion\bin\Debug\SynonymEditor.pdb
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\testMindFusion\obj\Debug\App.baml

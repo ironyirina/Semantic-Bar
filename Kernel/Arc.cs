@@ -28,7 +28,7 @@ namespace Kernel
 
         public override string ToString()
         {
-            return Name;
+            return From + " - " + Name + " - " + To;
         }
 
     }

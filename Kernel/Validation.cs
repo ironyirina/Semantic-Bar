@@ -16,7 +16,7 @@ namespace Kernel
     /// 5) в именованную вершину может входить только дуга с именем #Name
     /// 6) нельзя, чтобы из вершины выходило несколько дуг с именем #is_instance и #is_a
     /// </summary>
-    public class Verification
+    public class Validation
     {
         #region Переменные
 
@@ -27,19 +27,20 @@ namespace Kernel
         #endregion
 
         #region Инициализация
-        public Verification()
+        public Validation()
         {
             Errors = new List<string>();
         } 
 
         #endregion
 
-        #region Верификация
+        #region Валидация
+
         /// <summary>
         /// Основная функция, выполняющая все проверки
         /// </summary>
         /// <returns></returns>
-        public void Verificate()
+        public void Validate()
         {
             // 1) конроль рекурсии (отсутствие циклических связей is_a и is_instance)
             Errors.AddRange(CheckRecursion());

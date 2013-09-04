@@ -7,7 +7,7 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="auto" />
         </Grid.ColumnDefinitions>
-        <Button Name="ButtonOk"  Grid.Column="1" Content=" OK " Click="ButtonOk_Click" ></Button>
+        <Button Name="ButtonOk"  Grid.Column="1" Content=" OK " Click="ButtonOk_Click" IsDefault="True"></Button>
         <ComboBox x:Name="ComboBox1"/>
         </Grid>
     

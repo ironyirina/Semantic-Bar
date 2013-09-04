@@ -16,3 +16,5 @@ C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\ConsultingW
 C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\ConsultingWindow\obj\Debug\ConsultingWindow.pdb
 C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\ConsultingWindow\obj\Debug\ConsultingWindow.g.cs
 C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\ConsultingWindow\obj\Debug\ConsultingWindow.baml
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\ConsultingWindow\obj\Debug\WmWindow.baml
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\ConsultingWindow\obj\Debug\WmWindow.g.cs

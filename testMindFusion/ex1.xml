@@ -1,0 +1,163 @@
+﻿<SemanticWeb xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/Kernel">
+  <Arcs>
+    <Arc>
+      <From>1</From>
+      <Name>Ингредиент</Name>
+      <To>16</To>
+    </Arc>
+    <Arc>
+      <From>16</From>
+      <Name>#Name</Name>
+      <To>17</To>
+    </Arc>
+    <Arc>
+      <From>18</From>
+      <Name>#is_a</Name>
+      <To>16</To>
+    </Arc>
+    <Arc>
+      <From>19</From>
+      <Name>#is_a</Name>
+      <To>16</To>
+    </Arc>
+    <Arc>
+      <From>20</From>
+      <Name>#is_a</Name>
+      <To>16</To>
+    </Arc>
+    <Arc>
+      <From>18</From>
+      <Name>#Name</Name>
+      <To>21</To>
+    </Arc>
+    <Arc>
+      <From>19</From>
+      <Name>#Name</Name>
+      <To>22</To>
+    </Arc>
+    <Arc>
+      <From>20</From>
+      <Name>#Name</Name>
+      <To>23</To>
+    </Arc>
+  </Arcs>
+  <Nodes>
+    <Node>
+      <ID>1</ID>
+      <IsSystem>false</IsSystem>
+      <Name>#System</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>#System</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>547.5</X>
+      <Y>142.5</Y>
+    </Node>
+    <Node>
+      <ID>16</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>757.5</X>
+      <Y>247.5</Y>
+    </Node>
+    <Node>
+      <ID>17</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Твёрдый ингредиент</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Твёрдый ингредиент</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>877.5</X>
+      <Y>202.5</Y>
+    </Node>
+    <Node>
+      <ID>18</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>712.5</X>
+      <Y>427.5</Y>
+    </Node>
+    <Node>
+      <ID>19</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>847.5</X>
+      <Y>427.5</Y>
+    </Node>
+    <Node>
+      <ID>20</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>981.84919386969455</X>
+      <Y>347.55</Y>
+    </Node>
+    <Node>
+      <ID>21</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Плод</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Плод</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>637.5</X>
+      <Y>547.5</Y>
+    </Node>
+    <Node>
+      <ID>22</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Специя</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Специя</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>907.5</X>
+      <Y>562.5</Y>
+    </Node>
+    <Node>
+      <ID>23</ID>
+      <IsSystem>false</IsSystem>
+      <Name>Лёд</Name>
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Лёд</d4p1:Key>
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>1132.5</X>
+      <Y>397.5</Y>
+    </Node>
+  </Nodes>
+</SemanticWeb>

@@ -72,6 +72,8 @@ namespace ConsultingWindow
             var searcher = new Searcher(Query, SearchAnotherQuery, cbSyn.IsChecked == true, cbParent.IsChecked == true);
             QueryResult res = searcher.Search();
             PrintResult(res);
+            //var w = new WmWindow {Nodes = searcher.WorkMemory.WorkedNodes, Arcs = searcher.WorkMemory.WorkedArcs};
+            //w.ShowDialog();
 
             if (_newQuery)
                 for (int i = QueryConsequence.Count - 1; i > _currentQueryIndex; i--)

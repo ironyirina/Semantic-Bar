@@ -3,6 +3,32 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style x:Key="ButtonStyle">
+            <Setter Property="Button.Margin" Value="5"></Setter>
+            <Setter Property="Button.Padding" Value="10,5,10,5"></Setter>
+            <Setter Property="Button.Background" Value="Transparent"></Setter>
+            <Setter Property="Button.BorderBrush" Value="LightBlue"></Setter>
+            <Setter Property="Button.FontSize" Value="16"></Setter>
+            <Setter Property="Button.HorizontalAlignment" Value="Center"></Setter>
+        </Style>
+
+        <Style x:Key="LabelStyle">
+            <Setter Property="Label.HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="Label.Margin" Value="3"></Setter>
+            <Setter Property="Label.FontSize" Value="20"></Setter>
+        </Style>
+
+        <Style x:Key="TextBoxStyle">
+            <Setter Property="TextBox.VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="TextBox.Margin" Value="3"></Setter>
+            <Setter Property="TextBox.Padding" Value="3"></Setter>
+            <Setter Property="TextBox.FontSize" Value="20"></Setter>
+        </Style>
+        
+        <LinearGradientBrush x:Key="WindowBackground">
+            <GradientStop Color="LightCyan" Offset="0"></GradientStop>
+            <GradientStop Color="White" Offset="0.8"></GradientStop>
+            <GradientStop Color="LightCyan" Offset="1"></GradientStop>
+        </LinearGradientBrush>
     </Application.Resources>
 </Application>

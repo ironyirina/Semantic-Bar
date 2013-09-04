@@ -56,7 +56,7 @@ namespace Kernel
         {
             var skipHere = wordsToSkipHere == null ? _wordsToSkip : _wordsToSkip.Union(wordsToSkipHere).ToList();
             _query = query;
-            _words = _query.Split(' ', ',', '.', ':', ')', '\r', '\n').Where(x => x != string.Empty).ToList();
+            _words = _query.Split(' ', ',', '.', ':', ')', '?', '!', '\r', '\n').Where(x => x != string.Empty).ToList();
             Concepts.Clear();
             bool isRecognizedAfterFailure = false;
             while (_words.Count > 0 && !isRecognizedAfterFailure)
@@ -80,7 +80,7 @@ namespace Kernel
                     if (Concepts.Count > 0 && !Concepts[Concepts.Count-1].IsRecognized)
                         isRecognizedAfterFailure = true;
                     Concepts.Add(nearestWords[successIndex]);
-                    _words.RemoveRange(0, successIndex +1);
+                    _words.RemoveRange(0, successIndex + 1);
                 }
             }
             return Concepts.Where(x => !x.IsRecognized).Select(x => x.Name).ToList();
@@ -90,7 +90,7 @@ namespace Kernel
         {
             var skipHere = wordsToSkipHere == null ? _wordsToSkip : _wordsToSkip.Union(wordsToSkipHere).ToList();
             _query = query;
-            _words = _query.Split(' ', ',', '.', ':', ')', '\r', '\n').Where(x => x != string.Empty).ToList();
+            _words = _query.Split(' ', ',', '.', ':', ')', '?', '!', '\r', '\n').Where(x => x != string.Empty).ToList();
             Concepts.Clear();
             while (_words.Count > 0)
             {
@@ -116,6 +116,10 @@ namespace Kernel
             }
             return Concepts.Where(x => !x.IsRecognized).Select(x => x.Name).ToList();
         }
+
+        //есть ли в bellini coctail персиковый сок
+        //есть / есть ли / есть ли в 
+        // 
 
         private List<MyConceptStruct> AnalyzeWord()
         {
