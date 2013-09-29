@@ -15,21 +15,21 @@
     <File id="8898D7C9-1A18-475C-8CB6-CAD0C9B59D0B/f:Arc.cs" caret="243" fromTop="8" />
     <File id="A41C117A-8CFC-4904-A26E-CF130EF5696D/f:WmWindow.xaml.cs" caret="636" fromTop="24" />
     <File id="A41C117A-8CFC-4904-A26E-CF130EF5696D/f:WmWindow.xaml" caret="256" fromTop="3" />
-    <File id="A47BC7C7-FF04-4D07-B7C4-AC5AB2FDFFF9/f:QueryResult.cs" caret="2931" fromTop="1" />
     <File id="A41C117A-8CFC-4904-A26E-CF130EF5696D/f:ConsultingWindow.xaml.cs" caret="1625" fromTop="18" />
     <File id="8898D7C9-1A18-475C-8CB6-CAD0C9B59D0B/f:ConceptWorker.cs" caret="4809" fromTop="17" />
-    <File id="A47BC7C7-FF04-4D07-B7C4-AC5AB2FDFFF9/f:Searcher.cs" caret="30271" fromTop="24" />
-    <File id="8898D7C9-1A18-475C-8CB6-CAD0C9B59D0B/f:SemanticWeb.cs" caret="487" fromTop="21" />
     <File id="1E11B367-BAAF-4997-95B9-6AAF4B8F57CD/f:ComboBoxForm.xaml" caret="534" fromTop="6" />
     <File id="1E11B367-BAAF-4997-95B9-6AAF4B8F57CD/f:TextBoxForm.xaml" caret="427" fromTop="2" />
     <File id="E0170101-45AF-4436-8267-DE6F0213CAB1/f:AddConceptWindow.xaml" caret="0" fromTop="0" />
     <File id="1E11B367-BAAF-4997-95B9-6AAF4B8F57CD/f:TextBoxForm.xaml.cs" caret="293" fromTop="7" />
     <File id="8898D7C9-1A18-475C-8CB6-CAD0C9B59D0B/f:Node.cs" caret="386" fromTop="18" />
     <File id="E0170101-45AF-4436-8267-DE6F0213CAB1/f:Loader.cs" caret="5881" fromTop="34" />
-    <File id="8898D7C9-1A18-475C-8CB6-CAD0C9B59D0B/f:Validation.cs" caret="4829" fromTop="14" />
-    <File id="1E11B367-BAAF-4997-95B9-6AAF4B8F57CD/f:App.xaml" caret="1669" fromTop="30" />
-    <File id="1E11B367-BAAF-4997-95B9-6AAF4B8F57CD/f:MainWindow.xaml" caret="0" fromTop="0" />
-    <File id="1E11B367-BAAF-4997-95B9-6AAF4B8F57CD/f:MainWindow.xaml.cs" caret="1232" fromTop="0" />
+    <File id="1E11B367-BAAF-4997-95B9-6AAF4B8F57CD/f:App.xaml" caret="1701" fromTop="16" />
+    <File id="A47BC7C7-FF04-4D07-B7C4-AC5AB2FDFFF9/f:Searcher.cs" caret="11630" fromTop="19" />
+    <File id="A47BC7C7-FF04-4D07-B7C4-AC5AB2FDFFF9/f:QueryResult.cs" caret="1112" fromTop="16" />
+    <File id="1E11B367-BAAF-4997-95B9-6AAF4B8F57CD/f:MainWindow.xaml" caret="11795" fromTop="17" />
+    <File id="8898D7C9-1A18-475C-8CB6-CAD0C9B59D0B/f:SemanticWeb.cs" caret="15279" fromTop="9" />
+    <File id="8898D7C9-1A18-475C-8CB6-CAD0C9B59D0B/f:Validation.cs" caret="9450" fromTop="14" />
+    <File id="1E11B367-BAAF-4997-95B9-6AAF4B8F57CD/f:MainWindow.xaml.cs" caret="1757" fromTop="20" />
   </RecentFiles>
   <RecentEdits>
     <File id="1E11B367-BAAF-4997-95B9-6AAF4B8F57CD/f:ComboBoxForm.xaml.cs" caret="549" fromTop="21" />
@@ -49,18 +49,18 @@
     <File id="E0170101-45AF-4436-8267-DE6F0213CAB1/f:AddConceptWindow.xaml.cs" caret="1029" fromTop="17" />
     <File id="A41C117A-8CFC-4904-A26E-CF130EF5696D/f:WmWindow.xaml" caret="256" fromTop="3" />
     <File id="A41C117A-8CFC-4904-A26E-CF130EF5696D/f:WmWindow.xaml.cs" caret="623" fromTop="23" />
-    <File id="8898D7C9-1A18-475C-8CB6-CAD0C9B59D0B/f:SemanticWeb.cs" caret="24402" fromTop="20" />
     <File id="8898D7C9-1A18-475C-8CB6-CAD0C9B59D0B/f:Arc.cs" caret="673" fromTop="27" />
     <File id="A41C117A-8CFC-4904-A26E-CF130EF5696D/f:ConsultingWindow.xaml.cs" caret="2532" fromTop="20" />
     <File id="A47BC7C7-FF04-4D07-B7C4-AC5AB2FDFFF9/f:QueryResult.cs" caret="2931" fromTop="1" />
     <File id="8898D7C9-1A18-475C-8CB6-CAD0C9B59D0B/f:ConceptWorker.cs" caret="4809" fromTop="17" />
-    <File id="A47BC7C7-FF04-4D07-B7C4-AC5AB2FDFFF9/f:Searcher.cs" caret="29676" fromTop="8" />
     <File id="E0170101-45AF-4436-8267-DE6F0213CAB1/f:AddConceptWindow.xaml" caret="3897" fromTop="8" />
     <File id="1E11B367-BAAF-4997-95B9-6AAF4B8F57CD/f:ComboBoxForm.xaml" caret="534" fromTop="6" />
     <File id="1E11B367-BAAF-4997-95B9-6AAF4B8F57CD/f:TextBoxForm.xaml" caret="532" fromTop="3" />
-    <File id="8898D7C9-1A18-475C-8CB6-CAD0C9B59D0B/f:Validation.cs" caret="188" fromTop="10" />
     <File id="1E11B367-BAAF-4997-95B9-6AAF4B8F57CD/f:App.xaml" caret="1669" fromTop="30" />
-    <File id="1E11B367-BAAF-4997-95B9-6AAF4B8F57CD/f:MainWindow.xaml.cs" caret="2656" fromTop="29" />
-    <File id="1E11B367-BAAF-4997-95B9-6AAF4B8F57CD/f:MainWindow.xaml" caret="12894" fromTop="18" />
+    <File id="8898D7C9-1A18-475C-8CB6-CAD0C9B59D0B/f:SemanticWeb.cs" caret="13601" fromTop="23" />
+    <File id="A47BC7C7-FF04-4D07-B7C4-AC5AB2FDFFF9/f:Searcher.cs" caret="11630" fromTop="19" />
+    <File id="1E11B367-BAAF-4997-95B9-6AAF4B8F57CD/f:MainWindow.xaml" caret="11795" fromTop="17" />
+    <File id="1E11B367-BAAF-4997-95B9-6AAF4B8F57CD/f:MainWindow.xaml.cs" caret="1757" fromTop="20" />
+    <File id="8898D7C9-1A18-475C-8CB6-CAD0C9B59D0B/f:Validation.cs" caret="9163" fromTop="8" />
   </RecentEdits>
 </RecentFiles>

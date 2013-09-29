@@ -251,7 +251,7 @@ namespace Consulting
 
         private string GetMainObjNameType2()
         {
-            List<string> mainObjs = SemanticWeb.Web().GetMainMetaObjectNames();
+            List<string> mainObjs = SemanticWeb.Web().GetMainMetaObjectNames(); //Например, "Коктейль"
             return _nodesInQuery.Single(x => mainObjs.Contains(_wordTypes[x.Name])).Name;
         }
 
@@ -264,12 +264,16 @@ namespace Consulting
             return _nodesInQuery.Single(x => mainObjAttrs.Contains(_wordTypes[x.Name]) && x.Name != name).Name;
         }
 
+        private bool IsAttrsForMetaobjectType3()
+        {
+            throw new NotImplementedException();
+        }
 
         #endregion
 
         #region Запрос 1-го типа
 
-        //MainObject + MainObject.Attribute { + MainObject.Attribute }
+        //MainObject + MainObject.AttributeValue { + MainObject.AttributeValue }
         /*Например: 
          * Коктейль с соком
          * Коктейль, где используется Бокал
@@ -277,7 +281,7 @@ namespace Consulting
          * и т.д. */
 
         /// <summary>
-        /// Выполняет запрос типа MainObject + MainObject.Attribute { + MainObject.Attribute }
+        /// Выполняет запрос типа MainObject + MainObject.AttributeValue { + MainObject.AttributeValue }
         /// </summary>
         /// <param name="mainObj">Имя MainObject, например, Коктейль</param>
         /// <param name="attrValue">Значение атрибута, например, Бокал</param>
@@ -385,6 +389,16 @@ namespace Consulting
             }
             return false;
         }
+
+        #endregion
+
+        #region Запрос 3-го типа
+
+        //MainObjectValue + MainObject.Attribute { + MainObject.Attribute }
+        /*Например: 
+         * Ингредиенты WinterChill
+         * Действия для приготовления коктейля French75
+         * и т.д. */
 
         #endregion
 
