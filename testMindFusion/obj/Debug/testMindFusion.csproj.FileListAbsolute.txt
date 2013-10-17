@@ -65,9 +65,7 @@ C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\testMindFus
 C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\testMindFusion\bin\Debug\mindfusion.gauges.wpf.xml
 C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\testMindFusion\bin\Debug\mindfusion.ui.wpf.xml
 C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\testMindFusion\obj\Debug\testMindFusion.csprojResolveAssemblyReference.cache
-C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\testMindFusion\obj\Debug\ComboBoxForm.baml
 C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\testMindFusion\obj\Debug\MainWindow.baml
-C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\testMindFusion\obj\Debug\ComboBoxForm.g.cs
 C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\testMindFusion\obj\Debug\MainWindow.g.cs
 C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\testMindFusion\obj\Debug\App.g.cs
 C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\testMindFusion\obj\Debug\textMindFusion_MarkupCompile.cache
@@ -118,8 +116,6 @@ C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\testMindFusion\obj\Deb
 C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\testMindFusion\obj\Debug\TextBoxForm.g.cs
 C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\testMindFusion\obj\Debug\TextBoxForm.baml
 C:\Users\Ирина\Dropbox\Irina&Jull Web\SemanticWeb\testMindFusion\obj\Debug\TextBoxForm.g.cs
-C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\testMindFusion\obj\Debug\TextBoxForm.baml
-C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\testMindFusion\obj\Debug\TextBoxForm.g.cs
 C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\testMindFusion\obj\Debug\textMindFusion_MarkupCompile.lref
 C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\testMindFusion\bin\Debug\ConsultingWindow.exe
 C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\testMindFusion\bin\Debug\Consulting.dll
@@ -140,3 +136,5 @@ C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\testMindFus
 C:\Users\Ирина\Dropbox\Папочка для обмена\SemanticWeb\testMindFusion\bin\Debug\textMindFusion.exe.config
 C:\Users\Ирина\Dropbox\Папочка для обмена\SemanticWeb\testMindFusion\obj\Debug\textMindFusion.exe
 C:\Users\Ирина\Dropbox\Папочка для обмена\SemanticWeb\testMindFusion\obj\Debug\textMindFusion.pdb
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\testMindFusion\bin\Debug\DiagramControls.dll
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\testMindFusion\bin\Debug\DiagramControls.pdb

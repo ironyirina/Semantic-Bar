@@ -127,7 +127,9 @@ namespace Consulting
             {
                 foreach (var node in _unnamedNodesInQuery)
                 {
-                    _wordTypes.Add(SemanticWeb.Web().GetNameForUnnamedNode(node, true),
+                    var name = SemanticWeb.Web().GetNameForUnnamedNode(node, true);
+                    if (_wordTypes.Keys.All(x => x != name))
+                    _wordTypes.Add(name,
                                    SemanticWeb.Web().OldestParentArc(node.ID));
                     WorkMemory.WorkedNodes.AddRange(SemanticWeb.Web().WayToSystemNodes);
                     WorkMemory.WorkedArcs.AddRange(SemanticWeb.Web().WayToSystemArcs);
@@ -658,8 +660,9 @@ namespace Consulting
                     }
                     sr.Close();
                 }
-                finally
+                catch (Exception)
                 {
+                    objectResult.InfFromFile.Add("Файл с рецептом не найден. Вам придётся довольствоваться лишь знаниями из сети :(");
                 }
             }
 

@@ -29,25 +29,18 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="mindfusion.diagramming.wpf, Version=3.0.0.25712, Culture=neutral, PublicKeyToken=1080b51628c81789, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\mindfusion.diagramming.wpf.dll</HintPath>
-    </Reference>
-    <Reference Include="MindFusion.Graphs, Version=2.3.0.21774, Culture=neutral, PublicKeyToken=0d09f0b4914ade28, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\MindFusion.Graphs.dll</HintPath>
-    </Reference>
-    <Reference Include="MindFusion.Scripting, Version=1.0.0.0, Culture=neutral, PublicKeyToken=73f9512fb02f1209, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\MindFusion.Scripting.dll</HintPath>
-    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />

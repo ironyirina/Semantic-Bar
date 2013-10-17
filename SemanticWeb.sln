@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnowledgeAcquisitionCompone
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SynonymEditor", "SynonymEditor\SynonymEditor.csproj", "{A7941E9B-797A-46D3-9BA7-08B0B6052BF7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExplanationComponent", "ExplanationComponent\ExplanationComponent.csproj", "{6BAA7A20-034C-4DEA-9A5F-3BA42DCF5880}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiagramControls", "Diagramming\DiagramControls.csproj", "{737621A6-D815-45C0-8F14-BFB116231482}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +47,14 @@ Global
 		{A7941E9B-797A-46D3-9BA7-08B0B6052BF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A7941E9B-797A-46D3-9BA7-08B0B6052BF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A7941E9B-797A-46D3-9BA7-08B0B6052BF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BAA7A20-034C-4DEA-9A5F-3BA42DCF5880}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BAA7A20-034C-4DEA-9A5F-3BA42DCF5880}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BAA7A20-034C-4DEA-9A5F-3BA42DCF5880}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BAA7A20-034C-4DEA-9A5F-3BA42DCF5880}.Release|Any CPU.Build.0 = Release|Any CPU
+		{737621A6-D815-45C0-8F14-BFB116231482}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{737621A6-D815-45C0-8F14-BFB116231482}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{737621A6-D815-45C0-8F14-BFB116231482}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{737621A6-D815-45C0-8F14-BFB116231482}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

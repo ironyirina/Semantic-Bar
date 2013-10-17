@@ -8,4 +8,6 @@
   <Module PersistentId="A7941E9B-797A-46D3-9BA7-08B0B6052BF7" ModuleId="SynonymEditor" />
   <Module PersistentId="ConsultingWindow, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" ModuleId="ConsultingWindow_1" />
   <Module PersistentId="PresentationCore, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" ModuleId="PresentationCore" />
+  <Module PersistentId="6BAA7A20-034C-4DEA-9A5F-3BA42DCF5880" ModuleId="ExplanationComponent" />
+  <Module PersistentId="737621A6-D815-45C0-8F14-BFB116231482" ModuleId="Diagramming" />
 </Modules>

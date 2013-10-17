@@ -9,6 +9,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using Kernel;
+using MindFusion.Diagramming.Wpf;
+using MindFusion.UI.Wpf;
 using System;
 using System.Diagnostics;
 using System.Windows;
@@ -29,6 +32,7 @@ using System.Windows.Media.TextFormatting;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Shell;
+using textMindFusion;
 
 
 namespace textMindFusion {

@@ -38,8 +38,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\mindfusion.diagramming.wpf.dll</HintPath>
     </Reference>
-    <Reference Include="mindfusion.gauges.wpf">
-      <HintPath>..\..\..\..\..\..\..\program files (x86)\mindfusion\mindfusion.wpf pack (trial version)\clr4 (.net 4.0 and .net 4.5)\mindfusion.gauges.wpf.dll</HintPath>
+    <Reference Include="mindfusion.gauges.wpf, Version=1.0.1.10004, Culture=neutral, PublicKeyToken=9847dae5d86d764b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\mindfusion.gauges.wpf.dll</HintPath>
     </Reference>
     <Reference Include="MindFusion.Graphs, Version=2.3.0.21774, Culture=neutral, PublicKeyToken=0d09f0b4914ade28, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -49,8 +50,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\MindFusion.Scripting.dll</HintPath>
     </Reference>
-    <Reference Include="mindfusion.ui.wpf">
-      <HintPath>..\..\..\..\..\..\..\program files (x86)\mindfusion\mindfusion.wpf pack (trial version)\clr4 (.net 4.0 and .net 4.5)\mindfusion.ui.wpf.dll</HintPath>
+    <Reference Include="mindfusion.ui.wpf, Version=1.0.0.10002, Culture=neutral, PublicKeyToken=2e742e0ce9634ec0, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\mindfusion.ui.wpf.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -73,13 +75,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="TextBoxForm.xaml.cs">
-      <DependentUpon>TextBoxForm.xaml</DependentUpon>
-    </Compile>
-    <Page Include="ComboBoxForm.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -88,17 +83,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ComboBoxForm.xaml.cs">
-      <DependentUpon>ComboBoxForm.xaml</DependentUpon>
-    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="TextBoxForm.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -132,6 +120,10 @@
     <ProjectReference Include="..\ConsultingWindow\ConsultingWindow.csproj">
       <Project>{a41c117a-8cfc-4904-a26e-cf130ef5696d}</Project>
       <Name>ConsultingWindow</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Diagramming\DiagramControls.csproj">
+      <Project>{737621a6-d815-45c0-8f14-bfb116231482}</Project>
+      <Name>DiagramControls</Name>
     </ProjectReference>
     <ProjectReference Include="..\Kernel\Kernel.csproj">
       <Project>{8898d7c9-1a18-475c-8cb6-cad0c9b59d0b}</Project>

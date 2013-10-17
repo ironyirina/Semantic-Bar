@@ -1,0 +1,13 @@
+﻿<Window x:Class="DiagramControls.TextBoxForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:DiagramControls="clr-namespace:DiagramControls"
+        Title="Изменение имени вершины" Height="68.657" Width="300"  >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="auto" />
+        </Grid.ColumnDefinitions>
+        <Button Name="ButtonOk"  Grid.Column="1" Content=" OK " Click="ButtonOk_Click" IsDefault="True"/>
+        <TextBox x:Name="TextboxBox1"/>
+    </Grid>
+</Window>

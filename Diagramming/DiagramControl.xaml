@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="DiagramControls.DiagramControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:diag="http://mindfusion.eu/diagramming/wpf" mc:Ignorable="d">
+    
+        <ScrollViewer  Name="scrollViewer1" Margin="5" HorizontalScrollBarVisibility="Auto">
+            <diag:Diagram x:Name="DD" BackBrush="AliceBlue" AllowInplaceEdit="True" 
+                          InplaceEditAcceptOnEnter="True" FontSize="11" FontFamily="Shonar Bangla"  AllowSelfLoops="False" 
+                      
+                          Background="{x:Null}"
+                          NodeDeleted="DdNodeDeleted"  
+                          NodeTextEditing="DdNodeTextEditing" 
+                          NodeCreated="DdNodeCreated" 
+                          LinkTextEditing="DdLinkTextEditing" 
+                          LinkCreated="DdLinkCreated" 
+                          LinkDeleted="DdLinkDeleted" 
+                          LinkModified="DdLinkModified" 
+                          LinkModifying="DdLinkModifying" 
+                          LinkDeleting="DdLinkDeleting" 
+                          NodeClicked="DdNodeClicked"
+                          LinkClicked="DdLinkClicked" 
+                          Clicked="DdClicked" 
+                          Behavior="DrawLinks" 
+                          NodeSelected="DdNodeSelected" 
+                          NodeDeselected="DdNodeDeselected" 
+                          LinkSelected="DdLinkSelected" 
+                          LinkDeselected="DdLinkDeselected" 
+                          ScrollViewer.HorizontalScrollBarVisibility="Visible" 
+                          ScrollViewer.VerticalScrollBarVisibility="Visible" 
+                            DoubleClicked="DdDoubleClicked"
+                          >
+                <diag:Diagram.DiagramLinkStyle>
+                    <Style TargetType="{x:Type diag:DiagramLink}">
+                        <Setter Property="Brush" Value="Black" />
+                    </Style>
+                </diag:Diagram.DiagramLinkStyle>
+                <diag:Diagram.ShapeNodeStyle>
+                    <Style TargetType="{x:Type diag:ShapeNode}">
+                        <Setter Property="Brush" Value="LightSeaGreen" />
+                    </Style>
+                </diag:Diagram.ShapeNodeStyle>
+
+                <diag:Diagram.ContextMenu>
+                    <ContextMenu Name="myContextMenu" ItemsSource="{Binding}">
+                    </ContextMenu>
+                </diag:Diagram.ContextMenu>
+
+            </diag:Diagram>
+        </ScrollViewer>
+</UserControl>
