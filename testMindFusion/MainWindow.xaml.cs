@@ -88,7 +88,7 @@ namespace textMindFusion
 
         #region  Служебные: отправка письма, проверка имени, вывод графа
 
-        void SendMessage(string message)
+        private void SendMessage(string message)
         {
             if (!_load && !_reload)
             {
@@ -96,7 +96,7 @@ namespace textMindFusion
             }
         }
 
-        void PrintGraph(SemanticWeb web)
+        private void PrintGraph(SemanticWeb web)
         {
             _load = true;
             _reload = true;
@@ -410,7 +410,7 @@ namespace textMindFusion
         /// <param name="e"></param>
         private void DdLinkDeleting(object sender, LinkValidationEventArgs e)
         {
-            if (!_load)
+            if (_load)
             {
                 e.Cancel = true; return;
             }
@@ -428,7 +428,7 @@ namespace textMindFusion
         private void DdLinkDeleted(object sender, LinkEventArgs e)
         {
             //не работает: всегда _load == false
-            if (!_load)
+            if (_load)
             {
                 return;
             }
@@ -902,7 +902,6 @@ namespace textMindFusion
         /// </summary>
         void ChangeTopMenuNode()
         {
-            // Ну ай-яй-яй же. Запили командами, там есть функция CanExecute.
             AddNodeButton.IsEnabled = true;
             if (_selectNode.Count == 0)
             {
@@ -927,6 +926,46 @@ namespace textMindFusion
         {
             _validation.Dispose();
         } 
+        #endregion
+
+        #region комопнента объяснения (I семестр магистратуры)
+
+        #region выделение контура указанных дуг и вершин
+
+        public void AddStrokeThickness(List<Node> listNode, List<Arc> listArc)
+        {
+
+
+            #region вершины
+            foreach (var node in listNode) //для каждой вершины из заданного списка
+                foreach (DiagramNode t in DD.Nodes)
+                {
+                    if (((Node)t.Tag).ID == node.ID)
+                    {
+                        t.StrokeThickness = 5;
+                        break;
+                    }
+                }
+
+            #endregion
+            #region дуги
+
+            foreach (var arc in listArc) //для каждой вершины из заданного списка
+                foreach (DiagramLink t in DD.Links)
+                {
+                    if (t.Text == arc.Name && ((Node)t.Origin.Tag).ID == arc.From
+                        && ((Node)t.Destination.Tag).ID == arc.To)
+                    {
+                        t.StrokeThickness = 5;
+                        break;
+                    }
+                }
+
+            #endregion
+        }
+
+        #endregion
+
         #endregion
     }
 }
