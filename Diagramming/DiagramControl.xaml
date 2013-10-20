@@ -6,31 +6,16 @@
              xmlns:diag="http://mindfusion.eu/diagramming/wpf" mc:Ignorable="d">
     
         <ScrollViewer  Name="scrollViewer1" Margin="5" HorizontalScrollBarVisibility="Auto">
-            <diag:Diagram x:Name="DD" BackBrush="AliceBlue" AllowInplaceEdit="True" 
-                          InplaceEditAcceptOnEnter="True" FontSize="11" FontFamily="Shonar Bangla"  AllowSelfLoops="False" 
-                      
-                          Background="{x:Null}"
-                          NodeDeleted="DdNodeDeleted"  
-                          NodeTextEditing="DdNodeTextEditing" 
-                          NodeCreated="DdNodeCreated" 
-                          LinkTextEditing="DdLinkTextEditing" 
-                          LinkCreated="DdLinkCreated" 
-                          LinkDeleted="DdLinkDeleted" 
-                          LinkModified="DdLinkModified" 
-                          LinkModifying="DdLinkModifying" 
-                          LinkDeleting="DdLinkDeleting" 
-                          NodeClicked="DdNodeClicked"
-                          LinkClicked="DdLinkClicked" 
-                          Clicked="DdClicked" 
-                          Behavior="DrawLinks" 
-                          NodeSelected="DdNodeSelected" 
-                          NodeDeselected="DdNodeDeselected" 
-                          LinkSelected="DdLinkSelected" 
-                          LinkDeselected="DdLinkDeselected" 
-                          ScrollViewer.HorizontalScrollBarVisibility="Visible" 
-                          ScrollViewer.VerticalScrollBarVisibility="Visible" 
-                            DoubleClicked="DdDoubleClicked"
-                          >
+
+            <diag:Diagram x:Name="DD" BackBrush="AliceBlue" AllowInplaceEdit="True" InplaceEditAcceptOnEnter="True"
+                          FontSize="11" FontFamily="Shonar Bangla" AllowSelfLoops="False" Background="{x:Null}" NodeDeleted="DdNodeDeleted"
+                          NodeTextEditing="DdNodeTextEditing" NodeCreated="DdNodeCreated" LinkTextEditing="DdLinkTextEditing"
+                          LinkCreated="DdLinkCreated" LinkDeleted="DdLinkDeleted" LinkModified="DdLinkModified" LinkModifying="DdLinkModifying"
+                          LinkDeleting="DdLinkDeleting" NodeClicked="DdNodeClicked" LinkClicked="DdLinkClicked" Clicked="DdClicked"
+                          Behavior="DrawLinks" NodeSelected="DdNodeSelected" NodeDeselected="DdNodeDeselected" LinkSelected="DdLinkSelected"
+                          LinkDeselected="DdLinkDeselected" ScrollViewer.HorizontalScrollBarVisibility="Visible"
+                          ScrollViewer.VerticalScrollBarVisibility="Visible" DoubleClicked="DdDoubleClicked"
+                         >
                 <diag:Diagram.DiagramLinkStyle>
                     <Style TargetType="{x:Type diag:DiagramLink}">
                         <Setter Property="Brush" Value="Black" />

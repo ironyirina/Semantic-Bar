@@ -14,21 +14,37 @@ namespace DiagramControls
     public partial class DiagramControl
     {
         #region Public Properties
-
+        /// <summary>
+        /// Messages for Log
+        /// </summary>
         public List<string> Messages { get; set; }
-
+        /// <summary>
+        /// View or Edit Behavior (see MindFusion Behavior)
+        /// </summary>
         public Behavior Behavior { 
             get { return DD.Behavior;}
             set { DD.Behavior = value; } }
-
+        /// <summary>
+        /// True if CanEdit checkbox is checked
+        /// </summary>
         public bool CanEdit { get; set; }
-
+        /// <summary>
+        /// File with the semantic web (used for implementing apply and cancel commnads)
+        /// </summary>
         public string FileName { get; set; }
-
+        /// <summary>
+        /// Zoom
+        /// </summary>
         public double ZoomFactor
         {
             get { return DD.ZoomFactor; }
             set { DD.ZoomFactor = value; }
+        }
+
+        public new bool IsEnabled
+        {
+            get { return DD.IsEnabled; }
+            set { DD.IsEnabled = value; }
         }
 
         public bool Load { get; set; }
@@ -53,6 +69,7 @@ namespace DiagramControls
             DD.IsEnabled = false;
             Load = true;
             Messages = new List<string>();
+            SelectedNodes = new List<DiagramNode>();
         } 
         #endregion
 
@@ -95,7 +112,7 @@ namespace DiagramControls
 
         #region Nodes
         /// <summary>
-        /// Удаление вершины
+        /// Node deleting
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

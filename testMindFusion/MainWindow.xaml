@@ -134,17 +134,17 @@
             <Border BorderBrush="Gray" BorderThickness="1" Padding="2">
                 <StackPanel Orientation="Horizontal">
                     <Button Name="AddNodeButton"  Width="40" Height="40" VerticalAlignment="Top"  
-                            Background="Transparent" Click="AddNodeButtonClick" IsEnabled="False">
+                            Background="Transparent" Click="AddNodeButtonClick" IsEnabled="True">
                         <Image Source="img2/add.png"></Image>
                         <Button.ToolTip>Добавить вершину</Button.ToolTip>
                     </Button>
                     <Button Name="ChangeNodeButton"  Width="40" Height="40" VerticalAlignment="Top" 
-                            Background="Transparent" Click="ChangeNodeButtonClick" IsEnabled="False">
+                            Background="Transparent" Click="ChangeNodeButtonClick" IsEnabled="True">
                         <Image Source="img2/edit.png"></Image>
                            <Button.ToolTip>Изменить вершину</Button.ToolTip>
                     </Button>
                     <Button Name="DeleteNodeButton"  Width="40" Height="40" VerticalAlignment="Top" 
-                            Background="Transparent" Click="DeleteNodeButtonClick" IsEnabled="False">
+                            Background="Transparent" Click="DeleteNodeButtonClick" IsEnabled="True">
                         <Image Source="img2/remove.png"></Image>
                             <Button.ToolTip>Удалить вершину</Button.ToolTip>
                     </Button>

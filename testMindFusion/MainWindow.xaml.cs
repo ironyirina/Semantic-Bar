@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
-using DiagramControls;
 using KnowledgeAcquisitionComponent;
 using Microsoft.Win32;
 using Kernel;
@@ -259,6 +259,7 @@ namespace textMindFusion
             }
         }
 
+        
         private void SaveCanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
             //Сохранять можно, если открыт какой-нибудь файл и что-то менялось
@@ -372,5 +373,6 @@ namespace textMindFusion
             _validation.Dispose();
         } 
         #endregion
+
     }
 }

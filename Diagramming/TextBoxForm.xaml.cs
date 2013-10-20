@@ -28,7 +28,7 @@ namespace DiagramControls
 
         private void ButtonOk_Click(object sender, RoutedEventArgs e)
         {
-            if (NameExist(TextboxBox1.Text))
+            if (TextboxBox1.Text != string.Empty && NameExist(TextboxBox1.Text))
                 MessageBox.Show("такое имя уже существует");
             else
                 this.DialogResult = true;
