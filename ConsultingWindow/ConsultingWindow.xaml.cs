@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using Consulting;
+using ExplanationComponent;
 using Kernel;
 
 namespace ConsultingWindow
@@ -31,6 +32,9 @@ namespace ConsultingWindow
         private static int _currentQueryIndex;
 
         private bool _newQuery;
+
+        Searcher _searcher;
+
         #endregion
 
         #region Initialization
@@ -48,6 +52,8 @@ namespace ConsultingWindow
             Prev.InputGestures.Add(new KeyGesture(Key.Z, ModifierKeys.Control));
             Next = new RoutedUICommand("Следующий запрос", "Next", typeof(ConsWindow));
             Next.InputGestures.Add(new KeyGesture(Key.Y, ModifierKeys.Control));
+            Explain = new RoutedUICommand("Показать объяснение", "Explain", typeof(ConsWindow));
+            Explain.InputGestures.Add(new KeyGesture(Key.E, ModifierKeys.Control));
         } 
         #endregion
 
@@ -69,8 +75,9 @@ namespace ConsultingWindow
 
         private void SearchExecuted(object sender, ExecutedRoutedEventArgs e)
         {
-            var searcher = new Searcher(Query, SearchAnotherQuery, cbSyn.IsChecked == true, cbParent.IsChecked == true);
-            QueryResult res = searcher.Search();
+            
+            _searcher = new Searcher(Query, SearchAnotherQuery, cbSyn.IsChecked == true, cbParent.IsChecked == true);
+            QueryResult res = _searcher.Search();
             PrintResult(res);
             //var w = new WmWindow {Nodes = searcher.WorkMemory.WorkedNodes, Arcs = searcher.WorkMemory.WorkedArcs};
             //w.ShowDialog();
@@ -91,6 +98,22 @@ namespace ConsultingWindow
             Query = query;
             SearchExecuted(null, null);
         }
+        #endregion
+
+        #region ShowExplanation
+
+        public static RoutedUICommand Explain { get; set; }
+
+        private void ExplainExecuted(object sender, ExecutedRoutedEventArgs e)
+        {
+            (new ExplanationWindow("nofile", _searcher.WorkMemory.WorkedNodes, _searcher.WorkMemory.WorkedArcs)).Show();
+        }
+
+        private void ExplainCanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = _searcher != null && _searcher.WorkMemory != null;
+        }
+
         #endregion
 
         #region Prev/Next

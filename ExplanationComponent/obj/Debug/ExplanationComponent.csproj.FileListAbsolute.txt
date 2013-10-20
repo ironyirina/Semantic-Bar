@@ -9,8 +9,6 @@ C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\Explanation
 C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\ExplanationComponent\bin\Debug\mindfusion.gauges.wpf.xml
 C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\ExplanationComponent\bin\Debug\mindfusion.ui.wpf.xml
 C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\ExplanationComponent\obj\Debug\ExplanationComponent.csprojResolveAssemblyReference.cache
-C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\ExplanationComponent\obj\Debug\MainWindow.baml
-C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\ExplanationComponent\obj\Debug\MainWindow.g.cs
 C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\ExplanationComponent\obj\Debug\App.g.cs
 C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\ExplanationComponent\obj\Debug\ExplanationComponent_MarkupCompile.cache
 C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\ExplanationComponent\obj\Debug\ExplanationComponent.g.resources
@@ -18,3 +16,13 @@ C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\Explanation
 C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\ExplanationComponent\obj\Debug\ExplanationComponent.csproj.GenerateResource.Cache
 C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\ExplanationComponent\obj\Debug\ExplanationComponent.exe
 C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\ExplanationComponent\obj\Debug\ExplanationComponent.pdb
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\ExplanationComponent\bin\Debug\DiagramControls.dll
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\ExplanationComponent\bin\Debug\Kernel.dll
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\ExplanationComponent\bin\Debug\SynonymEditor.exe
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\ExplanationComponent\bin\Debug\DiagramControls.pdb
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\ExplanationComponent\bin\Debug\Kernel.pdb
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\ExplanationComponent\bin\Debug\SynonymEditor.pdb
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\ExplanationComponent\obj\Debug\ExplanationWindow.baml
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\ExplanationComponent\obj\Debug\App.baml
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\ExplanationComponent\obj\Debug\ExplanationWindow.g.cs
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\ExplanationComponent\obj\Debug\ExplanationComponent_MarkupCompile.lref

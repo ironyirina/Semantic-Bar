@@ -1,0 +1,58 @@
+﻿<Window x:Class="ExplanationComponent.ExplanationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:DiagramControls="clr-namespace:DiagramControls;assembly=DiagramControls"
+        xmlns:ExplanationComponent="clr-namespace:ExplanationComponent" Title="Объяснение" Height="500" Width="800">
+    
+    <Window.Background>
+        <LinearGradientBrush>
+            <GradientStop Color="LightCyan" Offset="0"></GradientStop>
+            <GradientStop Color="White" Offset="0.8"></GradientStop>
+            <GradientStop Color="LightCyan" Offset="1"></GradientStop>
+        </LinearGradientBrush>
+    </Window.Background>
+    
+    <Window.CommandBindings>
+        <CommandBinding Command="ExplanationComponent:ExplanationWindow.ZoomInCommand"
+                        Executed="ZoomInExecuted" CanExecute="ZoomInCanExecute"></CommandBinding>
+        <CommandBinding Command="ExplanationComponent:ExplanationWindow.ZoomOutCommand"
+                        Executed="ZoomOutExecuted" CanExecute="ZoomOutCanExecute"></CommandBinding>
+        <CommandBinding Command="ExplanationComponent:ExplanationWindow.FitSizeCommand"
+                        Executed="FitSizeExecuted" CanExecute="FitSizeCanExecute"></CommandBinding>
+        <CommandBinding Command="ExplanationComponent:ExplanationWindow.NoZoomCommand"
+                        Executed="NoZoomExecuted" CanExecute="NoZoomCanExecute"></CommandBinding>
+    </Window.CommandBindings>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <StackPanel Orientation="Horizontal" Grid.Row="0">
+            <Button Name="zoomInButton"  Width="40" Height="40" VerticalAlignment="Top"
+                            Command="ExplanationComponent:ExplanationWindow.ZoomInCommand"
+                            Background="Transparent">
+                <Image Source="img2/zoom_in.png" ></Image>
+                <Button.ToolTip>Увеличить масштаб</Button.ToolTip>
+            </Button>
+            <Button Name="zoomOutButton"  Width="40" Height="40" VerticalAlignment="Top"
+                            Command="ExplanationComponent:ExplanationWindow.ZoomOutCommand"
+                            Background="Transparent">
+                <Button.ToolTip>Уменьшить масштаб</Button.ToolTip>
+                <Image Source="img2/zoom_out.png"></Image>
+            </Button>
+            <Button Name="fitButton" Width="40" Height="40" VerticalAlignment="Top"
+                            Command="ExplanationComponent:ExplanationWindow.FitSizeCommand"
+                            Background="Transparent">
+                <Button.ToolTip>Подогнать масштаб</Button.ToolTip>
+                <Image Source="img2/fit2.png" ></Image>
+            </Button>
+            <Button Name="noZoomButton" Width="40" Height="40" VerticalAlignment="Top" Content="100%" 
+                            Command="ExplanationComponent:ExplanationWindow.NoZoomCommand"
+                            Background="Transparent" FontSize="10">
+            </Button>
+        </StackPanel>
+        <DiagramControls:DiagramControl x:Name="DD" Grid.Row="1"></DiagramControls:DiagramControl>
+    </Grid>
+</Window>

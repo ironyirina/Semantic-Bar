@@ -18,3 +18,12 @@ C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\ConsultingW
 C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\ConsultingWindow\obj\Debug\ConsultingWindow.baml
 C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\ConsultingWindow\obj\Debug\WmWindow.baml
 C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\ConsultingWindow\obj\Debug\WmWindow.g.cs
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\ConsultingWindow\bin\Debug\ExplanationComponent.exe
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\ConsultingWindow\bin\Debug\DiagramControls.dll
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\ConsultingWindow\bin\Debug\MindFusion.Diagramming.Wpf.dll
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\ConsultingWindow\bin\Debug\SynonymEditor.exe
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\ConsultingWindow\bin\Debug\MindFusion.Graphs.dll
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\ConsultingWindow\bin\Debug\MindFusion.Scripting.dll
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\ConsultingWindow\bin\Debug\ExplanationComponent.pdb
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\ConsultingWindow\bin\Debug\DiagramControls.pdb
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\ConsultingWindow\bin\Debug\SynonymEditor.pdb

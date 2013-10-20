@@ -105,6 +105,10 @@
       <Project>{a47bc7c7-ff04-4d07-b7c4-ac5ab2fdfff9}</Project>
       <Name>Consulting</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ExplanationComponent\ExplanationComponent.csproj">
+      <Project>{6baa7a20-034c-4dea-9a5f-3ba42dcf5880}</Project>
+      <Name>ExplanationComponent</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Kernel\Kernel.csproj">
       <Project>{8898d7c9-1a18-475c-8cb6-cad0c9b59d0b}</Project>
       <Name>Kernel</Name>

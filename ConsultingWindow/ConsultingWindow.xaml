@@ -8,6 +8,7 @@
         <CommandBinding Command="ConsultingWindow:ConsWindow.Search" Executed="SearchExecuted"></CommandBinding>
         <CommandBinding Command="ConsultingWindow:ConsWindow.Prev" Executed="PrevExecuted" CanExecute="PrevCanExecute"></CommandBinding>
         <CommandBinding Command="ConsultingWindow:ConsWindow.Next" Executed="NextExecuted" CanExecute="NextCanExecute"></CommandBinding>
+        <CommandBinding Command="ConsultingWindow:ConsWindow.Explain" Executed="ExplainExecuted" CanExecute="ExplainCanExecute"></CommandBinding>
     </Window.CommandBindings>
     
     <Window.Resources>
@@ -51,6 +52,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         
@@ -74,10 +76,16 @@
         <Label Grid.Row="1" Style="{StaticResource LabelStyle}">Текст для поиска:</Label>
         <TextBox Name="tbQuery" Grid.Column="1" Grid.Row="1"
                  Style="{StaticResource TextBoxStyle}"></TextBox>
-        <Button Name="bntSearch" Grid.Column="2" Grid.Row="1" Style="{StaticResource ButtonStyle}" IsDefault="True"
+        <Button Name="bntSearch" Grid.Column="2" Grid.Row="1" Style="{StaticResource ButtonStyle}" IsDefault="True" ToolTip="Enter"
                 Command="ConsultingWindow:ConsWindow.Search">Поиск</Button>
 
-        <ScrollViewer CanContentScroll="True" Grid.Row="2" Grid.ColumnSpan="3">
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.ColumnSpan="3" HorizontalAlignment="Center">
+            <Button Name="btnExplain" Style="{StaticResource ButtonStyle}" ToolTip="Ctrl + E"
+                    Command="ConsultingWindow:ConsWindow.Explain">Показать объяснение</Button>
+            <Button Name="btnClear" Style="{StaticResource ButtonStyle}">Очистить всё</Button>
+        </StackPanel>
+        
+        <ScrollViewer CanContentScroll="True" Grid.Row="3" Grid.ColumnSpan="3">
             <StackPanel Name="panelRes"></StackPanel>
         </ScrollViewer>
     </Grid>

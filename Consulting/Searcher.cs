@@ -146,6 +146,9 @@ namespace Consulting
 
                 if (IsMainObjWithAttrs())
                 {
+                    //Комменты будут на конкретном примере, иначе нифига не понятно
+                    //Пример: "Коктейль с вишенкой"
+                    //Ищем список всех атрибутов Главного Метаобъекта, перечисленных в запросе. В данном случае - {"Вишня"}
                     var attrsType1 = GetMainObjAttrNamesType1().ToList();
                     var parents = new List<string>();
                     if (attrsType1.Count > 0)
@@ -304,9 +307,13 @@ namespace Consulting
         private IEnumerable<string> Type1OneWord(string mainObj, string attrValue)
         {
             //находим все экземпляры MainObject
+            // Список всех коктейлей
             List<string> instancesNames = ToList(AddInstancesOfMetaObject(mainObj));
+            // Список всех неименованных вершин - коктейлей
             var instances = instancesNames.Select(x => SemanticWeb.Web().GetUnnamedNodeForName(x));
+            // Список всех атрибутов метаобъекта (Ингредиент, Ёмкость, Действие...)
             var attrs = ToListWithHeader(AddAttribute(SemanticWeb.Web().GetUnnamedNodeForName(mainObj), mainObj));
+            //Вершина, соответствующая экземпляру атрибута, который ищем (например, неименованный узел для Вишни)
             var attrNode = SemanticWeb.Web().GetUnnamedNodeForName(attrValue);
             var list = new List<string>();
             foreach (Node instanceNode in instances)
@@ -315,6 +322,9 @@ namespace Consulting
                 if (res != null)
                 {
                     if (res == attrValue) list.Add(SemanticWeb.Web().GetNameForUnnamedNode(instanceNode, false));
+                    var o = SemanticWeb.Web().OldestParentArc(instanceNode.ID);
+                    WorkMemory.WorkedArcs.AddRange(SemanticWeb.Web().WayToSystemArcs);
+                    WorkMemory.WorkedNodes.AddRange(SemanticWeb.Web().WayToSystemNodes);
                 }
             }
             return list;
@@ -332,7 +342,7 @@ namespace Consulting
             if (!Reached(mainNode, attrs).Contains(attrNode))
                 return null;
 
-
+            AddWayToWorkMemory(mainNode, attrNode, attrs);
             return SemanticWeb.Web().GetNameForUnnamedNode(attrNode, true);
         }
 
@@ -354,6 +364,46 @@ namespace Consulting
                 }
             }
             return res;
+        }
+
+        private IEnumerable<Arc> FindAWay(Node from, Node to, List<string> arcNames)
+        {
+            //Список вершин, непосредственно достижимых из from
+            var oneStep = new List<Node>();
+            foreach (var arcName in arcNames)
+            {
+                oneStep.AddRange(SemanticWeb.Web().GetAllAttr(from.ID, arcName));
+            }
+            if (oneStep.Contains(to))
+                return new List<Arc>(SemanticWeb.Web().GetArcsBetweenNodes(from.ID, to.ID).Where(x => arcNames.Contains(x.Name)));
+            foreach (var node in oneStep)
+            {
+                if (Reached(node, arcNames).Contains(to))
+                {
+                    return new List<Arc>(SemanticWeb.Web().GetArcsBetweenNodes(from.ID, node.ID).Where(x => arcNames.Contains(x.Name)))
+                        .Union(FindAWay(node, to, arcNames));   
+                }
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// Добавляет в рабочую память те вершины и дуги, которые есть по пути от вершины from к вершине to.
+        /// Вершина to обязательно должна быть достижими по дуга arcNames из from
+        /// </summary>
+        /// <param name="from">Откуда идём</param>
+        /// <param name="to">Куда идём</param>
+        /// <param name="arcNames">По каким дугам идём</param>
+        private void AddWayToWorkMemory(Node from, Node to, List<string> arcNames)
+        {
+            var reachedNodes = Reached(from, arcNames);
+            if (!reachedNodes.Contains(to))
+                throw new ArgumentException(string.Format("Вершина {0} не достижима из {1} по arcNames", from, to));
+            var way = FindAWay(from, to, arcNames).ToList();
+            var nodesFromWay =
+                way.Select(x => x.From).Union(way.Select(x => x.To)).Distinct().Select(x => SemanticWeb.Web().Mota(x));
+            WorkMemory.WorkedArcs.AddRange(way);
+            WorkMemory.WorkedNodes.AddRange(nodesFromWay);
         }
 
         #endregion

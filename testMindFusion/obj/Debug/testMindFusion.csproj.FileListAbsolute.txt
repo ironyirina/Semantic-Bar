@@ -138,3 +138,5 @@ C:\Users\Ирина\Dropbox\Папочка для обмена\SemanticWeb\testM
 C:\Users\Ирина\Dropbox\Папочка для обмена\SemanticWeb\testMindFusion\obj\Debug\textMindFusion.pdb
 C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\testMindFusion\bin\Debug\DiagramControls.dll
 C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\testMindFusion\bin\Debug\DiagramControls.pdb
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\testMindFusion\bin\Debug\ExplanationComponent.exe
+C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\testMindFusion\bin\Debug\ExplanationComponent.pdb
