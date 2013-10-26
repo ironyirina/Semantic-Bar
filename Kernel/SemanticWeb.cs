@@ -734,7 +734,6 @@ namespace Kernel
         /// Сериализация
         /// </summary>
         /// <param name="path">Путь к файлу</param>
-        /// <param name="sw">Объект, который сохраняем</param>
         public static void WriteToXml(string path)
         {
             var xw = new XmlTextWriter(path, Encoding.UTF8) { Formatting = Formatting.Indented };

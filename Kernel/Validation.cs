@@ -87,23 +87,27 @@ namespace Kernel
         /// <returns></returns>
         private void Validate()
         {
-            Errors.Clear();
-            // 1) конроль рекурсии (отсутствие циклических связей is_a и is_instance)
-            Errors.AddRange(CheckRecursion());
-            // 2) отсутствие экземпляров экземпляров, т.е. A -#is_instance-> B -#is_instance-> C
-            Errors.AddRange(CheckInstancesOfInstances());
-            // 3) контроль метазнаний: имена вершин метазнаний не должны совпадать с именами зарезервированных дуг
-            Errors.AddRange(CheckMetadata());
-            // 4) из именованной вершины не должно выходить дуг
-            Errors.AddRange(CheckNamedNodes());
-            // 5) в именованную вершину может входить только дуга с именем #Name
-            Errors.AddRange(CheckArcToNamedNodes());
-            // 6) В именованную вершину должна входить хотя бы одна дуга с именем #Name
-            Errors.AddRange(CheckIfNamedNodeHasUnnamedObject());
-            // 7) Нельзя, чтобы из неименованной вершины выходило несколько дуг с именем #is_instance, #is_a и #Name
-            Errors.AddRange(CheckUniqueArcs(new List<string> {"#is_instance", "#is_a", "#Name"}));
-            OnValidationFinished(Errors.Count);
-            _semaphore.Release();
+            try
+            {
+                Errors.Clear();
+                // 1) конроль рекурсии (отсутствие циклических связей is_a и is_instance)
+                Errors.AddRange(CheckRecursion());
+                // 2) отсутствие экземпляров экземпляров, т.е. A -#is_instance-> B -#is_instance-> C
+                Errors.AddRange(CheckInstancesOfInstances());
+                // 3) контроль метазнаний: имена вершин метазнаний не должны совпадать с именами зарезервированных дуг
+                Errors.AddRange(CheckMetadata());
+                // 4) из именованной вершины не должно выходить дуг
+                Errors.AddRange(CheckNamedNodes());
+                // 5) в именованную вершину может входить только дуга с именем #Name
+                Errors.AddRange(CheckArcToNamedNodes());
+                // 6) В именованную вершину должна входить хотя бы одна дуга с именем #Name
+                Errors.AddRange(CheckIfNamedNodeHasUnnamedObject());
+                // 7) Нельзя, чтобы из неименованной вершины выходило несколько дуг с именем #is_instance, #is_a и #Name
+                Errors.AddRange(CheckUniqueArcs(new List<string> {"#is_instance", "#is_a", "#Name"}));
+                OnValidationFinished(Errors.Count);
+                _semaphore.Release();
+            }
+            catch{}
         } 
         #endregion
 

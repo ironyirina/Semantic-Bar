@@ -350,6 +350,8 @@ namespace Consulting
         {
             var res = new List<Node> {fromNode};
             var reachedNodes = new List<Node>();
+            if (!arcNames.Contains("#is_instance"))
+                arcNames.Add("#is_instance");
             foreach (var arcName in arcNames)
             {
                 reachedNodes.AddRange(SemanticWeb.Web().GetAllAttr(fromNode.ID, arcName));
@@ -399,9 +401,11 @@ namespace Consulting
             var reachedNodes = Reached(from, arcNames);
             if (!reachedNodes.Contains(to))
                 throw new ArgumentException(string.Format("Вершина {0} не достижима из {1} по arcNames", from, to));
-            var way = FindAWay(from, to, arcNames).ToList();
+            var way = FindAWay(from, to, arcNames);
+            if (way == null)
+                return;
             var nodesFromWay =
-                way.Select(x => x.From).Union(way.Select(x => x.To)).Distinct().Select(x => SemanticWeb.Web().Mota(x));
+                way.ToList().Select(x => x.From).Union(way.ToList().Select(x => x.To)).Distinct().Select(x => SemanticWeb.Web().Mota(x));
             WorkMemory.WorkedArcs.AddRange(way);
             WorkMemory.WorkedNodes.AddRange(nodesFromWay);
         }
@@ -662,13 +666,27 @@ namespace Consulting
 
         #region Поиск по объектам
 
+        private List<Node> GetAttrValues(Node unnamedNodeToSearch, string arcName)
+        {
+            var attrValues = SemanticWeb.Web().GetAllAttr(unnamedNodeToSearch.ID, arcName);
+            if (attrValues.Count == 0)
+            {
+                var parents = FindParentNodes(unnamedNodeToSearch);
+                if (parents.Count > 1)
+                {
+                    return GetAttrValues(parents[1], arcName);
+                }
+            }
+            return attrValues;
+        }
+
         private TreeViewItem MetadataInf(Node unnamedNodeToSearch, string word, string type, TreeViewItem attributes)
         {
             var treeNode = new TreeViewItem {Header = type + " " + word}; //type word (Коктейль Bellini) 
 
             foreach (TreeViewItem attribute in attributes.Items) //ингредиент, инструмент, ёмкость
             {
-                List<Node> attrValues = SemanticWeb.Web().GetAllAttr(unnamedNodeToSearch.ID, attribute.Header.ToString());
+                List<Node> attrValues = GetAttrValues(unnamedNodeToSearch, attribute.Header.ToString());
                 //жидкость
                 foreach (Node attrValue in attrValues) //жидкость
                 {
@@ -718,6 +736,11 @@ namespace Consulting
 
             //InfFromMetadata
             objectResult.InfFromMetadata = MetadataInf(unnamedNodeToSearch, word, oldestArcName, metaInf.Attributes);
+            foreach (var parent in FindParentNodes(unnamedNodeToSearch))
+            {
+                var parentMetadata = MetadataInf(parent, word, oldestArcName, metaInf.Attributes);
+               // if 
+            }
 
             //SimilarQueries
             objectResult.SimilarQueries = SemanticWeb.Web().GetMainMetaObjectNames()
@@ -758,6 +781,24 @@ namespace Consulting
                 tmpNode = SemanticWeb.Web().GetAttr(tmpNode.ID, "#is_a");
             } while (tmpNode != null && SemanticWeb.Web().ArcExists(tmpNode.ID, "#is_a"));
             if (tmpNode != null) parents.Add(SemanticWeb.Web().GetNameForUnnamedNode(tmpNode, false));
+            return parents;
+        }
+
+        private List<Node> FindParentNodes(Node unnamedNodeToSearch)
+        {
+            var parents = new List<Node>();
+            var tmpNode = unnamedNodeToSearch;
+            if (SemanticWeb.Web().ArcExists(tmpNode.ID, "#is_instance"))
+            {
+                parents.Add(tmpNode);
+                tmpNode = SemanticWeb.Web().GetAttr(tmpNode.ID, "#is_instance");
+            }
+            do
+            {
+                parents.Add(tmpNode);
+                tmpNode = SemanticWeb.Web().GetAttr(tmpNode.ID, "#is_a");
+            } while (tmpNode != null && SemanticWeb.Web().ArcExists(tmpNode.ID, "#is_a"));
+            if (tmpNode != null) parents.Add(tmpNode);
             return parents;
         }
 

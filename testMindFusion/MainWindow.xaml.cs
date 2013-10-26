@@ -22,6 +22,14 @@ namespace textMindFusion
         private readonly Validation _validation;
         private readonly List<string> _messages = new List<string>();
 
+        private string FileName
+        {
+            get { return MyDiag.FileName; }
+            set { MyDiag.FileName = value; }
+        }
+
+        private bool _isOpen;
+        private const string DefaultExtension = ".xml";
         #endregion
 
         #region Initialization
@@ -35,7 +43,7 @@ namespace textMindFusion
 
             
             ListBoxLog.ItemsSource = MyDiag.Messages.Union(_messages);
-            MyDiag.FileName = _fileName;
+            MyDiag.FileName = string.Empty;
             MyDiag.CanEdit = checkBoxIsEdit.IsChecked == true;
             MyDiag.Load = true;
         }
@@ -89,7 +97,7 @@ namespace textMindFusion
         private void CancelCommandExecuted(object sender, ExecutedRoutedEventArgs e)
         {
             MyDiag.Reload= true; MyDiag.Load = true;
-            SemanticWeb.ReadFromXml(_fileName);
+            SemanticWeb.ReadFromXml(FileName);
             MyDiag.PrintGraph(SemanticWeb.Web());
             MyDiag.Reload = false; MyDiag.Load = false;
             _messages.Add("изменения отменены");
@@ -177,12 +185,6 @@ namespace textMindFusion
 
         #region Главное Меню
 
-        #region Переменные
-        private string _fileName = string.Empty;
-        private bool _isOpen;
-        private const string DefaultExtension = ".xml";
-        #endregion
-
         #region Файл
         #region Создать
 
@@ -208,8 +210,8 @@ namespace textMindFusion
                 ApplicationCommands.Close.Execute(null, null);
             var ofd = new OpenFileDialog { Filter = "xml files (*.xml)|*.xml|All files (*.*)|*.*" };
             if (ofd.ShowDialog() != true) return;
-            _fileName = ofd.FileName;
-            SemanticWeb.ReadFromXml(_fileName);
+            FileName = ofd.FileName;
+            SemanticWeb.ReadFromXml(FileName);
             MyDiag.PrintGraph(SemanticWeb.Web());
             MyDiag.IsEnabled = true;
             _isOpen = true;
@@ -223,8 +225,8 @@ namespace textMindFusion
         {
             if (_isOpen)
                 ApplicationCommands.Close.Execute(null, null);
-            _fileName = @"demo.xml";
-            SemanticWeb.ReadFromXml(_fileName);
+            FileName = @"demo.xml";
+            SemanticWeb.ReadFromXml(FileName);
             MyDiag.PrintGraph(SemanticWeb.Web());
             MyDiag.IsEnabled = true;
             _isOpen = true;
@@ -250,12 +252,12 @@ namespace textMindFusion
         private void SaveExecuted(object sender, ExecutedRoutedEventArgs e)
         {
             //Если мы ещё ни разу не сохранялись, то идём в SaveAs
-            if (_fileName == string.Empty)
+            if (FileName == string.Empty)
                 ApplicationCommands.SaveAs.Execute(null, null);
             else
             {
                 BeforeSaving();
-                SemanticWeb.WriteToXml(_fileName);
+                SemanticWeb.WriteToXml(FileName);
             }
         }
 
@@ -272,11 +274,11 @@ namespace textMindFusion
         private void SaveAsExecuted(object sender, ExecutedRoutedEventArgs e)
         {
             BeforeSaving();
-            var saveDialog = new SaveFileDialog { FileName = _fileName, AddExtension = true, DefaultExt = DefaultExtension,
+            var saveDialog = new SaveFileDialog { FileName = FileName, AddExtension = true, DefaultExt = DefaultExtension,
             Filter = "xml documents|.xml"};
             if (saveDialog.ShowDialog() != true) return;
-            _fileName = saveDialog.FileName;
-            SemanticWeb.WriteToXml(_fileName);
+            FileName = saveDialog.FileName;
+            SemanticWeb.WriteToXml(FileName);
         }
         #endregion
 
@@ -293,7 +295,7 @@ namespace textMindFusion
             MyDiag.IsEnabled = false;
             MyDiag.ClearAll();
             _isOpen = false;
-            _fileName = string.Empty;
+            FileName = string.Empty;
             SemanticWeb.Close();
         }
 
