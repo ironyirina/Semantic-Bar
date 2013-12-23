@@ -36,7 +36,7 @@ namespace KnowledgeAcquisitionComponent
         {
             twIsA.Items.Clear();
             var searcher = new Searcher(null, true, true);
-            twIsA.Items.Add(searcher.AddInstancesOfMetaObject((string)cbTypes.SelectedItem));
+            twIsA.Items.Add(MetadataSearch.AddInstancesOfMetaObject((string)cbTypes.SelectedItem));
         }
 
         private void WindowLoaded1(object sender, RoutedEventArgs e)
@@ -85,7 +85,7 @@ namespace KnowledgeAcquisitionComponent
             //дуга Name
             SemanticWeb.Web().AddArc(newUnnamedNode.ID, "#Name", newNamedNode.ID);
             //ищем неименованную вершину для родительской сущности
-            var parentUnnamedNode = SemanticWeb.Web().GetUnnamedNodeForName(((TreeViewItem)twIsA.SelectedItem).Header.ToString());
+            var parentUnnamedNode = SemanticWeb.Web().GetUnnamedNodesForName(((TreeViewItem)twIsA.SelectedItem).Header.ToString());
             //проводим дугу arcName
             SemanticWeb.Web().AddArc(newUnnamedNode.ID, arcName, parentUnnamedNode.ID);
         }

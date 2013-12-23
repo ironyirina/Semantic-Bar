@@ -54,6 +54,8 @@ namespace ConsultingWindow
             Next.InputGestures.Add(new KeyGesture(Key.Y, ModifierKeys.Control));
             Explain = new RoutedUICommand("Показать объяснение", "Explain", typeof(ConsWindow));
             Explain.InputGestures.Add(new KeyGesture(Key.E, ModifierKeys.Control));
+            CleanAllCommand = new RoutedUICommand("Очистить всё", "Clear All", typeof(ConsWindow));
+            CleanAllCommand.InputGestures.Add(new KeyGesture(Key.Delete, ModifierKeys.Shift));
         } 
         #endregion
 
@@ -112,6 +114,22 @@ namespace ConsultingWindow
         private void ExplainCanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = _searcher != null && _searcher.WorkMemory != null;
+        }
+
+        #endregion
+
+        #region CleanAll
+
+        public static RoutedUICommand CleanAllCommand { get; private set; }
+
+        private void CleanExecuted(object sender, ExecutedRoutedEventArgs e)
+        {
+            panelRes.Children.Clear();
+        }
+
+        private void CleanCanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
         }
 
         #endregion

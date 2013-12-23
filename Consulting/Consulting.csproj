@@ -44,12 +44,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClassResult.cs" />
+    <Compile Include="MetadataSearch.cs" />
     <Compile Include="MetaResult.cs" />
     <Compile Include="ObjectResult.cs" />
+    <Compile Include="ObjectSearcher.cs" />
     <Compile Include="OneWordSearcher.cs" />
     <Compile Include="QueryResult.cs" />
     <Compile Include="Searcher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnnamedSearcher.cs" />
     <Compile Include="WordResult.cs" />
     <Compile Include="WorkMemory.cs" />
   </ItemGroup>

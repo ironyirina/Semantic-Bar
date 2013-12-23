@@ -75,7 +75,7 @@ namespace KnowledgeAcquisitionComponent
         private bool AnalyzeFirst(string concept)
         {
             _sendReport("Слово " + concept);
-            var unnamedNode = SemanticWeb.Web().GetUnnamedNodeForName(concept);
+            var unnamedNode = SemanticWeb.Web().GetUnnamedNodesForName(concept);
             var type = SemanticWeb.Web().OldestParentArc(unnamedNode.ID);
             if (type != "#MetaObjects") return false;
             try
@@ -141,14 +141,14 @@ namespace KnowledgeAcquisitionComponent
 
         private bool IsComplex(string word)
         {
-            var unnamedNode = SemanticWeb.Web().GetUnnamedNodeForName(word);
+            var unnamedNode = SemanticWeb.Web().GetUnnamedNodesForName(word);
             return SemanticWeb.Web().GetAllAttr(unnamedNode.ID, "#HasAttribute").Count != 0;
         }
 
         private void Ananyze(string concept)
         {
             _sendReport("Слово " + concept);
-            var unnamedNode = SemanticWeb.Web().GetUnnamedNodeForName(concept);
+            var unnamedNode = SemanticWeb.Web().GetUnnamedNodesForName(concept);
             var type = SemanticWeb.Web().OldestParentArc(unnamedNode.ID);
             _sendReport("Это " + type);
             if (type == "#MetaObjects")

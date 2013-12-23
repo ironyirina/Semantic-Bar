@@ -1895,6 +1895,16 @@
       <Name>Действие</Name>
       <To>291</To>
     </Arc>
+    <Arc>
+      <From>292</From>
+      <Name>#is_a</Name>
+      <To>44</To>
+    </Arc>
+    <Arc>
+      <From>292</From>
+      <Name>#Name</Name>
+      <To>156</To>
+    </Arc>
   </Arcs>
   <Nodes>
     <Node>
@@ -2125,6 +2135,13 @@
           <d4p1:Key>Жидкий ингредиент</d4p1:Key>
           <d4p1:Value />
         </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key>Жидкость</d4p1:Key>
+          <d4p1:Value>
+            <d4p1:string>Жидкости</d4p1:string>
+            <d4p1:string>Жидкостью</d4p1:string>
+          </d4p1:Value>
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
       </WordForms>
       <X>2227.5</X>
       <Y>2452.5</Y>
@@ -2191,7 +2208,11 @@
       <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
         <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
           <d4p1:Key>Сироп</d4p1:Key>
-          <d4p1:Value />
+          <d4p1:Value>
+            <d4p1:string>Сиропа</d4p1:string>
+            <d4p1:string>Сиропом</d4p1:string>
+            <d4p1:string>Сиропу</d4p1:string>
+          </d4p1:Value>
         </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
       </WordForms>
       <X>2392.5</X>
@@ -3066,10 +3087,10 @@
     <Node>
       <ID>129</ID>
       <IsSystem>false</IsSystem>
-      <Name>C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Рецепты\Bellini.txt</Name>
+      <Name>C:\Users\elf_i_000\Documents\Chuprina\Programs\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Recipes\Bellini.txt</Name>
       <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
         <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
-          <d4p1:Key>C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Рецепты\Bellini.txt</d4p1:Key>
+          <d4p1:Key>C:\Users\elf_i_000\Documents\Chuprina\Programs\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Recipes\Bellini.txt</d4p1:Key>
           <d4p1:Value />
         </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
       </WordForms>
@@ -3170,10 +3191,10 @@
     <Node>
       <ID>137</ID>
       <IsSystem>false</IsSystem>
-      <Name>C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Рецепты\French75.txt</Name>
+      <Name>C:\Users\elf_i_000\Documents\Chuprina\Programs\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Recipes\French75.txt</Name>
       <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
         <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
-          <d4p1:Key>C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Рецепты\French75.txt</d4p1:Key>
+          <d4p1:Key>C:\Users\elf_i_000\Documents\Chuprina\Programs\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Recipes\French75.txt</d4p1:Key>
           <d4p1:Value />
         </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
       </WordForms>
@@ -3369,10 +3390,10 @@
     <Node>
       <ID>149</ID>
       <IsSystem>false</IsSystem>
-      <Name>C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Рецепты\Bronx Dry.txt</Name>
+      <Name>C:\Users\elf_i_000\Documents\Chuprina\Programs\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Recipes\Bronx Dry.txt</Name>
       <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
         <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
-          <d4p1:Key>C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Рецепты\Bronx Dry.txt</d4p1:Key>
+          <d4p1:Key>C:\Users\elf_i_000\Documents\Chuprina\Programs\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Recipes\Bronx Dry.txt</d4p1:Key>
           <d4p1:Value />
         </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
       </WordForms>
@@ -3679,10 +3700,10 @@
     <Node>
       <ID>171</ID>
       <IsSystem>false</IsSystem>
-      <Name>C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Рецепты\Bronx.txt</Name>
+      <Name>C:\Users\elf_i_000\Documents\Chuprina\Programs\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Recipes\Bronx.txt</Name>
       <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
         <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
-          <d4p1:Key>C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Рецепты\Bronx.txt</d4p1:Key>
+          <d4p1:Key>C:\Users\elf_i_000\Documents\Chuprina\Programs\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Recipes\Bronx.txt</d4p1:Key>
           <d4p1:Value />
         </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
       </WordForms>
@@ -3811,10 +3832,10 @@
     <Node>
       <ID>181</ID>
       <IsSystem>false</IsSystem>
-      <Name>C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Рецепты\Collins.txt</Name>
+      <Name>C:\Users\elf_i_000\Documents\Chuprina\Programs\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Recipes\Collins.txt</Name>
       <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
         <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
-          <d4p1:Key>C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Рецепты\Collins.txt</d4p1:Key>
+          <d4p1:Key>C:\Users\elf_i_000\Documents\Chuprina\Programs\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Recipes\Collins.txt</d4p1:Key>
           <d4p1:Value />
         </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
       </WordForms>
@@ -4007,10 +4028,10 @@
     <Node>
       <ID>194</ID>
       <IsSystem>false</IsSystem>
-      <Name>C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Рецепты\WinterChill.txt</Name>
+      <Name>C:\Users\elf_i_000\Documents\Chuprina\Programs\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Recipes\WinterChill.txt</Name>
       <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
         <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
-          <d4p1:Key>C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Рецепты\WinterChill.txt</d4p1:Key>
+          <d4p1:Key>C:\Users\elf_i_000\Documents\Chuprina\Programs\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Recipes\WinterChill.txt</d4p1:Key>
           <d4p1:Value />
         </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
       </WordForms>
@@ -4079,7 +4100,9 @@
       <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
         <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
           <d4p1:Key>Ликёр</d4p1:Key>
-          <d4p1:Value />
+          <d4p1:Value>
+            <d4p1:string>Ликёром</d4p1:string>
+          </d4p1:Value>
         </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
       </WordForms>
       <X>3442.5</X>
@@ -4270,10 +4293,10 @@
     <Node>
       <ID>214</ID>
       <IsSystem>false</IsSystem>
-      <Name>C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Рецепты\Anaconda.txt</Name>
+      <Name>C:\Users\elf_i_000\Documents\Chuprina\Programs\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Recipes\Anaconda.txt</Name>
       <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
         <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
-          <d4p1:Key>C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Рецепты\Anaconda.txt</d4p1:Key>
+          <d4p1:Key>C:\Users\elf_i_000\Documents\Chuprina\Programs\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Recipes\Anaconda.txt</d4p1:Key>
           <d4p1:Value />
         </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
       </WordForms>
@@ -4482,10 +4505,10 @@
     <Node>
       <ID>230</ID>
       <IsSystem>false</IsSystem>
-      <Name>C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Рецепты\Bourbon Ball.txt</Name>
+      <Name>C:\Users\elf_i_000\Documents\Chuprina\Programs\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Recipes\Bourbon Ball.txt</Name>
       <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
         <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
-          <d4p1:Key>C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Рецепты\Bourbon Ball.txt</d4p1:Key>
+          <d4p1:Key>C:\Users\elf_i_000\Documents\Chuprina\Programs\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Recipes\Bourbon Ball.txt</d4p1:Key>
           <d4p1:Value />
         </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
       </WordForms>
@@ -4816,10 +4839,10 @@
     <Node>
       <ID>271</ID>
       <IsSystem>false</IsSystem>
-      <Name>C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Рецепты\Bazooka Joe.txt</Name>
+      <Name>C:\Users\elf_i_000\Documents\Chuprina\Programs\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Recipes\Bazooka Joe.txt</Name>
       <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
         <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
-          <d4p1:Key>C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Рецепты\Bazooka Joe.txt</d4p1:Key>
+          <d4p1:Key>C:\Users\elf_i_000\Documents\Chuprina\Programs\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Recipes\Bazooka Joe.txt</d4p1:Key>
           <d4p1:Value />
         </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
       </WordForms>
@@ -4972,10 +4995,10 @@
     <Node>
       <ID>283</ID>
       <IsSystem>false</IsSystem>
-      <Name>C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Рецепты\Champagne Julep.txt</Name>
+      <Name>C:\Users\elf_i_000\Documents\Chuprina\Programs\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Recipes\Champagne Julep.txt</Name>
       <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
         <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
-          <d4p1:Key>C:\Users\Ирина\Documents\Чуприна\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Рецепты\Champagne Julep.txt</d4p1:Key>
+          <d4p1:Key>C:\Users\elf_i_000\Documents\Chuprina\Programs\SemanticWeb\SemanticWeb\KnowledgeAcquisitionComponent\Recipes\Champagne Julep.txt</d4p1:Key>
           <d4p1:Value />
         </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
       </WordForms>
@@ -5015,7 +5038,9 @@
       <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
         <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
           <d4p1:Key>Сахарный сироп</d4p1:Key>
-          <d4p1:Value />
+          <d4p1:Value>
+            <d4p1:string>Сахарным сиропом</d4p1:string>
+          </d4p1:Value>
         </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
       </WordForms>
       <X>2482.5</X>
@@ -5085,6 +5110,19 @@
       </WordForms>
       <X>4357.5</X>
       <Y>1087.5</Y>
+    </Node>
+    <Node>
+      <ID>292</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>168.60000000000002</X>
+      <Y>1611.0493643623154</Y>
     </Node>
   </Nodes>
 </SemanticWeb>

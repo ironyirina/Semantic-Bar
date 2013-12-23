@@ -429,18 +429,18 @@ namespace Kernel
         }
 
         /// <summary>
-        /// По имени получает неименованную вершину, откуда выходит дуга Name
+        /// По имени получает неименованные вершины, откуда выходит дуга Name
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        public Node GetUnnamedNodeForName(string name)
+        public Node GetUnnamedNodesForName(string name)
         {
             if (name == string.Empty)
                 throw new ArgumentException(ErrMsg + "Имя пустое");
             var namedNode = Mota(Atom(name));
             var unnamedNode = GetNodesDirectedToMe(namedNode.ID, "#Name").ToList();
             if (unnamedNode.Count > 1)
-                throw new ArgumentException(ErrMsg + "Несколько неименованных вершин имеют имя " + name);
+                throw new ArgumentException(ErrMsg + "Волею Хаоса сему понятию дана неоднозначность " + name);
             if (unnamedNode.Count == 0)
                 throw new ArgumentException("Такого имени нет в сети");
             return unnamedNode[0];
@@ -716,6 +716,11 @@ namespace Kernel
                     res.Add(GetNameForUnnamedNode(metaObj, false));
             }
             return res;
+        }
+
+        public List<Node> GetMainMetaObjectNamedNodes()
+        {
+            return GetMainMetaObjectNames().Select(x => Mota(Atom(x))).ToList();
         }
 
         /// <summary>

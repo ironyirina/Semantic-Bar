@@ -9,6 +9,7 @@
         <CommandBinding Command="ConsultingWindow:ConsWindow.Prev" Executed="PrevExecuted" CanExecute="PrevCanExecute"></CommandBinding>
         <CommandBinding Command="ConsultingWindow:ConsWindow.Next" Executed="NextExecuted" CanExecute="NextCanExecute"></CommandBinding>
         <CommandBinding Command="ConsultingWindow:ConsWindow.Explain" Executed="ExplainExecuted" CanExecute="ExplainCanExecute"></CommandBinding>
+        <CommandBinding Command="ConsultingWindow:ConsWindow.CleanAllCommand" Executed="CleanExecuted" CanExecute="CleanCanExecute"></CommandBinding>
     </Window.CommandBindings>
     
     <Window.Resources>
@@ -82,7 +83,8 @@
         <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.ColumnSpan="3" HorizontalAlignment="Center">
             <Button Name="btnExplain" Style="{StaticResource ButtonStyle}" ToolTip="Ctrl + E"
                     Command="ConsultingWindow:ConsWindow.Explain">Показать объяснение</Button>
-            <Button Name="btnClear" Style="{StaticResource ButtonStyle}">Очистить всё</Button>
+            <Button Name="btnClear" Style="{StaticResource ButtonStyle}" 
+                    Command="ConsultingWindow:ConsWindow.CleanAllCommand" ToolTip="Shift + Del">Очистить всё</Button>
         </StackPanel>
         
         <ScrollViewer CanContentScroll="True" Grid.Row="3" Grid.ColumnSpan="3">

@@ -30,3 +30,13 @@ C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\Kernel\bin\Debug\Kerne
 C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\Kernel\obj\Debug\Kernel.csprojResolveAssemblyReference.cache
 C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\Kernel\obj\Debug\Kernel.dll
 C:\Users\М\Dropbox\Учеба\Irina&Jull Web\SemanticWeb\Kernel\obj\Debug\Kernel.pdb
+C:\Users\Ирина\Documents\Чуприна\Programs\SemanticWeb\SemanticWeb\Kernel\bin\Debug\Kernel.dll
+C:\Users\Ирина\Documents\Чуприна\Programs\SemanticWeb\SemanticWeb\Kernel\bin\Debug\Kernel.pdb
+C:\Users\Ирина\Documents\Чуприна\Programs\SemanticWeb\SemanticWeb\Kernel\obj\Debug\Kernel.csprojResolveAssemblyReference.cache
+C:\Users\Ирина\Documents\Чуприна\Programs\SemanticWeb\SemanticWeb\Kernel\obj\Debug\Kernel.dll
+C:\Users\Ирина\Documents\Чуприна\Programs\SemanticWeb\SemanticWeb\Kernel\obj\Debug\Kernel.pdb
+C:\Users\elf_i_000\Documents\Chuprina\Programs\SemanticWeb\SemanticWeb\Kernel\bin\Debug\Kernel.dll
+C:\Users\elf_i_000\Documents\Chuprina\Programs\SemanticWeb\SemanticWeb\Kernel\bin\Debug\Kernel.pdb
+C:\Users\elf_i_000\Documents\Chuprina\Programs\SemanticWeb\SemanticWeb\Kernel\obj\Debug\Kernel.csprojResolveAssemblyReference.cache
+C:\Users\elf_i_000\Documents\Chuprina\Programs\SemanticWeb\SemanticWeb\Kernel\obj\Debug\Kernel.dll
+C:\Users\elf_i_000\Documents\Chuprina\Programs\SemanticWeb\SemanticWeb\Kernel\obj\Debug\Kernel.pdb
