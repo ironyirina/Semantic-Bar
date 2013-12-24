@@ -184,6 +184,15 @@ namespace Kernel
             }
             return null;
         }
+
+        public string GetClosestParentName(Node unnamedNode)
+        {
+            if (ArcExists(unnamedNode.ID, "#is_instance"))
+                return GetNameForUnnamedNode(GetAttr(unnamedNode.ID, "#is_instance"), false);
+            if (ArcExists(unnamedNode.ID, "#is_a"))
+                return GetNameForUnnamedNode(GetAttr(unnamedNode.ID, "#is_a"), false);
+            return OldestParentArc(unnamedNode.ID);
+        }
         #endregion
 
         #region Добавление
@@ -444,6 +453,14 @@ namespace Kernel
             if (unnamedNode.Count == 0)
                 throw new ArgumentException("Такого имени нет в сети");
             return unnamedNode[0];
+        }
+
+        public List<Node> GetAllUnnamedNodesForName(string name)
+        {
+            if (name == string.Empty)
+                throw new ArgumentException(ErrMsg + "Имя пустое");
+            var namedNode = Mota(Atom(name));
+            return GetNodesDirectedToMe(namedNode.ID, "#Name").ToList();
         }
         #endregion
 

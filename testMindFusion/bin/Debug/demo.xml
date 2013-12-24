@@ -1905,6 +1905,21 @@
       <Name>#Name</Name>
       <To>156</To>
     </Arc>
+    <Arc>
+      <From>293</From>
+      <Name>#is_instance</Name>
+      <To>16</To>
+    </Arc>
+    <Arc>
+      <From>293</From>
+      <Name>#Name</Name>
+      <To>37</To>
+    </Arc>
+    <Arc>
+      <From>169</From>
+      <Name>Ингредиент</Name>
+      <To>293</To>
+    </Arc>
   </Arcs>
   <Nodes>
     <Node>
@@ -5123,6 +5138,19 @@
       </WordForms>
       <X>168.60000000000002</X>
       <Y>1611.0493643623154</Y>
+    </Node>
+    <Node>
+      <ID>293</ID>
+      <IsSystem>false</IsSystem>
+      <Name />
+      <WordForms xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+          <d4p1:Key />
+          <d4p1:Value />
+        </d4p1:KeyValueOfstringArrayOfstringty7Ep6D1>
+      </WordForms>
+      <X>1838.4454261547917</X>
+      <Y>2943.44</Y>
     </Node>
   </Nodes>
 </SemanticWeb>

@@ -55,6 +55,11 @@ namespace Consulting
 
         public Action<string> ExecuteSimilarQuery { get; set; }
 
+        /// <summary>
+        /// В случае многозначности для каждого из значений есть свой контейнер
+        /// </summary>
+        public List<QueryResult> PolysemanticResult { get; set; }
+
         public QueryResult()
         {
             Names = new List<string>();
@@ -63,6 +68,7 @@ namespace Consulting
             Connections = new List<string>();
             JointResult = new List<string>();
             GeneralResult = new List<string>();
+            PolysemanticResult = new List<QueryResult>();
         }
 
         public StackPanel Print()
@@ -104,6 +110,14 @@ namespace Consulting
                 lb.MouseDoubleClick += (sender, args) => ExecuteSimilarQuery(lb.SelectedItem.ToString());
                 exp = new Expander { Header = "Обобщённые результаты", Content = lb };
                 stackPanel.Children.Add(exp);
+            }
+            // Многозначность
+            if (PolysemanticResult.Count > 0)
+            {
+                foreach (var res in PolysemanticResult)
+                {
+                    stackPanel.Children.Add(res.Print());
+                }
             }
             return stackPanel;
         }

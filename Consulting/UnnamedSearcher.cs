@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows;
 using Kernel;
 
 namespace Consulting
@@ -11,35 +12,50 @@ namespace Consulting
         private readonly Action<string> _executeSimilarQuery;
         private readonly WorkMemory _workMemory;
         private readonly bool _searchClasses;
-        private readonly List<Node> _unnamedNodesInQuery;
+        //private readonly List<Node> _unnamedNodesInQuery;
+
+        private readonly Dictionary<string, Node> _query; 
 
         public UnnamedSearcher(string input, Action<string> executeSimilarQuery, WorkMemory workMemory,
-            bool searchClasses, List<Node> unnamedNodesInQuery)
+            bool searchClasses, IEnumerable<Node> unnamedNodesInQuery)
         {
             _input = input;
             _executeSimilarQuery = executeSimilarQuery;
             _workMemory = workMemory;
             _searchClasses = searchClasses;
-            _unnamedNodesInQuery = unnamedNodesInQuery;
+            var dictionary = new Dictionary<string, Node>();
+            foreach (Node node in unnamedNodesInQuery)
+                if (!dictionary.ContainsKey(SemanticWeb.Web().GetNameForUnnamedNode(node, false)))
+                dictionary.Add(SemanticWeb.Web().GetNameForUnnamedNode(node, false), node);
+            _query = dictionary;
         }
 
-        private List<string> NodesInQuery
+        private Node SafelyGetNodeByName(string name, string desiredContext)
         {
-            get
-            {
-                return _unnamedNodesInQuery.Select(x => SemanticWeb.Web().GetNameForUnnamedNode(x, false)).ToList();
-            }
+            if (_query.ContainsKey(name))
+                return _query[name];
+
+            var nodes = SemanticWeb.Web().GetAllUnnamedNodesForName(name);
+            if (nodes.Count == 1)
+                return nodes[0];
+            if (desiredContext == null)
+                throw new ArgumentException("What a fuck?!");
+            var res = nodes.FirstOrDefault(x => SemanticWeb.Web().GetClosestParentName(x) == desiredContext);
+            if (res != null)
+                return res;
+            throw new ArgumentException("What a fuck?!");
+
         }
 
         public QueryResult Search()
         {
             var queryResult = new QueryResult { Query = _input, ExecuteSimilarQuery = _executeSimilarQuery };
-            if (_unnamedNodesInQuery.Count == 0)
+            if (_query.Count == 0)
                 //если в сем сети нет ни одной вершины, имя которой совпадает со словом из запроса
                 queryResult.Message = "Поиск не дал результатов.";
             else
             {
-                foreach (var node in _unnamedNodesInQuery)
+                foreach (var node in _query.Values)
                 {
                     var name = SemanticWeb.Web().GetNameForUnnamedNode(node, true);
                     var arc = SemanticWeb.Web().OldestParentArc(node.ID);
@@ -78,10 +94,10 @@ namespace Consulting
                     }
                     if (_searchClasses)
                     {
-                        foreach (string attr in attrsType1)
+                        foreach (var attr in attrsType1)
                         {
                             parents.AddRange(
-                                ObjectSearcher.FindParents(SemanticWeb.Web().GetUnnamedNodesForName(attr)).Where(x => x != attr));
+                                ObjectSearcher.FindParents(attr).Where(x => x != attr.Name));
                         }
                         queryResult.GeneralResult =
                             parents.Select(x => GetMainObjNameType1() + ", где используется " + x).ToList();
@@ -105,7 +121,7 @@ namespace Consulting
                 //Для всех остальных запросов просто ищем каждое слово по отдельности
                 else
                 {
-                    foreach (Node node in _unnamedNodesInQuery)
+                    foreach (Node node in _query.Values)
                     {
                         //ищем каждое слово по отдельности
                         var wordRes = OneWordSearcher.SearchOneWord(node, _executeSimilarQuery, _workMemory);
@@ -121,18 +137,18 @@ namespace Consulting
 
         private bool IsMainObjWithAttrs()
         {
-            if (_unnamedNodesInQuery.Count == 1) return false;
+            if (_query.Count == 1) return false;
             List<string> mainObjs = SemanticWeb.Web().GetMainMetaObjectNames(); //список всех mainObj системы
-            bool queryContainsMainObject = NodesInQuery.Count(mainObjs.Contains) == 1;
+            bool queryContainsMainObject = _query.Keys.Count(mainObjs.Contains) == 1;
             //правда ли, что в запросе есть 1 mainObj?
             if (!queryContainsMainObject) return false; //если нет, то печаль
-            string name = NodesInQuery.Single(mainObjs.Contains); //имя этого mainObj
-            IEnumerable<string> mainObjAttrs = MetadataSearch.GetAttrList(SemanticWeb.Web().GetUnnamedNodesForName(name), name);
+            string name = _query.Keys.Single(mainObjs.Contains); //имя этого mainObj
+            IEnumerable<string> mainObjAttrs = MetadataSearch.GetAttrList(SafelyGetNodeByName(name, "#MetaObject"), name);
             //список атрибутов mainObj
             int attrCount = 0;
-            for (int i = 0; i < NodesInQuery.Count; i++)
+            for (int i = 0; i < _query.Count; i++)
             {
-                Node tmpNode = _unnamedNodesInQuery[i];
+                Node tmpNode = _query.ElementAt(i).Value;
                 var objAttrs = mainObjAttrs as IList<string> ?? mainObjAttrs.ToList();
                 if (objAttrs.Contains(SemanticWeb.Web().OldestParentArc(tmpNode.ID)))
                 {
@@ -141,30 +157,26 @@ namespace Consulting
             }
             //mainObjAttrs.Count(x => _nodesInQuery.Any(t => _wordTypes[t.Name] == x));
             //количество этих атрибутов в запросе
-            return attrCount == NodesInQuery.Count - 1; //если их больше 0, то успех
+            return attrCount == _query.Count - 1; //если их больше 0, то успех
         }
 
         private string GetMainObjNameType1()
         {
             List<string> mainObjs = SemanticWeb.Web().GetMainMetaObjectNames();
-            return NodesInQuery.Single(mainObjs.Contains);
+            return _query.Keys.Single(mainObjs.Contains);
         }
 
-        private IEnumerable<string> GetMainObjAttrNamesType1()
+        private IEnumerable<Node> GetMainObjAttrNamesType1()
         {
             // Коктейль
             List<string> mainObjs = SemanticWeb.Web().GetMainMetaObjectNames();
             // Коктейль
-            string name = NodesInQuery.Single(mainObjs.Contains);
+            string name = _query.Keys.Single(mainObjs.Contains);
             // Ингредиент
-            int index = NodesInQuery.IndexOf(name);
-            IEnumerable<string> mainObjAttrs = MetadataSearch.GetAttrList(_unnamedNodesInQuery[index], name);
+            Node n = SafelyGetNodeByName(name, null);
+            IEnumerable<string> mainObjAttrs = MetadataSearch.GetAttrList(n, name);
 
-            /*var res = NodesInQuery
-                .Where(x => mainObjAttrs
-                    .Contains(SemanticWeb.Web().OldestParentArc(SemanticWeb.Web().GetUnnamedNodesForName(x).ID)))
-                .Select(x => x);*/
-            return NodesInQuery.Where((t, i) => mainObjAttrs.Contains(SemanticWeb.Web().OldestParentArc(_unnamedNodesInQuery[i].ID))).ToList();
+            return _query.Values.Where((t, i) => mainObjAttrs.Contains(SemanticWeb.Web().OldestParentArc(_query.Values.ElementAt(i).ID))).ToList();
         }
 
         private bool IsConcreteMainObjWithAttr()
@@ -178,20 +190,18 @@ namespace Consulting
                     mainObj).Select(x => SemanticWeb.Web().GetNameForUnnamedNode(x, false)).ToList());
             }
 
-            bool queryContainsMainObject = NodesInQuery.Count(mainObjNames.Contains) == 1;
+            bool queryContainsMainObject = _query.Keys.Count(mainObjNames.Contains) == 1;
             if (!queryContainsMainObject) return false;
 
-            string name = SemanticWeb.Web().OldestParentArc(SemanticWeb.Web().GetUnnamedNodesForName(
-                NodesInQuery.Single(mainObjNames.Contains)).ID);
-            var mainObjAttrs = MetadataSearch.GetAttrList(SemanticWeb.Web().GetUnnamedNodesForName(name), name);
-
+            string name = SemanticWeb.Web().OldestParentArc(SafelyGetNodeByName(_query.Keys.Single(mainObjNames.Contains), null).ID);
+            var mainObjAttrs = MetadataSearch.GetAttrList(SafelyGetNodeByName(name, "#MetaObjects"), name);
 
             int attrCount = 0;
             foreach (string x in mainObjAttrs)
             {
-                for (int i = 0; i < NodesInQuery.Count; i++)
+                for (int i = 0; i < _query.Count; i++)
                 {
-                    if (SemanticWeb.Web().OldestParentArc(_unnamedNodesInQuery[i].ID) == x)
+                    if (SemanticWeb.Web().OldestParentArc(_query.ElementAt(i).Value.ID) == x)
                     {
                         attrCount++;
                         break;
@@ -206,52 +216,33 @@ namespace Consulting
             List<string> mainObjs = SemanticWeb.Web().GetMainMetaObjectNames(); //Например, "Коктейль"
             string res = string.Empty;
 
-            for (int i = 0; i < NodesInQuery.Count && res == string.Empty; i++)
+            for (int i = 0; i < _query.Count && res == string.Empty; i++)
             {
-                if (mainObjs.Contains(SemanticWeb.Web().OldestParentArc(_unnamedNodesInQuery[i].ID)))
-                    res = NodesInQuery[i];
+                if (mainObjs.Contains(SemanticWeb.Web().OldestParentArc(_query.ElementAt(i).Value.ID)))
+                    res = _query.ElementAt(i).Key;
             }
-
-          /*  string res = 
-                NodesInQuery.Single(
-                    x =>
-                        mainObjs.Contains(
-                            SemanticWeb.Web().OldestParentArc(SemanticWeb.Web().GetUnnamedNodesForName(x).ID)));*/
             return res;
         }
 
-        private List<string> GetMainObjAttrNamesType2()
+        private IEnumerable<Node> GetMainObjAttrNamesType2()
         {
             List<string> mainObjs = SemanticWeb.Web().GetMainMetaObjectNames();
 
             string name = string.Empty;
-            for (int i = 0; i < NodesInQuery.Count && name == string.Empty; i++)
+            for (int i = 0; i < _query.Count && name == string.Empty; i++)
             {
-                if (mainObjs.Contains(SemanticWeb.Web().OldestParentArc(_unnamedNodesInQuery[i].ID)))
+                if (mainObjs.Contains(SemanticWeb.Web().OldestParentArc(_query.ElementAt(i).Value.ID)))
                 {
-                    name = NodesInQuery[i];
+                    name = _query.ElementAt(i).Key;
                 }
             }
-            /*string name =
-                NodesInQuery.Single(
-                    x =>
-                        mainObjs.Contains(
-                            SemanticWeb.Web().OldestParentArc(SemanticWeb.Web().GetUnnamedNodesForName(x).ID)));*/
-
-            string metaName = SemanticWeb.Web().OldestParentArc(SemanticWeb.Web().GetUnnamedNodesForName(name).ID);
-            var mainObjAttrs = MetadataSearch.GetAttrList(SemanticWeb.Web().GetUnnamedNodesForName(metaName), metaName);
-
-            /*List<string> res =
-                NodesInQuery.Where(
-                    x =>
-                        mainObjAttrs.Contains(
-                            SemanticWeb.Web().OldestParentArc(SemanticWeb.Web().GetUnnamedNodesForName(x).ID)) &&
-                        x != name).ToList();*/
+            string metaName = SemanticWeb.Web().OldestParentArc(SafelyGetNodeByName(name, null).ID);
+            var mainObjAttrs = MetadataSearch.GetAttrList(SafelyGetNodeByName(metaName, null), metaName);
             return
-                NodesInQuery.Where(
+                _query.Values.Where(
                     (t, i) =>
-                        mainObjAttrs.Contains(SemanticWeb.Web().OldestParentArc(_unnamedNodesInQuery[i].ID)) &&
-                        t != name).ToList();
+                        mainObjAttrs.Contains(SemanticWeb.Web().OldestParentArc(_query.ElementAt(i).Value.ID)) &&
+                        SemanticWeb.Web().GetNameForUnnamedNode(t, false) != name).ToList();
         }
 
         #endregion
@@ -269,39 +260,38 @@ namespace Consulting
         /// Выполняет запрос типа MainObject + MainObject.AttributeValue { + MainObject.AttributeValue }
         /// </summary>
         /// <param name="mainObj">Имя MainObject, например, Коктейль</param>
-        /// <param name="attrValue">Значение атрибута, например, Бокал</param>
+        /// <param name="attrNode">Значение атрибута, например, Бокал</param>
         /// <returns>Например, список коктейлей в бокале</returns>
-        private List<string> MainObjWithAttrsExecute(string mainObj, string attrValue)
+        private List<string> MainObjWithAttrsExecute(string mainObj, Node attrNode)
         {
             //коктейли в V-образном бокале для мартини
-            var attrNode = SemanticWeb.Web().GetUnnamedNodesForName(attrValue);
             var children = MetadataSearch.ToListWithHeader(MetadataSearch.AddInstances(attrNode, false));
             var res = new List<string>();
             foreach (var child in children)
             {
-                res.AddRange(Type1OneWord(mainObj, child));
+                res.AddRange(Type1OneWord(mainObj, SafelyGetNodeByName(child, SemanticWeb.Web().GetNameForUnnamedNode(attrNode, false))));
             }
             return res.Distinct().ToList();
         }
 
-        private IEnumerable<string> Type1OneWord(string mainObj, string attrValue)
+        private IEnumerable<string> Type1OneWord(string mainObj, Node attrNode)
         {
             //находим все экземпляры MainObject
             // Список всех коктейлей
             List<string> instancesNames = MetadataSearch.ToList(MetadataSearch.AddInstancesOfMetaObject(mainObj));
             // Список всех неименованных вершин - коктейлей
-            var instances = instancesNames.Select(x => SemanticWeb.Web().GetUnnamedNodesForName(x));
+            var instances = instancesNames.Select(x => SafelyGetNodeByName(x, SemanticWeb.Web().GetMainMetaObjectNames()[0]));
             // Список всех атрибутов метаобъекта (Ингредиент, Ёмкость, Действие...)
-            var attrs = MetadataSearch.ToListWithHeader(MetadataSearch.AddAttribute(SemanticWeb.Web().GetUnnamedNodesForName(mainObj), mainObj));
+            var attrs = MetadataSearch.ToListWithHeader(MetadataSearch.AddAttribute(SafelyGetNodeByName(mainObj, null), mainObj));
             //Вершина, соответствующая экземпляру атрибута, который ищем (например, неименованный узел для Вишни)
-            var attrNode = SemanticWeb.Web().GetUnnamedNodesForName(attrValue);
             var list = new List<string>();
             foreach (Node instanceNode in instances)
             {
                 string res = GetAttrNameIfExists(instanceNode, attrNode, attrs);
                 if (res != null)
                 {
-                    if (res == attrValue) list.Add(SemanticWeb.Web().GetNameForUnnamedNode(instanceNode, false));
+                    if (res == SemanticWeb.Web().GetNameForUnnamedNode(attrNode, false))
+                        list.Add(SemanticWeb.Web().GetNameForUnnamedNode(instanceNode, false));
                     _workMemory.WorkedArcs.AddRange(SemanticWeb.Web().WayToSystemArcs);
                     _workMemory.WorkedNodes.AddRange(SemanticWeb.Web().WayToSystemNodes);
                 }
@@ -395,24 +385,23 @@ namespace Consulting
          * используется ли в WinterChill бокал?
          */
 
-        private bool Type2Execute(string mainName, IEnumerable<string> attrValues)
+        private bool Type2Execute(string mainName, IEnumerable<Node> attNodes)
         {
-            var metaName = SemanticWeb.Web().OldestParentArc(SemanticWeb.Web().GetUnnamedNodesForName(mainName).ID); //тип mainName
+            var metaName = SemanticWeb.Web().OldestParentArc(SafelyGetNodeByName(mainName, null).ID); //тип mainName
             //список атрибутов для metaName
             string res = null;
             var childrenNames = new List<string>();
-            foreach (var attrValue in attrValues)
+            foreach (var attrNode in attNodes)
             {
                 var attrs =
                     MetadataSearch.ToListWithHeader(
-                        MetadataSearch.AddAttribute(SemanticWeb.Web().GetUnnamedNodesForName(metaName), metaName));
-                var attrNode = SemanticWeb.Web().GetUnnamedNodesForName(attrValue);
-                var instanceNode = SemanticWeb.Web().GetUnnamedNodesForName(mainName);
+                        MetadataSearch.AddAttribute(SafelyGetNodeByName(metaName, null), metaName));
+                var instanceNode = SafelyGetNodeByName(mainName, SemanticWeb.Web().GetMainMetaObjectNames()[0]);
 
                 childrenNames = MetadataSearch.ToListWithHeader(MetadataSearch.AddInstances(attrNode, false));
 
                 List<Node> children = childrenNames
-                    .Select(x => SemanticWeb.Web().GetUnnamedNodesForName(x)).
+                    .Select(x => SafelyGetNodeByName(x, SemanticWeb.Web().GetNameForUnnamedNode(attrNode, false))).
                     ToList();
 
                 res = null;
